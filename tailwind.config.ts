@@ -13,12 +13,20 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        heading: ["Montserrat", "DM Sans", "sans-serif"],
+        body: ["Montserrat", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        navy: "#0C2E49",
+        steel: "#A1B2C6",
+        beige: "#E5DFD3",
+        "body-text": "#3D5669",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -63,22 +71,18 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        "well": "0 2px 16px rgba(12, 46, 73, 0.08)",
+        "well-hover": "0 8px 32px rgba(12, 46, 73, 0.15)",
+      },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
