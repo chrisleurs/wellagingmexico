@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[WIREFRAME] Resultados — Well Aging Mexico</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  * { font-family:'Georgia',serif; box-sizing:border-box; }
+  body { background:#FFF; color:#1A1A1A; margin:0; }
+  .ph  { background:#D4D4D4; display:flex; align-items:center; justify-content:center; font-family:monospace; font-size:11px; color:#999; text-transform:uppercase; letter-spacing:.1em; text-align:center; line-height:1.5; }
+  .ph2 { background:#C4C4C4; display:flex; align-items:center; justify-content:center; font-family:monospace; font-size:11px; color:#999; text-transform:uppercase; letter-spacing:.1em; text-align:center; line-height:1.5; }
+  .eyebrow { font-family:monospace; font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:#999; margin-bottom:14px; display:block; }
+  .eyebrow-dark { font-family:monospace; font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:#555; margin-bottom:14px; display:block; }
+  .btn { display:inline-block; font-family:monospace; font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; padding:13px 26px; cursor:pointer; }
+  .btn-dark { background:#1A1A1A; color:#FFF; }
+  .btn-outline { background:transparent; color:#1A1A1A; border:1.5px solid #1A1A1A; }
+  .dark  { background:#1E1E1E; color:#F0F0F0; }
+  .stone { background:#F2F0ED; }
+  .wrap  { max-width:1200px; margin:0 auto; padding:0 48px; }
+  .section-divider { border:none; border-top:1px solid #E8E8E8; margin:0; }
+  .tbar { background:#000; color:#666; font-family:monospace; font-size:10px; padding:5px 24px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:200; }
+  .tbar a { color:#AAA; text-decoration:none; margin:0 6px; }
+  .sitenav { background:#FFF; border-bottom:1px solid #EBEBEB; position:sticky; top:28px; z-index:100; }
+  .sitenav-inner { max-width:1440px; margin:0 auto; padding:0 48px; height:64px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-logo { font-weight:700; font-size:13px; letter-spacing:.08em; text-transform:uppercase; }
+  .nav-logo span { font-weight:400; font-size:9px; letter-spacing:.15em; display:block; color:#999; margin-top:-2px; }
+  .nav-link { font-family:monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#1A1A1A; text-decoration:none; }
+  .nav-cta  { font-family:monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; background:#1A1A1A; color:#FFF; padding:9px 20px; text-decoration:none; }
+  .wa { position:fixed; bottom:28px; right:28px; background:#555; color:#FFF; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; z-index:999; text-decoration:none; box-shadow:0 4px 16px rgba(0,0,0,.25); }
+  .pill { font-family:monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:7px 16px; border:1px solid #E0E0E0; border-radius:20px; color:#666; cursor:pointer; text-decoration:none; display:inline-block; }
+  .pill.active { background:#1A1A1A; color:#FFF; border-color:#1A1A1A; }
+  .stars { color:#999; letter-spacing:3px; }
+</style>
+</head>
+<body>
+
+<div class="tbar">
+  <span>WIREFRAME · <strong style="color:#FFF">RESULTADOS</strong></span>
+  <span><a href="index.html">Home</a><a href="tratamientos.html">Categorías</a><a href="sobre-nosotros.html">Dra. Liliana</a><a href="blog.html">Blog</a><a href="contacto.html">Contacto</a></span>
+</div>
+
+<nav class="sitenav">
+  <div class="sitenav-inner">
+    <div class="nav-logo">Well Aging<span>Mexico Health Center</span></div>
+    <div style="display:flex; gap:36px;">
+      <a href="tratamientos.html" class="nav-link">Tratamientos</a>
+      <a href="sobre-nosotros.html" class="nav-link">Dra. Liliana</a>
+      <a href="resultados.html" class="nav-link" style="border-bottom:2px solid #1A1A1A; padding-bottom:2px;">Resultados</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="contacto.html" class="nav-link">Contacto</a>
+    </div>
+    <a href="contacto.html" class="nav-cta">Agendar consulta →</a>
+  </div>
+</nav>
+
+<!-- HERO — full-bleed SHA-style -->
+<section style="position:relative; height:55vh; min-height:380px; overflow:hidden;">
+  <div class="ph" style="position:absolute; inset:0; height:100%;">FOTO ANTES/DESPUÉS HERO · 1440×640</div>
+  <div style="position:absolute; inset:0; background:linear-gradient(90deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,.35) 65%, transparent 100%);"></div>
+  <div style="position:relative; z-index:2; height:100%; display:flex; flex-direction:column; justify-content:flex-end; padding:0 48px 60px; max-width:1440px; margin:0 auto;">
+    <span class="eyebrow" style="color:#AAA;">Casos reales</span>
+    <h1 style="font-size:clamp(36px,5vw,58px); font-weight:700; line-height:1.05; letter-spacing:-.03em; margin:0 0 14px; color:#FFF; max-width:580px;">
+      Resultados reales de <em style="font-weight:400;">pacientes reales</em>
+    </h1>
+    <p style="font-size:17px; color:rgba(255,255,255,.65); margin:0; max-width:440px; line-height:1.6;">Cada caso es único. Aquí algunos ejemplos de lo que nuestros tratamientos pueden lograr.</p>
+  </div>
+</section>
+
+<!-- FILTROS -->
+<section style="background:#F8F8F8; border-bottom:1px solid #E8E8E8; padding:0 48px;">
+  <div style="max-width:1200px; margin:0 auto; display:flex; gap:6px; overflow-x:auto; padding:14px 0; align-items:center;">
+    <span style="font-family:monospace; font-size:10px; color:#AAA; text-transform:uppercase; letter-spacing:.1em; margin-right:8px; white-space:nowrap;">Filtrar:</span>
+    <a href="#" class="pill active">Todos</a>
+    <a href="#" class="pill">Medicina Regenerativa</a>
+    <a href="#" class="pill">Medicina Estética</a>
+    <a href="#" class="pill">Faciales</a>
+    <a href="#" class="pill">Alopecia</a>
+  </div>
+</section>
+
+<!-- GALERÍA ANTES/DESPUÉS — grid SHA style -->
+<section style="padding:72px 0;">
+  <div style="padding:0 48px; display:grid; grid-template-columns:repeat(2,1fr); gap:16px; max-width:1200px; margin:0 auto;">
+
+    <!-- Resultado 1 -->
+    <div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-bottom:12px;">
+        <div style="position:relative;">
+          <div class="ph" style="height:280px;">ANTES</div>
+          <span style="position:absolute; bottom:8px; left:8px; background:rgba(0,0,0,.5); color:#FFF; font-family:monospace; font-size:9px; padding:2px 8px; text-transform:uppercase; letter-spacing:.1em;">Antes</span>
+        </div>
+        <div style="position:relative;">
+          <div class="ph2" style="height:280px;">DESPUÉS</div>
+          <span style="position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,.5); color:#FFF; font-family:monospace; font-size:9px; padding:2px 8px; text-transform:uppercase; letter-spacing:.1em;">Después</span>
+        </div>
+      </div>
+      <div style="font-family:monospace; font-size:10px; color:#999; text-transform:uppercase; letter-spacing:.08em;">PRP — Medicina Regenerativa</div>
+    </div>
+
+    <!-- Resultado 2 -->
+    <div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-bottom:12px;">
+        <div style="position:relative;">
+          <div class="ph" style="height:280px; background:#CACACA;">ANTES</div>
+          <span style="position:absolute; bottom:8px; left:8px; background:rgba(0,0,0,.5); color:#FFF; font-family:monospace; font-size:9px; padding:2px 8px; text-transform:uppercase; letter-spacing:.1em;">Antes</span>
+        </div>
+        <div style="position:relative;">
+          <div class="ph" style="height:280px; background:#B8B8B8;">DESPUÉS</div>
+          <span style="position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,.5); color:#FFF; font-family:monospace; font-size:9px; padding:2px 8px; text-transform:uppercase; letter-spacing:.1em;">Después</span>
+        </div>
+      </div>
+      <div style="font-family:monospace; font-size:10px; color:#999; text-transform:uppercase; letter-spacing:.08em;">Bioestimuladores — Medicina Estética</div>
+    </div>
+
+    <!-- Resultado 3 -->
+    <div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-bottom:12px;">
+        <div style="position:relative;">
+          <div class="ph2" style="height:280px;">ANTES</div>
+          <span style="position:absolute; bottom:8px; left:8px; background:rgba(0,0,0,.5); color:#FFF; font-family:monospace; font-size:9px; padding:2px 8px; text-transform:uppercase; letter-spacing:.1em;">Antes</span>
+        </div>
+        <div style="position:relative;">
+          <div class="ph" style="height:280px; background:#C0C0C0;">DESPUÉS</div>
+          <span style="position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,.5); color:#FFF; font-family:monospace; font-size:9px; padding:2px 8px; text-transform:uppercase; letter-spacing:.1em;">Después</span>
+        </div>
+      </div>
+      <div style="font-family:monospace; font-size:10px; color:#999; text-transform:uppercase; letter-spacing:.08em;">PRP Capilar — Alopecia</div>
+    </div>
+
+    <!-- Resultado 4 -->
+    <div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; margin-bottom:12px;">
+        <div style="position:relative;">
+          <div class="ph" style="height:280px; background:#C8C8C8;">ANTES</div>
+          <span style="position:absolute; bottom:8px; left:8px; background:rgba(0,0,0,.5); color:#FFF; font-family:monospace; font-size:9px; padding:2px 8px; text-transform:uppercase; letter-spacing:.1em;">Antes</span>
+        </div>
+        <div style="position:relative;">
+          <div class="ph2" style="height:280px;">DESPUÉS</div>
+          <span style="position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,.5); color:#FFF; font-family:monospace; font-size:9px; padding:2px 8px; text-transform:uppercase; letter-spacing:.1em;">Después</span>
+        </div>
+      </div>
+      <div style="font-family:monospace; font-size:10px; color:#999; text-transform:uppercase; letter-spacing:.08em;">Células Madre — Medicina Regenerativa</div>
+    </div>
+
+  </div>
+  <div class="wrap" style="margin-top:16px;">
+    <div style="padding:12px 16px; background:#F8F8F8; font-family:monospace; font-size:10px; color:#AAA;">
+      NOTA: 4 fotos de antes/después confirmadas por el cliente. Más fotos se agregan antes del 14 de abril.
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- TESTIMONIOS — SHA 2-col editorial -->
+<section class="stone" style="padding:88px 48px;">
+  <div class="wrap">
+    <div style="display:grid; grid-template-columns:1fr 2fr; gap:80px; align-items:start;">
+      <div>
+        <span class="eyebrow">Reseñas verificadas</span>
+        <h2 style="font-size:clamp(22px,2.8vw,34px); font-weight:700; letter-spacing:-.02em; margin:0 0 16px; line-height:1.15;">Lo que dicen nuestros pacientes</h2>
+        <p style="font-family:monospace; font-size:12px; color:#999; margin:0;">45 reseñas · ★★★★★<br>Google Maps verificado</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:28px;">
+        <div style="padding-bottom:28px; border-bottom:1px solid #DDD;">
+          <div class="stars" style="font-size:13px; margin-bottom:10px;">★★★★★</div>
+          <p style="font-size:17px; color:#333; line-height:1.75; margin:0 0 10px; font-style:italic;">"Texto del testimonio de Google. Descripción honesta de la experiencia del paciente y los resultados obtenidos."</p>
+          <div style="font-family:monospace; font-size:11px; color:#999; text-transform:uppercase; letter-spacing:.08em;">Nombre · Google Maps</div>
+        </div>
+        <div style="padding-bottom:28px; border-bottom:1px solid #DDD;">
+          <div class="stars" style="font-size:13px; margin-bottom:10px;">★★★★★</div>
+          <p style="font-size:17px; color:#333; line-height:1.75; margin:0 0 10px; font-style:italic;">"Segundo testimonio verificado. Resalta la calidad médica, el espacio de la clínica y los resultados específicos."</p>
+          <div style="font-family:monospace; font-size:11px; color:#999; text-transform:uppercase; letter-spacing:.08em;">Nombre · Google Maps</div>
+        </div>
+        <a href="#" style="font-family:monospace; font-size:11px; color:#555; text-decoration:underline; letter-spacing:.05em;">Ver las 45 reseñas en Google Maps →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL — dark -->
+<section class="dark" style="padding:96px 48px; text-align:center;">
+  <div style="max-width:520px; margin:0 auto;">
+    <span class="eyebrow-dark" style="display:block; text-align:center;">¿Quieres resultados así?</span>
+    <h2 style="font-size:clamp(28px,4vw,44px); font-weight:700; letter-spacing:-.02em; margin:8px 0 16px; color:#FFF; line-height:1.1;">Tu consulta<br><em style="font-weight:400;">es el primer paso.</em></h2>
+    <p style="font-size:17px; color:#666; line-height:1.7; margin:0 0 36px;">La Dra. Liliana evalúa tu caso y diseña el plan indicado para tus objetivos.</p>
+    <a href="contacto.html" class="btn" style="background:#FFF; color:#1A1A1A;">Agendar consulta →</a>
+  </div>
+</section>
+
+<footer class="dark" style="padding:32px 48px; text-align:center; border-top:1px solid #2A2A2A;">
+  <p style="font-family:monospace; font-size:10px; color:#444; margin:0;">© 2026 Well Aging Mexico Health Center · <a href="index.html" style="color:#666; text-decoration:none;">Inicio</a> · <a href="contacto.html" style="color:#666; text-decoration:none;">Contacto</a></p>
+</footer>
+
+<a href="#" class="wa">💬</a>
+</body>
+</html>

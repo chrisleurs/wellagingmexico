@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wireframe Home — Well Aging Mexico Health Center</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; font-size: 14px; color: #0C2E49; background: #fff; }
+
+    /* Layout helpers */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 96px 24px; max-width: 1200px; margin: 0 auto; }
+    .section-white  { background: #FFFFFF; }
+    .section-beige  { background: #E5DFD3; }
+    .section-navy   { background: #0C2E49; color: #FFF; }
+    .section-gradient { background: linear-gradient(135deg, #A1B2C6, #E8EDF3); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; align-items: center; }
+    .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    .flex-between { display: flex; justify-content: space-between; align-items: center; }
+    .flex-center { display: flex; justify-content: center; align-items: center; gap: 16px; }
+    .badge { display: inline-block; background: #E8EDF3; color: #0C2E49; border-radius: 999px; padding: 4px 14px; font-size: 13px; font-weight: 600; }
+    .btn-primary { background: #0C2E49; color: #FFF; border-radius: 999px; padding: 14px 32px; display: inline-block; font-weight: 600; font-size: 15px; text-decoration: none; }
+    .btn-outline { background: transparent; color: #0C2E49; border: 1.5px solid #0C2E49; border-radius: 999px; padding: 13px 31px; display: inline-block; font-weight: 600; font-size: 15px; }
+    .btn-ghost { background: rgba(255,255,255,0.15); color: #FFF; border: 1px solid rgba(255,255,255,0.3); border-radius: 999px; padding: 13px 31px; display: inline-block; font-weight: 600; font-size: 15px; }
+    .card { background: #FFF; border-radius: 12px; padding: 32px; box-shadow: 0 2px 16px rgba(12,46,73,0.08); border: 1px solid #D0DAE0; }
+    .img-placeholder { background: #A1B2C6; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #0C2E49; font-size: 13px; font-weight: 600; }
+    .section-label { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #A1B2C6; margin-bottom: 12px; }
+    .section-title { font-size: 36px; font-weight: 700; line-height: 1.2; color: #0C2E49; margin-bottom: 16px; }
+    .section-sub { font-size: 18px; color: #3D5669; line-height: 1.6; margin-bottom: 32px; }
+    .card-title { font-size: 18px; font-weight: 700; color: #0C2E49; margin-bottom: 8px; }
+    .card-text { font-size: 15px; color: #6E8491; line-height: 1.6; }
+    .stars { color: #F4C542; font-size: 16px; }
+    .divider { border: none; border-top: 1px solid #D0DAE0; margin: 0; }
+    h1.hero-headline { font-size: 64px; font-weight: 700; line-height: 1.05; color: #0C2E49; margin-bottom: 20px; }
+    .hero-sub { font-size: 20px; color: #3D5669; line-height: 1.6; margin-bottom: 32px; max-width: 480px; }
+    .credential-row { display: flex; gap: 24px; margin-top: 32px; flex-wrap: wrap; }
+    .testimonial-card { background: #FFF; border-radius: 12px; padding: 28px; box-shadow: 0 2px 12px rgba(12,46,73,0.06); }
+    .testimonial-name { font-weight: 700; font-size: 14px; color: #0C2E49; margin-top: 12px; }
+    .testimonial-tag  { font-size: 12px; color: #6E8491; }
+    .blog-card { background: #FFF; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(12,46,73,0.06); }
+    .blog-card-body { padding: 24px; }
+    .blog-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #A1B2C6; margin-bottom: 8px; }
+    .blog-title { font-size: 16px; font-weight: 700; color: #0C2E49; margin-bottom: 8px; line-height: 1.4; }
+    .blog-link { font-size: 14px; color: #0C2E49; font-weight: 600; text-decoration: underline; }
+    .fab-wa { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; border-radius: 50%; background: #25D366; color: #FFF; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 4px 16px rgba(37,211,102,0.4); z-index: 999; }
+
+    /* Narrow inner for testimonials */
+    .testimonial-text { font-size: 15px; color: #3D5669; line-height: 1.7; font-style: italic; }
+    .google-note { font-size: 14px; color: #6E8491; margin-top: 24px; text-align: center; }
+    .before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; border-radius: 12px; overflow: hidden; }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- SECTION 0 — NAVBAR -->
+<!-- ============================================================ -->
+<nav style="position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #D0DAE0;padding:0 24px;">
+  <div style="max-width:1200px;margin:0 auto;height:72px;" class="flex-between">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <!-- Logo placeholder -->
+      <div style="width:36px;height:36px;background:#A1B2C6;border-radius:50%;"></div>
+      <div>
+        <div style="font-weight:700;font-size:16px;color:#0C2E49;line-height:1.1;">Well Aging</div>
+        <div style="font-size:10px;letter-spacing:0.12em;color:#6E8491;text-transform:uppercase;">Mexico · Health Center</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:32px;align-items:center;">
+      <a href="#tratamientos" style="color:#3D5669;text-decoration:none;font-size:15px;">Tratamientos</a>
+      <a href="#dra" style="color:#3D5669;text-decoration:none;font-size:15px;">Dra. Liliana</a>
+      <a href="#resultados" style="color:#3D5669;text-decoration:none;font-size:15px;">Resultados</a>
+      <a href="#blog" style="color:#3D5669;text-decoration:none;font-size:15px;">Blog</a>
+      <a href="#contacto" style="color:#3D5669;text-decoration:none;font-size:15px;">Contacto</a>
+      <a href="#flow" class="btn-primary" style="padding:10px 24px;font-size:14px;">Agendar consulta</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================ -->
+<!-- SECTION 1 — HERO (Blanco) -->
+<!-- ============================================================ -->
+<section class="section-white" style="padding:96px 24px;">
+  <div class="container">
+    <div class="grid-2">
+      <!-- Left: texto -->
+      <div>
+        <div class="section-label">Well Aging Mexico · Health Center</div>
+        <h1 class="hero-headline">Aging is natural.<br>Care is essential.</h1>
+        <p class="hero-sub">Medicina estética regenerativa en Querétaro. Basada en ciencia. Dirigida por la Dra. Liliana Pérez.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;">
+          <a href="#flow" class="btn-primary">Agendar consulta</a>
+          <a href="#tratamientos" class="btn-outline">Ver tratamientos</a>
+        </div>
+        <div class="credential-row">
+          <span class="badge">✓ +9,000 procedimientos</span>
+          <span class="badge">✓ 45 reseñas 5★</span>
+          <span class="badge">✓ +10 años experiencia</span>
+        </div>
+      </div>
+      <!-- Right: imagen -->
+      <div class="img-placeholder" style="height:480px;">
+        [Foto Dra. Liliana o clínica]<br>
+        <small>Unsplash placeholder semana 1</small>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="divider">
+
+<!-- ============================================================ -->
+<!-- SECTION 2 — PROPUESTA DE VALOR (Blanco) -->
+<!-- ============================================================ -->
+<section class="section-white" style="padding:64px 24px;">
+  <div class="container">
+    <div class="grid-3">
+      <div style="text-align:center;padding:24px;">
+        <div style="font-size:32px;margin-bottom:12px;">🔬</div>
+        <div class="card-title">Medicina basada en evidencia</div>
+        <div class="card-text">Cada tratamiento tiene respaldo científico. Sin promesas vacías.</div>
+      </div>
+      <div style="text-align:center;padding:24px;">
+        <div style="font-size:32px;margin-bottom:12px;">🌿</div>
+        <div class="card-title">Tratamientos regenerativos</div>
+        <div class="card-text">Tu cuerpo tiene la capacidad de regenerarse. Nosotros la activamos.</div>
+      </div>
+      <div style="text-align:center;padding:24px;">
+        <div style="font-size:32px;margin-bottom:12px;">🤝</div>
+        <div class="card-title">Acompañamiento personalizado</div>
+        <div class="card-text">Plan de tratamiento hecho para ti, con seguimiento real.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<hr class="divider">
+
+<!-- ============================================================ -->
+<!-- SECTION 3 — CATEGORÍAS (Beige) -->
+<!-- ============================================================ -->
+<section class="section-beige" style="padding:96px 24px;" id="tratamientos">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div class="section-label">Nuestros servicios</div>
+      <div class="section-title">¿Qué estás buscando?</div>
+      <div class="section-sub">Desde medicina regenerativa de vanguardia hasta faciales personalizados.</div>
+    </div>
+    <div class="grid-3" style="gap:20px;">
+      <a href="/tratamientos/medicina-regenerativa/" class="card" style="text-decoration:none;cursor:pointer;">
+        <div class="img-placeholder" style="height:140px;margin-bottom:16px;">[Imagen categoría]</div>
+        <div class="card-title">Medicina Regenerativa</div>
+        <div class="card-text">Células madre, PRP, exosomas, péptidos, fibroblastos, factores de crecimiento.</div>
+        <div style="margin-top:16px;font-size:14px;color:#0C2E49;font-weight:600;">Ver tratamientos →</div>
+      </a>
+      <a href="/tratamientos/medicina-estetica/" class="card" style="text-decoration:none;cursor:pointer;">
+        <div class="img-placeholder" style="height:140px;margin-bottom:16px;">[Imagen categoría]</div>
+        <div class="card-title">Medicina Estética</div>
+        <div class="card-text">Botox, fillers, bioestimuladores. Resultados naturales con respaldo médico.</div>
+        <div style="margin-top:16px;font-size:14px;color:#0C2E49;font-weight:600;">Ver tratamientos →</div>
+      </a>
+      <a href="/tratamientos/faciales-y-spa/" class="card" style="text-decoration:none;cursor:pointer;">
+        <div class="img-placeholder" style="height:140px;margin-bottom:16px;">[Imagen categoría]</div>
+        <div class="card-title">Faciales y Spa</div>
+        <div class="card-text">Faciales personalizados, masajes terapéuticos y protocolos antiaging.</div>
+        <div style="margin-top:16px;font-size:14px;color:#0C2E49;font-weight:600;">Ver tratamientos →</div>
+      </a>
+      <a href="/tratamientos/sueroterapias/" class="card" style="text-decoration:none;cursor:pointer;">
+        <div class="img-placeholder" style="height:140px;margin-bottom:16px;">[Imagen categoría]</div>
+        <div class="card-title">Sueroterapias</div>
+        <div class="card-text">Nutrición intravenosa de alto rendimiento. Vitalidad desde adentro.</div>
+        <div style="margin-top:16px;font-size:14px;color:#0C2E49;font-weight:600;">Ver tratamientos →</div>
+      </a>
+      <a href="/tratamientos/alopecia/" class="card" style="text-decoration:none;cursor:pointer;">
+        <div class="img-placeholder" style="height:140px;margin-bottom:16px;">[Imagen categoría]</div>
+        <div class="card-title">Alopecia</div>
+        <div class="card-text">PRP capilar y mesoterapia para recuperar tu cabello con enfoque médico.</div>
+        <div style="margin-top:16px;font-size:14px;color:#0C2E49;font-weight:600;">Ver tratamientos →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 4 — DRA. LILIANA (Navy) -->
+<!-- ============================================================ -->
+<section class="section-navy" style="padding:96px 24px;" id="dra">
+  <div class="container">
+    <div class="grid-2">
+      <div class="img-placeholder" style="height:500px;background:#1a4a6b;">[Foto portrait Dra. Liliana]</div>
+      <div style="padding-left:32px;">
+        <div class="section-label" style="color:#A1B2C6;">Sobre la fundadora</div>
+        <div class="section-title" style="color:#FFF;">Dra. Liliana Carmen Pérez Pérez</div>
+        <p style="font-size:18px;color:#D0DAE0;line-height:1.7;margin-bottom:24px;font-style:italic;">
+          "La medicina regenerativa no trata síntomas. Trata el origen. Esa es la diferencia entre envejecer y hacerlo bien."
+        </p>
+        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="color:#A1B2C6;font-size:16px;">✓</span>
+            <span style="color:#E8EDF3;font-size:15px;">Postgrado en Medicina Estética</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="color:#A1B2C6;font-size:16px;">✓</span>
+            <span style="color:#E8EDF3;font-size:15px;">Maestría en Metabolismo Redox</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="color:#A1B2C6;font-size:16px;">✓</span>
+            <span style="color:#E8EDF3;font-size:15px;">Cédula profesional: 7629010</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <span style="color:#A1B2C6;font-size:16px;">✓</span>
+            <span style="color:#E8EDF3;font-size:15px;">+10 años · +9,000 procedimientos</span>
+          </div>
+        </div>
+        <a href="/sobre-nosotros/dra-liliana/" class="btn-ghost">Conocer a la Dra. →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 5 — RESULTADOS / ANTES Y DESPUÉS (Blanco) -->
+<!-- ============================================================ -->
+<section class="section-white" style="padding:96px 24px;" id="resultados">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div class="section-label">Galería de resultados</div>
+      <div class="section-title">Lo que pueden lograr nuestros tratamientos</div>
+      <div class="section-sub">Casos reales de pacientes de Well Aging Mexico.</div>
+    </div>
+    <div class="grid-3">
+      <!-- Antes/después 1 -->
+      <div>
+        <div class="before-after" style="height:240px;margin-bottom:12px;">
+          <div class="img-placeholder" style="border-radius:0;height:100%;">Antes</div>
+          <div class="img-placeholder" style="background:#6E8491;border-radius:0;height:100%;">Después</div>
+        </div>
+        <div style="font-size:14px;font-weight:600;color:#0C2E49;">Rejuvenecimiento facial con PRP</div>
+        <div style="font-size:13px;color:#6E8491;">3 sesiones · Querétaro</div>
+      </div>
+      <!-- Antes/después 2 -->
+      <div>
+        <div class="before-after" style="height:240px;margin-bottom:12px;">
+          <div class="img-placeholder" style="border-radius:0;height:100%;">Antes</div>
+          <div class="img-placeholder" style="background:#6E8491;border-radius:0;height:100%;">Después</div>
+        </div>
+        <div style="font-size:14px;font-weight:600;color:#0C2E49;">Bioestimuladores de colágeno</div>
+        <div style="font-size:13px;color:#6E8491;">2 sesiones · Querétaro</div>
+      </div>
+      <!-- Antes/después 3 -->
+      <div>
+        <div class="before-after" style="height:240px;margin-bottom:12px;">
+          <div class="img-placeholder" style="border-radius:0;height:100%;">Antes</div>
+          <div class="img-placeholder" style="background:#6E8491;border-radius:0;height:100%;">Después</div>
+        </div>
+        <div style="font-size:14px;font-weight:600;color:#0C2E49;">Tratamiento de alopecia PRP</div>
+        <div style="font-size:13px;color:#6E8491;">4 sesiones · Querétaro</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="/resultados/" class="btn-outline">Ver más resultados →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 6 — TESTIMONIOS (Beige) -->
+<!-- ============================================================ -->
+<section class="section-beige" style="padding:96px 24px;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px;">
+      <div class="section-label">Pacientes reales</div>
+      <div class="section-title">Lo que dicen quienes nos visitan</div>
+    </div>
+    <div class="grid-3">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text" style="margin-top:12px;">"La Dra. Liliana es increíblemente profesional. Me explicó cada paso del tratamiento y los resultados superaron mis expectativas. Ya la recomendé con todas mis amigas."</p>
+        <div class="testimonial-name">Ana Martínez</div>
+        <div class="testimonial-tag">PRP Facial · Querétaro</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text" style="margin-top:12px;">"Fui con miedo de que fuera doloroso o de resultados exagerados. Nada de eso. Trato muy humano, resultados naturales. Me siento mucho mejor conmigo misma."</p>
+        <div class="testimonial-name">Claudia R.</div>
+        <div class="testimonial-tag">Bioestimuladores · Querétaro</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text" style="margin-top:12px;">"El tratamiento de alopecia con PRP ha sido una transformación. A los 2 meses ya notaba la diferencia. La doctora hace seguimiento real, no solo vende tratamientos."</p>
+        <div class="testimonial-name">Roberto V.</div>
+        <div class="testimonial-tag">PRP Capilar · Querétaro</div>
+      </div>
+    </div>
+    <p class="google-note">45 reseñas verificadas en Google · <a href="#gmaps" style="color:#0C2E49;font-weight:600;">Ver en Google Maps →</a></p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 7 — BLOG PREVIEW (Blanco) -->
+<!-- ============================================================ -->
+<section class="section-white" style="padding:96px 24px;" id="blog">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;">
+      <div>
+        <div class="section-label">Educación y salud</div>
+        <div class="section-title">Salud, longevidad y bienestar<br>bien explicados</div>
+      </div>
+      <a href="/blog/" class="btn-outline">Ver todos →</a>
+    </div>
+    <div class="grid-3">
+      <div class="blog-card">
+        <div class="img-placeholder" style="height:180px;border-radius:12px 12px 0 0;">[Imagen blog]</div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Filosofía</div>
+          <div class="blog-title">¿Qué es el bien envejecer? La filosofía del Well Aging</div>
+          <a href="#" class="blog-link">Leer más →</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="img-placeholder" style="height:180px;border-radius:12px 12px 0 0;">[Imagen blog]</div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Tratamientos</div>
+          <div class="blog-title">PRP vs células madre: ¿cuál es mejor para ti?</div>
+          <a href="#" class="blog-link">Leer más →</a>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="img-placeholder" style="height:180px;border-radius:12px 12px 0 0;">[Imagen blog]</div>
+        <div class="blog-card-body">
+          <div class="blog-tag">Medicina Regenerativa</div>
+          <div class="blog-title">Por qué la medicina regenerativa no es lo mismo que la estética tradicional</div>
+          <a href="#" class="blog-link">Leer más →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 8 — CTA FINAL (Degradado) -->
+<!-- ============================================================ -->
+<section style="background:linear-gradient(135deg,#A1B2C6,#E8EDF3);padding:96px 24px;" id="contacto">
+  <div class="container" style="text-align:center;">
+    <div class="section-label">Da el primer paso</div>
+    <div class="section-title" style="font-size:40px;margin-bottom:16px;">Tu primera consulta es<br>el primer paso.</div>
+    <p style="font-size:18px;color:#3D5669;margin-bottom:40px;max-width:520px;margin-left:auto;margin-right:auto;">
+      Agenda una consulta con la Dra. Liliana y descubre qué tratamiento es el correcto para ti.
+    </p>
+    <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
+      <a href="#flow" class="btn-primary">Agendar mi consulta</a>
+      <a href="https://wa.me/524422067185" class="btn-outline">WhatsApp: 442 206 7185</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SECTION 9 — FOOTER (Navy) -->
+<!-- ============================================================ -->
+<footer class="section-navy" style="padding:56px 24px 32px;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;">
+      <!-- Logo + tagline -->
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+          <div style="width:32px;height:32px;background:#A1B2C6;border-radius:50%;"></div>
+          <div>
+            <div style="font-weight:700;font-size:16px;color:#FFF;">Well Aging Mexico</div>
+            <div style="font-size:10px;letter-spacing:0.1em;color:#A1B2C6;text-transform:uppercase;">Health Center</div>
+          </div>
+        </div>
+        <p style="color:#9FB1BA;font-size:14px;line-height:1.6;max-width:240px;">
+          Medicina estética regenerativa en Querétaro. Basada en ciencia. Centrada en ti.
+        </p>
+        <p style="color:#6E8491;font-size:13px;margin-top:16px;">
+          Balcones del Amor 103<br>
+          Querétaro, Qro. · 442 206 7185
+        </p>
+      </div>
+      <!-- Tratamientos -->
+      <div>
+        <div style="font-weight:700;font-size:14px;color:#FFF;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.08em;">Tratamientos</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <a href="#" style="color:#9FB1BA;font-size:14px;text-decoration:none;">Medicina Regenerativa</a>
+          <a href="#" style="color:#9FB1BA;font-size:14px;text-decoration:none;">Medicina Estética</a>
+          <a href="#" style="color:#9FB1BA;font-size:14px;text-decoration:none;">Faciales y Spa</a>
+          <a href="#" style="color:#9FB1BA;font-size:14px;text-decoration:none;">Sueroterapias</a>
+          <a href="#" style="color:#9FB1BA;font-size:14px;text-decoration:none;">Alopecia</a>
+        </div>
+      </div>
+      <!-- Empresa -->
+      <div>
+        <div style="font-weight:700;font-size:14px;color:#FFF;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.08em;">Empresa</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <a href="#" style="color:#9FB1BA;font-size:14px;text-decoration:none;">Sobre Nosotros</a>
+          <a href="#" style="color:#9FB1BA;font-size:14px;text-decoration:none;">Dra. Liliana</a>
+          <a href="#" style="color:#9FB1BA;font-size:14px;text-decoration:none;">Resultados</a>
+          <a href="#" style="color:#9FB1BA;font-size:14px;text-decoration:none;">Blog</a>
+          <a href="#" style="color:#9FB1BA;font-size:14px;text-decoration:none;">Contacto</a>
+        </div>
+      </div>
+      <!-- Horario -->
+      <div>
+        <div style="font-weight:700;font-size:14px;color:#FFF;margin-bottom:16px;text-transform:uppercase;letter-spacing:0.08em;">Horario</div>
+        <div style="color:#9FB1BA;font-size:14px;line-height:1.8;">
+          Lun – Vie<br>10:00 – 19:00<br><br>
+          Sábado<br>10:00 – 14:00
+        </div>
+      </div>
+    </div>
+    <hr style="border:none;border-top:1px solid #1a4a6b;margin-bottom:24px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <p style="color:#6E8491;font-size:13px;">© 2026 Well Aging Mexico Health Center. Todos los derechos reservados.</p>
+      <a href="#" style="color:#6E8491;font-size:13px;text-decoration:none;">Política de Privacidad</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/524422067185?text=Hola%2C%20me%20gustaría%20agendar%20una%20consulta" class="fab-wa" title="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+</body>
+</html>
