@@ -18,13 +18,13 @@ const opacityScale = [
 ];
 
 const typeScale = [
-  { level: "Display Hero", size: "56–72px", weight: "Bold 700", font: "Montserrat" },
-  { level: "H1", size: "40–48px", weight: "Bold 700", font: "Montserrat" },
-  { level: "H2", size: "28–36px", weight: "SemiBold 600", font: "Montserrat" },
-  { level: "H3", size: "20–24px", weight: "SemiBold 600", font: "Montserrat" },
-  { level: "Body", size: "16–18px", weight: "Regular 400", font: "Montserrat" },
-  { level: "Small", size: "13–14px", weight: "Regular 400", font: "Montserrat" },
-  { level: "CTA", size: "15–16px", weight: "Medium 500", font: "Montserrat" },
+  { level: "Display Hero", size: "56px", weight: 700, lineHeight: "1.1", sample: "Aging is natural" },
+  { level: "H1", size: "44px", weight: 700, lineHeight: "1.1", sample: "Care is essential" },
+  { level: "H2", size: "32px", weight: 600, lineHeight: "1.3", sample: "Medicina regenerativa" },
+  { level: "H3", size: "22px", weight: 600, lineHeight: "1.3", sample: "Tratamientos personalizados" },
+  { level: "Body", size: "17px", weight: 400, lineHeight: "1.6", sample: "Tu cuerpo tiene la capacidad de regenerarse. Nuestros tratamientos activan ese potencial con ciencia y acompañamiento." },
+  { level: "Small", size: "13px", weight: 400, lineHeight: "1.4", sample: "Dra. Liliana Pérez · Cédula 7629010 · Querétaro, México" },
+  { level: "CTA", size: "15px", weight: 500, lineHeight: "1.4", sample: "AGENDAR CONSULTA →" },
 ];
 
 const spacing = [
@@ -91,18 +91,35 @@ const DesignSystemPage = () => {
 
         {/* Tipografía */}
         <SectionTitle>Tipografía</SectionTitle>
-        <div className="space-y-4 mb-8">
+        <p className="text-sm text-muted-foreground mb-6">
+          Fuente principal: <strong>Montserrat</strong> (Google Fonts) — placeholder de ZT Nature (comercial).
+          Alternativa premium: DM Sans.
+        </p>
+        <div className="space-y-6 mb-8">
           {typeScale.map((t) => (
-            <div key={t.level} className="flex items-baseline gap-4 border-b border-border pb-3">
-              <span className="w-28 text-sm font-medium text-muted-foreground">{t.level}</span>
-              <span className="text-foreground" style={{ fontSize: t.size.split("–")[0], fontWeight: parseInt(t.weight) }}>
-                Aging is natural
-              </span>
-              <span className="text-xs text-muted-foreground ml-auto hidden md:block">{t.size} · {t.weight}</span>
+            <div key={t.level} className="border border-border rounded-lg overflow-hidden">
+              <div className="bg-beige/40 px-4 py-2 flex items-center justify-between border-b border-border">
+                <span className="text-xs font-semibold text-navy uppercase tracking-wider">{t.level}</span>
+                <span className="text-xs text-muted-foreground font-mono">{t.size} · {t.weight} · lh {t.lineHeight}</span>
+              </div>
+              <div className="px-6 py-5">
+                <p
+                  className="text-foreground"
+                  style={{
+                    fontFamily: "'Montserrat', sans-serif",
+                    fontSize: t.size,
+                    fontWeight: t.weight,
+                    lineHeight: t.lineHeight,
+                    letterSpacing: t.level === "CTA" ? "0.08em" : undefined,
+                    textTransform: t.level === "CTA" ? "uppercase" : undefined,
+                  }}
+                >
+                  {t.sample}
+                </p>
+              </div>
             </div>
           ))}
         </div>
-        <p className="text-sm text-muted-foreground mb-2"><strong>Line-height:</strong> Display/H1: 1.1 · H2/H3: 1.3 · Body: 1.6 · Small: 1.4</p>
 
         {/* Botones */}
         <SectionTitle>Botones</SectionTitle>
@@ -149,9 +166,9 @@ const DesignSystemPage = () => {
         {/* Voz de marca */}
         <SectionTitle>Voz de marca</SectionTitle>
         <div className="grid md:grid-cols-2 gap-4 mb-8">
-          <div className="bg-green-50 border border-green-200 rounded-lg p-5">
-            <h3 className="font-semibold text-green-800 mb-2">✓ Hacer</h3>
-            <ul className="text-sm text-green-700 space-y-1">
+          <div className="rounded-lg p-5 border" style={{ backgroundColor: "hsl(140 30% 96%)", borderColor: "hsl(140 30% 85%)" }}>
+            <h3 className="font-semibold mb-2" style={{ color: "hsl(140 30% 30%)" }}>✓ Hacer</h3>
+            <ul className="text-sm space-y-1" style={{ color: "hsl(140 30% 35%)" }}>
               <li>"Tu cuerpo tiene la capacidad de regenerarse"</li>
               <li>"Medicina basada en evidencia"</li>
               <li>"Acompañamiento personalizado"</li>
@@ -159,9 +176,9 @@ const DesignSystemPage = () => {
               <li>Tono calmo, confiado</li>
             </ul>
           </div>
-          <div className="bg-red-50 border border-red-200 rounded-lg p-5">
-            <h3 className="font-semibold text-red-800 mb-2">✗ Evitar</h3>
-            <ul className="text-sm text-red-700 space-y-1">
+          <div className="rounded-lg p-5 border" style={{ backgroundColor: "hsl(0 40% 96%)", borderColor: "hsl(0 40% 85%)" }}>
+            <h3 className="font-semibold mb-2" style={{ color: "hsl(0 40% 35%)" }}>✗ Evitar</h3>
+            <ul className="text-sm space-y-1" style={{ color: "hsl(0 40% 40%)" }}>
               <li>"¡Resultados garantizados!"</li>
               <li>"Tratamiento milagroso"</li>
               <li>Lenguaje agresivo de ventas</li>
