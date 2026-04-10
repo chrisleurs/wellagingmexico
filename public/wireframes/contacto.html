@@ -3,280 +3,253 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>[WIREFRAME] Contacto — Well Aging Mexico</title>
+<title>[WIREFRAME v3] Contacto — Well Aging Mexico</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-  * { font-family: 'Georgia', serif; }
-  body { background: #FAFAFA; color: #1A1A1A; }
-  .label { display: inline-block; font-family: monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; background: #E8E8E8; color: #888; padding: 3px 10px; border-radius: 20px; margin-bottom: 16px; }
-  .ph { background: #D4D4D4; display: flex; align-items: center; justify-content: center; font-family: monospace; font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.1em; }
-  .btn-primary { background: #1A1A1A; color: #FAFAFA; padding: 14px 28px; font-family: monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; border: none; cursor: pointer; display: inline-block; text-decoration: none; width: 100%; text-align: center; box-sizing: border-box; }
-  .section-divider { border: none; border-top: 1px solid #E0E0E0; margin: 0; }
-  .dark-section { background: #2D2D2D; color: #F0F0F0; }
-  .mid-section { background: #F0F0F0; }
-  .card { background: #FFF; border: 1px solid #E0E0E0; border-radius: 8px; }
-  .nav-link { font-family: monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #1A1A1A; text-decoration: none; }
-  .template-bar { background: #1A1A1A; color: #888; font-family: monospace; font-size: 11px; padding: 6px 24px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-  .template-bar a { color: #CCC; text-decoration: none; margin: 0 8px; }
-  .float-wa { position: fixed; bottom: 28px; right: 28px; background: #555; color: white; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; z-index: 999; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-  .form-field { margin-bottom: 20px; }
-  .form-label { display: block; font-family: monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #666; margin-bottom: 6px; }
-  .form-input { width: 100%; padding: 12px 14px; border: 1px solid #D4D4D4; border-radius: 4px; font-size: 15px; font-family: Georgia, serif; background: #FFF; box-sizing: border-box; color: #1A1A1A; }
-  .form-input:focus { outline: none; border-color: #1A1A1A; }
-  .form-select { width: 100%; padding: 12px 14px; border: 1px solid #D4D4D4; border-radius: 4px; font-size: 15px; font-family: Georgia, serif; background: #FFF; box-sizing: border-box; color: #1A1A1A; appearance: none; }
-  .form-textarea { width: 100%; padding: 12px 14px; border: 1px solid #D4D4D4; border-radius: 4px; font-size: 15px; font-family: Georgia, serif; background: #FFF; box-sizing: border-box; color: #1A1A1A; min-height: 100px; resize: vertical; }
-  .info-row { display: flex; gap: 12px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid #E8E8E8; }
-  .info-icon { width: 36px; height: 36px; background: #E8E8E8; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  * { font-family:'Georgia',serif; box-sizing:border-box; }
+  body { background:#FFF; color:#1A1A1A; margin:0; }
+  .ph-warm { background:#E8E4DE; display:flex; align-items:center; justify-content:center; font-family:monospace; font-size:11px; color:#BBB; text-transform:uppercase; letter-spacing:.1em; text-align:center; line-height:1.5; }
+  .eyebrow { font-family:monospace; font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:#AAA; margin-bottom:14px; display:block; }
+  .btn { display:inline-block; font-family:monospace; font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; padding:14px 32px; cursor:pointer; }
+  .btn-dark { background:#1A1A1A; color:#FFF; }
+  .btn-outline { background:transparent; color:#1A1A1A; border:1.5px solid #1A1A1A; }
+  .dark  { background:#141414; color:#F0F0F0; }
+  .stone { background:#F5F3F0; }
+  .wrap  { max-width:1200px; margin:0 auto; }
+  .tbar { background:#000; color:#666; font-family:monospace; font-size:10px; padding:5px 24px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:200; }
+  .tbar a { color:#AAA; text-decoration:none; margin:0 6px; }
+  .wa { position:fixed; bottom:28px; right:28px; background:#555; color:#FFF; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; z-index:999; text-decoration:none; box-shadow:0 4px 16px rgba(0,0,0,.25); }
+  .form-field { width:100%; background:transparent; border:none; border-bottom:1.5px solid #DEDBD7; padding:14px 0; font-size:15px; font-family:'Georgia',serif; color:#1A1A1A; outline:none; margin-bottom:32px; }
+  .form-field::placeholder { color:#BBB; }
+  .form-field:focus { border-bottom-color:#1A1A1A; }
+  textarea.form-field { resize:none; height:120px; }
 </style>
 </head>
 <body>
 
-<!-- TEMPLATE BAR -->
-<div class="template-bar">
-  <span>WIREFRAME · <strong style="color:#FFF">CONTACTO / AGENDAR CONSULTA</strong></span>
+<div class="tbar">
+  <span>WIREFRAME v3 · <strong style="color:#FFF">CONTACTO</strong></span>
   <span>
-    <a href="index.html">Home</a>
-    <a href="tratamientos.html">Categorías</a>
-    <a href="tratamiento.html">Tratamiento</a>
-    <a href="sobre-nosotros.html">Dra. Liliana</a>
-    <a href="resultados.html">Resultados</a>
-    <a href="blog.html">Blog</a>
+    <a href="index-v3.html">Home v3</a>
+    <a href="tratamientos-v3.html">Tratamientos</a>
+    <a href="sobre-nosotros-v3.html">Dra. Liliana</a>
+    <a href="resultados-v3.html">Resultados</a>
+    <a href="blog-v3.html">Blog</a>
+    <a href="blog-post-v3.html">Blog Post</a>
   </span>
 </div>
 
-<!-- NAVBAR -->
-<nav style="background:#FFF; border-bottom:1px solid #E0E0E0; position:sticky; top:36px; z-index:90;">
-  <div style="max-width:1200px; margin:0 auto; padding:0 32px; height:68px; display:flex; align-items:center; justify-content:space-between;">
-    <div style="display:flex; align-items:center; gap:8px;">
-      <div class="ph" style="width:36px; height:36px; border-radius:4px; font-size:9px;">LOGO</div>
-      <div>
-        <div style="font-weight:700; font-size:14px; letter-spacing:0.05em; line-height:1.1;">WELL AGING</div>
-        <div style="font-family:monospace; font-size:9px; color:#888; letter-spacing:0.12em; text-transform:uppercase;">Mexico Health Center</div>
-      </div>
+<!-- NAV blanca -->
+<nav style="background:#FFF; border-bottom:1px solid #F0F0F0; position:sticky; top:28px; z-index:100; padding:0 64px;">
+  <div style="max-width:1440px; margin:0 auto; height:64px; display:flex; align-items:center; justify-content:space-between;">
+    <div style="font-weight:700; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:#1A1A1A;">
+      Well Aging<span style="display:block; font-weight:400; font-size:9px; letter-spacing:.15em; color:#AAA; margin-top:-2px;">Mexico Health Center</span>
     </div>
-    <div style="display:flex; gap:32px; align-items:center;">
-      <a href="tratamientos.html" class="nav-link">Tratamientos</a>
-      <a href="sobre-nosotros.html" class="nav-link">Dra. Liliana</a>
-      <a href="resultados.html" class="nav-link">Resultados</a>
-      <a href="blog.html" class="nav-link">Blog</a>
-      <a href="contacto.html" class="nav-link" style="border-bottom:2px solid #1A1A1A; padding-bottom:2px;">Contacto</a>
+    <div style="display:flex; gap:36px;">
+      <a href="tratamientos-v3.html" style="font-family:monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#777; text-decoration:none;">Tratamientos</a>
+      <a href="sobre-nosotros-v3.html" style="font-family:monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#777; text-decoration:none;">Dra. Liliana</a>
+      <a href="resultados-v3.html" style="font-family:monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#777; text-decoration:none;">Resultados</a>
+      <a href="blog-v3.html" style="font-family:monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#777; text-decoration:none;">Blog</a>
+      <a href="contacto-v3.html" style="font-family:monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#1A1A1A; text-decoration:none; border-bottom:2px solid #1A1A1A; padding-bottom:2px;">Contacto</a>
     </div>
-    <a href="contacto.html" class="btn-primary" style="padding:10px 20px; font-size:11px; width:auto;">Agendar consulta →</a>
+    <a href="#form" style="font-family:monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; background:#1A1A1A; color:#FFF; padding:9px 20px; text-decoration:none;">Agendar consulta →</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<section style="background:#F0F0F0; padding:56px 32px 48px; text-align:center;">
-  <div style="max-width:640px; margin:0 auto;">
-    <span class="label">Primer paso</span>
-    <h1 style="font-size:clamp(28px,4.5vw,46px); font-weight:700; line-height:1.15; letter-spacing:-0.02em; margin:4px 0 16px;">Agenda tu consulta — el primer paso hacia tu bienestar</h1>
-    <p style="font-size:18px; color:#555; line-height:1.65; margin:0;">Completa el formulario o contáctanos directamente por WhatsApp. La Dra. Liliana te responde en menos de 24 horas.</p>
+<!-- HERO — stone, editorial centrado -->
+<section class="stone" style="padding:120px 64px 104px; text-align:center;">
+  <div style="max-width:600px; margin:0 auto;">
+    <span class="eyebrow" style="display:block; text-align:center;">Agenda tu consulta</span>
+    <h1 style="font-size:clamp(42px,5.5vw,68px); font-weight:700; line-height:1.0; letter-spacing:-.04em; margin:0 0 28px;">
+      Hablemos sobre<br><em style="font-weight:300;">tu bienestar.</em>
+    </h1>
+    <p style="font-size:clamp(16px,1.5vw,18px); color:#777; line-height:1.8; margin:0;">La consulta inicial con la Dra. Liliana es el primer paso. Sin compromiso, sin presión — solo claridad.</p>
   </div>
 </section>
 
-<!-- CONFIANZA — íconos rápidos -->
-<section style="border-bottom:1px solid #E0E0E0; padding:16px 32px; background:#FFF;">
-  <div style="max-width:1200px; margin:0 auto; display:flex; gap:32px; justify-content:center; flex-wrap:wrap;">
-    <div style="display:flex; align-items:center; gap:8px;">
-      <span style="font-size:16px;">✓</span>
-      <span style="font-family:monospace; font-size:11px; color:#555; text-transform:uppercase; letter-spacing:0.08em;">Respuesta en 24h</span>
-    </div>
-    <div style="display:flex; align-items:center; gap:8px;">
-      <span style="font-size:16px;">✓</span>
-      <span style="font-family:monospace; font-size:11px; color:#555; text-transform:uppercase; letter-spacing:0.08em;">Sin compromiso</span>
-    </div>
-    <div style="display:flex; align-items:center; gap:8px;">
-      <span style="font-size:16px;">✓</span>
-      <span style="font-family:monospace; font-size:11px; color:#555; text-transform:uppercase; letter-spacing:0.08em;">Tus datos son confidenciales</span>
-    </div>
-    <div style="display:flex; align-items:center; gap:8px;">
-      <span style="font-size:16px;">✓</span>
-      <span style="font-family:monospace; font-size:11px; color:#555; text-transform:uppercase; letter-spacing:0.08em;">COFEPRIS · Cédula 7629010</span>
-    </div>
-  </div>
-</section>
+<!-- CONTENIDO PRINCIPAL — 2 columnas -->
+<section id="form" style="padding:104px 64px; background:#FFF;">
+  <div class="wrap" style="margin:0 auto; display:grid; grid-template-columns:1.25fr 1fr; gap:96px; align-items:start;">
 
-<!-- FORMULARIO + CONTACTO -->
-<section style="padding:64px 32px 80px;">
-  <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.1fr 0.9fr; gap:64px;">
-
-    <!-- FORMULARIO -->
+    <!-- COLUMNA IZQUIERDA: Formulario -->
     <div>
-      <span class="label">Formulario de contacto</span>
-      <h2 style="font-size:24px; font-weight:700; margin:4px 0 32px; letter-spacing:-0.01em;">Cuéntanos sobre tu caso</h2>
+      <span class="eyebrow">Envíanos un mensaje</span>
+      <h2 style="font-size:clamp(24px,2.8vw,34px); font-weight:700; letter-spacing:-.025em; line-height:1.15; margin:0 0 48px;">Cuéntanos qué<br>estás buscando.</h2>
 
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-        <div class="form-field">
-          <label class="form-label">Nombre completo *</label>
-          <input class="form-input" type="text" placeholder="Tu nombre">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 32px;">
+        <div>
+          <label style="font-family:monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:#AAA; display:block; margin-bottom:4px;">Nombre</label>
+          <input type="text" placeholder="Tu nombre completo" class="form-field">
         </div>
-        <div class="form-field">
-          <label class="form-label">Teléfono / WhatsApp</label>
-          <input class="form-input" type="tel" placeholder="+52 442 000 0000">
+        <div>
+          <label style="font-family:monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:#AAA; display:block; margin-bottom:4px;">Teléfono</label>
+          <input type="tel" placeholder="+52 442 000 0000" class="form-field">
         </div>
       </div>
 
-      <div class="form-field">
-        <label class="form-label">Correo electrónico *</label>
-        <input class="form-input" type="email" placeholder="tu@correo.com">
+      <div>
+        <label style="font-family:monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:#AAA; display:block; margin-bottom:4px;">Correo electrónico</label>
+        <input type="email" placeholder="tu@correo.com" class="form-field">
       </div>
 
-      <div class="form-field">
-        <label class="form-label">Tratamiento de interés</label>
-        <select class="form-select">
-          <option value="">Selecciona una opción</option>
-          <option>No sé — necesito orientación</option>
-          <option>Medicina Regenerativa (PRP, células madre, exosomas...)</option>
-          <option>Medicina Estética (botox, fillers, bioestimuladores)</option>
-          <option>Faciales y Spa</option>
+      <div>
+        <label style="font-family:monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:#AAA; display:block; margin-bottom:4px;">¿Qué te interesa?</label>
+        <select class="form-field" style="appearance:none; background:transparent; cursor:pointer; color:#BBB;">
+          <option value="" disabled selected>Selecciona un tratamiento</option>
+          <option>Medicina Regenerativa</option>
+          <option>PRP / Células madre</option>
           <option>Sueroterapias</option>
-          <option>Alopecia</option>
+          <option>Tratamientos Faciales</option>
+          <option>Longevidad / Anti-aging</option>
+          <option>Otro / Primera consulta general</option>
         </select>
       </div>
 
-      <div class="form-field">
-        <label class="form-label">¿Cómo nos encontraste?</label>
-        <select class="form-select">
-          <option value="">Selecciona una opción</option>
-          <option>Google</option>
-          <option>Instagram / TikTok</option>
-          <option>Recomendación de amigo o familiar</option>
-          <option>Google Maps</option>
-          <option>Otro</option>
-        </select>
+      <div>
+        <label style="font-family:monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:#AAA; display:block; margin-bottom:4px;">Mensaje (opcional)</label>
+        <textarea class="form-field" placeholder="Cuéntanos más sobre lo que buscas o alguna pregunta específica..."></textarea>
       </div>
 
-      <div class="form-field">
-        <label class="form-label">Mensaje / Cuéntanos más</label>
-        <textarea class="form-textarea" placeholder="Describe brevemente lo que buscas, tus objetivos o cualquier pregunta que tengas..."></textarea>
+      <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
+        <button class="btn btn-dark" style="border:none; padding:16px 40px; font-size:12px;">Enviar mensaje →</button>
+        <span style="font-family:monospace; font-size:9px; color:#CCC; text-transform:uppercase; letter-spacing:.1em; line-height:1.6;">Al enviar, aceptas que<br>nos pongamos en contacto contigo.</span>
       </div>
-
-      <div style="margin-bottom:20px;">
-        <label style="display:flex; gap:10px; align-items:flex-start; font-size:13px; color:#555; cursor:pointer; line-height:1.5;">
-          <input type="checkbox" style="margin-top:3px; flex-shrink:0;">
-          <span>Acepto el <a href="#" style="color:#333; text-decoration:underline;">aviso de privacidad</a> y el uso de mis datos para contactarme.</span>
-        </label>
-      </div>
-
-      <button class="btn-primary" style="width:100%;">Enviar mensaje →</button>
-
-      <p style="font-family:monospace; font-size:11px; color:#888; margin:12px 0 0; text-align:center;">O contáctanos directamente por <a href="#" style="color:#555;">WhatsApp →</a></p>
     </div>
 
-    <!-- INFORMACIÓN DE CONTACTO -->
+    <!-- COLUMNA DERECHA: Info de contacto -->
     <div>
-      <span class="label">Información de contacto</span>
-      <h2 style="font-size:24px; font-weight:700; margin:4px 0 8px; letter-spacing:-0.01em;">Estamos en Querétaro</h2>
-      <p style="font-size:15px; color:#555; line-height:1.65; margin:0 0 28px;">Visítanos, llámanos o escríbenos. Respondemos rápido.</p>
-
-      <div class="info-row">
-        <div class="info-icon">📍</div>
-        <div>
-          <div style="font-family:monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:#888; margin-bottom:4px;">Dirección</div>
-          <div style="font-size:15px; color:#333; line-height:1.5;">Balcones del Amor 103<br>Balcones Coloniales, Querétaro<br>C.P. 76140</div>
-        </div>
-      </div>
-
-      <div class="info-row">
-        <div class="info-icon">💬</div>
-        <div>
-          <div style="font-family:monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:#888; margin-bottom:4px;">WhatsApp directo</div>
-          <a href="https://wa.me/5214422067185" style="font-size:17px; color:#333; font-weight:600; text-decoration:none;">442 206 7185</a>
-          <p style="font-size:13px; color:#888; margin:4px 0 0; line-height:1.4;">Respuesta en menos de 24h hábiles</p>
-        </div>
-      </div>
-
-      <div class="info-row">
-        <div class="info-icon">⏰</div>
-        <div>
-          <div style="font-family:monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:#888; margin-bottom:6px;">Horario</div>
-          <div style="font-size:15px; color:#333; line-height:1.8;">
-            <span style="font-weight:600;">Lunes a Viernes</span><br>10:00 – 19:00 hrs<br>
-            <span style="font-weight:600;">Sábado</span><br>10:00 – 14:00 hrs
+      <!-- WhatsApp block -->
+      <div style="background:#F5F3F0; padding:40px; margin-bottom:32px;">
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:20px;">
+          <div style="width:48px; height:48px; border-radius:50%; background:#E8E4DE; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
-        </div>
-      </div>
-
-      <div class="info-row" style="border:none;">
-        <div class="info-icon">📅</div>
-        <div>
-          <div style="font-family:monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:#888; margin-bottom:4px;">Agendamiento online</div>
-          <div style="font-size:15px; color:#333; line-height:1.5; margin-bottom:12px;">Reserva tu cita directamente en FLOW</div>
-          <a href="#" style="display:inline-block; background:#1A1A1A; color:#FFF; padding:10px 20px; font-family:monospace; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border-radius:4px;">Agendar en FLOW →</a>
-          <div style="font-family:monospace; font-size:10px; color:#CCC; margin-top:6px;">— URL de FLOW pendiente del cliente —</div>
-        </div>
-      </div>
-
-      <!-- Redes sociales -->
-      <div style="margin-top:24px; padding-top:20px; border-top:1px solid #E0E0E0;">
-        <div style="font-family:monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.1em; color:#888; margin-bottom:12px;">Síguenos</div>
-        <div style="display:flex; gap:12px;">
-          <a href="#" style="font-family:monospace; font-size:11px; color:#555; text-decoration:none; border:1px solid #E0E0E0; padding:6px 14px; border-radius:20px;">@astreasaludybelleza</a>
-        </div>
-        <p style="font-family:monospace; font-size:10px; color:#CCC; margin:8px 0 0;">TikTok · Instagram · Facebook</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MAPA GOOGLE MAPS EMBED -->
-<section style="padding:0;">
-  <div class="ph" style="width:100%; height:300px; border-radius:0; font-size:14px; background:#E8E8E8; border-top:1px solid #E0E0E0; border-bottom:1px solid #E0E0E0;">
-    EMBED GOOGLE MAPS<br>Balcones del Amor 103, Balcones Coloniales, Querétaro
-  </div>
-</section>
-
-<!-- FOOTER COMPLETO -->
-<footer class="dark-section" style="padding:48px 32px 32px;">
-  <div style="max-width:1200px; margin:0 auto;">
-    <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; margin-bottom:40px;">
-      <div>
-        <div style="display:flex; align-items:center; gap:8px; margin-bottom:16px;">
-          <div class="ph" style="width:32px; height:32px; border-radius:4px; background:#3D3D3D; font-size:8px; color:#666;">LOGO</div>
           <div>
-            <div style="font-weight:700; font-size:13px; color:#FFF; letter-spacing:0.05em;">WELL AGING</div>
-            <div style="font-family:monospace; font-size:9px; color:#666; letter-spacing:0.12em; text-transform:uppercase;">Mexico Health Center</div>
+            <div style="font-weight:700; font-size:15px; letter-spacing:-.01em;">¿Prefieres WhatsApp?</div>
+            <div style="font-family:monospace; font-size:10px; color:#AAA; text-transform:uppercase; letter-spacing:.1em; margin-top:2px;">Respuesta en menos de 2 horas</div>
           </div>
         </div>
-        <p style="font-size:13px; color:#888; line-height:1.6; margin:0 0 12px; max-width:260px;">Medicina estética regenerativa en Querétaro. Ciencia, humanidad y resultados.</p>
-        <p style="font-family:monospace; font-size:11px; color:#666;">Balcones del Amor 103 · Balcones Coloniales<br>Querétaro · 442 206 7185</p>
+        <p style="font-size:14px; color:#666; line-height:1.75; margin:0 0 24px;">Escríbenos directamente. La Dra. Liliana o su equipo te responden en horario de clínica.</p>
+        <a href="https://wa.me/524422067185" style="display:flex; align-items:center; justify-content:center; gap:10px; background:#1A1A1A; color:#FFF; font-family:monospace; font-size:12px; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; padding:14px 24px; width:100%;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Escribir por WhatsApp →
+        </a>
       </div>
-      <div>
-        <h4 style="font-family:monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.12em; color:#888; margin:0 0 16px;">Tratamientos</h4>
-        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
-          <li><a href="tratamientos.html" style="font-size:13px; color:#AAA; text-decoration:none;">Medicina Regenerativa</a></li>
-          <li><a href="tratamientos.html" style="font-size:13px; color:#AAA; text-decoration:none;">Medicina Estética</a></li>
-          <li><a href="tratamientos.html" style="font-size:13px; color:#AAA; text-decoration:none;">Faciales y Spa</a></li>
-          <li><a href="tratamientos.html" style="font-size:13px; color:#AAA; text-decoration:none;">Sueroterapias</a></li>
-          <li><a href="tratamientos.html" style="font-size:13px; color:#AAA; text-decoration:none;">Alopecia</a></li>
-        </ul>
+
+      <!-- Separador -->
+      <div style="border-top:1px solid #F0F0F0; margin-bottom:32px;"></div>
+
+      <!-- Datos de contacto -->
+      <div style="display:flex; flex-direction:column; gap:28px;">
+
+        <div style="display:flex; gap:18px; align-items:flex-start;">
+          <div style="width:40px; height:40px; border-radius:50%; border:1.5px solid #E0DDD8; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div style="font-family:monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:#AAA; margin-bottom:4px;">Dirección</div>
+            <div style="font-size:14px; color:#444; line-height:1.7;">Blvd. Bernardo Quintana 4800,<br>Col. Santa Fe, Querétaro, Qro.<br>C.P. 76170</div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:18px; align-items:flex-start;">
+          <div style="width:40px; height:40px; border-radius:50%; border:1.5px solid #E0DDD8; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div style="font-family:monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:#AAA; margin-bottom:4px;">Horario de atención</div>
+            <div style="font-size:14px; color:#444; line-height:1.7;">Lunes a viernes · 9:00 – 19:00<br>Sábado · 9:00 – 14:00<br><span style="color:#BBB; font-size:13px;">Domingos y festivos: cerrado</span></div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:18px; align-items:flex-start;">
+          <div style="width:40px; height:40px; border-radius:50%; border:1.5px solid #E0DDD8; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div style="font-family:monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:#AAA; margin-bottom:4px;">Correo</div>
+            <div style="font-size:14px; color:#444; line-height:1.7;">contacto@wellaging.mx</div>
+          </div>
+        </div>
+
       </div>
+
+      <!-- Separador -->
+      <div style="border-top:1px solid #F0F0F0; margin:32px 0;"></div>
+
+      <!-- Mapa placeholder -->
       <div>
-        <h4 style="font-family:monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.12em; color:#888; margin:0 0 16px;">Clínica</h4>
-        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
-          <li><a href="sobre-nosotros.html" style="font-size:13px; color:#AAA; text-decoration:none;">Dra. Liliana</a></li>
-          <li><a href="resultados.html" style="font-size:13px; color:#AAA; text-decoration:none;">Resultados</a></li>
-          <li><a href="blog.html" style="font-size:13px; color:#AAA; text-decoration:none;">Blog</a></li>
-          <li><a href="contacto.html" style="font-size:13px; color:#AAA; text-decoration:none;">Contacto</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 style="font-family:monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.12em; color:#888; margin:0 0 16px;">Legal</h4>
-        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:8px;">
-          <li><a href="#" style="font-size:13px; color:#AAA; text-decoration:none;">Aviso de privacidad</a></li>
-          <li><a href="#" style="font-size:13px; color:#AAA; text-decoration:none;">Términos de uso</a></li>
-          <li><a style="font-size:13px; color:#666;">COFEPRIS certificada</a></li>
-          <li><a style="font-size:13px; color:#666;">Cédula: 7629010</a></li>
-        </ul>
+        <div style="font-family:monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:#AAA; margin-bottom:12px;">Ubicación</div>
+        <div class="ph-warm" style="height:200px; width:100%;">
+          Mapa<br>Google Maps embed
+        </div>
+        <div style="font-family:monospace; font-size:9px; color:#CCC; text-transform:uppercase; letter-spacing:.1em; margin-top:8px; text-align:right;">Ver en Google Maps →</div>
       </div>
     </div>
-    <div style="border-top:1px solid #3D3D3D; padding-top:24px; display:flex; justify-content:space-between; align-items:center;">
-      <p style="font-family:monospace; font-size:11px; color:#666; margin:0;">© 2026 Well Aging Mexico Health Center · Todos los derechos reservados</p>
-      <p style="font-family:monospace; font-size:11px; color:#666; margin:0;">Diseño web: <a href="#" style="color:#888; text-decoration:none;">HYTO Studio</a></p>
+
+  </div>
+</section>
+
+<!-- STATS STRIP — stone -->
+<section class="stone" style="padding:80px 64px;">
+  <div class="wrap" style="margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid #E8E4DE; border-bottom:1px solid #E8E4DE; padding:56px 0;">
+
+    <div style="text-align:center; padding:0 48px; border-right:1px solid #E8E4DE;">
+      <div style="font-size:clamp(36px,4.5vw,52px); font-weight:700; letter-spacing:-.04em; line-height:1; margin-bottom:10px;">+9,000</div>
+      <div style="font-family:monospace; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:#AAA;">Procedimientos realizados</div>
+    </div>
+
+    <div style="text-align:center; padding:0 48px; border-right:1px solid #E8E4DE;">
+      <div style="font-size:clamp(36px,4.5vw,52px); font-weight:700; letter-spacing:-.04em; line-height:1; margin-bottom:10px;">45</div>
+      <div style="font-family:monospace; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:#AAA; margin-bottom:6px;">Reseñas verificadas</div>
+      <div style="display:flex; justify-content:center; gap:3px;">
+        <span style="color:#C4A86A; font-size:14px;">★★★★★</span>
+      </div>
+    </div>
+
+    <div style="text-align:center; padding:0 48px;">
+      <div style="font-size:clamp(36px,4.5vw,52px); font-weight:700; letter-spacing:-.04em; line-height:1; margin-bottom:10px;">+10</div>
+      <div style="font-family:monospace; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:#AAA; margin-bottom:4px;">Años de experiencia</div>
+      <div style="font-family:monospace; font-size:8px; color:#BBB; letter-spacing:.1em;">Cédula 7629010</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FRANJA DE CONFIANZA — blanca, mini strip con foto de la Dra -->
+<section style="padding:80px 64px; background:#FFF;">
+  <div class="wrap" style="margin:0 auto; display:grid; grid-template-columns:auto 1fr; gap:48px; align-items:center;">
+    <div class="ph-warm" style="width:100px; height:100px; border-radius:50%; flex-shrink:0;">Dra.<br>Foto</div>
+    <div>
+      <div style="font-family:monospace; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:#AAA; margin-bottom:10px;">Quién te atenderá</div>
+      <h3 style="font-size:clamp(20px,2.2vw,26px); font-weight:700; letter-spacing:-.02em; margin:0 0 10px;">Dra. Liliana Pérez Martínez</h3>
+      <p style="font-size:14px; color:#666; line-height:1.75; margin:0 0 16px;">Médico especialista en medicina regenerativa y anti-aging. Más de 10 años dedicados a mejorar la calidad de vida de sus pacientes con ciencia y calidez humana.</p>
+      <div style="display:flex; gap:24px; flex-wrap:wrap;">
+        <span style="font-family:monospace; font-size:9px; color:#AAA; text-transform:uppercase; letter-spacing:.1em;">Cédula 7629010</span>
+        <span style="font-family:monospace; font-size:9px; color:#AAA; text-transform:uppercase; letter-spacing:.1em;">COFEPRIS certificada</span>
+        <span style="font-family:monospace; font-size:9px; color:#AAA; text-transform:uppercase; letter-spacing:.1em;">UNAM egresada</span>
+      </div>
     </div>
   </div>
+</section>
+
+<!-- CTA — dark -->
+<section class="dark" style="padding:120px 64px; text-align:center;">
+  <div style="max-width:520px; margin:0 auto;">
+    <span class="eyebrow" style="display:block; text-align:center; color:#444;">Primera consulta</span>
+    <h2 style="font-size:clamp(32px,4.5vw,54px); font-weight:700; letter-spacing:-.04em; margin:16px 0 24px; color:#FFF; line-height:1.05;">Tu bienestar empieza<br><em style="font-weight:300; opacity:.5;">con una conversación.</em></h2>
+    <p style="font-size:17px; color:#555; line-height:1.75; margin:0 0 40px;">Sin listas de espera largas. Sin presiones. La Dra. Liliana te escucha y diseña un plan a tu medida.</p>
+    <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+      <a href="#form" class="btn" style="background:#FFF; color:#1A1A1A; padding:16px 40px;">Llenar formulario →</a>
+      <a href="https://wa.me/524422067185" class="btn" style="background:transparent; color:#FFF; border:1.5px solid #333; padding:16px 40px;">WhatsApp directo</a>
+    </div>
+  </div>
+</section>
+
+<footer class="dark" style="padding:32px 64px; text-align:center; border-top:1px solid #1E1E1E;">
+  <p style="font-family:monospace; font-size:10px; color:#3A3A3A; margin:0;">© 2026 Well Aging Mexico Health Center · <a href="index-v3.html" style="color:#555; text-decoration:none;">Inicio</a> · <a href="blog-v3.html" style="color:#555; text-decoration:none;">Blog</a> · <a href="contacto-v3.html" style="color:#555; text-decoration:none;">Contacto</a></p>
 </footer>
 
-<a href="#" class="float-wa" title="WhatsApp">💬</a>
+<a href="https://wa.me/524422067185" class="wa">💬</a>
 </body>
 </html>
