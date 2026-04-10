@@ -3,236 +3,234 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>[WIREFRAME] Blog Post — Well Aging Mexico</title>
+<title>[WIREFRAME v3] Blog Post — Well Aging Mexico</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-  * { font-family: 'Georgia', serif; }
-  body { background: #FAFAFA; color: #1A1A1A; }
-  .label { display: inline-block; font-family: monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; background: #E8E8E8; color: #888; padding: 3px 10px; border-radius: 20px; margin-bottom: 16px; }
-  .ph { background: #D4D4D4; display: flex; align-items: center; justify-content: center; font-family: monospace; font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.1em; }
-  .btn-primary { background: #1A1A1A; color: #FAFAFA; padding: 14px 28px; font-family: monospace; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; border: none; cursor: pointer; display: inline-block; text-decoration: none; }
-  .section-divider { border: none; border-top: 1px solid #E0E0E0; margin: 0; }
-  .dark-section { background: #2D2D2D; color: #F0F0F0; }
-  .mid-section { background: #F0F0F0; }
-  .card { background: #FFF; border: 1px solid #E0E0E0; border-radius: 8px; }
-  .nav-link { font-family: monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #1A1A1A; text-decoration: none; }
-  .template-bar { background: #1A1A1A; color: #888; font-family: monospace; font-size: 11px; padding: 6px 24px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-  .template-bar a { color: #CCC; text-decoration: none; margin: 0 8px; }
-  .float-wa { position: fixed; bottom: 28px; right: 28px; background: #555; color: white; width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; z-index: 999; text-decoration: none; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-  .breadcrumb { font-family: monospace; font-size: 11px; color: #888; letter-spacing: 0.05em; }
-  .breadcrumb a { color: #888; text-decoration: none; }
-  .article-body h2 { font-size: 24px; font-weight: 700; margin: 36px 0 16px; letter-spacing: -0.01em; }
-  .article-body p { font-size: 17px; color: #333; line-height: 1.8; margin: 0 0 20px; }
-  .article-body ul { font-size: 17px; color: #333; line-height: 1.8; margin: 0 0 20px; padding-left: 24px; }
-  .article-body ul li { margin-bottom: 8px; }
-  .article-body blockquote { border-left: 3px solid #D4D4D4; padding-left: 24px; margin: 32px 0; font-style: italic; font-size: 20px; line-height: 1.5; color: #555; }
-  .sidebar-sticky { position: sticky; top: 100px; }
-  .blog-card { background: #FFF; border: 1px solid #E0E0E0; border-radius: 8px; overflow: hidden; text-decoration: none; color: inherit; display: block; }
+  * { font-family:'Georgia',serif; box-sizing:border-box; }
+  body { background:#FFF; color:#1A1A1A; margin:0; }
+  .ph-warm { background:#E8E4DE; display:flex; align-items:center; justify-content:center; font-family:monospace; font-size:11px; color:#BBB; text-transform:uppercase; letter-spacing:.1em; text-align:center; line-height:1.5; }
+  .eyebrow { font-family:monospace; font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:#AAA; margin-bottom:14px; display:block; }
+  .btn { display:inline-block; font-family:monospace; font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; padding:14px 32px; cursor:pointer; }
+  .btn-dark { background:#1A1A1A; color:#FFF; }
+  .dark  { background:#141414; color:#F0F0F0; }
+  .stone { background:#F5F3F0; }
+  .wrap  { max-width:1200px; margin:0 auto; }
+  .tbar { background:#000; color:#666; font-family:monospace; font-size:10px; padding:5px 24px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:200; }
+  .tbar a { color:#AAA; text-decoration:none; margin:0 6px; }
+  .wa { position:fixed; bottom:28px; right:28px; background:#555; color:#FFF; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; z-index:999; text-decoration:none; box-shadow:0 4px 16px rgba(0,0,0,.25); }
+  .article-body { font-size:18px; line-height:1.9; color:#333; }
+  .article-body h2 { font-size:27px; font-weight:700; line-height:1.2; letter-spacing:-.02em; margin:56px 0 18px; color:#1A1A1A; }
+  .article-body p { margin:0 0 26px; }
+  .article-body ul { margin:0 0 26px; padding-left:24px; }
+  .article-body ul li { margin-bottom:12px; }
+  .sidebar-cta { background:#F5F3F0; padding:32px; }
 </style>
 </head>
 <body>
 
-<!-- TEMPLATE BAR -->
-<div class="template-bar">
-  <span>WIREFRAME · <strong style="color:#FFF">BLOG POST / ARTÍCULO</strong> · template para todos los artículos</span>
+<div class="tbar">
+  <span>WIREFRAME v3 · <strong style="color:#FFF">BLOG POST</strong></span>
   <span>
-    <a href="index.html">Home</a>
-    <a href="tratamientos.html">Categorías</a>
-    <a href="sobre-nosotros.html">Dra. Liliana</a>
-    <a href="resultados.html">Resultados</a>
-    <a href="blog.html">Blog</a>
-    <a href="contacto.html">Contacto</a>
+    <a href="index-v3.html">Home v3</a>
+    <a href="tratamientos-v3.html">Categorías</a>
+    <a href="sobre-nosotros-v3.html">Dra. Liliana</a>
+    <a href="resultados-v3.html">Resultados</a>
+    <a href="blog-v3.html">Blog</a>
+    <a href="contacto-v3.html">Contacto</a>
   </span>
 </div>
 
-<!-- NAVBAR -->
-<nav style="background:#FFF; border-bottom:1px solid #E0E0E0; position:sticky; top:36px; z-index:90;">
-  <div style="max-width:1200px; margin:0 auto; padding:0 32px; height:68px; display:flex; align-items:center; justify-content:space-between;">
-    <div style="display:flex; align-items:center; gap:8px;">
-      <div class="ph" style="width:36px; height:36px; border-radius:4px; font-size:9px;">LOGO</div>
-      <div>
-        <div style="font-weight:700; font-size:14px; letter-spacing:0.05em; line-height:1.1;">WELL AGING</div>
-        <div style="font-family:monospace; font-size:9px; color:#888; letter-spacing:0.12em; text-transform:uppercase;">Mexico Health Center</div>
-      </div>
+<!-- NAV transparente sobre hero -->
+<nav style="position:absolute; top:28px; left:0; right:0; z-index:100; padding:0 64px;">
+  <div style="max-width:1440px; margin:0 auto; height:72px; display:flex; align-items:center; justify-content:space-between;">
+    <div style="font-weight:700; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:#FFF;">
+      Well Aging<span style="display:block; font-weight:400; font-size:9px; letter-spacing:.15em; color:rgba(255,255,255,.5); margin-top:-2px;">Mexico Health Center</span>
     </div>
-    <div style="display:flex; gap:32px; align-items:center;">
-      <a href="tratamientos.html" class="nav-link">Tratamientos</a>
-      <a href="sobre-nosotros.html" class="nav-link">Dra. Liliana</a>
-      <a href="resultados.html" class="nav-link">Resultados</a>
-      <a href="blog.html" class="nav-link" style="border-bottom:2px solid #1A1A1A; padding-bottom:2px;">Blog</a>
-      <a href="contacto.html" class="nav-link">Contacto</a>
+    <div style="display:flex; gap:36px;">
+      <a href="tratamientos-v3.html" style="font-family:monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.65); text-decoration:none;">Tratamientos</a>
+      <a href="sobre-nosotros-v3.html" style="font-family:monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.65); text-decoration:none;">Dra. Liliana</a>
+      <a href="resultados-v3.html" style="font-family:monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.65); text-decoration:none;">Resultados</a>
+      <a href="blog-v3.html" style="font-family:monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#FFF; text-decoration:none; border-bottom:1px solid rgba(255,255,255,.4); padding-bottom:2px;">Blog</a>
+      <a href="contacto-v3.html" style="font-family:monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.65); text-decoration:none;">Contacto</a>
     </div>
-    <a href="contacto.html" class="btn-primary" style="padding:10px 20px; font-size:11px;">Agendar consulta →</a>
+    <a href="contacto-v3.html" style="font-family:monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; background:rgba(255,255,255,.15); color:#FFF; border:1px solid rgba(255,255,255,.3); padding:9px 20px; text-decoration:none;">Agendar consulta →</a>
   </div>
 </nav>
 
-<!-- HERO DEL POST -->
-<section style="background:#F0F0F0; padding:48px 32px 0;">
-  <div style="max-width:900px; margin:0 auto;">
-    <div class="breadcrumb" style="margin-bottom:20px;">
-      <a href="index.html">Inicio</a> › <a href="blog.html">Blog</a> › <strong style="color:#333;">¿Qué es el bien envejecer?</strong>
+<!-- HERO — 60vh, imagen de portada full-bleed -->
+<section style="position:relative; height:60vh; min-height:420px; overflow:hidden;">
+  <div class="ph-warm" style="position:absolute; inset:0; height:100%; background:#1A1A1A; color:#555; font-size:13px;">
+    IMAGEN PORTADA DEL ARTÍCULO · 1440×720<br><span style="font-size:10px; color:#444;">Alta calidad · ilustrativa del tema</span>
+  </div>
+  <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.2) 0%, rgba(0,0,0,.05) 30%, rgba(0,0,0,.72) 100%);"></div>
+  <div style="position:absolute; bottom:0; left:0; right:0; padding:0 64px 120px; max-width:1440px; margin:0 auto;">
+    <div style="display:flex; gap:12px; align-items:center; margin-bottom:18px;">
+      <span style="font-family:monospace; font-size:10px; color:#FFF; background:rgba(255,255,255,.18); padding:4px 14px; text-transform:uppercase; letter-spacing:.15em;">Longevidad</span>
+      <span style="font-family:monospace; font-size:10px; color:rgba(255,255,255,.5); text-transform:uppercase; letter-spacing:.12em;">Abril 2026 · 6 min de lectura</span>
     </div>
-    <span class="label">Longevidad</span>
-    <h1 style="font-size:clamp(28px,4.5vw,48px); font-weight:700; line-height:1.15; letter-spacing:-0.02em; margin:4px 0 20px;">¿Qué es el bien envejecer? La filosofía del Well Aging</h1>
-    <div style="display:flex; align-items:center; gap:16px; margin-bottom:32px;">
-      <div class="ph" style="width:40px; height:40px; border-radius:50%; font-size:9px; background:#C8C8C8; flex-shrink:0;">FOTO</div>
+    <h1 style="font-size:clamp(30px,4.5vw,56px); font-weight:700; line-height:1.1; letter-spacing:-.03em; margin:0; color:#FFF; max-width:760px;">
+      ¿Qué es el bien envejecer?<br><em style="font-weight:300; opacity:.85;">La filosofía del Well Aging</em>
+    </h1>
+  </div>
+</section>
+
+<!-- OVERLAP CARD — byline + meta -->
+<div style="padding:0 64px; position:relative; z-index:10;">
+  <div style="max-width:1200px; margin:0 auto; margin-top:-56px; background:#FFF; box-shadow:0 -4px 40px rgba(0,0,0,.1), 0 8px 40px rgba(0,0,0,.05); padding:28px 48px; display:flex; align-items:center; justify-content:space-between; gap:32px;">
+    <div style="display:flex; align-items:center; gap:16px;">
+      <div class="ph-warm" style="width:48px; height:48px; border-radius:50%; flex-shrink:0; font-size:8px; background:#C8C4BE;">FOTO</div>
       <div>
-        <div style="font-size:14px; font-weight:600;">Dra. Liliana Carmen Pérez Pérez</div>
-        <div style="font-family:monospace; font-size:11px; color:#888;">Abril 2026 · 6 minutos de lectura</div>
+        <div style="font-size:15px; font-weight:700;">Dra. Liliana Carmen Pérez Pérez</div>
+        <div style="font-family:monospace; font-size:10px; color:#AAA; text-transform:uppercase; letter-spacing:.1em; margin-top:3px;">Especialista en Medicina Estética · Cédula 7629010</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:32px; align-items:center; flex-shrink:0;">
+      <div style="text-align:center;">
+        <div style="font-family:monospace; font-size:9px; color:#CCC; text-transform:uppercase; letter-spacing:.15em; margin-bottom:4px;">Categoría</div>
+        <div style="font-size:13px; font-weight:700;">Longevidad</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:monospace; font-size:9px; color:#CCC; text-transform:uppercase; letter-spacing:.15em; margin-bottom:4px;">Fecha</div>
+        <div style="font-size:13px; font-weight:700;">Abril 2026</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:monospace; font-size:9px; color:#CCC; text-transform:uppercase; letter-spacing:.15em; margin-bottom:4px;">Lectura</div>
+        <div style="font-size:13px; font-weight:700;">6 min</div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- IMAGEN HERO DEL POST -->
-<section style="background:#F0F0F0; padding:0 32px 48px;">
-  <div style="max-width:900px; margin:0 auto;">
-    <div class="ph" style="width:100%; height:400px; border-radius:4px; font-size:13px;">IMAGEN PORTADA DEL ARTÍCULO · 900×400</div>
+<!-- LEDE — stone, párrafo grande centrado -->
+<section class="stone" style="padding:72px 64px;">
+  <div style="max-width:760px; margin:0 auto; text-align:center;">
+    <p style="font-size:clamp(19px,2vw,23px); line-height:1.8; color:#555; font-style:italic; margin:0;">"La idea de que el envejecimiento es inevitable está cambiando. La medicina regenerativa nos permite influir en ese proceso desde el origen celular — y eso lo transforma todo."</p>
   </div>
 </section>
 
-<!-- CONTENIDO + SIDEBAR -->
-<section style="padding:56px 32px 80px;">
-  <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 320px; gap:64px; align-items:start;">
+<!-- ARTÍCULO + SIDEBAR -->
+<section style="padding:80px 64px 104px; background:#FFF;">
+  <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 300px; gap:72px; align-items:start;">
 
     <!-- ARTÍCULO -->
     <article class="article-body">
-      <p>La idea de que el envejecimiento es un proceso inevitable que simplemente debemos aceptar está cambiando. La medicina regenerativa nos permite, por primera vez, entender el envejecimiento como un proceso biológico que podemos influenciar — no solo en su apariencia, sino en su origen celular.</p>
+      <h2>¿Qué significa "bien envejecer"?</h2>
+      <p>El concepto de well aging va más allá de la apariencia física. Se trata de optimizar cómo el cuerpo envejece a nivel celular, hormonal y metabólico — para que los años que pasan se sientan con vitalidad, no con deterioro.</p>
+      <p>La medicina regenerativa parte de una premisa distinta a la cosmeatría tradicional: en lugar de tratar los síntomas del envejecimiento (arrugas, manchas, flacidez), trabaja en los mecanismos biológicos que los generan.</p>
 
-      <blockquote>
-        "Envejecer bien no significa luchar contra el tiempo. Significa darle a tu cuerpo los recursos que necesita para mantenerse en equilibrio."
-      </blockquote>
+      <!-- Imagen inline -->
+      <div style="margin:48px 0;">
+        <div class="ph-warm" style="height:360px; width:100%;"></div>
+        <div style="font-family:monospace; font-size:10px; color:#CCC; margin-top:10px; text-transform:uppercase; letter-spacing:.1em;">Imagen: proceso de regeneración celular</div>
+      </div>
 
-      <h2>¿Qué significa "Well Aging"?</h2>
-      <p>El concepto de Well Aging va más allá de los tratamientos estéticos tradicionales. No se trata de parecer más joven — se trata de sentirse bien, funcionar bien y mantener la vitalidad de forma sostenida.</p>
-      <p>[Segundo párrafo desarrollando el concepto. Diferencia entre anti-aging y well-aging. El enfoque regenerativo vs cosmético.]</p>
-
-      <h2>La ciencia detrás del envejecimiento</h2>
-      <p>[Párrafo explicando de forma accesible qué ocurre a nivel celular con el envejecimiento: estrés oxidativo, acortamiento de telómeros, inflamación crónica. Sin jerga excesiva.]</p>
+      <h2>El papel del PRP y las células madre</h2>
+      <p>Dos de los tratamientos más representativos de la medicina regenerativa son el plasma rico en plaquetas (PRP) y la terapia con células madre mesenquimales. Ambos tienen algo en común: usan los propios recursos del paciente para estimular la regeneración.</p>
       <ul>
-        <li>Estrés oxidativo y su impacto en la piel y órganos</li>
-        <li>Declive hormonal y su relación con la vitalidad</li>
-        <li>Inflamación sistémica crónica</li>
-        <li>Pérdida de colágeno y elasticidad</li>
+        <li>El PRP concentra factores de crecimiento que aceleran la reparación tisular y la producción de colágeno.</li>
+        <li>Las células madre mesenquimales tienen capacidad de diferenciarse en múltiples tipos de tejido y modular la inflamación.</li>
+        <li>Los exosomas actúan como mensajeros celulares, comunicando señales de regeneración entre células.</li>
       </ul>
 
-      <h2>¿Cómo abordamos el envejecimiento en Well Aging México?</h2>
-      <p>[Párrafo sobre el enfoque médico de la Dra. Liliana: diagnóstico integral, plan personalizado, seguimiento continuo. Diferencia entre tratar síntomas y tratar el origen.]</p>
+      <h2>¿Cómo saber si soy candidato?</h2>
+      <p>La consulta con la Dra. Liliana es el primer paso. En ella se evalúan objetivos, historial médico y se diseña un plan personalizado. No todos los tratamientos son para todos — y esa precisión es lo que define a la medicina bien practicada.</p>
+      <p>La regeneración no es un lujo. Es una inversión en cómo vivirás los próximos 10, 20 o 30 años.</p>
 
-      <div class="ph" style="width:100%; height:280px; border-radius:4px; margin:32px 0; font-size:12px;">IMAGEN INTERIOR DEL ARTÍCULO · 700×280</div>
-
-      <h2>Los pilares del bien envejecer</h2>
-      <p>[Sección con los 3-4 pilares del Well Aging según la filosofía de la clínica: medicina regenerativa, nutrición, gestión del estrés, tratamientos de vanguardia.]</p>
-
-      <h2>¿Por dónde empezar?</h2>
-      <p>[Párrafo de cierre con llamada a la acción suave. Invitación a consulta inicial. Sin presión de ventas — tono educativo y empático.]</p>
-
-      <!-- AUTOR -->
-      <div class="card" style="padding:24px; margin-top:40px; display:flex; gap:20px; align-items:flex-start;">
-        <div class="ph" style="width:60px; height:60px; border-radius:50%; flex-shrink:0; font-size:10px; background:#C8C8C8;">FOTO</div>
+      <!-- Firma del autor -->
+      <div style="border-top:1px solid #F0F0F0; padding-top:40px; margin-top:48px; display:flex; align-items:center; gap:20px;">
+        <div class="ph-warm" style="width:64px; height:64px; border-radius:50%; flex-shrink:0; font-size:9px; background:#C8C4BE;">FOTO</div>
         <div>
-          <div style="font-size:15px; font-weight:700; margin-bottom:4px;">Dra. Liliana Carmen Pérez Pérez</div>
-          <div style="font-family:monospace; font-size:11px; color:#888; margin-bottom:10px;">MÉDICO ESPECIALISTA · CÉDULA 7629010</div>
-          <p style="font-size:13px; color:#555; line-height:1.6; margin:0;">Postgrado en medicina estética · Maestría en metabolismo redox · +10 años de práctica clínica en Querétaro.</p>
+          <div style="font-size:16px; font-weight:700; margin-bottom:4px;">Dra. Liliana Carmen Pérez Pérez</div>
+          <div style="font-family:monospace; font-size:10px; color:#AAA; text-transform:uppercase; letter-spacing:.1em;">Especialista en Medicina Estética · Cédula 7629010</div>
+          <div style="font-family:monospace; font-size:10px; color:#CCC; text-transform:uppercase; letter-spacing:.1em; margin-top:3px;">Fundadora de Well Aging Mexico Health Center</div>
         </div>
       </div>
     </article>
 
-    <!-- SIDEBAR -->
-    <aside class="sidebar-sticky">
-      <!-- CTA de consulta -->
-      <div class="card" style="padding:24px; margin-bottom:24px; background:#1A1A1A; color:#FFF; border-color:#1A1A1A;">
-        <span class="label" style="background:#3D3D3D; color:#888;">Consulta inicial</span>
-        <h3 style="font-size:17px; font-weight:700; margin:4px 0 10px; color:#FFF; line-height:1.3;">¿Quieres saber qué tratamiento necesitas?</h3>
-        <p style="font-size:13px; color:#AAA; line-height:1.6; margin:0 0 20px;">La Dra. Liliana evalúa tu caso y diseña un plan personalizado.</p>
-        <a href="contacto.html" style="display:block; background:#FFF; color:#1A1A1A; text-align:center; padding:12px; font-family:monospace; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border-radius:4px;">Agendar consulta →</a>
-        <a href="#" style="display:block; text-align:center; padding:10px; font-family:monospace; font-size:12px; color:#888; text-decoration:none; margin-top:8px;">WhatsApp: 442 206 7185</a>
+    <!-- SIDEBAR sticky -->
+    <aside style="position:sticky; top:100px;">
+      <div class="sidebar-cta" style="margin-bottom:32px;">
+        <span class="eyebrow" style="margin-bottom:10px;">¿Tienes dudas?</span>
+        <h3 style="font-size:18px; font-weight:700; line-height:1.2; margin:0 0 12px;">Habla con la Dra. Liliana.</h3>
+        <p style="font-size:14px; color:#666; line-height:1.7; margin:0 0 20px;">Tu consulta inicial es el espacio para resolver todas tus preguntas.</p>
+        <a href="contacto-v3.html" class="btn btn-dark" style="display:block; text-align:center; padding:13px 20px;">Agendar consulta →</a>
       </div>
-
-      <!-- Artículos relacionados -->
       <div>
-        <span class="label">Artículos relacionados</span>
-        <div style="display:flex; flex-direction:column; gap:12px; margin-top:8px;">
-          <a href="blog-post.html" class="blog-card" style="display:flex; gap:12px; align-items:flex-start; padding:12px;">
-            <div class="ph" style="width:60px; height:60px; flex-shrink:0; border-radius:4px; font-size:9px;">IMG</div>
+        <span class="eyebrow">También te puede interesar</span>
+        <div style="display:flex; flex-direction:column; gap:18px;">
+          <a href="blog-post-v3.html" style="text-decoration:none; color:inherit; display:flex; gap:14px; align-items:flex-start;">
+            <div class="ph-warm" style="width:72px; height:54px; flex-shrink:0; background:#E0DDD8;"></div>
             <div>
-              <div style="font-size:13px; font-weight:700; line-height:1.3; margin-bottom:4px;">PRP vs células madre: ¿cuál es mejor?</div>
-              <div style="font-family:monospace; font-size:10px; color:#888;">5 min</div>
+              <div style="font-size:14px; font-weight:700; line-height:1.3; margin-bottom:4px;">PRP vs células madre: ¿cuál es mejor para ti?</div>
+              <div style="font-family:monospace; font-size:9px; color:#AAA; text-transform:uppercase; letter-spacing:.08em;">5 min</div>
             </div>
           </a>
-          <a href="blog-post.html" class="blog-card" style="display:flex; gap:12px; align-items:flex-start; padding:12px;">
-            <div class="ph" style="width:60px; height:60px; flex-shrink:0; border-radius:4px; font-size:9px;">IMG</div>
+          <div style="border-top:1px solid #F0F0F0;"></div>
+          <a href="blog-post-v3.html" style="text-decoration:none; color:inherit; display:flex; gap:14px; align-items:flex-start;">
+            <div class="ph-warm" style="width:72px; height:54px; flex-shrink:0;"></div>
             <div>
-              <div style="font-size:13px; font-weight:700; line-height:1.3; margin-bottom:4px;">Guía completa de sueroterapias</div>
-              <div style="font-family:monospace; font-size:10px; color:#888;">8 min</div>
+              <div style="font-size:14px; font-weight:700; line-height:1.3; margin-bottom:4px;">Guía de sueroterapias: ¿qué suero necesitas?</div>
+              <div style="font-family:monospace; font-size:9px; color:#AAA; text-transform:uppercase; letter-spacing:.08em;">8 min</div>
             </div>
           </a>
-          <a href="blog-post.html" class="blog-card" style="display:flex; gap:12px; align-items:flex-start; padding:12px;">
-            <div class="ph" style="width:60px; height:60px; flex-shrink:0; border-radius:4px; font-size:9px;">IMG</div>
+          <div style="border-top:1px solid #F0F0F0;"></div>
+          <a href="blog-post-v3.html" style="text-decoration:none; color:inherit; display:flex; gap:14px; align-items:flex-start;">
+            <div class="ph-warm" style="width:72px; height:54px; flex-shrink:0; background:#DDD9D4;"></div>
             <div>
-              <div style="font-size:13px; font-weight:700; line-height:1.3; margin-bottom:4px;">Medicina regenerativa vs estética</div>
-              <div style="font-family:monospace; font-size:10px; color:#888;">7 min</div>
+              <div style="font-size:14px; font-weight:700; line-height:1.3; margin-bottom:4px;">Por qué la medicina regenerativa no es lo mismo que la estética</div>
+              <div style="font-family:monospace; font-size:9px; color:#AAA; text-transform:uppercase; letter-spacing:.08em;">7 min</div>
             </div>
           </a>
         </div>
       </div>
     </aside>
-
   </div>
 </section>
 
-<hr class="section-divider">
-
-<!-- ARTÍCULOS RELACIONADOS (bottom) -->
-<section class="mid-section" style="padding:56px 32px;">
-  <div style="max-width:1200px; margin:0 auto;">
-    <span class="label">Sigue leyendo</span>
-    <h2 style="font-size:22px; font-weight:700; margin:4px 0 32px;">Más artículos del blog</h2>
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
-      <a href="blog-post.html" class="blog-card">
-        <div class="ph" style="height:150px; border-radius:0; font-size:11px;">IMAGEN</div>
-        <div style="padding:16px;">
-          <div class="label" style="font-size:9px; margin-bottom:6px;">Medicina Regenerativa</div>
-          <h3 style="font-size:15px; font-weight:700; line-height:1.3; margin:0 0 6px;">PRP vs células madre: ¿cuál es mejor para ti?</h3>
-          <div style="font-family:monospace; font-size:10px; color:#888;">Abr 2026 · 5 min</div>
+<!-- ARTÍCULOS RELACIONADOS — 3 cols -->
+<section class="stone" style="padding:88px 64px;">
+  <div class="wrap" style="margin:0 auto;">
+    <span class="eyebrow">Artículos relacionados</span>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:40px; margin-top:8px;">
+      <a href="blog-post-v3.html" style="text-decoration:none; color:inherit; background:#FFF; display:block;">
+        <div class="ph-warm" style="height:200px; background:#E0DDD8;"></div>
+        <div style="padding:20px 20px 24px;">
+          <span style="font-family:monospace; font-size:9px; color:#AAA; text-transform:uppercase; letter-spacing:.15em; display:block; margin-bottom:8px;">Med. Regenerativa · 5 min</span>
+          <div style="font-size:17px; font-weight:700; line-height:1.25; margin-bottom:8px; letter-spacing:-.01em;">PRP vs células madre: ¿cuál es mejor para ti?</div>
         </div>
       </a>
-      <a href="blog-post.html" class="blog-card">
-        <div class="ph" style="height:150px; border-radius:0; font-size:11px;">IMAGEN</div>
-        <div style="padding:16px;">
-          <div class="label" style="font-size:9px; margin-bottom:6px;">Bienestar</div>
-          <h3 style="font-size:15px; font-weight:700; line-height:1.3; margin:0 0 6px;">Por qué la medicina regenerativa es diferente</h3>
-          <div style="font-family:monospace; font-size:10px; color:#888;">Abr 2026 · 7 min</div>
+      <a href="blog-post-v3.html" style="text-decoration:none; color:inherit; background:#FFF; display:block;">
+        <div class="ph-warm" style="height:200px;"></div>
+        <div style="padding:20px 20px 24px;">
+          <span style="font-family:monospace; font-size:9px; color:#AAA; text-transform:uppercase; letter-spacing:.15em; display:block; margin-bottom:8px;">Bienestar · 7 min</span>
+          <div style="font-size:17px; font-weight:700; line-height:1.25; margin-bottom:8px; letter-spacing:-.01em;">Por qué la medicina regenerativa no es lo mismo que la estética</div>
         </div>
       </a>
-      <a href="blog-post.html" class="blog-card">
-        <div class="ph" style="height:150px; border-radius:0; font-size:11px;">IMAGEN</div>
-        <div style="padding:16px;">
-          <div class="label" style="font-size:9px; margin-bottom:6px;">Sueroterapias</div>
-          <h3 style="font-size:15px; font-weight:700; line-height:1.3; margin:0 0 6px;">Guía completa de sueroterapias</h3>
-          <div style="font-family:monospace; font-size:10px; color:#888;">Abr 2026 · 8 min</div>
+      <a href="blog-post-v3.html" style="text-decoration:none; color:inherit; background:#FFF; display:block;">
+        <div class="ph-warm" style="height:200px; background:#DDD9D4;"></div>
+        <div style="padding:20px 20px 24px;">
+          <span style="font-family:monospace; font-size:9px; color:#AAA; text-transform:uppercase; letter-spacing:.15em; display:block; margin-bottom:8px;">Sueroterapias · 8 min</span>
+          <div style="font-size:17px; font-weight:700; line-height:1.25; margin-bottom:8px; letter-spacing:-.01em;">Guía completa de sueroterapias: ¿qué suero necesitas?</div>
         </div>
       </a>
     </div>
   </div>
 </section>
 
-<hr class="section-divider">
-
-<!-- CTA -->
-<section style="padding:64px 32px; text-align:center; background:linear-gradient(135deg, #E8E8E8 0%, #F5F5F5 100%);">
+<!-- CTA FINAL -->
+<section class="dark" style="padding:120px 64px; text-align:center;">
   <div style="max-width:520px; margin:0 auto;">
-    <h2 style="font-size:26px; font-weight:700; letter-spacing:-0.02em; margin:0 0 14px;">¿Listo para dar el primer paso?</h2>
-    <p style="font-size:16px; color:#555; line-height:1.65; margin:0 0 28px;">Agenda tu consulta con la Dra. Liliana y empieza tu camino hacia el bien envejecer.</p>
-    <a href="contacto.html" class="btn-primary">Agendar consulta →</a>
+    <span class="eyebrow" style="display:block; text-align:center; color:#444;">¿Tienes preguntas?</span>
+    <h2 style="font-size:clamp(30px,4.5vw,52px); font-weight:700; letter-spacing:-.04em; margin:16px 0 24px; color:#FFF; line-height:1.05;">Habla directamente<br><em style="font-weight:300; opacity:.6;">con la Dra. Liliana.</em></h2>
+    <p style="font-size:17px; color:#555; line-height:1.75; margin:0 0 40px;">Tu consulta inicial es el espacio para resolver todas tus dudas. Sin compromiso.</p>
+    <a href="contacto-v3.html" class="btn" style="background:#FFF; color:#1A1A1A; padding:16px 40px;">Agendar consulta →</a>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="dark-section" style="padding:32px; text-align:center;">
-  <p style="font-family:monospace; font-size:11px; color:#666; margin:0;">© 2026 Well Aging Mexico Health Center · <a href="index.html" style="color:#888; text-decoration:none;">Inicio</a> · <a href="blog.html" style="color:#888; text-decoration:none;">Blog</a> · <a href="contacto.html" style="color:#888; text-decoration:none;">Contacto</a></p>
+<footer class="dark" style="padding:32px 64px; text-align:center; border-top:1px solid #1E1E1E;">
+  <p style="font-family:monospace; font-size:10px; color:#3A3A3A; margin:0;">© 2026 Well Aging Mexico Health Center · <a href="index-v3.html" style="color:#555; text-decoration:none;">Inicio</a> · <a href="blog-v3.html" style="color:#555; text-decoration:none;">Blog</a></p>
 </footer>
 
-<a href="#" class="float-wa" title="WhatsApp">💬</a>
+<a href="https://wa.me/524422067185" class="wa">💬</a>
 </body>
 </html>
