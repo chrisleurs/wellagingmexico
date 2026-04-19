@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[HI-FI] Home — Well Aging Mexico</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="hifi.css">
+<link rel="stylesheet" href="responsive.css">
+<style>
+  * { box-sizing: border-box; }
+  body { background: #FFF; color: #2c2c2c; margin: 0; }
+  .ph  { background: #D4D4D4; display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-size:11px; color:#999; text-transform:uppercase; letter-spacing:.1em; text-align:center; line-height:1.5; }
+  .ph2 { background: #C4C4C4; display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-size:11px; color:#999; text-transform:uppercase; letter-spacing:.1em; text-align:center; line-height:1.5; }
+  .ph-warm { background: #E8E4DE; display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-size:11px; color:#AAA; text-transform:uppercase; letter-spacing:.1em; text-align:center; line-height:1.5; }
+  .ph-dark  { background: #1C1C1C; display:flex; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-size:11px; color:#555; text-transform:uppercase; letter-spacing:.1em; text-align:center; line-height:1.5; }
+  .btn { display:inline-block; font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; padding:14px 32px; cursor:pointer; border-radius:2px; }
+  .dark  { background: #08121C; color: #F0F0F0; }
+  .stone { background: #F5F3F0; }
+  .wrap  { max-width: 1200px; margin: 0 auto; }
+  .tbar  { background:#000; color:#666; font-family:'Montserrat',sans-serif; font-size:10px; padding:5px 24px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:200; }
+  .tbar a { color:#AAA; text-decoration:none; margin:0 6px; }
+  .icon-circle { width:56px; height:56px; border-radius:50%; border:1.5px solid #D0DAE0; display:flex; align-items:center; justify-content:center; margin-bottom:20px; flex-shrink:0; }
+  .overlap-card { position:relative; z-index:10; margin-top:-88px; background:#FFF; box-shadow:0 -4px 40px rgba(0,0,0,.12), 0 8px 40px rgba(0,0,0,.06); }
+  section { position: relative; }
+  .eyebrow { font-family:'Montserrat',sans-serif; font-weight:500; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:#6E8491; margin-bottom:14px; display:block; }
+  .wa { position:fixed; bottom:28px; right:28px; background:#25D366; color:#FFF; width:50px; height:50px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; z-index:999; text-decoration:none; box-shadow:0 4px 16px rgba(37,211,102,.35); }
+</style>
+
+<style>
+  /* Image injection layer */
+  .ph, .ph2, .ph-warm, .ph-dark { color: transparent !important; background-size: cover !important; background-position: center !important; }
+  .img-bg { background-size: cover !important; background-position: center !important; color: transparent !important; }
+  .doc-ph-parallax { background-image: url('img/dra-liliana.jpg'); background-size: cover; background-position: center top; color: transparent !important; }
+  .clinic-ph .hero-kenburns { background-image: url('img/clinica-interior.jpg') !important; background-size: cover !important; background-position: center !important; }
+</style>
+</head>
+<body>
+
+<!-- WIREFRAME BAR -->
+<div class="tbar">
+  <span>HI-FI · <strong style="color:#FFF">HOME — WELL AGING MÉXICO</strong> <span style="color:#555; margin-left:12px;">10 Elevation Moves activos</span></span>
+  <span>
+    <a href="index-v3.html">← v3</a>
+    <a href="tratamientos-hifi.html">Categorías</a>
+    <a href="sobre-nosotros-hifi.html">Dra. Liliana</a>
+    <a href="resultados-hifi.html">Resultados</a>
+    <a href="blog-hifi.html">Blog</a>
+    <a href="contacto-hifi.html">Contacto</a>
+  </span>
+</div>
+
+<!-- NAV — Transparente, superpuesta al hero -->
+<nav class="nav-hifi">
+  <div class="nav-inner">
+    <a href="index-hifi.html" class="nav-logo">
+      Well Aging
+      <span>Mexico Health Center</span>
+    </a>
+    <div class="nav-links">
+      <a href="tratamientos-hifi.html">Tratamientos</a>
+      <a href="sobre-nosotros-hifi.html">Dra. Liliana</a>
+      <a href="resultados-hifi.html">Resultados</a>
+      <a href="blog-hifi.html">Blog</a>
+      <a href="contacto-hifi.html">Contacto</a>
+    </div>
+    <a href="contacto-hifi.html" class="nav-cta">Agendar consulta →</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     1. HERO — Video loop + Ken Burns fallback
+     ============================================================ -->
+<section style="position:relative; height:100vh; min-height:640px; overflow:hidden;">
+
+  <!-- VIDEO WRAP (descomenta cuando lleguen los assets) -->
+  <div class="hero-video-wrap">
+    <!--
+    <video autoplay muted loop playsinline class="hero-video-mobile-hide">
+      <source src="../assets/hero-loop.mp4" type="video/mp4">
+    </video>
+    -->
+    <!-- KEN BURNS FALLBACK — placeholder con zoom animado -->
+    <div class="ph-dark hero-kenburns" style="background:#090a11 url('img/hero-home.jpg') center/cover; font-size:13px; color:#333; text-align:center; line-height:1.8; width:100%; height:100%; position:absolute; inset:0;">
+      VIDEO HERO LOOP<br>
+      <span style="font-size:10px; color:#333;">hero-loop.mp4 · 1440×810 · 10-15s · muted autoplay</span><br>
+      <span style="font-size:9px; color:#2A2A2A; display:block; margin-top:8px;">Ken Burns CSS activo → reemplazar con video real</span>
+    </div>
+  </div>
+
+  <!-- Overlay gradiente -->
+  <div class="hero-overlay"></div>
+
+  <!-- SHA signature: bottom blend — suaviza la transición del hero al contenido -->
+  <div class="hero-bottom-blend"></div>
+
+  <!-- Contenido -->
+  <div class="hero-content">
+    <span class="hero-tagline" style="color:rgba(255,255,255,.5); display:block; margin-bottom:24px;">
+      Medicina Estética Regenerativa · Querétaro
+    </span>
+    <h1 class="hero-h1" style="font-size:clamp(48px,7vw,88px); margin:0; max-width:820px;">
+      Aging is natural.<br>
+      <em>Care is essential.</em>
+    </h1>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <svg width="16" height="20" viewBox="0 0 16 24" fill="none">
+      <path d="M8 4v12M4 12l4 4 4-4" stroke="rgba(255,255,255,.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+</section>
+
+<!-- ============================================================
+     2. OVERLAP CARD + STATS (Move 4: Overlap · Move 5: Counters)
+     ============================================================ -->
+<div style="padding:0 64px; position:relative; z-index:10;">
+  <div class="overlap-card" style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr auto; align-items:center; padding:40px 56px; gap:48px;" data-animate>
+    <div>
+      <div style="font-size:clamp(18px,2vw,22px); font-weight:700; line-height:1.3; margin-bottom:12px; letter-spacing:-.02em; font-family:'Montserrat',sans-serif;">Tu primer paso hacia el bien envejecer.</div>
+      <p style="font-size:15px; color:#666; line-height:1.75; margin:0; font-family:'Montserrat',sans-serif; font-weight:400;">La Dra. Liliana evalúa tu caso y diseña un plan personalizado. Sin compromisos, sin presiones.</p>
+    </div>
+    <div style="display:flex; gap:12px; flex-shrink:0;">
+      <a href="contacto-hifi.html" class="btn btn-dark">Agendar consulta →</a>
+      <a href="https://wa.me/524422067185" class="btn btn-outline">WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- Stats strip -->
+  <div class="stats-strip" style="max-width:1200px; margin:2px auto 0; display:grid; grid-template-columns:repeat(3,1fr);">
+    <div style="padding:24px 40px; border-right:1px solid #E8E4DE; text-align:center;" data-animate data-animate-delay="1">
+      <span style="font-size:30px; font-weight:800; letter-spacing:-.03em; font-family:'Montserrat',sans-serif; color:#0C2E49; display:block;">
+        <span class="stat-counter" data-target="9000" data-prefix="+" data-suffix="">+9,000</span>
+      </span>
+      <span class="eyebrow" style="text-align:center; display:block; margin-top:6px; margin-bottom:0;">Procedimientos</span>
+    </div>
+    <div style="padding:24px 40px; border-right:1px solid #E8E4DE; text-align:center;" data-animate data-animate-delay="2">
+      <span style="font-size:30px; font-weight:800; letter-spacing:-.03em; font-family:'Montserrat',sans-serif; color:#0C2E49; display:block;">
+        <span class="stat-counter" data-target="45" data-suffix=" ★">45 ★</span>
+      </span>
+      <span class="eyebrow" style="text-align:center; display:block; margin-top:6px; margin-bottom:0;">Reseñas en Google</span>
+    </div>
+    <div style="padding:24px 40px; text-align:center;" data-animate data-animate-delay="3">
+      <span style="font-size:30px; font-weight:800; letter-spacing:-.03em; font-family:'Montserrat',sans-serif; color:#0C2E49; display:block;">
+        <span class="stat-counter" data-target="10" data-prefix="+" data-suffix=" años">+10 años</span>
+      </span>
+      <span class="eyebrow" style="text-align:center; display:block; margin-top:6px; margin-bottom:0;">Experiencia</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     3. FILOSOFÍA (Move 4: Overlap · Move 3: Animate · Move 8: Tipo)
+     ============================================================ -->
+<section class="philosophy-section" style="text-align:center;">
+  <div style="max-width:800px; margin:0 auto;">
+    <span class="eyebrow" data-animate style="text-align:center;">Nuestra filosofía</span>
+    <h2 data-animate data-animate-delay="1" style="font-size:clamp(32px,4.5vw,60px); font-weight:800; line-height:1.05; letter-spacing:-.045em; margin:0 0 36px; font-family:'Montserrat',sans-serif;">
+      Medicina que trata el origen,<br>
+      <span style="font-weight:200; font-style:italic; opacity:.65;">no el síntoma.</span>
+    </h2>
+    <p data-animate data-animate-delay="2" style="font-size:clamp(17px,1.8vw,20px); color:#666; line-height:1.9; margin:0 auto; max-width:620px; font-family:'Montserrat',sans-serif; font-weight:400;">
+      En Well Aging México creemos que envejecer bien es una decisión. La medicina regenerativa no cambia quien eres — activa los mecanismos naturales de tu cuerpo para que te sientas como la mejor versión de ti mismo.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     4. VALUE PROPS — 4 columnas (Move 3: Stagger · Move 7 variante)
+     ============================================================ -->
+<section class="stone section-overlap-sm" style="padding:100px 64px 116px;">
+  <div class="wrap">
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:48px;">
+
+      <div class="value-prop" style="text-align:center;" data-animate data-animate-delay="1">
+        <div class="icon-circle" style="margin:0 auto 20px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6E8491" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
+          </svg>
+        </div>
+        <div style="font-size:15px; font-weight:700; margin-bottom:10px; letter-spacing:-.01em; font-family:'Montserrat',sans-serif;">Evidencia científica</div>
+        <p style="font-size:13px; color:#666; line-height:1.8; margin:0; font-family:'Montserrat',sans-serif; font-weight:400;">Cada tratamiento respaldado por literatura médica. Sin promesas vacías.</p>
+      </div>
+
+      <div class="value-prop" style="text-align:center;" data-animate data-animate-delay="2">
+        <div class="icon-circle" style="margin:0 auto 20px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6E8491" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+        </div>
+        <div style="font-size:15px; font-weight:700; margin-bottom:10px; letter-spacing:-.01em; font-family:'Montserrat',sans-serif;">Regeneración natural</div>
+        <p style="font-size:13px; color:#666; line-height:1.8; margin:0; font-family:'Montserrat',sans-serif; font-weight:400;">Activamos los mecanismos naturales de tu cuerpo desde adentro.</p>
+      </div>
+
+      <div class="value-prop" style="text-align:center;" data-animate data-animate-delay="3">
+        <div class="icon-circle" style="margin:0 auto 20px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6E8491" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <div style="font-size:15px; font-weight:700; margin-bottom:10px; letter-spacing:-.01em; font-family:'Montserrat',sans-serif;">Plan personalizado</div>
+        <p style="font-size:13px; color:#666; line-height:1.8; margin:0; font-family:'Montserrat',sans-serif; font-weight:400;">Diagnóstico y plan diseñado específicamente para ti y tus objetivos.</p>
+      </div>
+
+      <div class="value-prop" style="text-align:center;" data-animate data-animate-delay="4">
+        <div class="icon-circle" style="margin:0 auto 20px;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6E8491" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22c-4.97 0-9-4.03-9-9 0-3.31 1.79-6.2 4.46-7.76"/><path d="M15.54 4.76C18.21 6.32 20 9.21 20 12.52c0 4.97-4.03 9-9 9"/><path d="M12 2v10l3-3"/>
+          </svg>
+        </div>
+        <div style="font-size:15px; font-weight:700; margin-bottom:10px; letter-spacing:-.01em; font-family:'Montserrat',sans-serif;">Resultados naturales</div>
+        <p style="font-size:13px; color:#666; line-height:1.8; margin:0; font-family:'Montserrat',sans-serif; font-weight:400;">Resultados que se ven y se sienten, sin artificios ni exageraciones.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     5. DRA. LILIANA — Parallax editorial, edge-to-edge
+        Move 6: Parallax · Move 3: Animate · Move 8: Tipo
+     ============================================================ -->
+<section class="doctor-section section-overlap" style="background:#FFF;">
+  <!-- Foto izquierda con parallax -->
+  <div class="doc-parallax-wrap" id="docParallaxWrap" style="min-height:680px;">
+    <div class="doc-ph-parallax" id="docParallax" style="min-height:680px; font-size:12px; line-height:1.8;">
+      FOTO DRA. LILIANA<br>
+      <span style="font-size:9px; color:#CCC; display:block; margin-top:6px;">Portrait spa · bata blanca · 720×820px<br>Parallax 0.15× activo</span>
+    </div>
+  </div>
+
+  <!-- Texto derecha -->
+  <div style="padding:96px 80px 96px 72px; display:flex; flex-direction:column; justify-content:center; background:#FFF;">
+    <span class="eyebrow" data-animate>Quién te atiende</span>
+    <h2 data-animate data-animate-delay="1" style="font-size:clamp(28px,3.5vw,48px); font-weight:800; line-height:1.0; letter-spacing:-.045em; margin:0 0 24px; font-family:'Montserrat',sans-serif;">
+      Dra. Liliana<br>Carmen Pérez
+    </h2>
+    <div style="width:48px; height:1.5px; background:#D0DAE0; margin-bottom:28px;"></div>
+    <p class="quote-text" data-animate data-animate-delay="2" style="margin:0 0 32px;">"Cada paciente llega con una historia. Mi trabajo es entenderla, no ignorarla. La medicina regenerativa me permite intervenir desde el origen, con respeto por el cuerpo y respaldo científico real."</p>
+
+    <div style="display:flex; flex-direction:column; gap:16px; margin-bottom:40px;">
+      <div data-animate data-animate-delay="3" style="display:flex; align-items:center; gap:16px;">
+        <div class="icon-circle" style="width:40px; height:40px; margin:0; background:#F5F3F0; border:none; flex-shrink:0;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6E8491" stroke-width="1.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <div>
+          <div style="font-size:14px; font-weight:700; letter-spacing:-.01em; font-family:'Montserrat',sans-serif;">Postgrado en Medicina Estética</div>
+          <div class="eyebrow" style="margin-bottom:0; margin-top:2px;">Especialización formal</div>
+        </div>
+      </div>
+      <div data-animate data-animate-delay="4" style="display:flex; align-items:center; gap:16px;">
+        <div class="icon-circle" style="width:40px; height:40px; margin:0; background:#F5F3F0; border:none; flex-shrink:0;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6E8491" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <div style="font-size:14px; font-weight:700; letter-spacing:-.01em; font-family:'Montserrat',sans-serif;">Maestría en Metabolismo Redox</div>
+          <div class="eyebrow" style="margin-bottom:0; margin-top:2px;">Cédula profesional: 7629010</div>
+        </div>
+      </div>
+      <div data-animate data-animate-delay="5" style="display:flex; align-items:center; gap:16px;">
+        <div class="icon-circle" style="width:40px; height:40px; margin:0; background:#F5F3F0; border:none; flex-shrink:0;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6E8491" stroke-width="1.5"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <div style="font-size:14px; font-weight:700; letter-spacing:-.01em; font-family:'Montserrat',sans-serif;">+10 años · +9,000 procedimientos</div>
+          <div class="eyebrow" style="margin-bottom:0; margin-top:2px;">Querétaro, México</div>
+        </div>
+      </div>
+    </div>
+
+    <a href="sobre-nosotros-hifi.html" class="btn btn-dark" style="align-self:flex-start;" data-animate data-animate-delay="6">
+      Conocer a la Dra. →
+    </a>
+  </div>
+</section>
+
+<!-- ============================================================
+     6. TRATAMIENTOS — Border reveal hover
+        Move 7: Treatment card · Move 3: Stagger
+     ============================================================ -->
+<section class="stone section-overlap-sm" style="padding:120px 64px;">
+  <div class="wrap">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:64px;">
+      <div data-animate>
+        <span class="eyebrow">Tratamientos</span>
+        <h2 style="font-size:clamp(28px,3.5vw,44px); font-weight:800; line-height:1.0; letter-spacing:-.045em; margin:0; font-family:'Montserrat',sans-serif;">¿Qué estás<br>buscando?</h2>
+      </div>
+      <a href="tratamientos-hifi.html" style="font-family:'Montserrat',sans-serif; font-weight:500; font-size:11px; color:#777; text-transform:uppercase; letter-spacing:.12em; text-decoration:none; border-bottom:1px solid #CCC; padding-bottom:2px;" data-animate>Ver todos →</a>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:16px;">
+
+      <a href="tratamientos-hifi.html" class="treatment-card" data-animate data-animate-delay="1">
+        <div class="tc-img" style="background:url('img/treatment-regenerativo.jpg') center/cover; height:220px;"></div>
+        <div style="padding:20px 20px 24px;">
+          <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:9px; color:#9FB1BA; text-transform:uppercase; letter-spacing:.18em; margin-bottom:10px;">01</div>
+          <div style="font-size:14px; font-weight:700; margin-bottom:6px; line-height:1.3; font-family:'Montserrat',sans-serif; letter-spacing:-.01em;">Medicina Regenerativa</div>
+          <div style="font-size:12px; color:#888; line-height:1.65; font-family:'Montserrat',sans-serif; font-weight:400;">PRP · Células madre · Exosomas</div>
+        </div>
+      </a>
+
+      <a href="tratamientos-hifi.html" class="treatment-card" data-animate data-animate-delay="2">
+        <div class="tc-img" style="background:url('img/prp-treatment.jpg') center/cover; height:220px;"></div>
+        <div style="padding:20px 20px 24px;">
+          <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:9px; color:#9FB1BA; text-transform:uppercase; letter-spacing:.18em; margin-bottom:10px;">02</div>
+          <div style="font-size:14px; font-weight:700; margin-bottom:6px; line-height:1.3; font-family:'Montserrat',sans-serif; letter-spacing:-.01em;">Medicina Estética</div>
+          <div style="font-size:12px; color:#888; line-height:1.65; font-family:'Montserrat',sans-serif; font-weight:400;">Botox · Fillers · Bioestimuladores</div>
+        </div>
+      </a>
+
+      <a href="tratamientos-hifi.html" class="treatment-card" data-animate data-animate-delay="3">
+        <div class="tc-img" style="background:url('img/treatment-facial.jpg') center/cover; height:220px;"></div>
+        <div style="padding:20px 20px 24px;">
+          <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:9px; color:#9FB1BA; text-transform:uppercase; letter-spacing:.18em; margin-bottom:10px;">03</div>
+          <div style="font-size:14px; font-weight:700; margin-bottom:6px; line-height:1.3; font-family:'Montserrat',sans-serif; letter-spacing:-.01em;">Faciales y Spa</div>
+          <div style="font-size:12px; color:#888; line-height:1.65; font-family:'Montserrat',sans-serif; font-weight:400;">Faciales · Masajes · Antiaging</div>
+        </div>
+      </a>
+
+      <a href="tratamientos-hifi.html" class="treatment-card" data-animate data-animate-delay="4">
+        <div class="tc-img" style="background:url('img/treatment-corporal.jpg') center/cover; height:220px;"></div>
+        <div style="padding:20px 20px 24px;">
+          <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:9px; color:#9FB1BA; text-transform:uppercase; letter-spacing:.18em; margin-bottom:10px;">04</div>
+          <div style="font-size:14px; font-weight:700; margin-bottom:6px; line-height:1.3; font-family:'Montserrat',sans-serif; letter-spacing:-.01em;">Sueroterapias</div>
+          <div style="font-size:12px; color:#888; line-height:1.65; font-family:'Montserrat',sans-serif; font-weight:400;">Vitamina C · Energizantes</div>
+        </div>
+      </a>
+
+      <a href="tratamientos-hifi.html" class="treatment-card" data-animate data-animate-delay="5">
+        <div class="tc-img" style="background:url('img/treatment-wellness.jpg') center/cover; height:220px;"></div>
+        <div style="padding:20px 20px 24px;">
+          <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:9px; color:#9FB1BA; text-transform:uppercase; letter-spacing:.18em; margin-bottom:10px;">05</div>
+          <div style="font-size:14px; font-weight:700; margin-bottom:6px; line-height:1.3; font-family:'Montserrat',sans-serif; letter-spacing:-.01em;">Alopecia</div>
+          <div style="font-size:12px; color:#888; line-height:1.65; font-family:'Montserrat',sans-serif; font-weight:400;">PRP Capilar · Mesoterapia</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     7. RESULTADOS — Before/After drag slider
+        Move 10: BA Slider · Move 3: Animate
+     ============================================================ -->
+<section style="padding:120px 64px; background:#FFF;" class="section-overlap-sm">
+  <div class="wrap">
+    <div style="display:grid; grid-template-columns:1fr 2fr; gap:80px; align-items:start; margin-bottom:64px;">
+      <div>
+        <span class="eyebrow" data-animate>Resultados reales</span>
+        <h2 data-animate data-animate-delay="1" style="font-size:clamp(26px,3vw,40px); font-weight:800; line-height:1.0; letter-spacing:-.04em; margin:0 0 20px; font-family:'Montserrat',sans-serif;">
+          Casos reales de<br>pacientes reales.
+        </h2>
+        <p data-animate data-animate-delay="2" style="font-size:15px; color:#666; line-height:1.8; margin:0 0 28px; font-family:'Montserrat',sans-serif; font-weight:400;">Los resultados varían según cada persona. Estos son ejemplos representativos con permiso de los pacientes.</p>
+        <a href="resultados-hifi.html" class="btn btn-outline" style="font-size:11px; padding:11px 24px;" data-animate data-animate-delay="3">Ver galería completa →</a>
+      </div>
+
+      <!-- BA Slider -->
+      <div data-animate data-animate-delay="1">
+        <div class="ba-container" id="baSlider1" style="height:300px;">
+          <div class="ph2 ba-after img-bg" style="height:100%; font-size:11px; background-image:url('img/result-after.jpg');">DESPUÉS</div>
+          <div class="ba-before-wrap">
+            <div class="ph ba-before img-bg" style="height:100%; font-size:11px; background-image:url('img/result-before.jpg');">ANTES</div>
+          </div>
+          <div class="ba-line"></div>
+          <div class="ba-handle" id="baHandle1">
+            <div class="ba-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+                <path d="M8 4l-6 8 6 8M16 4l6 8-6 8"/>
+              </svg>
+            </div>
+          </div>
+          <span class="ba-label ba-label-before">Antes</span>
+          <span class="ba-label ba-label-after">Después</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Miniaturas adicionales -->
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:3px;">
+      <div class="gallery-thumb" data-animate data-animate-delay="1"><div class="img-bg" style="height:160px; background-image:url('img/gallery-1.jpg');"></div></div>
+      <div class="gallery-thumb" data-animate data-animate-delay="2"><div class="img-bg" style="height:160px; background-image:url('img/gallery-2.jpg');"></div></div>
+      <div class="gallery-thumb" data-animate data-animate-delay="3"><div class="img-bg" style="height:160px; background-image:url('img/gallery-3.jpg');"></div></div>
+      <div class="gallery-thumb" data-animate data-animate-delay="4"><div class="img-bg" style="height:160px; background-image:url('img/gallery-4.jpg');"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     8. TESTIMONIOS — Marquee horizontal infinito (Move 2)
+     ============================================================ -->
+<section class="stone section-overlap-sm" style="padding:120px 0;">
+  <div class="wrap" style="padding:0 64px; margin-bottom:64px;">
+    <div style="text-align:center;" data-animate>
+      <span class="eyebrow" style="text-align:center;">Pacientes reales</span>
+      <h2 style="font-size:clamp(28px,3.5vw,44px); font-weight:800; line-height:1.0; letter-spacing:-.045em; margin:0; font-family:'Montserrat',sans-serif;">
+        Lo que dicen<br>quienes nos visitan.
+      </h2>
+    </div>
+  </div>
+
+  <div class="testimonials-marquee">
+
+    <!-- Fila 1 izq → der -->
+    <div class="marquee-row marquee-row-1" style="padding-bottom:16px;">
+      <div class="marquee-track">
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"La Dra. Liliana es increíblemente profesional. Me explicó cada paso y los resultados superaron mis expectativas."</p><div><div class="mq-author">Ana Martínez</div><div class="mq-source">PRP Facial · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Fui con miedo de resultados exagerados. Nada de eso. Trato muy humano y resultados naturales. Me siento mejor."</p><div><div class="mq-author">Claudia R.</div><div class="mq-source">Bioestimuladores · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"El tratamiento de alopecia ha sido una transformación. La doctora hace seguimiento real, no solo vende."</p><div><div class="mq-author">Roberto V.</div><div class="mq-source">PRP Capilar · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Llevaba años buscando algo que funcionara de verdad. Well Aging cambió mi relación con mi cuerpo."</p><div><div class="mq-author">Mariana G.</div><div class="mq-source">Med. Regenerativa · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"El ambiente de la clínica es increíble. Tranquilo, limpio, profesional. Me sentí en buenas manos desde el primer momento."</p><div><div class="mq-author">Sofía T.</div><div class="mq-source">Facial Antiaging · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Lo que más me gustó: la Dra. nunca me presionó. Me dio opciones y tiempo para decidir. Eso genera confianza."</p><div><div class="mq-author">Patricia L.</div><div class="mq-source">Sueroterapia · Google</div></div></div>
+        <!-- Duplicado para loop -->
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"La Dra. Liliana es increíblemente profesional. Me explicó cada paso y los resultados superaron mis expectativas."</p><div><div class="mq-author">Ana Martínez</div><div class="mq-source">PRP Facial · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Fui con miedo de resultados exagerados. Nada de eso. Trato muy humano y resultados naturales. Me siento mejor."</p><div><div class="mq-author">Claudia R.</div><div class="mq-source">Bioestimuladores · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"El tratamiento de alopecia ha sido una transformación. La doctora hace seguimiento real, no solo vende."</p><div><div class="mq-author">Roberto V.</div><div class="mq-source">PRP Capilar · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Llevaba años buscando algo que funcionara de verdad. Well Aging cambió mi relación con mi cuerpo."</p><div><div class="mq-author">Mariana G.</div><div class="mq-source">Med. Regenerativa · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"El ambiente de la clínica es increíble. Tranquilo, limpio, profesional. Me sentí en buenas manos desde el primer momento."</p><div><div class="mq-author">Sofía T.</div><div class="mq-source">Facial Antiaging · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Lo que más me gustó: la Dra. nunca me presionó. Me dio opciones y tiempo para decidir. Eso genera confianza."</p><div><div class="mq-author">Patricia L.</div><div class="mq-source">Sueroterapia · Google</div></div></div>
+      </div>
+    </div>
+
+    <!-- Fila 2 der → izq (más lenta, fondo navy-10) -->
+    <div class="marquee-row marquee-row-2">
+      <div class="marquee-track">
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Vine por curiosidad y me quedé por los resultados. Mis amigos notan la diferencia pero nadie sabe qué cambió."</p><div><div class="mq-author">Jorge M.</div><div class="mq-source">Botox · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"La consulta inicial fue la más completa que he tenido con cualquier médico. Análisis de sangre, historial, todo."</p><div><div class="mq-author">Fernanda C.</div><div class="mq-source">Consulta Inicial · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Llevaba meses con caída severa del cabello. El PRP capilar detuvo la caída en 6 semanas. Completamente recomendado."</p><div><div class="mq-author">Héctor S.</div><div class="mq-source">PRP Capilar · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Tuve miedo de salir hinchada o con cara rara. Nada de eso. La Dra. usa las manos con mucha delicadeza y criterio."</p><div><div class="mq-author">Isabel V.</div><div class="mq-source">Fillers · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"El seguimiento post-tratamiento es lo que diferencia a Well Aging. Te contactan, te preguntan, te cuidan de verdad."</p><div><div class="mq-author">Alejandra B.</div><div class="mq-source">Sueroterapia · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Mi piel tiene una textura completamente diferente. Luminosa, firme. Es lo que necesitaba antes de mi boda."</p><div><div class="mq-author">Lucía N.</div><div class="mq-source">Facial Regenerativo · Google</div></div></div>
+        <!-- Duplicado -->
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Vine por curiosidad y me quedé por los resultados. Mis amigos notan la diferencia pero nadie sabe qué cambió."</p><div><div class="mq-author">Jorge M.</div><div class="mq-source">Botox · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"La consulta inicial fue la más completa que he tenido con cualquier médico. Análisis de sangre, historial, todo."</p><div><div class="mq-author">Fernanda C.</div><div class="mq-source">Consulta Inicial · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Llevaba meses con caída severa del cabello. El PRP capilar detuvo la caída en 6 semanas. Completamente recomendado."</p><div><div class="mq-author">Héctor S.</div><div class="mq-source">PRP Capilar · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Tuve miedo de salir hinchada o con cara rara. Nada de eso. La Dra. usa las manos con mucha delicadeza y criterio."</p><div><div class="mq-author">Isabel V.</div><div class="mq-source">Fillers · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"El seguimiento post-tratamiento es lo que diferencia a Well Aging. Te contactan, te preguntan, te cuidan de verdad."</p><div><div class="mq-author">Alejandra B.</div><div class="mq-source">Sueroterapia · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Mi piel tiene una textura completamente diferente. Luminosa, firme. Es lo que necesitaba antes de mi boda."</p><div><div class="mq-author">Lucía N.</div><div class="mq-source">Facial Regenerativo · Google</div></div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center; margin-top:48px; padding:0 64px;" data-animate>
+    <a href="#" style="font-family:'Montserrat',sans-serif; font-weight:500; font-size:11px; color:#777; text-transform:uppercase; letter-spacing:.12em; text-decoration:none; border-bottom:1px solid #CCC; padding-bottom:2px;">Ver las 45 reseñas en Google Maps →</a>
+  </div>
+</section>
+
+<!-- ============================================================
+     9. BLOG PREVIEW (Move 3: Animate · Move 8: Tipo)
+     ============================================================ -->
+<section style="padding:120px 64px; background:#FFF;" class="section-overlap-sm">
+  <div class="wrap">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:56px;">
+      <div data-animate>
+        <span class="eyebrow">Recursos y educación</span>
+        <h2 style="font-size:clamp(26px,3vw,40px); font-weight:800; line-height:1.0; letter-spacing:-.045em; margin:0; font-family:'Montserrat',sans-serif;">
+          Salud y bienestar<br>
+          <span style="font-weight:200; font-style:italic; opacity:.65;">bien explicados.</span>
+        </h2>
+      </div>
+      <a href="blog-hifi.html" style="font-family:'Montserrat',sans-serif; font-weight:500; font-size:11px; color:#777; text-transform:uppercase; letter-spacing:.12em; text-decoration:none; border-bottom:1px solid #DDD; padding-bottom:2px;" data-animate>Ver todos los artículos →</a>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1.6fr 1fr 1fr; gap:32px;">
+      <a href="blog-post-hifi.html" style="text-decoration:none; color:inherit; display:block;" data-animate>
+        <div class="gallery-thumb"><div class="img-bg" style="height:320px; background-image:url('img/treatment-facial.jpg');"></div></div>
+        <div style="padding:20px 0 0;">
+          <span style="font-family:'Montserrat',sans-serif; font-weight:500; font-size:9px; color:#9FB1BA; text-transform:uppercase; letter-spacing:.18em; display:block; margin-bottom:12px;">Longevidad · Abr 2026 · 6 min</span>
+          <div style="font-size:22px; font-weight:700; line-height:1.2; margin-bottom:10px; letter-spacing:-.02em; font-family:'Montserrat',sans-serif;">¿Qué es el bien envejecer? La filosofía del Well Aging</div>
+          <p style="font-size:14px; color:#666; line-height:1.75; margin:0; font-family:'Montserrat',sans-serif; font-weight:400;">La idea de que el envejecimiento es inevitable está cambiando.</p>
+        </div>
+      </a>
+      <a href="blog-post-hifi.html" style="text-decoration:none; color:inherit; display:block;" data-animate data-animate-delay="1">
+        <div class="gallery-thumb"><div class="img-bg" style="height:200px; background-image:url('img/gallery-2.jpg');"></div></div>
+        <div style="padding:20px 0 0;">
+          <span style="font-family:'Montserrat',sans-serif; font-weight:500; font-size:9px; color:#9FB1BA; text-transform:uppercase; letter-spacing:.18em; display:block; margin-bottom:10px;">Med. Regenerativa · Abr 2026 · 5 min</span>
+          <div style="font-size:17px; font-weight:700; line-height:1.3; margin-bottom:8px; letter-spacing:-.02em; font-family:'Montserrat',sans-serif;">PRP vs células madre: ¿cuál es mejor para ti?</div>
+          <p style="font-size:13px; color:#888; line-height:1.7; margin:0; font-family:'Montserrat',sans-serif; font-weight:400;">Comparativa entre dos tratamientos clave.</p>
+        </div>
+      </a>
+      <a href="blog-post-hifi.html" style="text-decoration:none; color:inherit; display:block;" data-animate data-animate-delay="2">
+        <div class="gallery-thumb"><div class="img-bg" style="height:200px; background-image:url('img/gallery-4.jpg');"></div></div>
+        <div style="padding:20px 0 0;">
+          <span style="font-family:'Montserrat',sans-serif; font-weight:500; font-size:9px; color:#9FB1BA; text-transform:uppercase; letter-spacing:.18em; display:block; margin-bottom:10px;">Bienestar · Abr 2026 · 7 min</span>
+          <div style="font-size:17px; font-weight:700; line-height:1.3; margin-bottom:8px; letter-spacing:-.02em; font-family:'Montserrat',sans-serif;">Por qué la medicina regenerativa no es lo mismo que la estética</div>
+          <p style="font-size:13px; color:#888; line-height:1.7; margin:0; font-family:'Montserrat',sans-serif; font-weight:400;">La confusión es común. Aquí la diferencia que importa.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     10. CTA FINAL — Grain + Frosted Glass Card (Move 9)
+     ============================================================ -->
+<section class="cta-hifi section-overlap-sm" style="padding:144px 64px;">
+  <div class="cta-glass-card" data-animate>
+    <span class="eyebrow" style="text-align:center; display:block;">Da el primer paso</span>
+    <h2 data-animate data-animate-delay="1" style="font-size:clamp(36px,5.5vw,68px); margin:16px 0 28px; text-align:center; font-family:'Montserrat',sans-serif; font-weight:800; letter-spacing:-.045em; line-height:0.97; color:#FFF;">
+      Tu primera consulta<br>
+      <span style="font-weight:200; font-style:italic; opacity:.5;">es el primer paso.</span>
+    </h2>
+    <p data-animate data-animate-delay="2" style="font-size:17px; line-height:1.8; margin:0 0 48px; max-width:480px; margin-left:auto; margin-right:auto; text-align:center; font-family:'Montserrat',sans-serif; font-weight:400; color:rgba(255,255,255,.45);">
+      La Dra. Liliana evalúa tu caso con calma. Sin presión, sin compromisos. Solo una conversación médica honesta.
+    </p>
+    <div data-animate data-animate-delay="3" style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="contacto-hifi.html" class="btn-cta-primary">Agendar consulta →</a>
+      <a href="https://wa.me/524422067185" class="btn-cta-ghost">WhatsApp →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-hifi dark" style="padding:64px 64px 32px;">
+  <div class="wrap">
+    <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:56px; margin-bottom:56px;">
+      <div>
+        <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:#F0F0F0; margin-bottom:16px;">
+          Well Aging
+          <span style="display:block; font-weight:300; font-size:9px; letter-spacing:.2em; color:#2E2E2E; margin-top:2px;">Mexico Health Center</span>
+        </div>
+        <p style="font-family:'Montserrat',sans-serif; font-weight:400; font-size:11px; color:#2E2E2E; line-height:1.9; margin:0 0 12px;">Medicina estética regenerativa.<br>Basada en ciencia. Centrada en ti.</p>
+        <p style="font-family:'Montserrat',sans-serif; font-weight:400; font-size:11px; color:#2E2E2E; line-height:1.9; margin:0;">Balcones del Amor 103<br>Querétaro · 442 206 7185</p>
+      </div>
+      <div>
+        <div class="eyebrow" style="color:#222; margin-bottom:16px;">Tratamientos</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="tratamientos-hifi.html" style="font-family:'Montserrat',sans-serif; font-size:11px; color:#2E2E2E; text-decoration:none; font-weight:400;">Med. Regenerativa</a>
+          <a href="tratamientos-hifi.html" style="font-family:'Montserrat',sans-serif; font-size:11px; color:#2E2E2E; text-decoration:none; font-weight:400;">Med. Estética</a>
+          <a href="tratamientos-hifi.html" style="font-family:'Montserrat',sans-serif; font-size:11px; color:#2E2E2E; text-decoration:none; font-weight:400;">Faciales y Spa</a>
+          <a href="tratamientos-hifi.html" style="font-family:'Montserrat',sans-serif; font-size:11px; color:#2E2E2E; text-decoration:none; font-weight:400;">Sueroterapias</a>
+          <a href="tratamientos-hifi.html" style="font-family:'Montserrat',sans-serif; font-size:11px; color:#2E2E2E; text-decoration:none; font-weight:400;">Alopecia</a>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow" style="color:#222; margin-bottom:16px;">Empresa</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="sobre-nosotros-hifi.html" style="font-family:'Montserrat',sans-serif; font-size:11px; color:#2E2E2E; text-decoration:none; font-weight:400;">Dra. Liliana</a>
+          <a href="resultados-hifi.html" style="font-family:'Montserrat',sans-serif; font-size:11px; color:#2E2E2E; text-decoration:none; font-weight:400;">Resultados</a>
+          <a href="blog-hifi.html" style="font-family:'Montserrat',sans-serif; font-size:11px; color:#2E2E2E; text-decoration:none; font-weight:400;">Blog</a>
+          <a href="contacto-hifi.html" style="font-family:'Montserrat',sans-serif; font-size:11px; color:#2E2E2E; text-decoration:none; font-weight:400;">Contacto</a>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow" style="color:#222; margin-bottom:16px;">Horario</div>
+        <p style="font-family:'Montserrat',sans-serif; font-weight:400; font-size:11px; color:#2E2E2E; line-height:1.9; margin:0;">Lun – Vie<br>10:00 – 19:00<br><br>Sábado<br>10:00 – 14:00</p>
+      </div>
+    </div>
+    <hr style="border:none; border-top:1px solid #111; margin-bottom:24px;">
+    <p style="font-family:'Montserrat',sans-serif; font-weight:400; font-size:10px; color:#222; margin:0; text-align:center; letter-spacing:.08em;">
+      © 2026 Well Aging Mexico Health Center · wellaging.mx
+    </p>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB — verde real + bounce -->
+<a href="https://wa.me/524422067185" class="wa" aria-label="Contactar por WhatsApp">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- ============================================================
+     SCRIPTS — Moves 3 (animate) · 5 (counters) · 6 (parallax) · 10 (BA slider)
+     ============================================================ -->
+<script>
+// Nav Scroll Transition — transparent hero nav → solid white on scroll
+(function() {
+  const nav = document.querySelector('.nav-hifi');
+  if (!nav) return;
+  function updateNav() {
+    // Transition triggers at 65% of hero height (viewport height)
+    nav.classList.toggle('nav-scrolled', window.scrollY > window.innerHeight * 0.65);
+  }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav(); // init state
+})();
+
+// Move 3 — Scroll Entrance Animations
+(function() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const obs = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); }
+    }),
+    { threshold: 0.1, rootMargin: '0px 0px -32px 0px' }
+  );
+  document.querySelectorAll('[data-animate]').forEach(el => obs.observe(el));
+})();
+
+// Move 5 — Stat Counter Animations
+(function() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  function animateCounter(el) {
+    const target   = parseInt(el.dataset.target);
+    const prefix   = el.dataset.prefix || '';
+    const suffix   = el.dataset.suffix || '';
+    const duration = 1600;
+    const start    = performance.now();
+    (function update(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const e = 1 - Math.pow(1 - p, 3);
+      const v = Math.floor(e * target);
+      el.textContent = prefix + (target >= 1000 ? v.toLocaleString('es-MX') : v) + suffix;
+      if (p < 1) requestAnimationFrame(update);
+      else el.textContent = prefix + (target >= 1000 ? target.toLocaleString('es-MX') : target) + suffix;
+    })(start);
+  }
+  const cObs = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) { animateCounter(e.target); cObs.unobserve(e.target); } }),
+    { threshold: 0.6 }
+  );
+  document.querySelectorAll('.stat-counter[data-target]').forEach(el => cObs.observe(el));
+})();
+
+// Move 6 — Doctor Parallax
+(function() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const wrap = document.getElementById('docParallaxWrap');
+  const img  = document.getElementById('docParallax');
+  if (!wrap || !img) return;
+  let ticking = false;
+  function tick() {
+    const r = wrap.getBoundingClientRect();
+    const vh = window.innerHeight;
+    if (r.bottom > 0 && r.top < vh) {
+      const progress = (vh - r.top) / (vh + r.height);
+      img.style.transform = 'translateY(' + ((progress - 0.5) * 80) + 'px)';
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(tick); ticking = true; } }, { passive: true });
+  tick();
+})();
+
+// Move 10 — Before/After Slider
+(function() {
+  function init(id) {
+    const c = document.getElementById(id);
+    if (!c) return;
+    const before = c.querySelector('.ba-before');
+    const handle = c.querySelector('.ba-handle');
+    const line   = c.querySelector('.ba-line');
+    if (!before || !handle) return;
+    let dragging = false;
+    function pos(x) {
+      const r = c.getBoundingClientRect();
+      const p = Math.min(Math.max((x - r.left) / r.width, 0.03), 0.97);
+      before.style.clipPath = 'inset(0 ' + ((1-p)*100) + '% 0 0)';
+      handle.style.left = (p*100) + '%';
+      if (line) line.style.left = (p*100) + '%';
+    }
+    handle.addEventListener('mousedown',  e => { dragging = true; e.preventDefault(); });
+    document.addEventListener('mouseup',  () => { dragging = false; });
+    document.addEventListener('mousemove',e => { if (dragging) pos(e.clientX); });
+    handle.addEventListener('touchstart', e => { dragging = true; e.preventDefault(); }, { passive: false });
+    document.addEventListener('touchend', () => { dragging = false; });
+    document.addEventListener('touchmove',e => { if (dragging) pos(e.touches[0].clientX); }, { passive: true });
+    c.addEventListener('click', e => { if (!handle.contains(e.target)) pos(e.clientX); });
+  }
+  init('baSlider1');
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1285 @@
+/*
+ * Well Aging México — Hi-Fi Elevation Layer
+ * Versión: 1.0 · Construido sobre v3 wireframes
+ *
+ * Este archivo implementa los 10 moves de elevación:
+ *  1.  Hero video loop + Ken Burns fallback
+ *  2.  Marquee testimonios (horizontal, infinito)
+ *  3.  Entrance animations (IntersectionObserver)
+ *  4.  Overlap language extendida (depth layering)
+ *  5.  Stat counters animados
+ *  6.  Doctor parallax editorial
+ *  7.  Treatment card border reveal hover
+ *  8.  Montserrat peso completo (100–800)
+ *  9.  CTA dark: grain texture + frosted glass card
+ * 10.  Before/after drag slider
+ */
+
+/* ============================================================
+   GOOGLE FONTS — Montserrat (pesos completos)
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400&display=swap');
+
+/* ============================================================
+   TOKENS — Heredados del MASTER.md
+   ============================================================ */
+:root {
+  --navy:     #0C2E49;
+  --steel:    #A1B2C6;
+  --beige:    #E5DFD3;
+  --navy-80:  #3D5669;
+  --navy-60:  #6E8491;
+  --navy-40:  #9FB1BA;
+  --navy-20:  #D0DAE0;
+  --navy-10:  #E8EDF3;
+  --white:    #FFFFFF;
+  --stone:    #F5F3F0;
+  --dark:     #0C0F12;
+
+  /* SHA-inspired tokens */
+  --hero-bg:    #090a11;   /* SHA: --home-hero-2026-bg */
+  --body-text:  #2c2c2c;   /* SHA: --body-text */
+  --title-text: #414345;   /* SHA: --negro-titulos (warm charcoal) */
+  --blend-h:    clamp(140px, 32vh, 360px); /* SHA: bottom blend height */
+
+  /* Radios de elevación */
+  --radius-section: 24px;
+  --radius-card:    16px;
+  --radius-pill:    9999px;
+
+  /* Sombras */
+  --shadow-overlap: 0 -8px 48px rgba(12, 46, 73, .09);
+  --shadow-card:    0 2px 20px rgba(12, 46, 73, .08);
+  --shadow-hover:   0 16px 48px rgba(12, 46, 73, .16);
+}
+
+/* ============================================================
+   BASE — Montserrat como fuente principal
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: 'Montserrat', -apple-system, sans-serif;
+  color: var(--body-text, #2c2c2c);
+}
+
+/* SHA-inspired: paragraphs use weight 300 (Graphik 300 → Montserrat 300) */
+p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  color: var(--body-text, #2c2c2c);
+}
+
+/* Section H2s: warm charcoal (SHA: --negro-titulos) */
+h2 {
+  color: var(--title-text, #414345);
+}
+
+/* ============================================================
+   MOVE 8 — Expresión tipográfica de Montserrat
+   ============================================================ */
+
+/* Eyebrow: Montserrat Medium en lugar de monospace */
+.eyebrow,
+[class*="eyebrow"] {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 11px !important;
+  letter-spacing: .22em !important;
+  text-transform: uppercase;
+  color: #6E8491;
+  margin-bottom: 14px;
+  display: block;
+}
+
+/* Display: peso 800, tracking muy negativo */
+.display-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  letter-spacing: -.05em;
+  line-height: 0.95;
+}
+
+/* Tagline hero: ultralight + espaciado amplio */
+.hero-tagline {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 100 !important;
+  letter-spacing: .38em !important;
+  font-size: 11px !important;
+  text-transform: uppercase;
+}
+
+/* Quote / italic: peso 300 */
+.quote-text {
+  font-family: 'Montserrat', sans-serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(16px, 2vw, 22px);
+  line-height: 1.65;
+  color: #444;
+}
+
+/* Hero H1 — peso 800 */
+.hero-h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  letter-spacing: -.05em;
+  line-height: 0.96;
+  color: #fff;
+}
+
+.hero-h1 em {
+  font-weight: 200;
+  font-style: normal;
+  opacity: .75;
+}
+
+/* H2 de secciones — tracking negativo suave */
+.section-h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: -.035em;
+  line-height: 1.05;
+}
+
+/* ============================================================
+   HERO SECTION — Interior pages (shorter hero, nav above it)
+   ============================================================ */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 480px;
+}
+
+/* Nested hero elements inherit from index-hifi structure */
+.hero-section .hero-kenburns {
+  position: absolute;
+  inset: -8%;
+  width: 116%;
+  height: 116%;
+  object-fit: cover;
+  animation: kenBurns 18s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+
+.hero-section .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,.3) 0%,
+    rgba(0,0,0,.1) 35%,
+    rgba(0,0,0,.5) 100%
+  );
+  z-index: 1;
+}
+
+.hero-section .hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 96px;
+}
+
+/* ============================================================
+   MOVE 1 — Hero Video Loop + Ken Burns fallback
+   ============================================================ */
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero-video-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Ken Burns — fallback cuando no hay video */
+.hero-kenburns {
+  position: absolute;
+  inset: -8%;
+  width: 116%;
+  height: 116%;
+  object-fit: cover;
+  animation: kenBurns 18s ease-in-out infinite alternate;
+  transform-origin: center center;
+}
+
+@keyframes kenBurns {
+  0%   { transform: scale(1)    translate(0, 0); }
+  100% { transform: scale(1.08) translate(-2%, -1.5%); }
+}
+
+/* Overlay gradiente sobre el hero */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,.22) 0%,
+    rgba(0,0,0,.04) 38%,
+    rgba(0,0,0,.55) 100%
+  );
+  z-index: 1;
+}
+
+/* Contenido del hero */
+.hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 152px;
+  text-align: center;
+}
+
+/* Indicador de scroll en hero */
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 88px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: .45;
+  animation: fadeInUp 1.2s 1.5s both;
+}
+
+.hero-scroll-hint span {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 9px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.hero-scroll-hint svg {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+/* ============================================================
+   MOVE 3 — Entrance Animations (Scroll)
+   ============================================================ */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity  0.72s cubic-bezier(.22, 1, .36, 1),
+    transform 0.72s cubic-bezier(.22, 1, .36, 1);
+  will-change: opacity, transform;
+}
+
+[data-animate].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-animate-delay="1"] { transition-delay: .08s; }
+[data-animate-delay="2"] { transition-delay: .16s; }
+[data-animate-delay="3"] { transition-delay: .24s; }
+[data-animate-delay="4"] { transition-delay: .32s; }
+[data-animate-delay="5"] { transition-delay: .40s; }
+[data-animate-delay="6"] { transition-delay: .48s; }
+
+/* Variante: fade-in sin traslación (para overlays) */
+[data-animate="fade"] {
+  transform: none;
+}
+
+/* Respetar prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  [data-animate],
+  [data-animate].is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* ============================================================
+   MOVE 4 — Overlap Language Extendida
+   ============================================================ */
+.section-overlap {
+  position: relative;
+  z-index: 2;
+  margin-top: -48px;
+  border-radius: var(--radius-section) var(--radius-section) 0 0;
+  box-shadow: var(--shadow-overlap);
+}
+
+.section-overlap-lg {
+  position: relative;
+  z-index: 3;
+  margin-top: -64px;
+  border-radius: var(--radius-section) var(--radius-section) 0 0;
+  box-shadow: 0 -10px 56px rgba(12, 46, 73, .1);
+}
+
+.section-overlap-sm {
+  position: relative;
+  z-index: 2;
+  margin-top: -32px;
+  border-radius: var(--radius-section) var(--radius-section) 0 0;
+  box-shadow: 0 -6px 36px rgba(12, 46, 73, .07);
+}
+
+/* ============================================================
+   MOVE 5 — Stat Counters (el JS los anima, CSS da base)
+   ============================================================ */
+.stat-counter {
+  font-variant-numeric: tabular-nums;
+  display: inline;
+}
+
+.stats-strip {
+  /* Le quitamos el background stone para que sea coherente con el card */
+  background: #F5F3F0;
+  position: relative;
+}
+
+.stats-strip::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(12, 46, 73, .05);
+}
+
+/* ============================================================
+   MOVE 6 — Doctor Section: Parallax Editorial
+   ============================================================ */
+.doc-parallax-wrap {
+  overflow: hidden;
+  position: relative;
+  /* La altura del contenedor permanece fija */
+}
+
+.doc-parallax-img {
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+  display: block;
+  /* transform se aplica via JS */
+  transition: transform 0ms linear;
+  will-change: transform;
+}
+
+/* Placeholder durante desarrollo (igual que .ph-warm pero con dimensiones correctas) */
+.doc-ph-parallax {
+  width: 100%;
+  height: 120%;
+  min-height: 820px;
+  background: #E8E4DE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', monospace;
+  font-size: 11px;
+  color: #AAA;
+  text-align: center;
+  line-height: 1.6;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  will-change: transform;
+  transition: transform 0ms linear;
+}
+
+/* La sección doctor no tiene padding en el lado izquierdo — edge-to-edge */
+.doctor-section {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  min-height: 680px;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+/* ============================================================
+   MOVE 7 — Treatment Cards: Border Reveal Hover
+   ============================================================ */
+.treatment-card {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: #FFF;
+  overflow: hidden;
+  transition:
+    transform    0.35s cubic-bezier(.22, 1, .36, 1),
+    box-shadow   0.35s ease;
+  cursor: pointer;
+}
+
+.treatment-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid var(--navy);
+  opacity: 0;
+  transform: scale(.97);
+  transition:
+    opacity   0.3s ease,
+    transform 0.35s cubic-bezier(.22, 1, .36, 1);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.treatment-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.treatment-card:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Imagen del card con zoom sutil en hover */
+.treatment-card .tc-img {
+  overflow: hidden;
+}
+
+.treatment-card .tc-img > * {
+  transition: transform 0.55s cubic-bezier(.22, 1, .36, 1);
+}
+
+.treatment-card:hover .tc-img > * {
+  transform: scale(1.04);
+}
+
+/* ============================================================
+   MOVE 2 — Marquee Testimonios (Horizontal Infinito)
+   ============================================================ */
+.testimonials-marquee {
+  overflow: hidden;
+  padding: 0;
+}
+
+.marquee-row {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  /* Fade lateral — sensación premium */
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0,0,0,.6) 4%,
+    black 10%,
+    black 90%,
+    rgba(0,0,0,.6) 96%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0,0,0,.6) 4%,
+    black 10%,
+    black 90%,
+    rgba(0,0,0,.6) 96%,
+    transparent 100%
+  );
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 16px;
+  will-change: transform;
+}
+
+/* Fila 1: izquierda → derecha */
+.marquee-row-1 .marquee-track {
+  animation: marqueeLeft 50s linear infinite;
+}
+
+/* Fila 2: derecha → izquierda */
+.marquee-row-2 .marquee-track {
+  animation: marqueeRight 65s linear infinite;
+}
+
+/* Pausa global en hover sobre cualquier fila */
+.testimonials-marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeRight {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* Tarjeta individual del marquee */
+.mq-card {
+  flex-shrink: 0;
+  width: 320px;
+  background: #FFFFFF;
+  border: 1px solid #EDE9E3;
+  border-radius: 12px;
+  padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: box-shadow 0.3s ease;
+}
+
+.mq-card:hover {
+  box-shadow: var(--shadow-card);
+}
+
+/* Fila 2: fondo navy-10 */
+.marquee-row-2 .mq-card {
+  background: var(--navy-10);
+  border-color: var(--navy-20);
+}
+
+.mq-stars {
+  color: #C8A96E;
+  font-size: 13px;
+  letter-spacing: 3px;
+}
+
+.mq-quote {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #333;
+  flex: 1;
+}
+
+.mq-author {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--navy);
+}
+
+.mq-source {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #999;
+  margin-top: 2px;
+}
+
+/* Relleno de las filas con gap entre header y marquee */
+.testimonials-marquee .marquee-row + .marquee-row {
+  margin-top: 16px;
+}
+
+/* ============================================================
+   MOVE 9 — CTA Final: Grain Texture + Frosted Glass Card
+   ============================================================ */
+.cta-hifi {
+  position: relative;
+  background: var(--navy);
+  overflow: hidden;
+}
+
+/* Grain via SVG feTurbulence inline */
+.cta-hifi::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+  opacity: .05;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Vignette radial en bordes */
+.cta-hifi::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 85% 70% at 50% 50%,
+    transparent 40%,
+    rgba(0, 0, 0, .28) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cta-hifi > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Frosted glass card */
+.cta-glass-card {
+  background: rgba(255, 255, 255, .06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 20px;
+  padding: 72px 80px;
+  max-width: 740px;
+  margin: 0 auto;
+}
+
+/* Texto dentro del glass card */
+.cta-glass-card .eyebrow {
+  color: rgba(255, 255, 255, .4) !important;
+}
+
+.cta-glass-card h2 {
+  color: #FFF;
+  font-weight: 800;
+  letter-spacing: -.045em;
+  line-height: 0.97;
+}
+
+.cta-glass-card h2 em {
+  font-weight: 200;
+  font-style: normal;
+  opacity: .55;
+}
+
+.cta-glass-card p {
+  color: rgba(255, 255, 255, .5);
+}
+
+/* Botones en dark */
+.btn-cta-primary {
+  background: #FFF;
+  color: var(--navy);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  padding: 16px 44px;
+  border-radius: 3px;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-cta-primary:hover {
+  background: #F0EDE8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+
+.btn-cta-ghost {
+  background: transparent;
+  color: rgba(255,255,255,.65);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px 42px;
+  border: 1.5px solid rgba(255,255,255,.2);
+  border-radius: 3px;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-cta-ghost:hover {
+  border-color: rgba(255,255,255,.5);
+  color: rgba(255,255,255,.9);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   MOVE 10 — Before/After Drag Slider
+   ============================================================ */
+.ba-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  cursor: ew-resize;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Imagen "después" — siempre visible, fondo */
+.ba-after {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Imagen "antes" — se recorta con clip-path */
+.ba-before-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.ba-before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: inset(0 50% 0 0);
+  transition: clip-path 0s;
+}
+
+/* Handle / divisor */
+.ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: ew-resize;
+  z-index: 3;
+}
+
+.ba-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: rgba(255,255,255,.85);
+  pointer-events: none;
+}
+
+.ba-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 2px solid rgba(255,255,255,.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,.3);
+  position: relative;
+  z-index: 4;
+  flex-shrink: 0;
+}
+
+/* Etiquetas Antes / Después */
+.ba-label {
+  position: absolute;
+  top: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  background: rgba(12, 15, 18, .65);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 2px;
+  z-index: 3;
+  backdrop-filter: blur(4px);
+}
+
+.ba-label-before { left: 14px; }
+.ba-label-after  { right: 14px; }
+
+/* Placeholder de mini galería más premium */
+.gallery-thumb {
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-thumb .ph,
+.gallery-thumb .ph2 {
+  transition: transform 0.55s cubic-bezier(.22, 1, .36, 1);
+}
+
+.gallery-thumb:hover .ph,
+.gallery-thumb:hover .ph2 {
+  transform: scale(1.04);
+}
+
+/* ============================================================
+   BOTONES — Variantes refinadas
+   ============================================================ */
+.btn {
+  font-family: 'Montserrat', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(12, 46, 73, .15);
+}
+
+.btn-dark {
+  background: var(--navy) !important;
+  color: #FFF !important;
+  border: none !important;
+}
+
+.btn-dark:hover {
+  background: var(--navy-80) !important;
+}
+
+.btn-outline {
+  border: 1.5px solid var(--navy) !important;
+  color: var(--navy) !important;
+}
+
+.btn-outline:hover {
+  background: var(--navy) !important;
+  color: #FFF !important;
+}
+
+/* ============================================================
+   NAV — Refinada para hi-fi
+   ============================================================ */
+.nav-hifi {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 64px 0;
+  background-color: transparent;
+  transition:
+    background-color 0.44s cubic-bezier(.22, 1, .36, 1),
+    box-shadow       0.44s ease,
+    padding-top      0.44s ease;
+}
+
+.nav-hifi .nav-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-hifi .nav-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #FFF;
+  text-decoration: none;
+}
+
+.nav-hifi .nav-logo span {
+  display: block;
+  font-weight: 300;
+  font-size: 9px;
+  letter-spacing: .2em;
+  color: rgba(255,255,255,.45);
+  margin-top: -1px;
+}
+
+.nav-hifi .nav-links {
+  display: flex;
+  gap: 36px;
+}
+
+.nav-hifi .nav-links a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-hifi .nav-links a:hover {
+  color: rgba(255,255,255,1);
+}
+
+.nav-hifi .nav-cta {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,.12);
+  color: #FFF;
+  border: 1px solid rgba(255,255,255,.25);
+  padding: 10px 22px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.nav-hifi .nav-cta:hover {
+  background: rgba(255,255,255,.22);
+  border-color: rgba(255,255,255,.5);
+}
+
+/* Nav: scrolled state — frosted white, navy text */
+.nav-hifi.nav-scrolled {
+  padding-top: 0;
+  background-color: rgba(255, 255, 255, .97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .06), 0 4px 24px rgba(12, 46, 73, .07);
+}
+
+.nav-hifi.nav-scrolled .nav-inner {
+  height: 64px;
+}
+
+.nav-hifi.nav-scrolled .nav-logo {
+  color: var(--navy);
+}
+
+.nav-hifi.nav-scrolled .nav-logo span {
+  color: rgba(12, 46, 73, .4);
+}
+
+.nav-hifi.nav-scrolled .nav-links a {
+  color: rgba(12, 46, 73, .6);
+}
+
+.nav-hifi.nav-scrolled .nav-links a:hover {
+  color: var(--navy);
+}
+
+.nav-hifi.nav-scrolled .nav-cta {
+  background: var(--navy);
+  color: #FFF;
+  border-color: var(--navy);
+}
+
+.nav-hifi.nav-scrolled .nav-cta:hover {
+  background: var(--navy-80);
+  border-color: var(--navy-80);
+}
+
+/* ============================================================
+   SHA SIGNATURE — Hero bottom blend
+   Fades the cinematic hero into the page content below
+   ============================================================ */
+.hero-bottom-blend {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--blend-h);
+  background: linear-gradient(
+    to bottom,
+    transparent                      0%,
+    rgba(255, 255, 255, .05)         18%,
+    rgba(255, 255, 255, .42)         52%,
+    rgba(255, 255, 255, .88)         78%,
+    #ffffff                          100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ============================================================
+   NAV — Interior pages (white sticky, not overlaying hero)
+   ============================================================ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, .97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .06);
+  padding: 0 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.nav .nav-logo,
+.nav a.nav-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--navy);
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.nav .nav-logo span {
+  display: block;
+  font-weight: 300;
+  font-size: 9px;
+  letter-spacing: .2em;
+  color: rgba(12, 46, 73, .4);
+  margin-top: 1px;
+}
+
+.nav .nav-links,
+.nav ul.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav .nav-links li { margin: 0; padding: 0; }
+
+.nav .nav-links a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(12, 46, 73, .6);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav .nav-links a:hover,
+.nav .nav-links a.active {
+  color: var(--navy);
+}
+
+/* CTA button inside nav */
+.btn-nav-cta {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: var(--navy);
+  color: #FFF !important;
+  padding: 10px 22px;
+  text-decoration: none;
+  border-radius: 2px;
+  border: 1px solid var(--navy);
+  transition: background 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-nav-cta:hover {
+  background: var(--navy-80);
+}
+
+/* ============================================================
+   BTN-PRIMARY — Shared button for overlap cards and sections
+   ============================================================ */
+.btn-primary {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: var(--navy);
+  color: #FFF !important;
+  padding: 14px 28px;
+  text-decoration: none;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--navy-80);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   WHATSAPP FAB — Verde real + bounce al cargar
+   ============================================================ */
+.wa {
+  background: #25D366 !important;
+  text-decoration: none;
+  animation: waBounceIn 0.6s 3s cubic-bezier(.34, 1.56, .64, 1) both;
+  transition: transform 0.25s cubic-bezier(.34, 1.56, .64, 1), box-shadow 0.25s ease !important;
+}
+
+.wa:hover {
+  transform: scale(1.12) !important;
+  box-shadow: 0 8px 28px rgba(37, 211, 102, .4) !important;
+}
+
+@keyframes waBounceIn {
+  0%   { opacity: 0; transform: scale(.4) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ============================================================
+   SECCIÓN FILOSOFÍA — Overlap sobre overlap-card
+   ============================================================ */
+.philosophy-section {
+  padding: 160px 64px 128px;
+  background: #FFF;
+  position: relative;
+  z-index: 2;
+  margin-top: -48px;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -8px 48px rgba(12, 46, 73, .07);
+}
+
+/* Línea decorativa sobre el eyebrow */
+.philosophy-section .eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--steel);
+  margin: 0 auto 16px;
+}
+
+/* ============================================================
+   ICON CIRCLES — Refinados
+   ============================================================ */
+.icon-circle {
+  border-color: var(--navy-20) !important;
+  background: transparent;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+/* Hover en cards de propuesta de valor */
+.value-prop:hover .icon-circle {
+  background: var(--navy-10);
+  border-color: var(--navy-40) !important;
+}
+
+.value-prop {
+  transition: transform 0.3s cubic-bezier(.22, 1, .36, 1);
+}
+
+.value-prop:hover {
+  transform: translateY(-4px);
+}
+
+/* ============================================================
+   FOOTER — Refinado
+   ============================================================ */
+.footer-hifi {
+  background: #08121C;
+  border-top: 1px solid rgba(255,255,255,.04);
+}
+
+.footer-hifi a {
+  transition: color 0.2s ease;
+}
+
+.footer-hifi a:hover {
+  color: var(--steel) !important;
+}
+
+/* ============================================================
+   RESPONSIVE — Hereda y extiende responsive.css
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Overlap sections: reducir margen negativo */
+  .section-overlap,
+  .section-overlap-lg,
+  .section-overlap-sm,
+  .philosophy-section {
+    margin-top: -20px;
+    border-radius: 16px 16px 0 0;
+  }
+
+  /* Doctor: grid a una columna */
+  .doctor-section {
+    grid-template-columns: 1fr;
+  }
+
+  .doc-parallax-wrap {
+    height: 380px;
+    min-height: 0;
+  }
+
+  .doc-ph-parallax {
+    min-height: 380px;
+    height: 100%;
+  }
+
+  /* Parallax desactivado en mobile (performance) */
+  .doc-ph-parallax,
+  .doc-parallax-img {
+    transform: none !important;
+    will-change: auto;
+  }
+
+  /* Video: esconder en mobile, mostrar imagen */
+  .hero-video-wrap video.hero-video-mobile-hide {
+    display: none;
+  }
+
+  /* CTA glass card: menos padding */
+  .cta-glass-card {
+    padding: 48px 32px;
+  }
+
+  /* Marquee: velocidad reducida en mobile */
+  .marquee-row-1 .marquee-track {
+    animation-duration: 35s;
+  }
+
+  .marquee-row-2 .marquee-track {
+    animation-duration: 45s;
+  }
+
+  /* Cards marquee: más pequeños */
+  .mq-card {
+    width: 260px;
+    padding: 20px 20px 18px;
+  }
+
+  /* Nav hifi */
+  .nav-hifi {
+    padding: 0 20px;
+  }
+
+  .nav-hifi .nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .cta-glass-card {
+    padding: 36px 20px;
+  }
+
+  .philosophy-section {
+    padding: 80px 20px 64px;
+  }
+}
