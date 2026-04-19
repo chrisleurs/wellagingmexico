@@ -42,6 +42,14 @@
   .dra-strip-photo { height:220px; }
 }
 </style>
+
+<style>
+  /* Image injection layer */
+  .ph, .ph2, .ph-warm, .ph-dark { color: transparent !important; background-size: cover !important; background-position: center !important; }
+  .img-bg { background-size: cover !important; background-position: center !important; color: transparent !important; }
+  .doc-ph-parallax { background-image: url('img/dra-liliana.jpg'); background-size: cover; background-position: center top; color: transparent !important; }
+  .clinic-ph .hero-kenburns { background-image: url('img/clinica-interior.jpg') !important; background-size: cover !important; background-position: center !important; }
+</style>
 </head>
 <body>
 
@@ -62,7 +70,7 @@
      HERO — 58vh
 ──────────────────────────────────────── -->
 <section class="hero-section" style="height:58vh;min-height:420px;">
-  <div class="hero-kenburns" style="background:linear-gradient(160deg,#1a3a4f 0%,#0C2E49 60%,#162d40 100%);">
+  <div class="hero-kenburns" style="background:linear-gradient(160deg,#1a3a4f 0%,#0C2E49 60%,#162d40 100%), url('img/clinica-interior.jpg'); background-size:cover; background-position:center; background-blend-mode:multiply;">
     <!-- Abstract medical grid pattern -->
     <div style="position:absolute;inset:0;opacity:.06;background-image:repeating-linear-gradient(0deg,transparent,transparent 60px,rgba(255,255,255,.08) 60px,rgba(255,255,255,.08) 61px),repeating-linear-gradient(90deg,transparent,transparent 60px,rgba(255,255,255,.08) 60px,rgba(255,255,255,.08) 61px);"></div>
   </div>
