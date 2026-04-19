@@ -1283,3 +1283,303 @@ h2 {
     padding: 80px 20px 64px;
   }
 }
+
+/* ============================================================
+   POLYFILL — Missing classes used by tratamientos / tratamiento /
+   sobre-nosotros pages. Defines container, footer, sections,
+   eyebrows, titles. Plus video-simulation enhancements for hero.
+   ============================================================ */
+
+/* Container — content max-width wrapper */
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 64px;
+  position: relative;
+}
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+}
+
+/* Section helpers */
+.philosophy-section {
+  padding: 120px 0;
+  background: #fff;
+  position: relative;
+}
+.section-overlap {
+  padding: 120px 0;
+  position: relative;
+}
+.section-overlap-sm {
+  padding: 64px 0;
+  position: relative;
+}
+.section-overlap-lg {
+  padding: 144px 0;
+  position: relative;
+}
+@media (max-width: 768px) {
+  .philosophy-section,
+  .section-overlap,
+  .section-overlap-lg { padding: 64px 0; }
+  .section-overlap-sm { padding: 32px 0; }
+}
+
+/* Eyebrow v2 — small uppercase label */
+.eyebrow-v2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #6E8491;
+  margin: 0 0 14px;
+  display: block;
+}
+
+/* Section title (display H2) */
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3.6vw, 48px);
+  line-height: 1.05;
+  letter-spacing: -.035em;
+  color: #0C2E49;
+  margin: 0 0 24px;
+}
+.section-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: #0C2E49;
+  opacity: .85;
+}
+
+/* Section subtitle (intro paragraph) */
+.section-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: clamp(15px, 1.3vw, 17px);
+  line-height: 1.75;
+  color: #6E8491;
+  max-width: 640px;
+  margin: 0;
+}
+
+/* Overlap card — floating panel above section break */
+.overlap-card {
+  position: relative;
+  z-index: 10;
+  background: #FFF;
+  max-width: 1180px;
+  margin: -88px auto 0;
+  padding: 36px 56px;
+  box-shadow: 0 -4px 40px rgba(0,0,0,.10), 0 12px 48px rgba(12,46,73,.08);
+  border-radius: 4px;
+}
+@media (max-width: 768px) {
+  .overlap-card {
+    margin: 0 16px;
+    padding: 24px 20px;
+  }
+}
+
+/* ============================================================
+   FOOTER (used by tratamientos / tratamiento / sobre-nosotros)
+   ============================================================ */
+.footer {
+  background: #08121C;
+  color: #C9D2DA;
+  font-family: 'Montserrat', sans-serif;
+  padding: 80px 64px 32px;
+  position: relative;
+}
+.footer a { color: #C9D2DA; text-decoration: none; transition: color .2s; }
+.footer a:hover { color: #fff; }
+
+.footer-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.footer-col { font-size: 13px; line-height: 1.85; }
+
+.footer-logo {
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -.03em;
+  color: #fff;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.footer-logo span {
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  margin-top: 4px;
+}
+
+.footer-tagline {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(255,255,255,.6);
+  margin: 0;
+}
+
+.footer-col-title {
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-links li {
+  font-size: 13px;
+  color: rgba(255,255,255,.6);
+  line-height: 1.55;
+}
+
+.footer-bottom {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: rgba(255,255,255,.4);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .footer { padding: 56px 20px 24px; }
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px 24px;
+    padding-bottom: 36px;
+  }
+  .footer-col:first-child { grid-column: 1 / -1; }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* ============================================================
+   HOME HERO — Video simulation
+   Layered Ken Burns + slow drift overlay + cinematic vignette +
+   subtle film grain. Together they read as a moving video loop.
+   ============================================================ */
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Slower, deeper Ken Burns specifically inside the home hero wrap */
+.hero-video-wrap .hero-kenburns {
+  animation: kenBurnsHome 22s ease-in-out infinite alternate;
+  filter: saturate(1.05) contrast(1.04);
+}
+
+@keyframes kenBurnsHome {
+  0%   { transform: scale(1.04) translate(-1%, -1%); }
+  50%  { transform: scale(1.10) translate(1%, -2%); }
+  100% { transform: scale(1.14) translate(-1.5%, 1%); }
+}
+
+/* Soft moving light sweep — simulates camera light play */
+.hero-video-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(
+    ellipse at 30% 20%,
+    rgba(255, 230, 200, 0.18) 0%,
+    rgba(255, 230, 200, 0) 45%
+  ), radial-gradient(
+    ellipse at 75% 80%,
+    rgba(120, 160, 200, 0.18) 0%,
+    rgba(120, 160, 200, 0) 50%
+  );
+  z-index: 2;
+  pointer-events: none;
+  animation: heroLightDrift 14s ease-in-out infinite alternate;
+  mix-blend-mode: screen;
+}
+
+@keyframes heroLightDrift {
+  0%   { transform: translate(0, 0) scale(1); opacity: .9; }
+  50%  { transform: translate(3%, -2%) scale(1.05); opacity: 1; }
+  100% { transform: translate(-2%, 3%) scale(1.1); opacity: .85; }
+}
+
+/* Cinematic vignette */
+.hero-video-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 55%,
+    rgba(0, 0, 0, 0.45) 100%
+  );
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Subtle film grain — adds organic motion feel */
+.hero-bottom-blend {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 70%, rgba(8, 18, 28, 0.85) 100%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-size: 100% 100%, 200px 200px;
+  animation: grainShift 1.4s steps(6) infinite;
+}
+
+@keyframes grainShift {
+  0%   { background-position: 0 0, 0 0; }
+  20%  { background-position: 0 0, -40px 20px; }
+  40%  { background-position: 0 0, 30px -10px; }
+  60%  { background-position: 0 0, -20px -30px; }
+  80%  { background-position: 0 0, 40px 25px; }
+  100% { background-position: 0 0, -10px 10px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-video-wrap .hero-kenburns,
+  .hero-video-wrap::before,
+  .hero-bottom-blend {
+    animation: none !important;
+  }
+}
