@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import DesignSystemPage from "./pages/DesignSystemPage.tsx";
 import SitemapPage from "./pages/SitemapPage.tsx";
 import WireframesPage from "./pages/WireframesPage.tsx";
+import DisenoWebPage from "./pages/DisenoWebPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/design-system" element={<DesignSystemPage />} />
           <Route path="/sitemap" element={<SitemapPage />} />
           <Route path="/wireframes" element={<WireframesPage />} />
+          <Route path="/diseno-web" element={<DisenoWebPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

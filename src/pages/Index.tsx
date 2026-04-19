@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Palette, Map, Layout } from "lucide-react";
+import { Palette, Map, Layout, Sparkles } from "lucide-react";
 
 const cards = [
   {
@@ -19,6 +19,12 @@ const cards = [
     description: "Estructura de secciones para Home, Servicio, Dra. Liliana, Resultados y Contacto.",
     icon: Layout,
     path: "/wireframes",
+  },
+  {
+    title: "Diseño Web",
+    description: "Páginas hi-fi con imágenes editoriales: Home, Tratamientos, PRP y Dra. Liliana.",
+    icon: Sparkles,
+    path: "/diseno-web",
   },
 ];
 
@@ -43,8 +49,8 @@ const Index = () => {
       </header>
 
       {/* Cards */}
-      <main className="max-w-5xl mx-auto px-6 -mt-10">
-        <div className="grid md:grid-cols-3 gap-6">
+      <main className="max-w-6xl mx-auto px-6 -mt-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {cards.map((card) => (
             <button
               key={card.path}
