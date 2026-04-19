@@ -1,69 +1,67 @@
 
 
-# Plan: Página "Control" — Hub de navegación Well Aging
+## Plan: Nueva sección "Diseño Web" con páginas Hi-Fi
 
-## Resumen
+### Resumen
+Agregar una cuarta card "Diseño Web" en el panel de Control que lleve a una nueva página `/diseno-web` con tabs para previsualizar las 4 páginas Hi-Fi (Home, Tratamientos, Tratamiento, Sobre Nosotros) usando el CSS `hifi.css`. Generar imágenes de fondo con IA para rellenar los placeholders del wireframe y darle vida visual a las páginas.
 
-Crear una página central `/control` con tres cards elegantes que lleven a tres sub-páginas: Design System, Sitemap y Wireframes. Cada sub-página renderizará el contenido de los documentos adjuntos con formato visual. La estética seguirá el design system de Well Aging (navy #0C2E49, beige #E5DFD3, steel #A1B2C6, Montserrat).
+### Archivos Hi-Fi recibidos
+- `index-hifi.html` → Home
+- `tratamientos-hifi.html` → Listado tratamientos
+- `tratamiento-hifi.html` → Detalle PRP
+- `sobre-nosotros-hifi.html` → Dra. Liliana
+- `hifi.css` → Stylesheet compartido (depende también de `responsive.css` que ya existe)
 
-## Alcance
+### Alcance
 
-### 1. Actualizar design system (CSS + Tailwind)
-- Reemplazar los colores por defecto con la paleta Well Aging:
-  - Primary: navy `#0C2E49`
-  - Secondary: steel `#A1B2C6`
-  - Accent: beige `#E5DFD3`
-  - Background: `#FFFFFF`
-  - Body text: `#3D5669`
-- Agregar Montserrat desde Google Fonts (headings Bold, body Regular)
-- Ajustar border-radius a 8-12px, shadows según design system
+**1. Copiar archivos a `public/diseno-web/`**
+- 4 archivos HTML hi-fi
+- `hifi.css`
+- Reutilizar `responsive.css` existente (copiar también para mantener autonomía)
 
-### 2. Página Control `/control` (Index)
-- Tres cards grandes con hover elegante
-- Cada card: icono, título, descripción corta, link
-  - **Design System** → `/design-system`
-  - **Sitemap** → `/sitemap`
-  - **Wireframes** → `/wireframes`
-- Header con nombre "Well Aging Mexico" y subtítulo "Panel de Control del Proyecto"
-- Estética spa/clínica premium
+**2. Generar imágenes de fondo con IA (Nano banana)**
+Crear ~8-10 imágenes que cubran los `.ph` placeholders más visibles:
+- Hero principal (mujer madura, luz natural, spa médico premium)
+- Doctora (Dra. Liliana, retrato editorial, bata blanca, ambiente clínico)
+- Clínica interior (recepción minimalista navy/beige)
+- Tratamiento PRP (manos con jeringa, ambiente médico estético)
+- 3-4 cards de tratamientos (facial, corporal, regenerativo, wellness)
+- Before/after rostro (resultados sutiles, naturales)
+- Background ambiente (texturas spa, agua, mármol)
 
-### 3. Página Design System `/design-system`
-- Renderizado visual del documento `design-system.md`
-- Secciones: Colores (swatches visuales), Tipografía (ejemplos vivos), Botones (demo interactiva), Espaciado, Componentes clave
-- Botón de regreso a Control
+Guardar en `public/diseno-web/img/` y reemplazar los `<div class="ph">` correspondientes en los HTML por `<img>` o backgrounds CSS inline.
 
-### 4. Página Sitemap `/sitemap`
-- Renderizado visual del árbol de URLs con estructura jerárquica
-- Detalle de cada página con H1, keywords, meta
-- Vista de árbol colapsable o visual
-- Botón de regreso
+**3. Crear página `/diseno-web` (`src/pages/DisenoWebPage.tsx`)**
+- Mismo patrón que `WireframesPage.tsx`: header navy + tabs + iframe
+- 4 tabs: Home · Tratamientos · Tratamiento (PRP) · Sobre Nosotros
+- Botón "Abrir en nueva pestaña"
+- Botón volver al Control
 
-### 5. Página Wireframes `/wireframes`
-- Renderizado del contenido ASCII wireframes en bloques con tipografía monoespaciada estilizada
-- Separación clara por página (Home, Servicio, Dra. Liliana, Resultados, Contacto, Blog)
-- Botón de regreso
+**4. Actualizar `src/pages/Index.tsx`**
+- Agregar 4ª card "Diseño Web" con icono `Sparkles` o `Monitor` (lucide-react)
+- Ajustar grid a `md:grid-cols-2 lg:grid-cols-4` para acomodar 4 cards
 
-### 6. Routing
-- Actualizar `App.tsx` con las 4 rutas: `/`, `/design-system`, `/sitemap`, `/wireframes`
-- Redirigir `/` a la página Control
+**5. Actualizar `src/App.tsx`**
+- Nueva ruta `/diseno-web` → `DisenoWebPage`
 
-## Archivos a crear/modificar
+### Detalles técnicos
+- Las imágenes se inyectan editando el HTML directamente (reemplazar `.ph` por `<img src="img/xxx.jpg">` con clases que mantengan dimensiones)
+- Para hero/clinic con `.hero-kenburns`, usar `background-image` inline en el contenedor
+- Resolución imágenes: 1600x1000 para heroes, 800x600 para cards
+- Estética: spa médico premium, paleta navy/beige/steel, modelos diversos edad 35-60, iluminación natural cálida, sin texto en imágenes
+
+### Archivos a crear/modificar
 
 | Archivo | Acción |
 |---------|--------|
-| `src/index.css` | Modificar - paleta Well Aging + Montserrat |
-| `tailwind.config.ts` | Modificar - colores custom |
-| `index.html` | Modificar - agregar Google Fonts |
-| `src/pages/Index.tsx` | Reemplazar - página Control |
-| `src/pages/DesignSystemPage.tsx` | Crear |
-| `src/pages/SitemapPage.tsx` | Crear |
-| `src/pages/WireframesPage.tsx` | Crear |
-| `src/App.tsx` | Modificar - agregar rutas |
-
-## Detalles Técnicos
-
-- Contenido de los documentos se embebe directamente en los componentes (no se leen archivos en runtime)
-- Las cards de Control tendrán efecto hover con elevación y transición suave
-- Cada sub-página tendrá un layout consistente con header navy, contenido en fondo blanco/beige alterno, y navegación de regreso
-- Responsive: las cards se apilarán en móvil
+| `public/diseno-web/home.html` | Crear (desde index-hifi) |
+| `public/diseno-web/tratamientos.html` | Crear |
+| `public/diseno-web/tratamiento.html` | Crear |
+| `public/diseno-web/sobre-nosotros.html` | Crear |
+| `public/diseno-web/hifi.css` | Crear |
+| `public/diseno-web/responsive.css` | Crear |
+| `public/diseno-web/img/*.jpg` | Crear (~8-10 imágenes IA) |
+| `src/pages/DisenoWebPage.tsx` | Crear |
+| `src/pages/Index.tsx` | Modificar (4ª card + grid) |
+| `src/App.tsx` | Modificar (nueva ruta) |
 
