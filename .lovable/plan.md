@@ -1,58 +1,39 @@
 
 
-## Plan: Actualizar páginas Hi-Fi a v2 + agregar Resultados, Contacto y Blog
+## Plan: Quitar barra superior del panel + Logo como acceso al panel + Item "Inicio" en navbars
 
-### Resumen
-Reemplazar las 4 páginas Hi-Fi existentes con sus versiones v2, actualizar el CSS principal a `hifi-2.css`, y agregar 3 páginas nuevas (Resultados, Contacto, Blog) al tab de Diseño Web.
+### Problema
+La barra navy superior del panel (en `/diseno-web`) ocupa 52px arriba del iframe y compite visualmente con el navbar real del sitio. Solución: eliminarla, hacer que el **logo "Well Aging"** del propio sitio sea el atajo para volver al panel, y agregar **"Inicio"** como primer item del navbar para llevar a `home.html`.
 
 ### Cambios
 
-**1. Reemplazar CSS principal**
-- `public/diseno-web/hifi.css` ← contenido de `hifi-2.css` (1506 líneas, incluye 10 elevation moves: video loop, marquee, animaciones, parallax, counters, etc.)
+**1. `src/pages/DisenoWebPage.tsx` — Eliminar barra superior**
+- Quitar el `<header>` completo. El iframe ocupa toda la pantalla (`height: 100vh`).
+- Eliminar imports no usados (`ArrowLeft`, `ExternalLink`, `useNavigate`).
+- Resultado: el sitio se ve full-screen, sin distracción.
 
-**2. Reemplazar 4 páginas existentes con v2**
-- `public/diseno-web/home.html` ← `index-hifi-2.html`
-- `public/diseno-web/tratamientos.html` ← `tratamientos-hifi-2.html`
-- `public/diseno-web/tratamiento.html` ← `tratamiento-hifi-2.html`
-- `public/diseno-web/sobre-nosotros.html` ← `sobre-nosotros-hifi-2.html`
+**2. Las 7 páginas en `public/diseno-web/*.html` — Logo → Panel + Item "Inicio"**
 
-**3. Agregar 3 páginas nuevas**
-- `public/diseno-web/resultados.html` ← `resultados-hifi.html`
-- `public/diseno-web/contacto.html` ← `contacto-hifi.html`
-- `public/diseno-web/blog.html` ← `blog-hifi.html`
+En cada navbar (`nav-hifi` en home, `nav` en el resto):
+- **Logo**: cambiar `href="home.html"` → `href="/diseno-web"` y agregar `target="_top"` para escapar del iframe y volver al panel `/`.
 
-**4. Re-inyectar imágenes en los HTML actualizados**
-Las páginas v2 vienen con `.ph` placeholders. Aplicar el mismo script de inyección de imágenes que se usó antes para reemplazar placeholders por las imágenes ya generadas en `public/diseno-web/img/` (hero-home, dra-liliana, clinica-interior, prp-treatment, treatment-*, gallery-*).
+  Espera, mejor: el logo debe llevar al **panel de control** (`/`). Entonces `href="/"` con `target="_top"`.
+- **Agregar `<a href="home.html">Inicio</a>`** como primer item de `.nav-links` en las 7 páginas (con `class="active"` cuando estamos en `home.html`).
 
-**5. Generar imágenes faltantes con IA** (~4-5 nuevas)
-- `results-ba-1.jpg` y `results-ba-2.jpg` — before/after rostro para página Resultados
-- `blog-featured.jpg` — imagen editorial para post destacado
-- `blog-thumb-1/2/3.jpg` — thumbnails de artículos
-- `contacto-clinic.jpg` — fachada/recepción para sección de contacto
+**3. Mobile drawer (`#mobileDrawer`) en las 7 páginas**
+- Agregar también el link **Inicio** como primer item del drawer móvil para mantener paridad con desktop.
 
-**6. Actualizar `src/pages/DisenoWebPage.tsx`**
-Ampliar el array `pages` de 4 a 7 tabs:
-```
-Home · Tratamientos · Tratamiento (PRP) · Sobre Nosotros · Resultados · Blog · Contacto
-```
+**4. Tooltip / hint visual (opcional pero recomendado)**
+- Agregar `title="Volver al panel de control"` al `<a class="nav-logo">` para que el usuario entienda al hacer hover que el logo es el atajo al panel.
 
-### Archivos a modificar/crear
+### Detalles técnicos
+- El logo usa `target="_top"` porque las páginas viven dentro de un `<iframe>` en `/diseno-web`; sin eso, navegar a `/` cargaría el panel **dentro** del iframe.
+- El item "Inicio" usa rutas relativas (`home.html`) — funciona igual dentro del iframe y al abrir en pestaña nueva.
+- El estilo del nuevo link "Inicio" hereda automáticamente los estilos de `.nav-links a` ya existentes en cada página (incluyendo los overrides inline de `blog.html` y `resultados.html`).
+- Total de archivos editados: **8** (1 React + 7 HTML).
 
-| Archivo | Acción |
-|---------|--------|
-| `public/diseno-web/hifi.css` | Reemplazar (v2 completo) |
-| `public/diseno-web/home.html` | Reemplazar + inyectar imágenes |
-| `public/diseno-web/tratamientos.html` | Reemplazar + inyectar imágenes |
-| `public/diseno-web/tratamiento.html` | Reemplazar + inyectar imágenes |
-| `public/diseno-web/sobre-nosotros.html` | Reemplazar + inyectar imágenes |
-| `public/diseno-web/resultados.html` | Crear + inyectar imágenes |
-| `public/diseno-web/contacto.html` | Crear + inyectar imágenes |
-| `public/diseno-web/blog.html` | Crear + inyectar imágenes |
-| `public/diseno-web/img/*.jpg` | Generar ~5 imágenes nuevas |
-| `src/pages/DisenoWebPage.tsx` | Ampliar tabs a 7 |
-
-### Notas
-- El nuevo `hifi-2.css` es una capa de elevación con tokens completos (sombras, radios, animaciones), así que reemplaza limpiamente al CSS anterior y mantiene compatibilidad con los `.ph` placeholders.
-- Las páginas v2 traen Tailwind CDN en algunos casos (home v2 lo usa) — se conserva tal cual.
-- El simulado de "video hero" del paso anterior queda obsoleto: la v2 ya define su propio sistema (`hero-video-loop` con Ken Burns + light drift en el CSS v2).
+### Resultado esperado
+- `/diseno-web` muestra el sitio a pantalla completa, sin barra navy superior.
+- Click en el logo "Well Aging" desde cualquier página → vuelve al panel `/`.
+- Nuevo item "Inicio" visible en navbar desktop y drawer móvil → lleva a `home.html`.
 
