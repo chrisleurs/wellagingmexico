@@ -602,9 +602,9 @@
     const meta = CAT_META[state.cat] || CAT_META.all;
     catNum.textContent = meta.num;
     catTitle.textContent = meta.title;
-    // Empty state
-    if(visible === 0){
-      const catLabel = state.cat === 'all' ? 'tratamiento disponible' : `tratamiento de ${meta.title}`;
+    // Empty state — solo cuando el filtro de duración deja la lista vacía
+    if(visible === 0 && state.time !== 'all'){
+      const catLabel = state.cat === 'all' ? 'tratamiento' : `tratamiento de ${meta.title}`;
       emptyMsg.textContent = `Ningún ${catLabel} coincide con la ${TIME_LABEL[state.time]}. Prueba con otra duración o agenda una valoración para que la Dra. Liliana te recomiende el protocolo ideal.`;
       empty.hidden = false;
       if(railWrap) railWrap.style.display = 'none';
