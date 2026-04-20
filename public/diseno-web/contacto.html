@@ -657,6 +657,9 @@ select.f-input:valid { color: #0C2E49; }
     <li><a href="contacto.html" class="active">Contacto</a></li>
   </ul>
   <a href="#agendar" class="btn-nav-cta">Agendar consulta</a>
+  <button class="nav-hamburger" type="button" aria-label="Abrir menú" aria-expanded="false" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- ═══════════════════════════════════════════
@@ -1038,5 +1041,43 @@ select.f-input:valid { color: #0C2E49; }
   document.querySelectorAll('[data-animate]').forEach(el => obs.observe(el));
 })();
 </script>
+
+<!-- MOBILE DRAWER -->
+<div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+  <div class="mobile-drawer-backdrop" onclick="toggleMobileMenu()"></div>
+  <aside class="mobile-drawer-panel" role="dialog" aria-label="Menú de navegación">
+    <div class="mobile-drawer-header">
+      <a href="home.html" class="mobile-drawer-logo">Well Aging<span>México</span></a>
+      <button class="mobile-drawer-close" type="button" aria-label="Cerrar menú" onclick="toggleMobileMenu()">×</button>
+    </div>
+    <nav class="mobile-drawer-nav">
+      <a href="home.html">Inicio</a>
+      <a href="tratamientos.html">Tratamientos</a>
+      <a href="sobre-nosotros.html">Nosotros</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="blog.html">Blog</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="mobile-drawer-footer">
+      <a href="contacto.html" class="mobile-drawer-cta">Agendar consulta</a>
+      <p class="mobile-drawer-meta">Querétaro · Lun–Vie 9:00–19:00</p>
+    </div>
+  </aside>
+</div>
+<script>
+(function(){
+  if (window.toggleMobileMenu) return;
+  window.toggleMobileMenu = function() {
+    var d = document.getElementById('mobileDrawer');
+    var btn = document.querySelector('.nav-hamburger');
+    if (!d) return;
+    var open = d.classList.toggle('open');
+    d.setAttribute('aria-hidden', open ? 'false' : 'true');
+    if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+})();
+</script>
+
 </body>
 </html>

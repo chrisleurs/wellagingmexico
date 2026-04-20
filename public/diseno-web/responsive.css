@@ -223,20 +223,25 @@
 
   /* ===== NAV V3 (.nav con .nav-links) ===== */
   nav.nav {
-    padding: 12px 16px !important;
+    padding: 10px 16px !important;
     gap: 8px !important;
+    height: auto !important;
+    min-height: 56px !important;
   }
   nav.nav .nav-links {
     display: none !important;
   }
   nav.nav .nav-logo {
-    font-size: 14px !important;
+    font-size: 13px !important;
+    flex: 1 1 auto !important;
   }
+  /* En mobile mostramos hamburguesa en vez del CTA del nav */
   nav.nav .btn-nav-cta,
   nav.nav a.btn-nav-cta {
-    padding: 8px 14px !important;
-    font-size: 11px !important;
-    white-space: nowrap !important;
+    display: none !important;
+  }
+  .nav-hamburger {
+    display: inline-flex !important;
   }
 
   /* ===== HERO V3 — quitar padding lateral grande ===== */
@@ -268,4 +273,162 @@
 
   /* Stats strip — más compacto */
   [style*="padding:20px 40px"] { padding: 16px 12px !important; }
+}
+
+/* ============================================================
+   HAMBURGER BUTTON — visible solo en mobile (toggleado arriba)
+   ============================================================ */
+.nav-hamburger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  background: transparent;
+  border: 1px solid rgba(12, 46, 73, .15);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+.nav-hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--navy, #0C2E49);
+  border-radius: 2px;
+  transition: transform .25s ease, opacity .2s ease;
+}
+
+/* ============================================================
+   MOBILE DRAWER — panel azul navy desde la derecha
+   ============================================================ */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  visibility: hidden;
+}
+.mobile-drawer.open {
+  pointer-events: auto;
+  visibility: visible;
+}
+.mobile-drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 24, 40, .55);
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.mobile-drawer.open .mobile-drawer-backdrop {
+  opacity: 1;
+}
+.mobile-drawer-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(86vw, 340px);
+  background: linear-gradient(180deg, #0C2E49 0%, #0a2540 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform .35s cubic-bezier(.16,.84,.32,1);
+  box-shadow: -8px 0 40px rgba(0,0,0,.35);
+  font-family: 'Montserrat', sans-serif;
+}
+.mobile-drawer.open .mobile-drawer-panel {
+  transform: translateX(0);
+}
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.mobile-drawer-logo {
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+  line-height: 1.2;
+}
+.mobile-drawer-logo span {
+  display: block;
+  font-weight: 300;
+  font-size: 9px;
+  letter-spacing: .2em;
+  color: rgba(255,255,255,.5);
+  margin-top: 2px;
+}
+.mobile-drawer-close {
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  opacity: .8;
+}
+.mobile-drawer-close:hover { opacity: 1; background: rgba(255,255,255,.06); }
+
+.mobile-drawer-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0;
+  flex: 1;
+}
+.mobile-drawer-nav a {
+  padding: 14px 24px;
+  color: rgba(255,255,255,.85);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: .02em;
+  border-left: 3px solid transparent;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.mobile-drawer-nav a:hover,
+.mobile-drawer-nav a:focus {
+  background: rgba(255,255,255,.05);
+  color: #fff;
+  border-left-color: rgba(255,255,255,.4);
+}
+
+.mobile-drawer-footer {
+  padding: 20px 22px 28px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.mobile-drawer-cta {
+  display: block;
+  text-align: center;
+  background: #fff;
+  color: #0C2E49 !important;
+  padding: 14px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.mobile-drawer-meta {
+  margin: 14px 0 0;
+  font-size: 11px;
+  color: rgba(255,255,255,.45);
+  letter-spacing: .08em;
+  text-align: center;
 }
