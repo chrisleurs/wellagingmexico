@@ -1297,11 +1297,14 @@ h2 {
 .btn-dark {
   background: var(--navy) !important;
   color: #FFF !important;
-  border: none !important;
+  border: 1px solid var(--navy) !important;
+  box-shadow: 0 2px 0 rgba(12,46,73,.06), 0 8px 22px -10px rgba(12,46,73,.45);
 }
 
 .btn-dark:hover {
   background: var(--navy-80) !important;
+  border-color: var(--navy-80) !important;
+  box-shadow: 0 4px 0 rgba(12,46,73,.08), 0 14px 30px -12px rgba(12,46,73,.55);
 }
 
 .btn-outline {
