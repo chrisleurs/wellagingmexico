@@ -259,80 +259,172 @@
 <section class="treatments-hero section-overlap-sm sticky-section" style="padding:140px 64px 180px; z-index:5;">
   <div class="treatments-hero__bg" aria-hidden="true"></div>
   <div class="wrap" style="position:relative; z-index:1;">
-    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:32px; margin-bottom:56px; flex-wrap:wrap;">
-      <div data-animate style="max-width:640px;">
-        <span class="eyebrow" style="color:#A1B2C6;">Tratamientos · 05 categorías · +30 procedimientos</span>
-        <h2 style="font-size:clamp(32px,4vw,52px); font-weight:800; line-height:1.0; letter-spacing:-.045em; margin:0 0 20px; font-family:'Montserrat',sans-serif; color:#FFF;">
-          ¿Qué estás <span class="th-accent">buscando</span>?
+
+    <!-- Header tipo SHA: título grande + descripción + filtros -->
+    <div class="th-header">
+      <div class="th-header__left">
+        <span class="eyebrow" style="color:#A1B2C6;" data-animate>Tratamientos · 05 categorías</span>
+        <h2 class="th-title" data-animate data-animate-delay="1">
+          PROGRAMAS DE <em class="th-title__em">BIENESTAR</em>
         </h2>
-        <p style="font-family:'Montserrat',sans-serif; font-size:15px; line-height:1.6; color:#A1B2C6; max-width:520px; margin:0; font-weight:400;">
-          Cinco rutas hacia tu mejor versión. Cada tratamiento, diseñado y supervisado personalmente por la Dra. Liliana.
-        </p>
       </div>
-      <a href="tratamientos.html" class="btn-outline-light" data-animate data-animate-delay="1">
-        Ver catálogo completo →
-      </a>
+      <div class="th-header__right" data-animate data-animate-delay="2">
+        <p class="th-desc">
+          Tratamientos basados en evidencia científica y supervisión médica para una transformación visible y medible.
+        </p>
+        <div class="th-filters" role="tablist">
+          <button class="th-filter is-active" type="button">Todos</button>
+          <button class="th-filter" type="button">Signature</button>
+          <button class="th-filter" type="button">Personalizado</button>
+          <button class="th-filter" type="button">Express</button>
+        </div>
+      </div>
     </div>
 
-    <div class="treatments-grid">
+    <!-- Grid SHA-style: cards grandes con gradiente, icono, badge, stat -->
+    <div class="th-grid">
 
-      <a href="tratamientos.html" class="treatment-card treatment-card--on-dark treatment-card--featured" data-animate data-animate-delay="1">
-        <div class="tc-img"><div class="ph" style="height:100%; min-height:340px; background:url('img/treatment-regenerativo.jpg') center/cover no-repeat"></div></div>
-        <div class="tc-body">
-          <div class="tc-badge tc-badge--accent">Especialidad</div>
-          <div class="tc-num">01</div>
-          <div class="tc-title tc-title--lg">Medicina Regenerativa</div>
-          <div class="tc-tagline">Estimula tu colágeno natural con terapias avanzadas: PRP, células madre y exosomas.</div>
-          <div class="tc-cta">Conocer más →</div>
+      <a href="tratamientos.html" class="th-card th-card--navy" data-animate data-animate-delay="1">
+        <div class="th-card__top">
+          <div class="th-card__badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg>
+            <span>Regeneración · Signature</span>
+          </div>
+          <div class="th-card__arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+          </div>
+        </div>
+        <div class="th-card__icon" aria-hidden="true">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2">
+            <ellipse cx="60" cy="40" rx="36" ry="9"/>
+            <ellipse cx="60" cy="60" rx="36" ry="9"/>
+            <ellipse cx="60" cy="80" rx="36" ry="9"/>
+            <path d="M24 40v40M96 40v40"/>
+          </svg>
+        </div>
+        <div class="th-card__title-wrap">
+          <h3 class="th-card__title">MEDICINA<br>REGENERATIVA</h3>
+          <p class="th-card__desc">Estimula tu colágeno natural y revitaliza tu cuerpo desde la célula con PRP, células madre y exosomas.</p>
+        </div>
+        <div class="th-card__stat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+          <p><strong>+85% de pacientes</strong> reportan mejoras visibles desde la primera sesión.</p>
         </div>
       </a>
 
-      <a href="tratamientos.html" class="treatment-card treatment-card--on-dark" data-animate data-animate-delay="2">
-        <div class="tc-img"><div class="ph-warm" style="height:200px; background:url('img/treatment-facial.jpg') center/cover no-repeat"></div></div>
-        <div class="tc-body">
-          <div class="tc-badge">Desde 30 min</div>
-          <div class="tc-num">02</div>
-          <div class="tc-title">Medicina Estética</div>
-          <div class="tc-tagline">Suaviza líneas con resultados naturales.</div>
-          <div class="tc-cta">Conocer más →</div>
+      <a href="tratamientos.html" class="th-card th-card--beige" data-animate data-animate-delay="2">
+        <div class="th-card__top">
+          <div class="th-card__badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+            <span>Estética · Personalizado</span>
+          </div>
+          <div class="th-card__arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+          </div>
+        </div>
+        <div class="th-card__icon" aria-hidden="true">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M60 20c-18 0-32 18-32 40s14 40 32 40 32-18 32-40-14-40-32-40z"/>
+            <path d="M40 55c4-4 12-4 16 0M64 55c4-4 12-4 16 0"/>
+            <path d="M48 78c4 4 20 4 24 0"/>
+          </svg>
+        </div>
+        <div class="th-card__title-wrap">
+          <h3 class="th-card__title">MEDICINA<br>ESTÉTICA</h3>
+          <p class="th-card__desc">Suaviza líneas y restaura volumen con resultados naturales: bótox, ácido hialurónico y bioestimuladores.</p>
+        </div>
+        <div class="th-card__stat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+          <p>Resultados visibles desde los <strong>15 días</strong>, con duración de hasta 12 meses.</p>
         </div>
       </a>
 
-      <a href="tratamientos.html" class="treatment-card treatment-card--on-dark" data-animate data-animate-delay="3">
-        <div class="tc-img"><div class="ph" style="height:200px; background:url('img/treatment-facial.jpg') center/cover no-repeat"></div></div>
-        <div class="tc-body">
-          <div class="tc-badge">Ideal: 25+</div>
-          <div class="tc-num">03</div>
-          <div class="tc-title">Faciales y Spa</div>
-          <div class="tc-tagline">Rituales antiaging con tecnología clínica.</div>
-          <div class="tc-cta">Conocer más →</div>
+      <a href="tratamientos.html" class="th-card th-card--steel" data-animate data-animate-delay="3">
+        <div class="th-card__top">
+          <div class="th-card__badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+            <span>Spa · Express</span>
+          </div>
+          <div class="th-card__arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+          </div>
+        </div>
+        <div class="th-card__icon" aria-hidden="true">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M30 80c0-16 14-30 30-30s30 14 30 30"/>
+            <path d="M40 80c0-10 9-20 20-20s20 10 20 20"/>
+            <path d="M50 80c0-5 4-10 10-10s10 5 10 10"/>
+            <circle cx="60" cy="35" r="6"/>
+          </svg>
+        </div>
+        <div class="th-card__title-wrap">
+          <h3 class="th-card__title">FACIALES<br>& SPA</h3>
+          <p class="th-card__desc">Rituales antiaging con tecnología clínica y cosmética activa para una piel luminosa.</p>
+        </div>
+        <div class="th-card__stat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+          <p>Sesiones desde <strong>30 minutos</strong>, ideal para mantenimiento mensual.</p>
         </div>
       </a>
 
-      <a href="tratamientos.html" class="treatment-card treatment-card--on-dark" data-animate data-animate-delay="4">
-        <div class="tc-img"><div class="ph-warm" style="height:200px; background:url('img/treatment-wellness.jpg') center/cover no-repeat"></div></div>
-        <div class="tc-body">
-          <div class="tc-badge">Desde 45 min</div>
-          <div class="tc-num">04</div>
-          <div class="tc-title">Sueroterapias</div>
-          <div class="tc-tagline">Energía, defensas y vitalidad por vía IV.</div>
-          <div class="tc-cta">Conocer más →</div>
+      <a href="tratamientos.html" class="th-card th-card--beige" data-animate data-animate-delay="4">
+        <div class="th-card__top">
+          <div class="th-card__badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+            <span>Vitalidad · Personalizado</span>
+          </div>
+          <div class="th-card__arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+          </div>
+        </div>
+        <div class="th-card__icon" aria-hidden="true">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M60 20v40"/>
+            <circle cx="60" cy="65" r="14"/>
+            <path d="M50 90l20 0M55 100l10 0"/>
+            <path d="M48 60l24 0"/>
+          </svg>
+        </div>
+        <div class="th-card__title-wrap">
+          <h3 class="th-card__title">SUEROTERAPIAS<br>IV</h3>
+          <p class="th-card__desc">Energía, defensas e hidratación profunda con cocteles vitamínicos personalizados por la doctora.</p>
+        </div>
+        <div class="th-card__stat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+          <p><strong>45 min</strong> por sesión. Refuerza tu sistema inmune en una sola visita.</p>
         </div>
       </a>
 
-      <a href="tratamientos.html" class="treatment-card treatment-card--on-dark" data-animate data-animate-delay="5">
-        <div class="tc-img"><div class="ph" style="height:200px; background:url('img/treatment-corporal.jpg') center/cover no-repeat"></div></div>
-        <div class="tc-body">
-          <div class="tc-badge">PRP Capilar</div>
-          <div class="tc-num">05</div>
-          <div class="tc-title">Alopecia</div>
-          <div class="tc-tagline">Recupera densidad capilar de forma natural.</div>
-          <div class="tc-cta">Conocer más →</div>
+      <a href="tratamientos.html" class="th-card th-card--navy" data-animate data-animate-delay="5">
+        <div class="th-card__top">
+          <div class="th-card__badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>
+            <span>Capilar · Signature</span>
+          </div>
+          <div class="th-card__arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+          </div>
+        </div>
+        <div class="th-card__icon" aria-hidden="true">
+          <svg width="120" height="120" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M30 90c0-30 12-60 30-60s30 30 30 60"/>
+            <path d="M40 90c2-22 8-44 20-44s18 22 20 44"/>
+            <path d="M50 90c1-16 4-32 10-32s9 16 10 32"/>
+          </svg>
+        </div>
+        <div class="th-card__title-wrap">
+          <h3 class="th-card__title">TRATAMIENTO<br>CAPILAR</h3>
+          <p class="th-card__desc">Recupera densidad y frena la caída con PRP capilar, mesoterapia y protocolos regenerativos.</p>
+        </div>
+        <div class="th-card__stat">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+          <p>Hasta <strong>+30% de densidad</strong> capilar tras protocolo de 4 sesiones.</p>
         </div>
       </a>
 
     </div>
 
+    <!-- Franja de cierre -->
     <div class="treatments-closer" data-animate data-animate-delay="6">
       <div class="treatments-closer__text">
         <div class="treatments-closer__eyebrow">¿No sabes por dónde empezar?</div>
