@@ -1936,20 +1936,25 @@ h2 {
    La sección CTA (.cta-hifi) usa z-index:20 y NO es sticky
    — solo sube desde abajo y cubre las sticky sections.
    ============================================================ */
+/* Apilamiento visual SIN sticky:
+   - Las secciones scrollean naturalmente con el viewport.
+   - El border-radius superior + box-shadow simulan la capa
+     de "tarjeta apilada" cuando una sección entra encima de la anterior.
+   - Esto evita la sensación de "scroll bloqueado" donde una sección
+     se queda fija en pantalla mientras la siguiente la empuja. */
 .sticky-section {
-  position: sticky !important;  /* !important: gana sobre position:relative de otras clases */
-  top: 68px;                    /* = altura del nav */
+  position: relative;
   border-radius: 28px 28px 0 0;
   box-shadow: 0 -24px 80px rgba(12, 46, 73, .13);
-  /* Asegurar que el fondo cubre la sección anterior */
   isolation: isolate;
+  /* margin-top negativo crea el efecto de superposición sutil */
+  margin-top: -28px;
 }
 
-/* Mobile: el nav mide ~60px y el radio se reduce */
 @media (max-width: 768px) {
   .sticky-section {
-    top: 60px;
     border-radius: 20px 20px 0 0;
+    margin-top: -20px;
   }
   .cta-hifi {
     border-radius: 20px 20px 0 0 !important;
