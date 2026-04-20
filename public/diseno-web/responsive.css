@@ -255,6 +255,51 @@
   /* ===== TREATMENT GRID y DRA STRIP ===== */
   .treatment-grid { grid-template-columns: 1fr !important; }
   .dra-strip { grid-template-columns: 1fr !important; }
+
+  /* ===== NAV-HIFI (home.html) ===== */
+  nav.nav-hifi {
+    padding: 0 16px !important;
+  }
+  nav.nav-hifi .nav-inner {
+    height: 56px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+  }
+  nav.nav-hifi .nav-links {
+    display: none !important;
+  }
+  nav.nav-hifi .nav-cta {
+    display: none !important;
+  }
+  nav.nav-hifi .nav-logo {
+    font-size: 13px !important;
+  }
+
+  /* ===== STACK / OVERLAP — anular margin-top negativos ===== */
+  .clinic-ph {
+    margin-top: 0 !important;
+    height: 280px !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .clinic-ph-content {
+    padding: 0 20px !important;
+  }
+  .overlap-card-inner {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .overlap-card-3col {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+  /* Cualquier elemento con margin-top negativo en mobile lo neutralizamos */
+  [class*="overlap"][style*="margin-top:-"],
+  [class*="overlap"] {
+    margin-top: 0 !important;
+  }
 }
 
 /* ===== BREAKPOINT PEQUEÑO (375px) — ajustes extra ===== */
