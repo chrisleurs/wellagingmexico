@@ -499,27 +499,39 @@
 </section>
 
 <!-- ============================================================
-     7. RESULTADOS — Before/After drag slider
-        Move 10: BA Slider · Move 3: Animate
+     7. VIDEO TESTIMONIAL + ANTES/DESPUÉS
+        Combina prueba social en video y resultados visuales
      ============================================================ -->
-<section style="padding:130px 64px 200px; background:#FFF; z-index:6;" class="section-overlap-sm">
+<section style="padding:130px 64px 180px; background:#FFF; z-index:6;" class="section-overlap-sm">
   <div class="wrap">
-    <div style="display:grid; grid-template-columns:1fr 2fr; gap:80px; align-items:start; margin-bottom:64px;">
-      <div>
-        <span class="eyebrow" data-animate>Resultados reales</span>
-        <h2 data-animate data-animate-delay="1" style="font-size:clamp(26px,3vw,40px); font-weight:800; line-height:1.0; letter-spacing:-.04em; margin:0 0 20px; font-family:'Montserrat',sans-serif;">
-          Casos reales de<br>pacientes reales.
-        </h2>
-        <p data-animate data-animate-delay="2" style="font-size:15px; color:#666; line-height:1.8; margin:0 0 28px; font-family:'Montserrat',sans-serif; font-weight:400;">Los resultados varían según cada persona. Estos son ejemplos representativos con permiso de los pacientes.</p>
-        <a href="resultados.html" class="btn btn-outline" style="font-size:11px; padding:11px 24px;" data-animate data-animate-delay="3">Ver galería completa →</a>
+    <div style="text-align:center; margin-bottom:64px;">
+      <span class="eyebrow" data-animate>Resultados reales</span>
+      <h2 data-animate data-animate-delay="1" style="font-size:clamp(28px,3.5vw,46px); font-weight:800; line-height:1.0; letter-spacing:-.045em; margin:14px 0 16px; font-family:'Montserrat',sans-serif;">
+        Historias que<br>hablan por sí mismas.
+      </h2>
+      <p data-animate data-animate-delay="2" style="font-size:15px; color:#666; line-height:1.8; margin:0 auto; max-width:560px; font-family:'Montserrat',sans-serif; font-weight:400;">Testimonios y resultados de pacientes reales — con su permiso. Cada caso es único, cada historia es honesta.</p>
+    </div>
+
+    <div class="story-grid">
+      <!-- VIDEO TESTIMONIAL -->
+      <div class="story-video" data-animate>
+        <div class="story-video__poster" style="background-image:url('img/video-testimonial-poster.jpg');">
+          <button class="story-video__play" type="button" aria-label="Reproducir testimonio">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="story-video__caption">
+            <div class="story-video__quote">"Llevaba años buscando algo que funcionara de verdad. Aquí encontré un equipo que escucha."</div>
+            <div class="story-video__author">Mariana G. · Medicina Regenerativa</div>
+          </div>
+        </div>
       </div>
 
-      <!-- BA Slider -->
+      <!-- BA SLIDER -->
       <div data-animate data-animate-delay="1">
-        <div class="ba-container" id="baSlider1" style="height:300px;">
-          <div class="ph2 ba-after" style="height:100%; font-size:11px;background:url('img/results-ba-1.jpg') center/cover no-repeat">DESPUÉS</div>
+        <div class="ba-container" id="baSlider1" style="height:100%; min-height:420px;">
+          <div class="ba-after" style="height:100%;background:url('img/results-ba-1.jpg') center/cover no-repeat"></div>
           <div class="ba-before-wrap">
-            <div class="ph ba-before" style="height:100%; font-size:11px;background:url('img/results-ba-1.jpg') center/cover no-repeat">ANTES</div>
+            <div class="ba-before" style="height:100%;background:url('img/results-ba-1.jpg') center/cover no-repeat"></div>
           </div>
           <div class="ba-line"></div>
           <div class="ba-handle" id="baHandle1">
@@ -536,11 +548,15 @@
     </div>
 
     <!-- Miniaturas adicionales -->
-    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:3px;">
-      <div class="gallery-thumb" data-animate data-animate-delay="1"><div class="ph" style="height:160px;background:url('img/results-ba-1.jpg') center/cover no-repeat"></div></div>
-      <div class="gallery-thumb" data-animate data-animate-delay="2"><div class="ph2" style="height:160px;background:url('img/results-ba-2.jpg') center/cover no-repeat"></div></div>
-      <div class="gallery-thumb" data-animate data-animate-delay="3"><div class="ph" style="height:160px;background:url('img/gallery-1.jpg') center/cover no-repeat"></div></div>
-      <div class="gallery-thumb" data-animate data-animate-delay="4"><div class="ph2" style="height:160px;background:url('img/gallery-2.jpg') center/cover no-repeat"></div></div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:32px;">
+      <div class="gallery-thumb" data-animate data-animate-delay="1"><div style="height:160px;border-radius:18px;background:url('img/results-ba-1.jpg') center/cover no-repeat"></div></div>
+      <div class="gallery-thumb" data-animate data-animate-delay="2"><div style="height:160px;border-radius:18px;background:url('img/results-ba-2.jpg') center/cover no-repeat"></div></div>
+      <div class="gallery-thumb" data-animate data-animate-delay="3"><div style="height:160px;border-radius:18px;background:url('img/gallery-1.jpg') center/cover no-repeat"></div></div>
+      <div class="gallery-thumb" data-animate data-animate-delay="4"><div style="height:160px;border-radius:18px;background:url('img/gallery-2.jpg') center/cover no-repeat"></div></div>
+    </div>
+
+    <div style="text-align:center; margin-top:48px;" data-animate>
+      <a href="resultados.html" class="btn btn-outline" style="font-size:11px; padding:13px 28px;">Ver galería completa →</a>
     </div>
   </div>
 </section>
