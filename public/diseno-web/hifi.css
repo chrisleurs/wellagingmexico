@@ -42,15 +42,17 @@
   --title-text: #414345;   /* SHA: --negro-titulos (warm charcoal) */
   --blend-h:    clamp(140px, 32vh, 360px); /* SHA: bottom blend height */
 
-  /* Radios de elevación */
-  --radius-section: 24px;
-  --radius-card:    16px;
+  /* Radios de elevación — estilo más redondeado/orgánico */
+  --radius-section: 28px;
+  --radius-card:    22px;
   --radius-pill:    9999px;
+  --radius-sm:      14px;
+  --radius-md:      18px;
 
   /* Sombras */
   --shadow-overlap: 0 -8px 48px rgba(12, 46, 73, .09);
-  --shadow-card:    0 2px 20px rgba(12, 46, 73, .08);
-  --shadow-hover:   0 16px 48px rgba(12, 46, 73, .16);
+  --shadow-card:    0 6px 28px rgba(12, 46, 73, .08);
+  --shadow-hover:   0 22px 56px rgba(12, 46, 73, .18);
 }
 
 /* ============================================================
