@@ -560,17 +560,57 @@
   if(nav){
     window.addEventListener('scroll',()=>{ nav.classList.toggle('scrolled', window.scrollY > 80); }, {passive:true});
   }
-  /* Filtros: categoría + duración (toggle visual + filtrado) */
+  /* ── Filtros: categoría + duración + título dinámico + empty state ── */
+  const CAT_META = {
+    all:           { num: '00', title: 'Todos los tratamientos' },
+    regenerativa:  { num: '01', title: 'Medicina Regenerativa' },
+    estetica:      { num: '02', title: 'Medicina Estética' },
+    faciales:      { num: '03', title: 'Faciales y Spa' },
+    sueroterapias: { num: '04', title: 'Sueroterapias' },
+    alopecia:      { num: '05', title: 'Alopecia' }
+  };
+  const TIME_LABEL = {
+    all: 'cualquier duración',
+    express: 'duración express (≤30 min)',
+    estandar: 'duración estándar (45–60 min)',
+    protocolo: 'duración protocolo (>60 min)'
+  };
   const state = { cat: 'all', time: 'all' };
+  const rail   = document.getElementById('thRail');
+  const empty  = document.getElementById('thEmpty');
+  const emptyMsg = document.getElementById('thEmptyMsg');
+  const catNum = document.getElementById('catNum');
+  const catTitle = document.getElementById('catTitle');
+  const railWrap = document.querySelector('.th-rail-wrap');
+
   function applyFilter(){
-    document.querySelectorAll('.th-card[data-cat], .mini-row[data-cat]').forEach(el=>{
-      const c = el.getAttribute('data-cat');
-      const t = el.getAttribute('data-time');
-      const matchCat = state.cat === 'all' || c === state.cat;
-      const matchTime = state.time === 'all' || t === state.time;
-      el.classList.toggle('is-hidden', !(matchCat && matchTime));
+    let visible = 0;
+    document.querySelectorAll('#thRail .th-card').forEach(el=>{
+      const matchCat  = state.cat  === 'all' || el.getAttribute('data-cat')  === state.cat;
+      const matchTime = state.time === 'all' || el.getAttribute('data-time') === state.time;
+      const show = matchCat && matchTime;
+      el.classList.toggle('is-hidden', !show);
+      if(show) visible++;
     });
+    // Update H2 + número
+    const meta = CAT_META[state.cat] || CAT_META.all;
+    catNum.textContent = meta.num;
+    catTitle.textContent = meta.title;
+    // Empty state
+    if(visible === 0){
+      const catLabel = state.cat === 'all' ? 'tratamiento disponible' : `tratamiento de ${meta.title}`;
+      emptyMsg.textContent = `Ningún ${catLabel} coincide con la ${TIME_LABEL[state.time]}. Prueba con otra duración o agenda una valoración para que la Dra. Liliana te recomiende el protocolo ideal.`;
+      empty.hidden = false;
+      if(railWrap) railWrap.style.display = 'none';
+    } else {
+      empty.hidden = true;
+      if(railWrap) railWrap.style.display = '';
+      // Reset scroll al inicio cuando cambian filtros
+      if(rail) rail.scrollTo({ left: 0, behavior: 'smooth' });
+    }
+    updateRailBtns();
   }
+
   document.querySelectorAll('#catFilters .th-filter').forEach(btn=>{
     btn.addEventListener('click',()=>{
       document.querySelectorAll('#catFilters .th-filter').forEach(x=>x.classList.remove('is-active'));
@@ -587,6 +627,27 @@
       applyFilter();
     });
   });
+
+  /* ── Rail: botones prev / next + estado disabled ── */
+  const prevBtn = document.getElementById('thRailPrev');
+  const nextBtn = document.getElementById('thRailNext');
+  function updateRailBtns(){
+    if(!rail || !prevBtn || !nextBtn) return;
+    const max = rail.scrollWidth - rail.clientWidth - 2;
+    prevBtn.disabled = rail.scrollLeft <= 2;
+    nextBtn.disabled = rail.scrollLeft >= max;
+  }
+  function getStep(){
+    const card = rail?.querySelector('.th-card:not(.is-hidden)');
+    if(!card) return 320;
+    return card.getBoundingClientRect().width + 20; // gap del rail
+  }
+  prevBtn?.addEventListener('click',()=> rail.scrollBy({ left: -getStep(), behavior: 'smooth' }));
+  nextBtn?.addEventListener('click',()=> rail.scrollBy({ left:  getStep(), behavior: 'smooth' }));
+  rail?.addEventListener('scroll', updateRailBtns, { passive: true });
+  window.addEventListener('resize', updateRailBtns);
+  // init
+  applyFilter();
 })();
 function toggleMobileMenu(){
   const links = document.querySelector('.nav-hifi .nav-links');
