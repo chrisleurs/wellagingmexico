@@ -9,47 +9,53 @@
 <link rel="stylesheet" href="hifi.css">
 <link rel="stylesheet" href="responsive.css">
 <style>
+  /* ── Page-specific: solo hifi sobre el wireframe original ── */
   * { box-sizing: border-box; }
-  body { background: #FFF; color: #2c2c2c; margin: 0; }
+  body { background:#FFF; color:#2c2c2c; margin:0; }
+  .wrap { max-width:1200px; margin:0 auto; }
 
-  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 64px; }
-  @media (max-width: 768px) { .wrap { padding: 0 24px; } }
-
-  /* Tabs categoría — estilo del home */
-  .cat-tabs { display:flex; gap:0; overflow-x:auto; padding-top:0; -ms-overflow-style:none; scrollbar-width:none; }
+  /* Tabs de categorías — refinadas estilo home */
+  .cat-tabs { display:flex; gap:0; overflow-x:auto; -ms-overflow-style:none; scrollbar-width:none; border-top:1px solid rgba(12,46,73,.08); }
   .cat-tabs::-webkit-scrollbar { display:none; }
   .cat-tab-hifi { font-family:'Montserrat',sans-serif; font-weight:600; font-size:11px; letter-spacing:.18em; text-transform:uppercase; padding:14px 22px; border-bottom:2px solid transparent; color:#6E8491; text-decoration:none; white-space:nowrap; transition:color .2s, border-color .2s; }
   .cat-tab-hifi:hover { color:#0C2E49; }
   .cat-tab-hifi.active { color:#0C2E49; border-bottom-color:#0C2E49; }
 
-  /* Cards de tratamiento — refinadas estilo home */
-  .treatment-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-  .treatment-card-link { text-decoration:none; color:inherit; display:block; transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease; }
-  .treatment-card-link:hover { transform: translateY(-6px); box-shadow: 0 22px 56px rgba(12,46,73,.12); }
-  .card-img { position:relative; overflow:hidden; }
-  .card-body { background:#fff; padding:24px 26px 28px; border:1px solid rgba(12,46,73,.06); border-top:none; }
-  .card-label { font-family:'Montserrat',sans-serif; font-weight:600; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:#6E8491; margin-bottom:10px; }
-  .card-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:18px; color:#0C2E49; line-height:1.3; margin-bottom:10px; letter-spacing:-.01em; }
-  .card-desc { font-family:'Montserrat',sans-serif; font-weight:400; font-size:13px; color:#6E8491; line-height:1.7; margin-bottom:18px; }
-  .card-link { font-family:'Montserrat',sans-serif; font-weight:600; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#0C2E49; border-bottom:1px solid rgba(12,46,73,.25); padding-bottom:3px; display:inline-block; }
+  /* Tarjeta de tratamiento (3-col) */
+  .tcard { text-decoration:none; color:inherit; display:block; background:#FFF; border:1px solid rgba(12,46,73,.06); transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease; }
+  .tcard:hover { transform: translateY(-6px); box-shadow:0 22px 56px rgba(12,46,73,.12); }
+  .tcard__media { height:260px; background-size:cover; background-position:center; }
+  .tcard__body { padding:26px 26px 28px; }
+  .tcard__label { font-family:'Montserrat',sans-serif; font-weight:600; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:#6E8491; margin-bottom:10px; }
+  .tcard__title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:18px; color:#0C2E49; line-height:1.3; margin-bottom:10px; letter-spacing:-.01em; }
+  .tcard__desc  { font-family:'Montserrat',sans-serif; font-weight:400; font-size:13px; color:#6E8491; line-height:1.7; margin:0 0 18px; }
+  .tcard__link  { font-family:'Montserrat',sans-serif; font-weight:600; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:#0C2E49; border-bottom:1px solid rgba(12,46,73,.25); padding-bottom:3px; display:inline-block; }
 
-  /* Mini-list */
-  .mini-list { display:flex; flex-direction:column; gap:8px; }
-  .mini-item { display:flex; gap:20px; padding:20px; background:#F7F4F0; align-items:center; text-decoration:none; color:inherit; transition:background .2s; }
-  .mini-item:hover { background:#EDE9E4; }
-  .mini-item-img { width:80px; height:64px; overflow:hidden; flex-shrink:0; background-size:cover; background-position:center; }
-  .mini-item-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:14px; color:#0C2E49; margin-bottom:4px; }
-  .mini-item-sub { font-family:'Montserrat',sans-serif; font-weight:400; font-size:12px; color:#6E8491; line-height:1.5; }
+  /* Mini-list (Faciales / Sueroterapias) */
+  .mini-row { display:flex; gap:20px; padding:20px; background:#F7F4F0; align-items:center; text-decoration:none; color:inherit; transition:background .25s ease, transform .25s ease; margin-bottom:8px; }
+  .mini-row:hover { background:#EDE9E4; transform: translateX(4px); }
+  .mini-row__img { width:88px; height:68px; flex-shrink:0; background-size:cover; background-position:center; }
+  .mini-row__title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:15px; color:#0C2E49; margin-bottom:4px; letter-spacing:-.01em; }
+  .mini-row__sub   { font-family:'Montserrat',sans-serif; font-weight:400; font-size:12.5px; color:#6E8491; line-height:1.6; }
 
-  /* Header de sección numerado */
+  /* Header de sección (eyebrow num + título + ver todos) */
   .sec-head { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; gap:32px; flex-wrap:wrap; }
   .sec-num { font-family:'Montserrat',sans-serif; font-weight:600; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:#A1B2C6; margin-bottom:14px; display:block; }
-  .sec-title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:clamp(28px,3.6vw,48px); line-height:1.05; letter-spacing:-.04em; color:#0C2E49; margin:0; }
-  .sec-link { font-family:'Montserrat',sans-serif; font-weight:600; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#6E8491; text-decoration:none; border-bottom:1px solid rgba(110,132,145,.35); padding-bottom:3px; }
+  .sec-title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:clamp(26px,3.2vw,42px); line-height:1.05; letter-spacing:-.04em; color:#0C2E49; margin:0; }
+  .sec-link  { font-family:'Montserrat',sans-serif; font-weight:600; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#6E8491; text-decoration:none; border-bottom:1px solid rgba(110,132,145,.35); padding-bottom:3px; }
 
-  @media(max-width:1100px){ .treatment-grid { grid-template-columns:repeat(2,1fr); } }
-  @media(max-width:768px){
-    .treatment-grid { grid-template-columns:1fr; }
+  /* Mini Dra. — franja confianza */
+  .dra-strip { display:grid; grid-template-columns:420px 1fr; min-height:300px; align-items:stretch; background:#F7F4F0; }
+  .dra-strip__photo { background:url('img/dra-portrait.jpg') center/cover no-repeat, linear-gradient(135deg,#1a3a4f 0%,#0C2E49 100%); position:relative; min-height:300px; }
+  .dra-strip__body  { padding:56px 72px; display:flex; flex-direction:column; justify-content:center; }
+
+  @media (max-width: 1100px){
+    .tcard__media { height:230px; }
+  }
+  @media (max-width: 768px){
+    .dra-strip { grid-template-columns:1fr; }
+    .dra-strip__photo { min-height:240px; }
+    .dra-strip__body { padding:40px 28px; }
   }
 </style>
 </head>
@@ -78,96 +84,85 @@
 </nav>
 
 <!-- ============================================================
-     1. HERO — Full screen estilo home (Ken Burns + bottom blend)
+     HERO — 58vh con breadcrumb + título grande (estructura wireframe + hifi)
      ============================================================ -->
-<section style="position:relative; height:88vh; min-height:560px; overflow:hidden;">
+<section style="position:relative; height:58vh; min-height:420px; overflow:hidden;">
   <div class="hero-video-wrap">
     <div class="ph-dark hero-kenburns" style="width:100%; height:100%; position:absolute; inset:0; background:url('img/hero-tratamientos.jpg') center/cover no-repeat, linear-gradient(160deg,#1a3a4f 0%,#0C2E49 60%,#162d40 100%);"></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-bottom-blend"></div>
 
-  <div class="hero-content">
-    <span class="hero-tagline" style="color:rgba(255,255,255,.6); display:block; margin-bottom:24px;">
+  <div class="hero-content" style="text-align:left; align-items:flex-start; padding:0 0 120px 80px; max-width:1200px; margin:0 auto; justify-content:flex-end;">
+    <span class="hero-tagline" data-animate style="color:rgba(255,255,255,.55); display:block; margin-bottom:20px;">
       <a href="home.html" style="color:inherit;text-decoration:none;">Inicio</a> &nbsp;/&nbsp; Tratamientos
     </span>
-    <h1 class="hero-h1" style="font-size:clamp(48px,7vw,88px); margin:0; max-width:820px;">
+    <h1 class="hero-h1" data-animate data-animate-delay="1" style="font-size:clamp(40px,6vw,72px); margin:0; max-width:700px;">
       Nuestros<br><em>tratamientos.</em>
     </h1>
-  </div>
-
-  <div class="hero-scroll-hint">
-    <span>Scroll</span>
-    <svg width="16" height="20" viewBox="0 0 16 24" fill="none">
-      <path d="M8 4v12M4 12l4 4 4-4" stroke="rgba(255,255,255,.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
   </div>
 </section>
 
 <!-- ============================================================
-     2. OVERLAP CARD — descripción + tabs (estilo home)
+     OVERLAP CARD — descripción + tabs (estructura wireframe + hifi)
      ============================================================ -->
 <div style="padding:0 64px; position:relative; z-index:10;">
   <div class="overlap-card" style="max-width:1200px; margin:0 auto; padding:40px 56px;" data-animate>
-    <div style="display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;">
-      <div>
-        <div style="font-size:clamp(18px,2vw,22px); font-weight:700; line-height:1.3; margin-bottom:12px; letter-spacing:-.02em; font-family:'Montserrat',sans-serif; color:#0C2E49;">Medicina basada en evidencia, dirigida personalmente.</div>
-        <p style="font-size:15px; color:#666; line-height:1.75; margin:0; font-family:'Montserrat',sans-serif; font-weight:400;">Cada tratamiento en Well Aging México está respaldado por evidencia científica y diseñado para trabajar desde el interior, no solo en la superficie.</p>
-      </div>
-      <div style="display:flex; gap:12px; flex-shrink:0;">
-        <a href="contacto.html" class="btn btn-dark">Agendar consulta →</a>
-        <a href="https://wa.me/524422067185" class="btn btn-outline">WhatsApp</a>
-      </div>
+    <div style="display:grid; grid-template-columns:1fr auto; gap:48px; align-items:center; margin-bottom:28px;">
+      <p style="font-family:'Montserrat',sans-serif; font-weight:400; font-size:clamp(16px,1.6vw,18px); color:#666; line-height:1.8; margin:0;">
+        Cada tratamiento en Well Aging México está respaldado por evidencia científica y diseñado para trabajar desde el interior, no solo en la superficie.
+      </p>
+      <a href="contacto.html" class="btn btn-dark" style="flex-shrink:0; white-space:nowrap;">Agendar consulta →</a>
     </div>
-    <div class="cat-tabs" style="margin-top:32px; border-top:1px solid rgba(12,46,73,.08); padding-top:6px;">
-      <a href="#cat-1" class="cat-tab-hifi active">Todos</a>
-      <a href="#cat-1" class="cat-tab-hifi">Medicina Regenerativa</a>
-      <a href="#cat-2" class="cat-tab-hifi">Medicina Estética</a>
-      <a href="#cat-3" class="cat-tab-hifi">Faciales y Spa</a>
-      <a href="#cat-3" class="cat-tab-hifi">Sueroterapias</a>
-      <a href="#cat-3" class="cat-tab-hifi">Alopecia</a>
+    <div class="cat-tabs">
+      <a href="#cat-01" class="cat-tab-hifi active">Todos</a>
+      <a href="#cat-01" class="cat-tab-hifi">Medicina Regenerativa</a>
+      <a href="#cat-02" class="cat-tab-hifi">Medicina Estética</a>
+      <a href="#cat-03" class="cat-tab-hifi">Faciales y Spa</a>
+      <a href="#cat-03" class="cat-tab-hifi">Sueroterapias</a>
+      <a href="#cat-03" class="cat-tab-hifi">Alopecia</a>
     </div>
   </div>
 </div>
 
 <!-- ============================================================
-     3. MEDICINA REGENERATIVA — sticky-section blanca
+     SECCIÓN 01 — Medicina Regenerativa (white)
      ============================================================ -->
-<section id="cat-1" class="sticky-section" style="background:#fff; padding:140px 64px 120px; z-index:2;">
+<section id="cat-01" style="padding:120px 64px 96px; background:#FFF;">
   <div class="wrap">
     <div class="sec-head">
       <div data-animate>
-        <span class="sec-num">01 — Medicina Regenerativa</span>
-        <h2 class="sec-title">Activar tu propia <em style="font-weight:300; opacity:.7;">biología.</em></h2>
+        <span class="sec-num">01</span>
+        <h2 class="sec-title">Medicina Regenerativa</h2>
       </div>
-      <a href="#" class="sec-link" data-animate data-animate-delay="1">Ver todos →</a>
+      <a href="tratamiento.html" class="sec-link" data-animate data-animate-delay="1">Ver todos →</a>
     </div>
-    <div class="treatment-grid">
-      <a href="tratamiento.html" class="treatment-card-link" data-animate data-animate-delay="1">
-        <div class="card-img"><div style="height:280px;background:url('img/treatment-regenerativa.jpg') center/cover no-repeat;"></div></div>
-        <div class="card-body">
-          <div class="card-label">Medicina Regenerativa</div>
-          <div class="card-title">Plasma Rico en Plaquetas (PRP)</div>
-          <p class="card-desc">Factores de crecimiento del propio paciente para regenerar tejidos y estimular colágeno.</p>
-          <span class="card-link">Ver tratamiento →</span>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+      <a href="tratamiento.html" class="tcard" data-animate data-animate-delay="1">
+        <div class="tcard__media" style="background-image:url('img/treatment-regenerativa.jpg');"></div>
+        <div class="tcard__body">
+          <div class="tcard__label">Medicina Regenerativa</div>
+          <div class="tcard__title">Plasma Rico en Plaquetas (PRP)</div>
+          <p class="tcard__desc">Factores de crecimiento del propio paciente para regenerar tejidos y estimular colágeno.</p>
+          <span class="tcard__link">Ver tratamiento →</span>
         </div>
       </a>
-      <a href="tratamiento.html" class="treatment-card-link" data-animate data-animate-delay="2">
-        <div class="card-img"><div style="height:280px;background:url('img/treatment-regenerativa.jpg') center/cover no-repeat;"></div></div>
-        <div class="card-body">
-          <div class="card-label">Medicina Regenerativa</div>
-          <div class="card-title">Células Madre Mesenquimales</div>
-          <p class="card-desc">Regeneración celular profunda para resultados duraderos y bienestar sistémico.</p>
-          <span class="card-link">Ver tratamiento →</span>
+      <a href="tratamiento.html" class="tcard" data-animate data-animate-delay="2">
+        <div class="tcard__media" style="background-image:url('img/treatment-regenerativa.jpg');"></div>
+        <div class="tcard__body">
+          <div class="tcard__label">Medicina Regenerativa</div>
+          <div class="tcard__title">Células Madre Mesenquimales</div>
+          <p class="tcard__desc">Regeneración celular profunda para resultados duraderos y bienestar sistémico.</p>
+          <span class="tcard__link">Ver tratamiento →</span>
         </div>
       </a>
-      <a href="tratamiento.html" class="treatment-card-link" data-animate data-animate-delay="3">
-        <div class="card-img"><div style="height:280px;background:url('img/treatment-regenerativa.jpg') center/cover no-repeat;"></div></div>
-        <div class="card-body">
-          <div class="card-label">Medicina Regenerativa</div>
-          <div class="card-title">Exosomas</div>
-          <p class="card-desc">Mensajeros celulares de última generación para regeneración y comunicación tisular.</p>
-          <span class="card-link">Ver tratamiento →</span>
+      <a href="tratamiento.html" class="tcard" data-animate data-animate-delay="3">
+        <div class="tcard__media" style="background-image:url('img/treatment-regenerativa.jpg');"></div>
+        <div class="tcard__body">
+          <div class="tcard__label">Medicina Regenerativa</div>
+          <div class="tcard__title">Exosomas</div>
+          <p class="tcard__desc">Mensajeros celulares de última generación para regeneración y comunicación tisular.</p>
+          <span class="tcard__link">Ver tratamiento →</span>
         </div>
       </a>
     </div>
@@ -175,44 +170,43 @@
 </section>
 
 <!-- ============================================================
-     4. MEDICINA ESTÉTICA — sticky-section navy oscuro (estilo treatments-hero del home)
+     SECCIÓN 02 — Medicina Estética (stone)
      ============================================================ -->
-<section id="cat-2" class="treatments-hero sticky-section" style="padding:140px 64px 140px; z-index:3;">
-  <div class="treatments-hero__bg" aria-hidden="true"></div>
-  <div class="wrap" style="position:relative; z-index:1;">
+<section id="cat-02" style="padding:120px 64px 96px; background:#F7F4F0;">
+  <div class="wrap">
     <div class="sec-head">
       <div data-animate>
-        <span class="sec-num" style="color:#A1B2C6;">02 — Medicina Estética</span>
-        <h2 class="sec-title" style="color:#fff;">Estética con criterio <em style="font-weight:300; opacity:.65;">médico.</em></h2>
+        <span class="sec-num">02</span>
+        <h2 class="sec-title">Medicina Estética</h2>
       </div>
-      <a href="#" class="sec-link" style="color:#A1B2C6; border-color:rgba(161,178,198,.4);" data-animate data-animate-delay="1">Ver todos →</a>
+      <a href="tratamiento.html" class="sec-link" data-animate data-animate-delay="1">Ver todos →</a>
     </div>
-    <div class="treatment-grid">
-      <a href="tratamiento.html" class="treatment-card-link" data-animate data-animate-delay="1">
-        <div class="card-img"><div style="height:280px;background:url('img/treatment-estetica.jpg') center/cover no-repeat;"></div></div>
-        <div class="card-body">
-          <div class="card-label">Medicina Estética</div>
-          <div class="card-title">Toxina Botulínica (Botox)</div>
-          <p class="card-desc">Resultados naturales para expresión facial relajada. Aplicación precisa con respaldo médico.</p>
-          <span class="card-link">Ver tratamiento →</span>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:24px;">
+      <a href="tratamiento.html" class="tcard" data-animate data-animate-delay="1">
+        <div class="tcard__media" style="background-image:url('img/treatment-estetica.jpg');"></div>
+        <div class="tcard__body">
+          <div class="tcard__label">Medicina Estética</div>
+          <div class="tcard__title">Toxina Botulínica (Botox)</div>
+          <p class="tcard__desc">Resultados naturales para expresión facial relajada. Aplicación precisa con respaldo médico.</p>
+          <span class="tcard__link">Ver tratamiento →</span>
         </div>
       </a>
-      <a href="tratamiento.html" class="treatment-card-link" data-animate data-animate-delay="2">
-        <div class="card-img"><div style="height:280px;background:url('img/treatment-estetica.jpg') center/cover no-repeat;"></div></div>
-        <div class="card-body">
-          <div class="card-label">Medicina Estética</div>
-          <div class="card-title">Ácido Hialurónico (Fillers)</div>
-          <p class="card-desc">Volumen y contorno natural con ácido hialurónico de alta calidad. Resultados inmediatos.</p>
-          <span class="card-link">Ver tratamiento →</span>
+      <a href="tratamiento.html" class="tcard" data-animate data-animate-delay="2">
+        <div class="tcard__media" style="background-image:url('img/treatment-estetica.jpg');"></div>
+        <div class="tcard__body">
+          <div class="tcard__label">Medicina Estética</div>
+          <div class="tcard__title">Ácido Hialurónico (Fillers)</div>
+          <p class="tcard__desc">Volumen y contorno natural con ácido hialurónico de alta calidad. Resultados inmediatos.</p>
+          <span class="tcard__link">Ver tratamiento →</span>
         </div>
       </a>
-      <a href="tratamiento.html" class="treatment-card-link" data-animate data-animate-delay="3">
-        <div class="card-img"><div style="height:280px;background:url('img/treatment-estetica.jpg') center/cover no-repeat;"></div></div>
-        <div class="card-body">
-          <div class="card-label">Medicina Estética</div>
-          <div class="card-title">Bioestimuladores de Colágeno</div>
-          <p class="card-desc">Estimulación natural de colágeno para firmeza duradera desde adentro.</p>
-          <span class="card-link">Ver tratamiento →</span>
+      <a href="tratamiento.html" class="tcard" data-animate data-animate-delay="3">
+        <div class="tcard__media" style="background-image:url('img/treatment-estetica.jpg');"></div>
+        <div class="tcard__body">
+          <div class="tcard__label">Medicina Estética</div>
+          <div class="tcard__title">Bioestimuladores de Colágeno</div>
+          <p class="tcard__desc">Estimulación natural de colágeno para firmeza duradera desde adentro.</p>
+          <span class="tcard__link">Ver tratamiento →</span>
         </div>
       </a>
     </div>
@@ -220,69 +214,86 @@
 </section>
 
 <!-- ============================================================
-     5. FACIALES + SUEROTERAPIAS — sticky blanca, dos columnas
+     SECCIÓN 03 + 04 — Faciales y Sueroterapias (2 columnas, white)
      ============================================================ -->
-<section id="cat-3" class="sticky-section" style="background:#fff; padding:140px 64px 140px; z-index:4;">
-  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;">
-    <div>
-      <span class="sec-num" data-animate>03 — Faciales y Spa</span>
-      <h2 class="sec-title" data-animate data-animate-delay="1" style="font-size:clamp(24px,2.8vw,36px); margin-bottom:32px;">Rituales clínicos para tu piel.</h2>
-      <div class="mini-list">
-        <a href="tratamiento.html" class="mini-item" data-animate data-animate-delay="2">
-          <div class="mini-item-img" style="background-image:url('img/treatment-faciales.jpg');"></div>
-          <div>
-            <div class="mini-item-title">Facial Personalizado</div>
-            <div class="mini-item-sub">Protocolo diseñado según tu tipo de piel.</div>
-          </div>
-        </a>
-        <a href="tratamiento.html" class="mini-item" data-animate data-animate-delay="3">
-          <div class="mini-item-img" style="background-image:url('img/treatment-faciales.jpg');"></div>
-          <div>
-            <div class="mini-item-title">Masaje Terapéutico</div>
-            <div class="mini-item-sub">Relajación profunda con técnicas especializadas.</div>
-          </div>
-        </a>
-        <a href="tratamiento.html" class="mini-item" data-animate data-animate-delay="4">
-          <div class="mini-item-img" style="background-image:url('img/treatment-faciales.jpg');"></div>
-          <div>
-            <div class="mini-item-title">Protocolo Antiaging</div>
-            <div class="mini-item-sub">Ritual completo de rejuvenecimiento facial.</div>
-          </div>
-        </a>
-      </div>
+<section style="padding:120px 64px; background:#FFF;">
+  <div class="wrap" style="display:grid; grid-template-columns:1fr 1fr; gap:80px;">
+    <div data-animate>
+      <span class="sec-num">03</span>
+      <h2 class="sec-title" style="font-size:clamp(22px,2.5vw,32px); margin-bottom:32px;">Faciales y Spa</h2>
+      <a href="tratamiento.html" class="mini-row" data-animate data-animate-delay="1">
+        <div class="mini-row__img" style="background-image:url('img/treatment-faciales.jpg');"></div>
+        <div>
+          <div class="mini-row__title">Facial Personalizado</div>
+          <div class="mini-row__sub">Protocolo diseñado según tu tipo de piel.</div>
+        </div>
+      </a>
+      <a href="tratamiento.html" class="mini-row" data-animate data-animate-delay="2">
+        <div class="mini-row__img" style="background-image:url('img/treatment-faciales.jpg');"></div>
+        <div>
+          <div class="mini-row__title">Masaje Terapéutico</div>
+          <div class="mini-row__sub">Relajación profunda con técnicas especializadas.</div>
+        </div>
+      </a>
+      <a href="tratamiento.html" class="mini-row" data-animate data-animate-delay="3">
+        <div class="mini-row__img" style="background-image:url('img/treatment-faciales.jpg');"></div>
+        <div>
+          <div class="mini-row__title">Protocolo Antiaging</div>
+          <div class="mini-row__sub">Ritual completo de rejuvenecimiento facial.</div>
+        </div>
+      </a>
     </div>
-    <div>
-      <span class="sec-num" data-animate>04 — Sueroterapias</span>
-      <h2 class="sec-title" data-animate data-animate-delay="1" style="font-size:clamp(24px,2.8vw,36px); margin-bottom:32px;">Bienestar desde adentro.</h2>
-      <div class="mini-list">
-        <a href="tratamiento.html" class="mini-item" data-animate data-animate-delay="2">
-          <div class="mini-item-img" style="background-image:url('img/treatment-sueroterapia.jpg');"></div>
-          <div>
-            <div class="mini-item-title">Vitamina C Intravenosa</div>
-            <div class="mini-item-sub">Inmunidad, energía y antioxidante potente.</div>
-          </div>
-        </a>
-        <a href="tratamiento.html" class="mini-item" data-animate data-animate-delay="3">
-          <div class="mini-item-img" style="background-image:url('img/treatment-sueroterapia.jpg');"></div>
-          <div>
-            <div class="mini-item-title">Suero Energizante</div>
-            <div class="mini-item-sub">Vitalidad y claridad mental desde adentro.</div>
-          </div>
-        </a>
-        <a href="tratamiento.html" class="mini-item" data-animate data-animate-delay="4">
-          <div class="mini-item-img" style="background-image:url('img/treatment-sueroterapia.jpg');"></div>
-          <div>
-            <div class="mini-item-title">Suero Glutatión</div>
-            <div class="mini-item-sub">Detox celular y luminosidad de la piel.</div>
-          </div>
-        </a>
-      </div>
+    <div id="cat-03" data-animate>
+      <span class="sec-num">04</span>
+      <h2 class="sec-title" style="font-size:clamp(22px,2.5vw,32px); margin-bottom:32px;">Sueroterapias</h2>
+      <a href="tratamiento.html" class="mini-row" data-animate data-animate-delay="1">
+        <div class="mini-row__img" style="background-image:url('img/treatment-sueroterapia.jpg');"></div>
+        <div>
+          <div class="mini-row__title">Vitamina C Intravenosa</div>
+          <div class="mini-row__sub">Inmunidad, energía y antioxidante potente.</div>
+        </div>
+      </a>
+      <a href="tratamiento.html" class="mini-row" data-animate data-animate-delay="2">
+        <div class="mini-row__img" style="background-image:url('img/treatment-sueroterapia.jpg');"></div>
+        <div>
+          <div class="mini-row__title">Suero Energizante</div>
+          <div class="mini-row__sub">Vitalidad y claridad mental desde adentro.</div>
+        </div>
+      </a>
+      <a href="tratamiento.html" class="mini-row" data-animate data-animate-delay="3">
+        <div class="mini-row__img" style="background-image:url('img/treatment-sueroterapia.jpg');"></div>
+        <div>
+          <div class="mini-row__title">Suero Glutatión</div>
+          <div class="mini-row__sub">Detox celular y luminosidad de la piel.</div>
+        </div>
+      </a>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     6. CTA FINAL — Grain texture + Frosted glass card (estilo home)
+     MINI DRA. LILIANA — franja de confianza (estructura wireframe)
+     ============================================================ -->
+<section style="padding:0;">
+  <div class="dra-strip">
+    <div class="dra-strip__photo" data-animate></div>
+    <div class="dra-strip__body" data-animate data-animate-delay="1">
+      <span class="sec-num">Tu médico tratante</span>
+      <h3 style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:clamp(22px,2.4vw,30px); color:#0C2E49; letter-spacing:-.02em; margin:0 0 14px; line-height:1.2;">
+        Dra. Liliana Carmen Pérez Pérez
+      </h3>
+      <p style="font-family:'Montserrat',sans-serif; font-weight:400; font-size:15px; color:#6E8491; line-height:1.8; margin:0 0 26px; max-width:520px;">
+        Cada tratamiento es dirigido personalmente por la Dra. Liliana. +10 años de experiencia, +9,000 procedimientos, cédula 7629010.
+      </p>
+      <a href="sobre-nosotros.html" style="font-family:'Montserrat',sans-serif; font-weight:600; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#0C2E49; text-decoration:none; border-bottom:1px solid rgba(12,46,73,.3); padding-bottom:3px; align-self:flex-start;">
+        Conocer a la Dra. →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA FINAL — Grain texture + Frosted glass card (igual al home)
      ============================================================ -->
 <section class="cta-hifi" style="padding:140px 64px;">
   <div class="cta-glass-card" data-animate>
@@ -290,7 +301,9 @@
     <h2 style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:clamp(32px,4.2vw,56px); color:#fff; letter-spacing:-.04em; line-height:1.0; margin:0 0 24px; text-align:center;">
       La consulta es<br><em style="font-weight:200; opacity:.7;">el primer paso.</em>
     </h2>
-    <p style="font-family:'Montserrat',sans-serif; font-weight:300; font-size:17px; color:rgba(255,255,255,.75); line-height:1.7; margin:0 auto 36px; max-width:480px; text-align:center;">La Dra. Liliana evalúa tu caso y recomienda el tratamiento indicado. Sin presiones, sin compromisos.</p>
+    <p style="font-family:'Montserrat',sans-serif; font-weight:300; font-size:17px; color:rgba(255,255,255,.75); line-height:1.7; margin:0 auto 36px; max-width:480px; text-align:center;">
+      La Dra. Liliana evalúa tu caso y recomienda el tratamiento indicado. Sin presiones, sin compromisos.
+    </p>
     <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
       <a href="contacto.html" class="btn btn-cta-primary">Agendar consulta →</a>
       <a href="https://wa.me/524422067185" class="btn btn-cta-ghost">WhatsApp</a>
@@ -299,7 +312,7 @@
 </section>
 
 <!-- ============================================================
-     FOOTER — estilo home (footer-hifi)
+     FOOTER — estilo home
      ============================================================ -->
 <footer class="footer-hifi">
   <div class="footer-inner">
@@ -349,7 +362,7 @@
 </a>
 
 <script>
-/* Entrance animations + nav scroll behavior + mobile menu */
+/* Entrance animations + nav scroll + tab toggle */
 (function(){
   if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
     const obs = new IntersectionObserver((entries)=>{
@@ -359,11 +372,16 @@
   } else {
     document.querySelectorAll('[data-animate]').forEach(el=>el.classList.add('is-visible'));
   }
-  // Nav scroll: agregar clase 'scrolled'
   const nav = document.querySelector('.nav-hifi');
   if(nav){
     window.addEventListener('scroll',()=>{ nav.classList.toggle('scrolled', window.scrollY > 80); }, {passive:true});
   }
+  document.querySelectorAll('.cat-tab-hifi').forEach(t=>{
+    t.addEventListener('click',()=>{
+      document.querySelectorAll('.cat-tab-hifi').forEach(x=>x.classList.remove('active'));
+      t.classList.add('active');
+    });
+  });
 })();
 function toggleMobileMenu(){
   const links = document.querySelector('.nav-hifi .nav-links');
