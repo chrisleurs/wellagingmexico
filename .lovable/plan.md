@@ -1,39 +1,61 @@
 
 
-## Plan: Quitar barra superior del panel + Logo como acceso al panel + Item "Inicio" en navbars
+## Plan: Elevar la sección "Tratamientos" como hero secundario de conversión
 
-### Problema
-La barra navy superior del panel (en `/diseno-web`) ocupa 52px arriba del iframe y compite visualmente con el navbar real del sitio. Solución: eliminarla, hacer que el **logo "Well Aging"** del propio sitio sea el atajo para volver al panel, y agregar **"Inicio"** como primer item del navbar para llevar a `home.html`.
+### Diagnóstico
+La sección actual es muy plana: 5 cards uniformes en un grid simétrico, header sobrio, fondo `stone` que la hace pasar desapercibida frente a Filosofía (white) y Resultados (white). No comunica jerarquía ni invita al clic — el "Ver todos →" es la única CTA visible y está en gris claro.
 
-### Cambios
+### Estrategia visual (basada en el design system existente)
+Reforzar la sección con cuatro palancas del propio sistema: **fondo navy contrastante**, **layout asimétrico con card destacada**, **CTAs explícitas por tarjeta** y **microcopy con beneficio + intent**.
 
-**1. `src/pages/DisenoWebPage.tsx` — Eliminar barra superior**
-- Quitar el `<header>` completo. El iframe ocupa toda la pantalla (`height: 100vh`).
-- Eliminar imports no usados (`ArrowLeft`, `ExternalLink`, `useNavigate`).
-- Resultado: el sitio se ve full-screen, sin distracción.
+### Cambios propuestos
 
-**2. Las 7 páginas en `public/diseno-web/*.html` — Logo → Panel + Item "Inicio"**
+**1. Fondo y atmósfera — diferenciación inmediata**
+- Cambiar `class="stone"` por **fondo navy `#0C2E49`** con un overlay sutil de gradient hacia `#0a2540`.
+- Texto en blanco/steel para alto contraste.
+- Eyebrow en `--steel` (#A1B2C6), título "¿Qué estás buscando?" en blanco con peso 800.
+- Añadir un **sub-headline** debajo del H2: *"Cinco rutas hacia tu mejor versión. Cada tratamiento, diseñado por la Dra. Liliana."* — da contexto y empuja a explorar.
 
-En cada navbar (`nav-hifi` en home, `nav` en el resto):
-- **Logo**: cambiar `href="home.html"` → `href="/diseno-web"` y agregar `target="_top"` para escapar del iframe y volver al panel `/`.
+**2. Layout asimétrico — destacar la categoría "ancla"**
+- Reemplazar el grid `repeat(5,1fr)` por:
+  ```text
+  ┌──────────────────┬──────────┬──────────┐
+  │                  │  Card 2  │  Card 3  │
+  │   CARD 1         ├──────────┼──────────┤
+  │   (destacada)    │  Card 4  │  Card 5  │
+  └──────────────────┴──────────┴──────────┘
+  ```
+- **Card 1 = Medicina Regenerativa** ocupa 2 columnas y 2 filas (la especialidad insignia de la doctora). Imagen grande, badge "Especialidad" en beige, copy más amplio.
+- Cards 2-5 mantienen tamaño actual pero sobre fondo navy con cards en blanco → mayor contraste por inversión cromática.
 
-  Espera, mejor: el logo debe llevar al **panel de control** (`/`). Entonces `href="/"` con `target="_top"`.
-- **Agregar `<a href="home.html">Inicio</a>`** como primer item de `.nav-links` en las 7 páginas (con `class="active"` cuando estamos en `home.html`).
+**3. Cards rediseñadas — más persuasivas**
+Cada card pasa de "imagen + número + título + lista" a:
+- Imagen (mantener altura 220px, 320px en la destacada)
+- **Badge de duración / ideal para** (ej: "Desde 45 min" / "Ideal: 30+")
+- Título del tratamiento (sin cambios)
+- Tagline corto orientado a beneficio (ej: *"Estimula tu colágeno natural"* en lugar de solo "PRP · Células madre · Exosomas")
+- **Mini-CTA inline**: `Conocer más →` en navy, visible siempre (no solo en hover) — reduce fricción cognitiva.
+- Hover actual (border reveal + lift) se mantiene, pero invertimos colores: borde en **beige `#E5DFD3`** sobre navy.
 
-**3. Mobile drawer (`#mobileDrawer`) en las 7 páginas**
-- Agregar también el link **Inicio** como primer item del drawer móvil para mantener paridad con desktop.
+**4. Header rediseñado**
+- Eyebrow "Tratamientos" + número total: *"05 categorías · más de 30 tratamientos"* — añade densidad de oferta.
+- Título principal con un **subrayado decorativo en beige** debajo de "buscando" (acento visual).
+- "Ver todos" se transforma en **botón outline blanco** (`Ver catálogo completo →`) en vez de link gris — más prominente.
 
-**4. Tooltip / hint visual (opcional pero recomendado)**
-- Agregar `title="Volver al panel de control"` al `<a class="nav-logo">` para que el usuario entienda al hacer hover que el logo es el atajo al panel.
+**5. CTA de cierre de sección — nuevo**
+Debajo del grid, una franja con:
+> *"¿No sabes por dónde empezar?"* + botón **"Agenda valoración gratuita"** (botón sólido beige sobre navy).
 
-### Detalles técnicos
-- El logo usa `target="_top"` porque las páginas viven dentro de un `<iframe>` en `/diseno-web`; sin eso, navegar a `/` cargaría el panel **dentro** del iframe.
-- El item "Inicio" usa rutas relativas (`home.html`) — funciona igual dentro del iframe y al abrir en pestaña nueva.
-- El estilo del nuevo link "Inicio" hereda automáticamente los estilos de `.nav-links a` ya existentes en cada página (incluyendo los overrides inline de `blog.html` y `resultados.html`).
-- Total de archivos editados: **8** (1 React + 7 HTML).
+Esto convierte la sección en un funnel cerrado: ver opciones → o directamente agendar.
+
+### Archivos a editar
+- `public/diseno-web/home.html` — sección 6 (líneas 255-318): nuevo markup con layout asimétrico, fondo navy, sub-headline, CTAs por card, franja de cierre.
+- `public/diseno-web/hifi.css` — añadir variantes `.treatment-card--featured` (card grande), `.treatment-card--on-dark` (cards blancas sobre navy con hover invertido en beige), y estilos para la franja CTA de cierre.
 
 ### Resultado esperado
-- `/diseno-web` muestra el sitio a pantalla completa, sin barra navy superior.
-- Click en el logo "Well Aging" desde cualquier página → vuelve al panel `/`.
-- Nuevo item "Inicio" visible en navbar desktop y drawer móvil → lleva a `home.html`.
+La sección "Tratamientos" pasa de ser un grid plano a un **hero secundario** con:
+- Contraste cromático (única sección navy entre Filosofía blanca y Resultados blanca → ojo se ancla aquí).
+- Jerarquía clara (1 card grande + 4 secundarias).
+- Múltiples puntos de entrada al clic (5 cards + 5 mini-CTAs + botón "Ver catálogo" + CTA "Agenda valoración") en vez de los 6 actuales casi invisibles.
+- Storytelling: oferta → beneficio → acción.
 
