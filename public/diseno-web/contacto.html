@@ -15,19 +15,19 @@
    Jerarquía: 1. Agendar (FLOW)  2. WhatsApp  3. Formulario
    ══════════════════════════════════════════ */
 
-/* ── Hero ── */
+/* ── Hero — compacto, mobile-first, dejando espacio a los CTAs en 1° viewport ── */
 .contact-hero {
   background: #F7F4F0;
-  padding: 96px 0 80px;
+  padding: 56px 0 36px;
   text-align: center;
 }
 .contact-hero h1 {
   font-weight: 800;
-  font-size: clamp(40px, 5.5vw, 68px);
+  font-size: clamp(30px, 4.4vw, 52px);
   color: #0C2E49;
-  letter-spacing: -.05em;
-  line-height: 0.97;
-  margin: 0 0 24px;
+  letter-spacing: -.045em;
+  line-height: 1.02;
+  margin: 16px 0 16px;
 }
 .contact-hero h1 em {
   font-weight: 200;
@@ -35,10 +35,14 @@
   opacity: .6;
 }
 .contact-hero p {
-  font-size: clamp(14px, 1.4vw, 17px);
+  font-size: clamp(13px, 1.2vw, 15px);
   color: #6E8491;
-  line-height: 1.85;
-  margin: 0;
+  line-height: 1.7;
+  margin: 0 auto;
+  max-width: 460px;
+}
+@media (min-width: 769px) {
+  .contact-hero { padding: 72px 0 44px; }
 }
 
 /* ══ 1. SECCIÓN AGENDAR — Primaria ══ */
