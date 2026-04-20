@@ -54,14 +54,6 @@
   .metodo-num { font-size:48px; }
 }
 </style>
-
-<style>
-  /* Image injection layer */
-  .ph, .ph2, .ph-warm, .ph-dark { color: transparent !important; background-size: cover !important; background-position: center !important; }
-  .img-bg { background-size: cover !important; background-position: center !important; color: transparent !important; }
-  .doc-ph-parallax { background-image: url('img/dra-liliana.jpg'); background-size: cover; background-position: center top; color: transparent !important; }
-  .clinic-ph .hero-kenburns { background-image: url('img/clinica-interior.jpg') !important; background-size: cover !important; background-position: center !important; }
-</style>
 </head>
 <body>
 
@@ -83,7 +75,7 @@
 ──────────────────────────────────────── -->
 <section class="hero-section" style="height:88vh;">
   <!-- Ken Burns portrait placeholder -->
-  <div class="hero-kenburns" style="background:linear-gradient(135deg,rgba(26,58,79,.55) 0%,rgba(12,46,73,.7) 100%), url('img/dra-liliana.jpg'); background-size:cover; background-position:center top;">
+  <div class="hero-kenburns" style="background:url("img/dra-liliana.jpg") center/cover no-repeat;background:linear-gradient(135deg,#1a3a4f 0%,#0C2E49 100%);">
     <!-- Placeholder silhouette — swap for real photo -->
     <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;padding-right:8%;opacity:.18;">
       <svg width="340" height="620" viewBox="0 0 340 620" fill="none">
@@ -251,7 +243,7 @@
 <!-- ───────────────────────────────────────
      CLÍNICA — Full-bleed photo
 ──────────────────────────────────────── -->
-<div class="clinic-ph" data-animate>
+<div class="clinic-ph" data-animate style='background:url("img/clinica-interior.jpg") center/cover no-repeat;'>
   <div class="hero-kenburns" style="background:linear-gradient(135deg,#2a5070 0%,#0C2E49 100%);animation:kenBurns 18s ease-in-out infinite alternate;">
     <div style="position:absolute;inset:0;opacity:.12;background-image:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(255,255,255,.03) 40px,rgba(255,255,255,.03) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(255,255,255,.03) 40px,rgba(255,255,255,.03) 41px);"></div>
   </div>

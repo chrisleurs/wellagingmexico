@@ -7,6 +7,9 @@ const pages = [
   { name: "Tratamientos", file: "/diseno-web/tratamientos.html" },
   { name: "Tratamiento (PRP)", file: "/diseno-web/tratamiento.html" },
   { name: "Sobre Nosotros", file: "/diseno-web/sobre-nosotros.html" },
+  { name: "Resultados", file: "/diseno-web/resultados.html" },
+  { name: "Blog", file: "/diseno-web/blog.html" },
+  { name: "Contacto", file: "/diseno-web/contacto.html" },
 ];
 
 const DisenoWebPage = () => {
