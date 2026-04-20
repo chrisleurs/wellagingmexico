@@ -2077,8 +2077,9 @@ h2 {
 .btn-cta-ghost,
 .btn-beige-solid,
 .btn-outline-light,
-.btn-nav-cta {
-  border-radius: 10px !important;
+.btn-nav-cta,
+.btn-primary {
+  border-radius: 12px !important;
 }
 
 /* — CARDS: conservan su redondeo amplio — */
