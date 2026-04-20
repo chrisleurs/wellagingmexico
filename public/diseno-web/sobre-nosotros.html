@@ -284,36 +284,59 @@
 </section>
 
 <!-- ============================================================
-     7. TESTIMONIOS — sticky beige
+     7. TESTIMONIOS — Marquee horizontal infinito (estilo home)
      ============================================================ -->
-<section class="sticky-section" style="background:#F7F4F0; padding:140px 64px 140px; z-index:6;">
-  <div class="wrap">
-    <span class="sec-num" data-animate>Pacientes · Reseñas</span>
-    <h2 class="sec-title" data-animate data-animate-delay="1">Lo que dicen nuestras<br><em style="font-weight:300; opacity:.7;">pacientes.</em></h2>
-    <p class="sec-sub" data-animate data-animate-delay="2">45 reseñas 5 estrellas en Google. Estas son algunas de sus historias.</p>
+<section class="sticky-section" style="background:#F7F4F0; padding:120px 0 140px; z-index:6;">
+  <div class="wrap" style="margin-bottom:64px;">
+    <div style="text-align:center;" data-animate>
+      <span class="sec-num" style="text-align:center;">Pacientes · Reseñas</span>
+      <h2 class="sec-title" style="font-size:clamp(28px,3.5vw,44px);">Lo que dicen<br><em style="font-weight:300; opacity:.7;">quienes nos visitan.</em></h2>
+      <p class="sec-sub" style="margin:16px auto 0; max-width:560px; text-align:center;">45 reseñas 5★ en Google. Estas son algunas de sus historias.</p>
+    </div>
+  </div>
 
-    <div class="test-grid" style="margin-top:32px;">
-      <div class="test-card" data-animate data-animate-delay="1">
-        <div class="t-stars">★★★★★</div>
-        <p class="t-quote">"La Dra. Liliana es extraordinariamente profesional. Me explicó cada paso del tratamiento y los resultados superaron mis expectativas. Me siento como yo misma, pero con más confianza."</p>
-        <div class="t-name">Mariana G. — Paciente desde 2022</div>
-      </div>
-      <div class="test-card" data-animate data-animate-delay="2">
-        <div class="t-stars">★★★★★</div>
-        <p class="t-quote">"Llegué con mucho miedo y dudas. La doctora me dedicó tiempo, resolvió todas mis preguntas y me dio un plan que realmente entendí. Hoy llevo dos años de tratamiento y no puedo estar más contenta."</p>
-        <div class="t-name">Valentina R. — Paciente desde 2023</div>
-      </div>
-      <div class="test-card" data-animate data-animate-delay="3">
-        <div class="t-stars">★★★★★</div>
-        <p class="t-quote">"Busqué durante meses una médica que combinara rigor científico con un trato humano. La encontré en Well Aging. El ambiente de la clínica es sereno y profesional. La recomiendo sin dudar."</p>
-        <div class="t-name">Sofía A. — Paciente desde 2021</div>
-      </div>
-      <div class="test-card" data-animate data-animate-delay="4">
-        <div class="t-stars">★★★★★</div>
-        <p class="t-quote">"Mi bioestimulador fue el mejor regalo que me di. La Dra. Pérez es sumamente cuidadosa, detallista y honesta. Si el resultado que buscas no es el adecuado para ti, ella te lo dice — eso vale mucho."</p>
-        <div class="t-name">Camila M. — Paciente desde 2024</div>
+  <div class="testimonials-marquee">
+    <!-- Fila 1 izq → der -->
+    <div class="marquee-row marquee-row-1" style="padding-bottom:16px;">
+      <div class="marquee-track">
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"La Dra. Liliana es extraordinariamente profesional. Me explicó cada paso del tratamiento y los resultados superaron mis expectativas."</p><div><div class="mq-author">Mariana G.</div><div class="mq-source">PRP Facial · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Llegué con mucho miedo y dudas. La doctora me dedicó tiempo, resolvió todas mis preguntas y me dio un plan que realmente entendí."</p><div><div class="mq-author">Valentina R.</div><div class="mq-source">Bioestimuladores · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Busqué durante meses una médica que combinara rigor científico con un trato humano. La encontré en Well Aging."</p><div><div class="mq-author">Sofía A.</div><div class="mq-source">Med. Regenerativa · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Mi bioestimulador fue el mejor regalo que me di. La Dra. es cuidadosa, detallista y honesta — eso vale mucho."</p><div><div class="mq-author">Camila M.</div><div class="mq-source">Bioestimuladores · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"El ambiente de la clínica es increíble. Tranquilo, limpio, profesional. Me sentí en buenas manos desde el primer momento."</p><div><div class="mq-author">Sofía T.</div><div class="mq-source">Facial Antiaging · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Lo que más me gustó: la Dra. nunca me presionó. Me dio opciones y tiempo para decidir. Eso genera confianza."</p><div><div class="mq-author">Patricia L.</div><div class="mq-source">Sueroterapia · Google</div></div></div>
+        <!-- Duplicado -->
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"La Dra. Liliana es extraordinariamente profesional. Me explicó cada paso del tratamiento y los resultados superaron mis expectativas."</p><div><div class="mq-author">Mariana G.</div><div class="mq-source">PRP Facial · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Llegué con mucho miedo y dudas. La doctora me dedicó tiempo, resolvió todas mis preguntas y me dio un plan que realmente entendí."</p><div><div class="mq-author">Valentina R.</div><div class="mq-source">Bioestimuladores · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Busqué durante meses una médica que combinara rigor científico con un trato humano. La encontré en Well Aging."</p><div><div class="mq-author">Sofía A.</div><div class="mq-source">Med. Regenerativa · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Mi bioestimulador fue el mejor regalo que me di. La Dra. es cuidadosa, detallista y honesta — eso vale mucho."</p><div><div class="mq-author">Camila M.</div><div class="mq-source">Bioestimuladores · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"El ambiente de la clínica es increíble. Tranquilo, limpio, profesional. Me sentí en buenas manos desde el primer momento."</p><div><div class="mq-author">Sofía T.</div><div class="mq-source">Facial Antiaging · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Lo que más me gustó: la Dra. nunca me presionó. Me dio opciones y tiempo para decidir. Eso genera confianza."</p><div><div class="mq-author">Patricia L.</div><div class="mq-source">Sueroterapia · Google</div></div></div>
       </div>
     </div>
+
+    <!-- Fila 2 der → izq (más lenta) -->
+    <div class="marquee-row marquee-row-2">
+      <div class="marquee-track">
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Vine por curiosidad y me quedé por los resultados. Mis amigos notan la diferencia pero nadie sabe qué cambió."</p><div><div class="mq-author">Jorge M.</div><div class="mq-source">Botox · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"La consulta inicial fue la más completa que he tenido con cualquier médico. Análisis, historial, todo."</p><div><div class="mq-author">Fernanda C.</div><div class="mq-source">Consulta Inicial · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Llevaba meses con caída severa del cabello. El PRP capilar detuvo la caída en 6 semanas. Recomendado."</p><div><div class="mq-author">Héctor S.</div><div class="mq-source">PRP Capilar · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Tuve miedo de salir hinchada o con cara rara. Nada de eso. La Dra. trabaja con mucha delicadeza y criterio."</p><div><div class="mq-author">Isabel V.</div><div class="mq-source">Fillers · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"El seguimiento post-tratamiento es lo que diferencia a Well Aging. Te contactan, te cuidan de verdad."</p><div><div class="mq-author">Alejandra B.</div><div class="mq-source">Sueroterapia · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Mi piel tiene una textura completamente diferente. Luminosa, firme. Justo lo que necesitaba antes de mi boda."</p><div><div class="mq-author">Lucía N.</div><div class="mq-source">Facial Regenerativo · Google</div></div></div>
+        <!-- Duplicado -->
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Vine por curiosidad y me quedé por los resultados. Mis amigos notan la diferencia pero nadie sabe qué cambió."</p><div><div class="mq-author">Jorge M.</div><div class="mq-source">Botox · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"La consulta inicial fue la más completa que he tenido con cualquier médico. Análisis, historial, todo."</p><div><div class="mq-author">Fernanda C.</div><div class="mq-source">Consulta Inicial · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Llevaba meses con caída severa del cabello. El PRP capilar detuvo la caída en 6 semanas. Recomendado."</p><div><div class="mq-author">Héctor S.</div><div class="mq-source">PRP Capilar · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Tuve miedo de salir hinchada o con cara rara. Nada de eso. La Dra. trabaja con mucha delicadeza y criterio."</p><div><div class="mq-author">Isabel V.</div><div class="mq-source">Fillers · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"El seguimiento post-tratamiento es lo que diferencia a Well Aging. Te contactan, te cuidan de verdad."</p><div><div class="mq-author">Alejandra B.</div><div class="mq-source">Sueroterapia · Google</div></div></div>
+        <div class="mq-card"><div class="mq-stars">★★★★★</div><p class="mq-quote">"Mi piel tiene una textura completamente diferente. Luminosa, firme. Justo lo que necesitaba antes de mi boda."</p><div><div class="mq-author">Lucía N.</div><div class="mq-source">Facial Regenerativo · Google</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:48px; padding:0 64px;" data-animate>
+    <a href="https://maps.google.com" target="_blank" rel="noopener" style="font-family:'Montserrat',sans-serif; font-weight:600; font-size:11px; color:#0C2E49; text-transform:uppercase; letter-spacing:.18em; text-decoration:none; border-bottom:1px solid rgba(12,46,73,.3); padding-bottom:3px;">Ver las 45 reseñas en Google Maps →</a>
   </div>
 </section>
 
