@@ -1,61 +1,73 @@
 
 
-## Plan: Elevar la sección "Tratamientos" como hero secundario de conversión
+## Plan: Tratamientos page — testimonials strip + premium category cards + filtros (categoría + tiempo)
 
-### Diagnóstico
-La sección actual es muy plana: 5 cards uniformes en un grid simétrico, header sobrio, fondo `stone` que la hace pasar desapercibida frente a Filosofía (white) y Resultados (white). No comunica jerarquía ni invita al clic — el "Ver todos →" es la única CTA visible y está en gris claro.
+### 1. Nueva sección "Testimoniales" antes de la franja Dra. Liliana
 
-### Estrategia visual (basada en el design system existente)
-Reforzar la sección con cuatro palancas del propio sistema: **fondo navy contrastante**, **layout asimétrico con card destacada**, **CTAs explícitas por tarjeta** y **microcopy con beneficio + intent**.
+Replicar el marquee horizontal del home (`testimonials-marquee` con 2 filas en direcciones opuestas) justo encima del bloque `.dra-strip`.
 
-### Cambios propuestos
+- Fondo `stone (#F7F4F0)` para contraste con la sección anterior (faciales en blanco).
+- Header centrado: eyebrow "Pacientes reales · Tratamientos" + título `Lo que dicen quienes ya<br><em>vivieron el proceso.</em>`
+- Reusar las clases `.testimonials-marquee`, `.marquee-row`, `.marquee-track`, `.mq-card` ya definidas en `hifi.css` (no requiere CSS nuevo).
+- Quotes nuevos enfocados a tratamientos específicos (PRP, fillers, sueroterapia, capilar, bioestimuladores) con badge fuente Google.
+- Link inferior "Ver las 45 reseñas en Google Maps →".
 
-**1. Fondo y atmósfera — diferenciación inmediata**
-- Cambiar `class="stone"` por **fondo navy `#0C2E49`** con un overlay sutil de gradient hacia `#0a2540`.
-- Texto en blanco/steel para alto contraste.
-- Eyebrow en `--steel` (#A1B2C6), título "¿Qué estás buscando?" en blanco con peso 800.
-- Añadir un **sub-headline** debajo del H2: *"Cinco rutas hacia tu mejor versión. Cada tratamiento, diseñado por la Dra. Liliana."* — da contexto y empuja a explorar.
+### 2. Rediseño de las cards de categoría al estilo home
 
-**2. Layout asimétrico — destacar la categoría "ancla"**
-- Reemplazar el grid `repeat(5,1fr)` por:
-  ```text
-  ┌──────────────────┬──────────┬──────────┐
-  │                  │  Card 2  │  Card 3  │
-  │   CARD 1         ├──────────┼──────────┤
-  │   (destacada)    │  Card 4  │  Card 5  │
-  └──────────────────┴──────────┴──────────┘
-  ```
-- **Card 1 = Medicina Regenerativa** ocupa 2 columnas y 2 filas (la especialidad insignia de la doctora). Imagen grande, badge "Especialidad" en beige, copy más amplio.
-- Cards 2-5 mantienen tamaño actual pero sobre fondo navy con cards en blanco → mayor contraste por inversión cromática.
+Reemplazar las `tcard` actuales (foto arriba + caja blanca con texto) por el formato premium del home (`th-card`): foto full-bleed + overlay de marca + contenido sobrepuesto.
 
-**3. Cards rediseñadas — más persuasivas**
-Cada card pasa de "imagen + número + título + lista" a:
-- Imagen (mantener altura 220px, 320px en la destacada)
-- **Badge de duración / ideal para** (ej: "Desde 45 min" / "Ideal: 30+")
-- Título del tratamiento (sin cambios)
-- Tagline corto orientado a beneficio (ej: *"Estimula tu colágeno natural"* en lugar de solo "PRP · Células madre · Exosomas")
-- **Mini-CTA inline**: `Conocer más →` en navy, visible siempre (no solo en hover) — reduce fricción cognitiva.
-- Hover actual (border reveal + lift) se mantiene, pero invertimos colores: borde en **beige `#E5DFD3`** sobre navy.
+Aplicar a las 3 cards de **Sección 01 (Regenerativa)** y las 3 cards de **Sección 02 (Estética)**:
+- Variantes alternadas `--navy / --beige / --steel` para ritmo cromático (como en el home).
+- Estructura: badge (categoría · etiqueta tiempo), arrow icon, título grande en mayúsculas con `<br>`, descripción corta, mini-stat con icono.
+- Altura uniforme ~520px, hover lift suave, link a `tratamiento.html`.
+- Reutilizar `.th-card` y modificadores ya existentes en `hifi.css` → CSS nuevo mínimo.
 
-**4. Header rediseñado**
-- Eyebrow "Tratamientos" + número total: *"05 categorías · más de 30 tratamientos"* — añade densidad de oferta.
-- Título principal con un **subrayado decorativo en beige** debajo de "buscando" (acento visual).
-- "Ver todos" se transforma en **botón outline blanco** (`Ver catálogo completo →`) en vez de link gris — más prominente.
+Las **mini-rows** de Faciales/Sueroterapias se mantienen (ya funcionan bien como lista compacta), solo se les añade un chip de tiempo a la derecha (`30 min`, `45 min`).
 
-**5. CTA de cierre de sección — nuevo**
-Debajo del grid, una franja con:
-> *"¿No sabes por dónde empezar?"* + botón **"Agenda valoración gratuita"** (botón sólido beige sobre navy).
+### 3. Sistema de filtros (categoría + tiempo)
 
-Esto convierte la sección en un funnel cerrado: ver opciones → o directamente agendar.
+Reemplazar la barra `.cat-tabs` actual del overlap-card por un bloque de filtros más rico, inspirado en `.th-filters` del home pero con dos ejes:
 
-### Archivos a editar
-- `public/diseno-web/home.html` — sección 6 (líneas 255-318): nuevo markup con layout asimétrico, fondo navy, sub-headline, CTAs por card, franja de cierre.
-- `public/diseno-web/hifi.css` — añadir variantes `.treatment-card--featured` (card grande), `.treatment-card--on-dark` (cards blancas sobre navy con hover invertido en beige), y estilos para la franja CTA de cierre.
+```text
+┌─ Filtra por categoría ─────────────────────────────────────────┐
+│ [Todos] [Regenerativa] [Estética] [Faciales] [Sueroterapias]   │
+│ [Alopecia]                                                      │
+└────────────────────────────────────────────────────────────────┘
+
+  Duración · ○ Cualquiera   ○ Express (≤30 min)   ○ Estándar (45–60 min)   ○ Protocolo (>60 min)
+```
+
+- **Fila 1 (categorías)**: pills con el estilo `.th-filter` del home (oscuro al activarse, fondo translúcido).
+- **Fila 2 (tiempo)**: línea sutil — label "Duración" en eyebrow + chips ghost más pequeños y un único radio activo. Sin borde pesado, separado por una `hairline`.
+- Atributos `data-cat` y `data-time` en cada card/`mini-row` para facilitar filtrado JS futuro (en este pase solo añadimos la UI + clase `is-active`; el filtrado funcional puede quedar para una iteración siguiente o hacerse simple con `display:none`).
+
+### 4. Implementación técnica
+
+**Archivos a editar:**
+- `public/diseno-web/tratamientos.html` — reemplazar `.cat-tabs`, reescribir las 6 cards de las secciones 01 y 02 al formato `.th-card`, añadir chip de duración a `.mini-row`, insertar nueva `<section>` testimoniales antes de la dra-strip.
+- `public/diseno-web/hifi.css` — añadir solo lo nuevo: estilos para la fila de filtro de duración (`.dur-filter`, `.dur-chip`) y el chip de tiempo de mini-row (`.mini-row__time`). Todo lo demás reusa clases existentes.
+
+**JavaScript** (inline en la página, ligero):
+- Toggle visual de filtros activos (categoría única + duración única).
+- Filtrado básico mostrando/ocultando `.th-card` y `.mini-row` según `data-cat` y `data-time` con animación fade.
+
+### 5. Orden final de la página tratamientos
+
+```text
+Hero (breadcrumb + título)
+Overlap card (descripción + filtros categoría + filtros duración)   ← mejorado
+01 Medicina Regenerativa  (3 th-cards estilo home)                  ← rediseñado
+02 Medicina Estética      (3 th-cards estilo home)                  ← rediseñado
+03+04 Faciales / Sueroterapias  (mini-rows con chip de tiempo)      ← chip añadido
+🆕 Testimoniales (marquee 2 filas, fondo stone)                     ← NUEVO
+Mini Dra. Liliana (franja confianza)
+CTA glass card
+Footer
+```
 
 ### Resultado esperado
-La sección "Tratamientos" pasa de ser un grid plano a un **hero secundario** con:
-- Contraste cromático (única sección navy entre Filosofía blanca y Resultados blanca → ojo se ancla aquí).
-- Jerarquía clara (1 card grande + 4 secundarias).
-- Múltiples puntos de entrada al clic (5 cards + 5 mini-CTAs + botón "Ver catálogo" + CTA "Agenda valoración") en vez de los 6 actuales casi invisibles.
-- Storytelling: oferta → beneficio → acción.
+
+- La página gana **prueba social** justo antes del cierre, igual que el home.
+- Las categorías principales se ven igual de premium que en el home, manteniendo coherencia visual entre `home.html` y `tratamientos.html`.
+- El usuario tiene **dos ejes de exploración** (qué tipo de tratamiento + cuánto tiempo dispone), facilitando que encuentre lo que busca sin leer toda la página.
 
