@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resultados — Well Aging México Health Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hifi.css">
+<style>
+/* ── Page-specific ── */
+.filter-bar { background:#fff; border-top:1px solid rgba(12,46,73,.08); border-bottom:1px solid rgba(12,46,73,.08); padding:18px 0; }
+.filter-pills { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.filter-label { font-weight:500; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:#c0c8cc; margin-right:8px; }
+.pill-hifi { font-weight:500; font-size:10px; letter-spacing:.12em; text-transform:uppercase; padding:8px 20px; border:1.5px solid rgba(12,46,73,.18); color:#6E8491; cursor:pointer; text-decoration:none; border-radius:100px; transition:all .2s; }
+.pill-hifi:hover { border-color:#0C2E49; color:#0C2E49; }
+.pill-hifi.active { background:#0C2E49; color:#fff; border-color:#0C2E49; }
+
+/* BA Sliders grid */
+.ba-gallery { display:grid; grid-template-columns:1fr 1fr; gap:48px; }
+.ba-case { }
+.ba-meta { margin-top:14px; }
+.ba-meta-label { font-weight:500; font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:#6E8491; margin-bottom:4px; }
+.ba-meta-sub { font-weight:400; font-size:13px; color:#9aa8b0; }
+
+/* Testimonials editorial */
+.t-editorial { display:grid; grid-template-columns:1fr 2fr; gap:96px; align-items:start; }
+.t-list { display:flex; flex-direction:column; gap:0; }
+.t-editorial-item { display:flex; gap:20px; align-items:flex-start; padding:32px 0; border-bottom:1px solid rgba(12,46,73,.07); }
+.t-editorial-item:last-child { border-bottom:none; }
+.t-avatar { width:44px; height:44px; border-radius:50%; background:rgba(12,46,73,.12); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:14px; color:#0C2E49; }
+.t-stars { font-size:11px; letter-spacing:2px; color:#0C2E49; margin-bottom:8px; }
+.t-quote-body { font-style:italic; font-weight:300; font-size:16px; color:#0C2E49; line-height:1.8; margin:0 0 10px; }
+.t-attribution { font-weight:600; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:#6E8491; }
+
+.legal-note { margin-top:40px; padding:16px 24px; background:#FAFAFA; border-left:2px solid rgba(12,46,73,.12); border-radius:0 8px 8px 0; }
+.legal-note p { font-weight:400; font-size:11px; color:#9aa8b0; line-height:1.8; margin:0; }
+
+@media(max-width:768px){
+  .ba-gallery { grid-template-columns:1fr; }
+  .t-editorial { grid-template-columns:1fr; gap:48px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV — White (no dark hero) -->
+<nav class="nav" style="background:#fff;border-bottom:1px solid rgba(12,46,73,.08);">
+  <a href="index-hifi.html" class="nav-logo" style="color:#0C2E49;">Well Aging<span style="color:#6E8491;">México</span></a>
+  <ul class="nav-links">
+    <li><a href="tratamientos-hifi.html" style="color:#6E8491;">Tratamientos</a></li>
+    <li><a href="sobre-nosotros-hifi.html" style="color:#6E8491;">Nosotros</a></li>
+    <li><a href="resultados-hifi.html" style="color:#0C2E49;border-bottom:2px solid #0C2E49;padding-bottom:2px;">Resultados</a></li>
+    <li><a href="blog-hifi.html" style="color:#6E8491;">Blog</a></li>
+    <li><a href="contacto-hifi.html" style="color:#6E8491;">Contacto</a></li>
+  </ul>
+  <a href="#" class="btn-primary">Agendar consulta</a>
+</nav>
+
+<!-- ───────────────────────────────────────
+     HERO STONE — editorial centered
+──────────────────────────────────────── -->
+<section style="background:#F7F4F0;padding:104px 0 88px;text-align:center;">
+  <div class="container" style="max-width:680px;">
+    <p class="eyebrow-v2" data-animate style="display:block;text-align:center;">Casos reales</p>
+    <h1 style="font-weight:800;font-size:clamp(40px,5.5vw,68px);line-height:1.0;letter-spacing:-.05em;margin:0 0 24px;color:#0C2E49;" data-animate data-animate-delay="1">
+      Resultados reales<br><em style="font-weight:300;opacity:.7;">de pacientes reales.</em>
+    </h1>
+    <p data-animate data-animate-delay="2" style="font-weight:400;font-size:clamp(15px,1.5vw,17px);color:#6E8491;line-height:1.8;margin:0;">Cada caso es único. Aquí algunos ejemplos representativos con autorización de los pacientes.</p>
+  </div>
+</section>
+
+<!-- FILTROS -->
+<div class="filter-bar">
+  <div class="container">
+    <div class="filter-pills">
+      <span class="filter-label">Filtrar:</span>
+      <a href="#" class="pill-hifi active">Todos</a>
+      <a href="#" class="pill-hifi">Medicina Regenerativa</a>
+      <a href="#" class="pill-hifi">Medicina Estética</a>
+      <a href="#" class="pill-hifi">Faciales</a>
+      <a href="#" class="pill-hifi">Alopecia</a>
+    </div>
+  </div>
+</div>
+
+<!-- ───────────────────────────────────────
+     GALERÍA ANTES/DESPUÉS — BA Sliders
+──────────────────────────────────────── -->
+<section style="padding:88px 0;background:#fff;">
+  <div class="container">
+    <div class="ba-gallery">
+
+      <!-- Caso 1 — PRP Facial -->
+      <div data-animate data-animate-delay="1">
+        <div class="ba-container" id="baSlider1" style="height:300px;border-radius:12px;">
+          <div class="ba-after" style="background:linear-gradient(135deg,#243d50 0%,#1a3a4f 100%);border-radius:12px;"></div>
+          <div class="ba-before-wrap" style="border-radius:12px 0 0 12px;">
+            <div class="ba-before" style="background:linear-gradient(135deg,#3a5a6f 0%,#2a4a5f 100%);border-radius:12px 0 0 12px;">
+              <span style="position:absolute;top:12px;left:12px;background:#0C2E49;color:#fff;font-weight:600;font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding:4px 12px;border-radius:100px;">Antes</span>
+            </div>
+          </div>
+          <div class="ba-handle">
+            <div class="ba-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg>
+            </div>
+          </div>
+          <span style="position:absolute;top:12px;right:12px;background:#0C2E49;color:#fff;font-weight:600;font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding:4px 12px;border-radius:100px;z-index:5;">Después</span>
+        </div>
+        <div class="ba-meta">
+          <div class="ba-meta-label">Medicina Regenerativa · PRP Facial</div>
+          <div class="ba-meta-sub">3 sesiones · Querétaro</div>
+        </div>
+      </div>
+
+      <!-- Caso 2 — Bioestimuladores -->
+      <div data-animate data-animate-delay="2">
+        <div class="ba-container" id="baSlider2" style="height:300px;border-radius:12px;">
+          <div class="ba-after" style="background:linear-gradient(135deg,#162d40 0%,#0C2E49 100%);border-radius:12px;"></div>
+          <div class="ba-before-wrap" style="border-radius:12px 0 0 12px;">
+            <div class="ba-before" style="background:linear-gradient(135deg,#2a4a5f 0%,#1d3a4d 100%);border-radius:12px 0 0 12px;">
+              <span style="position:absolute;top:12px;left:12px;background:#0C2E49;color:#fff;font-weight:600;font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding:4px 12px;border-radius:100px;">Antes</span>
+            </div>
+          </div>
+          <div class="ba-handle">
+            <div class="ba-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg>
+            </div>
+          </div>
+          <span style="position:absolute;top:12px;right:12px;background:#0C2E49;color:#fff;font-weight:600;font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding:4px 12px;border-radius:100px;z-index:5;">Después</span>
+        </div>
+        <div class="ba-meta">
+          <div class="ba-meta-label">Medicina Estética · Bioestimuladores</div>
+          <div class="ba-meta-sub">2 sesiones · Querétaro</div>
+        </div>
+      </div>
+
+      <!-- Caso 3 — PRP Capilar -->
+      <div data-animate data-animate-delay="1">
+        <div class="ba-container" id="baSlider3" style="height:300px;border-radius:12px;">
+          <div class="ba-after" style="background:linear-gradient(135deg,#1a3a4f 0%,#2a5070 100%);border-radius:12px;"></div>
+          <div class="ba-before-wrap" style="border-radius:12px 0 0 12px;">
+            <div class="ba-before" style="background:linear-gradient(135deg,#3a5a6f 0%,#2a4a5f 100%);border-radius:12px 0 0 12px;">
+              <span style="position:absolute;top:12px;left:12px;background:#0C2E49;color:#fff;font-weight:600;font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding:4px 12px;border-radius:100px;">Antes</span>
+            </div>
+          </div>
+          <div class="ba-handle">
+            <div class="ba-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg>
+            </div>
+          </div>
+          <span style="position:absolute;top:12px;right:12px;background:#0C2E49;color:#fff;font-weight:600;font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding:4px 12px;border-radius:100px;z-index:5;">Después</span>
+        </div>
+        <div class="ba-meta">
+          <div class="ba-meta-label">Alopecia · PRP Capilar</div>
+          <div class="ba-meta-sub">4 sesiones · Querétaro</div>
+        </div>
+      </div>
+
+      <!-- Caso 4 — Células Madre -->
+      <div data-animate data-animate-delay="2">
+        <div class="ba-container" id="baSlider4" style="height:300px;border-radius:12px;">
+          <div class="ba-after" style="background:linear-gradient(135deg,#0C2E49 0%,#1a3a4f 100%);border-radius:12px;"></div>
+          <div class="ba-before-wrap" style="border-radius:12px 0 0 12px;">
+            <div class="ba-before" style="background:linear-gradient(135deg,#2a4a5f 0%,#1f3a4f 100%);border-radius:12px 0 0 12px;">
+              <span style="position:absolute;top:12px;left:12px;background:#0C2E49;color:#fff;font-weight:600;font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding:4px 12px;border-radius:100px;">Antes</span>
+            </div>
+          </div>
+          <div class="ba-handle">
+            <div class="ba-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"/></svg>
+            </div>
+          </div>
+          <span style="position:absolute;top:12px;right:12px;background:#0C2E49;color:#fff;font-weight:600;font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding:4px 12px;border-radius:100px;z-index:5;">Después</span>
+        </div>
+        <div class="ba-meta">
+          <div class="ba-meta-label">Medicina Regenerativa · Células Madre</div>
+          <div class="ba-meta-sub">2 sesiones · Querétaro</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="legal-note" data-animate>
+      <p>Los resultados mostrados son representativos y varían según cada paciente. Imágenes publicadas con autorización. Más resultados disponibles en consulta.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────────────────────
+     TESTIMONIOS — editorial
+──────────────────────────────────────── -->
+<section class="section-overlap" style="background:#F7F4F0;">
+  <div class="container">
+    <div class="t-editorial">
+      <div data-animate>
+        <p class="eyebrow-v2">Reseñas verificadas</p>
+        <h2 class="section-title" style="font-size:clamp(22px,2.8vw,32px);">Lo que dicen nuestros pacientes.</h2>
+        <p style="font-weight:500;font-size:12px;color:#6E8491;line-height:1.8;margin:0 0 20px;">45 reseñas · ★★★★★<br>Google Maps verificado</p>
+        <a href="#" style="font-weight:600;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#0C2E49;text-decoration:none;border-bottom:1px solid rgba(12,46,73,.3);padding-bottom:2px;">Ver en Google Maps &rarr;</a>
+      </div>
+      <div class="t-list" data-animate data-animate-delay="1">
+        <div class="t-editorial-item">
+          <div class="t-avatar">M</div>
+          <div>
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote-body">"Los resultados del PRP facial fueron más de lo que esperaba. Mi piel mejoró visiblemente en textura y firmeza. La doctora es muy precisa y confiable."</p>
+            <div class="t-attribution">Mariana T. · PRP Facial · Google Maps</div>
+          </div>
+        </div>
+        <div class="t-editorial-item">
+          <div class="t-avatar">S</div>
+          <div>
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote-body">"Vine por bioestimuladores y el cambio fue gradual pero notable. Lo que más valoré fue que nunca me presionaron a hacer más de lo que necesitaba."</p>
+            <div class="t-attribution">Sofía G. · Bioestimuladores · Google Maps</div>
+          </div>
+        </div>
+        <div class="t-editorial-item">
+          <div class="t-avatar">R</div>
+          <div>
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote-body">"Llevaba años lidiando con la alopecia. El PRP capilar me devolvió la confianza. La doctora hizo seguimiento real y los resultados hablan solos."</p>
+            <div class="t-attribution">Roberto V. · PRP Capilar · Google Maps</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-hifi">
+  <div class="cta-glass-card" data-animate>
+    <p class="eyebrow-v2" style="color:rgba(255,255,255,.6);">¿Quieres resultados así?</p>
+    <h2 style="font-weight:800;font-size:clamp(28px,3.5vw,48px);color:#fff;letter-spacing:-.04em;line-height:0.95;margin:16px 0 24px;">Tu consulta<br><em style="font-weight:300;opacity:.7;">es el primer paso.</em></h2>
+    <p style="font-weight:300;font-size:16px;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto;">La Dra. Liliana evalúa tu caso y diseña el plan indicado para tus objetivos.</p>
+    <a href="#" class="btn-cta-primary">Agendar consulta</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <div class="footer-logo">Well Aging<span>México</span></div>
+      <p class="footer-tagline">Aging is natural.<br>Care is essential.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Tratamientos</div>
+      <ul class="footer-links">
+        <li><a href="#">Medicina Regenerativa</a></li>
+        <li><a href="#">Medicina Estética</a></li>
+        <li><a href="#">Faciales</a></li>
+        <li><a href="#">Sueroterapias</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Clínica</div>
+      <ul class="footer-links">
+        <li><a href="sobre-nosotros-hifi.html">Sobre la Dra. Liliana</a></li>
+        <li><a href="resultados-hifi.html">Resultados</a></li>
+        <li><a href="blog-hifi.html">Blog</a></li>
+        <li><a href="contacto-hifi.html">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Contacto</div>
+      <ul class="footer-links">
+        <li>Balcones del Amor 103</li>
+        <li>Santiago de Querétaro</li>
+        <li>Lun–Vie 10:00–19:00</li>
+        <li>Sáb 10:00–14:00</li>
+        <li><a href="https://wa.me/524422067185">WhatsApp 442 206 7185</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Well Aging México Health Center · Cédula 7629010</span>
+    <span>Aviso de privacidad · Términos de uso</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/524422067185" class="wa" target="_blank" aria-label="Contactar por WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+/* Move 3 — Entrance animations */
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin:'0px 0px -40px 0px' });
+  document.querySelectorAll('[data-animate]').forEach(el => obs.observe(el));
+})();
+
+/* Move 10 — Before/After Sliders */
+(function(){
+  function initBA(container) {
+    const beforeWrap = container.querySelector('.ba-before-wrap');
+    const handle = container.querySelector('.ba-handle');
+    if (!beforeWrap || !handle) return;
+    let dragging = false;
+    const setPos = (x) => {
+      const rect = container.getBoundingClientRect();
+      const pct = Math.min(Math.max((x - rect.left) / rect.width, 0.04), 0.96);
+      beforeWrap.style.width = (pct * 100) + '%';
+      handle.style.left = (pct * 100) + '%';
+    };
+    setPos(container.getBoundingClientRect().left + container.getBoundingClientRect().width * 0.5);
+    handle.addEventListener('mousedown', (e) => { dragging = true; e.preventDefault(); });
+    document.addEventListener('mouseup', () => dragging = false);
+    document.addEventListener('mousemove', (e) => { if (dragging) setPos(e.clientX); });
+    handle.addEventListener('touchstart', (e) => { dragging = true; }, { passive: true });
+    document.addEventListener('touchend', () => dragging = false);
+    document.addEventListener('touchmove', (e) => { if (dragging && e.touches[0]) setPos(e.touches[0].clientX); }, { passive: true });
+  }
+  document.querySelectorAll('.ba-container').forEach(initBA);
+})();
+</script>
+</body>
+</html>
