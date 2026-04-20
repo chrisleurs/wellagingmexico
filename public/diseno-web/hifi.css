@@ -620,49 +620,64 @@ h2 {
 @media (max-width: 1100px) { .th-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 700px)  { .th-grid { grid-template-columns: 1fr; } }
 
-/* Card base */
+/* Card base — ahora con foto de fondo */
 .th-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 480px;
-  padding: 24px 26px 26px;
+  min-height: 520px;
   border-radius: 14px;
   text-decoration: none;
-  color: inherit;
+  color: #FFF;
   overflow: hidden;
   transition:
     transform .4s cubic-bezier(.22,1,.36,1),
     box-shadow .4s ease;
   isolation: isolate;
 }
-.th-card::before {
-  content: '';
+
+/* Foto de fondo */
+.th-card__media {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transition: transform .7s cubic-bezier(.22,1,.36,1);
+}
+.th-card:hover .th-card__media { transform: scale(1.06); }
+
+/* Overlay con gradiente de marca según variante */
+.th-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   transition: opacity .4s ease;
 }
+.th-card--navy  .th-card__overlay {
+  background: linear-gradient(180deg, rgba(12,46,73,.35) 0%, rgba(12,46,73,.55) 45%, rgba(8,30,51,.92) 100%);
+}
+.th-card--beige .th-card__overlay {
+  background: linear-gradient(180deg, rgba(120,90,55,.20) 0%, rgba(120,90,55,.45) 45%, rgba(80,55,30,.92) 100%);
+}
+.th-card--steel .th-card__overlay {
+  background: linear-gradient(180deg, rgba(80,100,120,.30) 0%, rgba(70,90,110,.55) 45%, rgba(50,70,90,.92) 100%);
+}
+
+/* Contenido sobre overlay */
+.th-card__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px 26px 26px;
+}
+
 .th-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 30px 70px -25px rgba(0,0,0,.55);
 }
-
-/* Variantes cromáticas Well Aging */
-.th-card--navy::before {
-  background: linear-gradient(155deg, #1A4870 0%, #0C2E49 60%, #081e33 100%);
-}
-.th-card--beige::before {
-  background: linear-gradient(155deg, #D9C9A8 0%, #B89878 55%, #8A6A4A 100%);
-}
-.th-card--steel::before {
-  background: linear-gradient(155deg, #B6C4D2 0%, #7A8FA4 55%, #4F6378 100%);
-}
-
-/* Color de texto por variante */
-.th-card--navy,
-.th-card--steel { color: #FFF; }
-.th-card--beige { color: #2A1F12; }
 
 /* Top: badge + arrow */
 .th-card__top {
@@ -682,13 +697,10 @@ h2 {
   padding: 8px 14px;
   border-radius: 999px;
   background: rgba(255,255,255,.14);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,.18);
-  color: currentColor;
-}
-.th-card--beige .th-card__badge {
-  background: rgba(255,255,255,.45);
-  border-color: rgba(42,31,18,.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.22);
+  color: #FFF;
 }
 .th-card__arrow {
   width: 38px;
@@ -696,47 +708,41 @@ h2 {
   display: grid;
   place-items: center;
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.35);
-  color: currentColor;
+  border: 1px solid rgba(255,255,255,.4);
+  background: rgba(255,255,255,.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #FFF;
   transition: transform .35s cubic-bezier(.22,1,.36,1), background .3s ease;
   flex-shrink: 0;
 }
-.th-card--beige .th-card__arrow { border-color: rgba(42,31,18,.3); }
 .th-card:hover .th-card__arrow {
-  transform: rotate(0deg) translate(2px,-2px);
-  background: rgba(255,255,255,.18);
+  transform: translate(2px,-2px);
+  background: rgba(255,255,255,.25);
 }
-.th-card--beige:hover .th-card__arrow { background: rgba(255,255,255,.5); }
 
-/* Icono central decorativo */
-.th-card__icon {
-  flex: 1 1 auto;
-  display: grid;
-  place-items: center;
-  padding: 28px 0;
-  opacity: .55;
-  color: currentColor;
-}
-.th-card__icon svg { max-width: 60%; height: auto; }
+/* Spacer empuja título al fondo */
+.th-card__top { margin-bottom: auto; }
 
 /* Título + descripción */
-.th-card__title-wrap { margin-bottom: 22px; }
+.th-card__title-wrap { margin-top: 200px; margin-bottom: 18px; }
 .th-card__title {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(22px, 2.2vw, 30px);
+  font-size: clamp(22px, 2.2vw, 28px);
   font-weight: 800;
   line-height: 1.0;
   letter-spacing: -.035em;
   text-transform: uppercase;
-  margin: 0 0 14px;
-  color: currentColor;
+  margin: 0 0 12px;
+  color: #FFF;
+  text-shadow: 0 2px 20px rgba(0,0,0,.3);
 }
 .th-card__desc {
   font-family: 'Montserrat', sans-serif;
-  font-size: 13.5px;
+  font-size: 13px;
   line-height: 1.55;
   margin: 0;
-  opacity: .85;
+  color: rgba(255,255,255,.92);
   font-weight: 400;
   max-width: 95%;
 }
@@ -746,20 +752,19 @@ h2 {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255,255,255,.18);
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.22);
 }
-.th-card--beige .th-card__stat { border-top-color: rgba(42,31,18,.18); }
-.th-card__stat svg { flex-shrink: 0; margin-top: 2px; opacity: .9; }
+.th-card__stat svg { flex-shrink: 0; margin-top: 2px; opacity: .9; color: #FFF; }
 .th-card__stat p {
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   line-height: 1.45;
   margin: 0;
-  opacity: .92;
+  color: rgba(255,255,255,.92);
   font-weight: 400;
 }
-.th-card__stat strong { font-weight: 700; }
+.th-card__stat strong { font-weight: 700; color: #FFF; }
 
 /* ============================================================
    Franja CTA de cierre
@@ -1931,20 +1936,25 @@ h2 {
    La sección CTA (.cta-hifi) usa z-index:20 y NO es sticky
    — solo sube desde abajo y cubre las sticky sections.
    ============================================================ */
+/* Apilamiento visual SIN sticky:
+   - Las secciones scrollean naturalmente con el viewport.
+   - El border-radius superior + box-shadow simulan la capa
+     de "tarjeta apilada" cuando una sección entra encima de la anterior.
+   - Esto evita la sensación de "scroll bloqueado" donde una sección
+     se queda fija en pantalla mientras la siguiente la empuja. */
 .sticky-section {
-  position: sticky !important;  /* !important: gana sobre position:relative de otras clases */
-  top: 68px;                    /* = altura del nav */
+  position: relative;
   border-radius: 28px 28px 0 0;
   box-shadow: 0 -24px 80px rgba(12, 46, 73, .13);
-  /* Asegurar que el fondo cubre la sección anterior */
   isolation: isolate;
+  /* margin-top negativo crea el efecto de superposición sutil */
+  margin-top: -28px;
 }
 
-/* Mobile: el nav mide ~60px y el radio se reduce */
 @media (max-width: 768px) {
   .sticky-section {
-    top: 60px;
     border-radius: 20px 20px 0 0;
+    margin-top: -20px;
   }
   .cta-hifi {
     border-radius: 20px 20px 0 0 !important;
