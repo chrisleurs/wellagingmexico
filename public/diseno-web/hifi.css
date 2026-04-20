@@ -479,6 +479,234 @@ h2 {
 }
 
 /* ============================================================
+   TREATMENTS HERO — Sección elevada (navy, asimétrica)
+   ============================================================ */
+.treatments-hero {
+  position: relative;
+  background: #0C2E49;
+  overflow: hidden;
+}
+
+.treatments-hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at top right, rgba(229,223,211,.06), transparent 60%),
+    linear-gradient(180deg, #0C2E49 0%, #0a2540 100%);
+  pointer-events: none;
+}
+
+.treatments-hero .th-accent {
+  position: relative;
+  display: inline-block;
+  color: #FFF;
+}
+.treatments-hero .th-accent::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -6px;
+  height: 4px;
+  background: #E5DFD3;
+  border-radius: 2px;
+  transform: scaleX(.92);
+  transform-origin: left;
+}
+
+/* Botón outline blanco */
+.treatments-hero .btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #FFF;
+  text-decoration: none;
+  padding: 14px 22px;
+  border: 1.5px solid rgba(255,255,255,.4);
+  border-radius: 2px;
+  transition: all .3s ease;
+  white-space: nowrap;
+}
+.treatments-hero .btn-outline-light:hover {
+  background: #FFF;
+  color: #0C2E49;
+  border-color: #FFF;
+}
+
+/* Grid asimétrico: 4 columnas, card 1 ocupa 2x2 */
+.treatments-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(0, auto);
+  gap: 18px;
+}
+
+.treatment-card--featured {
+  grid-column: span 2;
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+}
+.treatment-card--featured .tc-img {
+  flex: 1 1 auto;
+  min-height: 340px;
+}
+
+@media (max-width: 900px) {
+  .treatments-grid { grid-template-columns: repeat(2, 1fr); }
+  .treatment-card--featured { grid-column: span 2; grid-row: auto; }
+}
+
+/* Variante on-dark (cards blancas sobre navy) */
+.treatment-card--on-dark {
+  background: #FFF;
+  border-radius: 2px;
+}
+.treatment-card--on-dark::after {
+  border-color: #E5DFD3;
+}
+.treatment-card--on-dark:hover {
+  box-shadow: 0 24px 60px -20px rgba(0,0,0,.5);
+}
+
+.treatment-card--on-dark .tc-body {
+  padding: 22px 22px 24px;
+  position: relative;
+}
+.treatment-card--featured .tc-body {
+  padding: 28px 28px 30px;
+}
+
+.treatment-card--on-dark .tc-badge {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #6E8491;
+  background: #F4F1EA;
+  padding: 5px 9px;
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+.treatment-card--on-dark .tc-badge--accent {
+  background: #E5DFD3;
+  color: #0C2E49;
+}
+
+.treatment-card--on-dark .tc-num {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 9px;
+  color: #9FB1BA;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  margin-bottom: 8px;
+}
+
+.treatment-card--on-dark .tc-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -.015em;
+  line-height: 1.25;
+  color: #0C2E49;
+  margin-bottom: 8px;
+}
+.treatment-card--on-dark .tc-title--lg {
+  font-size: clamp(22px, 2.2vw, 28px);
+  line-height: 1.1;
+  letter-spacing: -.025em;
+  margin-bottom: 12px;
+}
+
+.treatment-card--on-dark .tc-tagline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #6E8491;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.treatment-card--featured .tc-tagline {
+  font-size: 15px;
+  max-width: 440px;
+}
+
+.treatment-card--on-dark .tc-cta {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #0C2E49;
+  border-bottom: 1.5px solid #0C2E49;
+  display: inline-block;
+  padding-bottom: 3px;
+  transition: gap .3s ease, letter-spacing .3s ease;
+}
+.treatment-card--on-dark:hover .tc-cta {
+  letter-spacing: .18em;
+}
+
+/* Franja CTA de cierre */
+.treatments-closer {
+  margin-top: 56px;
+  padding: 36px 40px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(229,223,211,.18);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.treatments-closer__eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #A1B2C6;
+  margin-bottom: 6px;
+}
+.treatments-closer__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.3;
+  color: #FFF;
+  max-width: 560px;
+}
+
+.btn-beige-solid {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #0C2E49;
+  background: #E5DFD3;
+  text-decoration: none;
+  padding: 16px 26px;
+  border-radius: 2px;
+  transition: all .3s ease;
+  white-space: nowrap;
+}
+.btn-beige-solid:hover {
+  background: #FFF;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(0,0,0,.4);
+}
+
+/* ============================================================
    MOVE 2 — Marquee Testimonios (Horizontal Infinito)
    ============================================================ */
 .testimonials-marquee {
