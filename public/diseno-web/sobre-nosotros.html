@@ -6,172 +6,185 @@
 <title>Sobre Nosotros — Well Aging México Health Center</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="hifi.css">
 <link rel="stylesheet" href="responsive.css">
 <style>
-/* ── Page-specific overrides ── */
-.credentials-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
-.cred-card { background:#fff; border-radius:16px; padding:32px 24px; text-align:center; box-shadow:0 2px 20px rgba(12,46,73,.06); }
-.cred-icon { width:56px; height:56px; border-radius:50%; background:rgba(12,46,73,.08); display:flex; align-items:center; justify-content:center; margin:0 auto 16px; font-size:22px; }
-.cred-title { font-weight:700; font-size:15px; color:#0C2E49; margin-bottom:6px; }
-.cred-sub { font-weight:400; font-size:13px; color:#6E8491; line-height:1.5; }
+  * { box-sizing: border-box; }
+  body { background: #FFF; color: #2c2c2c; margin: 0; }
 
-.historia-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
-.historia-quote { font-style:italic; font-weight:300; font-size:clamp(20px,2.2vw,28px); line-height:1.55; color:#0C2E49; border-left:3px solid rgba(12,46,73,.18); padding-left:28px; margin-bottom:32px; }
-.historia-body { font-weight:400; font-size:15px; line-height:1.75; color:#4A5568; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 64px; }
+  @media (max-width: 768px) { .wrap { padding: 0 24px; } }
 
-.metodo-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:40px; }
-.metodo-item { display:grid; grid-template-columns:80px 1fr; gap:32px; align-items:start; }
-.metodo-num { font-weight:800; font-size:72px; line-height:1; color:rgba(12,46,73,.08); letter-spacing:-.04em; user-select:none; }
-.metodo-content h3 { font-weight:700; font-size:18px; color:#0C2E49; margin-bottom:8px; letter-spacing:-.01em; }
-.metodo-content p { font-weight:400; font-size:14px; color:#6E8491; line-height:1.7; }
+  .sec-num { font-family:'Montserrat',sans-serif; font-weight:600; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:#A1B2C6; margin-bottom:14px; display:block; }
+  .sec-title { font-family:'Montserrat',sans-serif; font-weight:800; font-size:clamp(28px,3.6vw,48px); line-height:1.05; letter-spacing:-.04em; color:#0C2E49; margin:0 0 20px; }
+  .sec-sub   { font-family:'Montserrat',sans-serif; font-weight:400; font-size:clamp(15px,1.4vw,17px); color:#6E8491; line-height:1.8; margin:0 0 48px; max-width:680px; }
 
-.testimonials-list-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-.testimonial-list-item { background:#fff; border-radius:16px; padding:32px; box-shadow:0 2px 20px rgba(12,46,73,.06); }
-.t-stars { color:#0C2E49; font-size:12px; letter-spacing:2px; margin-bottom:12px; }
-.t-quote { font-style:italic; font-weight:300; font-size:14px; line-height:1.7; color:#0C2E49; margin-bottom:16px; }
-.t-name { font-weight:600; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#6E8491; }
+  /* Historia editorial */
+  .historia-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
+  .historia-quote { font-family:'Montserrat',sans-serif; font-style:italic; font-weight:300; font-size:clamp(20px,2.2vw,28px); line-height:1.55; color:#0C2E49; border-left:3px solid rgba(12,46,73,.18); padding-left:28px; margin-bottom:32px; }
+  .historia-body { font-family:'Montserrat',sans-serif; font-weight:400; font-size:15px; line-height:1.8; color:#4A5568; }
 
-.clinic-ph { position:relative; height:520px; overflow:hidden; background:#1a3a4f; border-radius:28px 28px 0 0; margin-top:-48px; z-index:3; box-shadow:0 -16px 64px rgba(12,46,73,.15); }
-.clinic-ph .hero-kenburns { z-index:0; }
-.clinic-ph-overlay { position:absolute; inset:0; background:linear-gradient(to right,rgba(12,46,73,.72) 0%,rgba(12,46,73,.2) 60%,transparent 100%); z-index:1; }
-.clinic-ph-content { position:absolute; inset:0; z-index:2; display:flex; align-items:center; padding:0 80px; }
-.clinic-ph-content h2 { font-weight:800; font-size:clamp(28px,3.5vw,48px); color:#fff; max-width:520px; letter-spacing:-.04em; line-height:1.0; }
+  /* Stats inline */
+  .stats-inline { padding:32px; background:#F7F4F0; }
+  .stats-inline .label { font-family:'Montserrat',sans-serif; font-weight:600; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#6E8491; margin-bottom:18px; display:block; }
+  .stats-inline .grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .stats-inline .num { font-family:'Montserrat',sans-serif; font-weight:800; font-size:42px; color:#0C2E49; letter-spacing:-.04em; line-height:1; }
+  .stats-inline .desc { font-family:'Montserrat',sans-serif; font-weight:400; font-size:12px; color:#6E8491; margin-top:6px; letter-spacing:.04em; }
 
-.overlap-card-inner { display:grid; grid-template-columns:1fr 1fr 1fr auto; gap:24px; align-items:center; }
-.overlap-col { }
-.overlap-col-label { font-weight:500; font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:#6E8491; margin-bottom:6px; }
-.overlap-col-value { font-weight:700; font-size:15px; color:#0C2E49; line-height:1.4; }
-.overlap-col-sub { font-weight:400; font-size:12px; color:#6E8491; margin-top:4px; }
+  /* Credenciales */
+  .credentials-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .cred-card { background:#fff; padding:36px 26px; text-align:center; box-shadow: 0 6px 28px rgba(12,46,73,.06); transition: transform .3s ease, box-shadow .3s ease; }
+  .cred-card:hover { transform: translateY(-4px); box-shadow: 0 22px 56px rgba(12,46,73,.12); }
+  .cred-icon { width:60px; height:60px; border-radius:50%; border:1.5px solid #D0DAE0; display:flex; align-items:center; justify-content:center; margin:0 auto 18px; color:#6E8491; }
+  .cred-title { font-family:'Montserrat',sans-serif; font-weight:700; font-size:15px; color:#0C2E49; margin-bottom:8px; letter-spacing:-.01em; }
+  .cred-sub { font-family:'Montserrat',sans-serif; font-weight:400; font-size:12.5px; color:#6E8491; line-height:1.6; }
 
-@media(max-width:768px){
-  .credentials-grid { grid-template-columns:1fr 1fr; gap:16px; }
-  .historia-grid { grid-template-columns:1fr; gap:40px; }
-  .testimonials-list-grid { grid-template-columns:1fr; }
-  /* clinic-ph mobile */
-  .overlap-card-inner { grid-template-columns:1fr 1fr; gap:20px; }
-  .clinic-ph-content { padding:0 24px; }
-  .metodo-item { grid-template-columns:56px 1fr; gap:20px; }
-  .metodo-num { font-size:48px; }
-}
+  /* Método */
+  .metodo-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:48px; }
+  .metodo-item { display:grid; grid-template-columns:96px 1fr; gap:36px; align-items:start; }
+  .metodo-num { font-family:'Montserrat',sans-serif; font-weight:800; font-size:88px; line-height:1; color:rgba(12,46,73,.10); letter-spacing:-.04em; user-select:none; }
+  .metodo-content h3 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:20px; color:#0C2E49; margin:0 0 10px; letter-spacing:-.01em; }
+  .metodo-content p { font-family:'Montserrat',sans-serif; font-weight:400; font-size:14.5px; color:#6E8491; line-height:1.8; margin:0; }
+
+  /* Clínica full-bleed */
+  .clinic-photo { position:relative; height:560px; overflow:hidden; background:#1a3a4f; }
+  .clinic-photo .bg { position:absolute; inset:0; background:url('img/clinica-interior.jpg') center/cover no-repeat; }
+  .clinic-photo .ovl { position:absolute; inset:0; background:linear-gradient(to right, rgba(12,46,73,.78) 0%, rgba(12,46,73,.25) 60%, transparent 100%); }
+  .clinic-photo .content { position:absolute; inset:0; display:flex; align-items:center; padding:0 80px; z-index:2; }
+  .clinic-photo h2 { font-family:'Montserrat',sans-serif; font-weight:800; font-size:clamp(32px,4.5vw,60px); color:#fff; max-width:560px; letter-spacing:-.04em; line-height:1.0; margin:0; }
+  .clinic-photo h2 em { font-weight:200; opacity:.7; }
+
+  /* Testimonios */
+  .test-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .test-card { background:#fff; padding:36px; box-shadow:0 6px 28px rgba(12,46,73,.06); }
+  .t-stars { color:#0C2E49; font-size:13px; letter-spacing:3px; margin-bottom:14px; }
+  .t-quote { font-family:'Montserrat',sans-serif; font-style:italic; font-weight:300; font-size:15px; line-height:1.8; color:#0C2E49; margin:0 0 18px; }
+  .t-name { font-family:'Montserrat',sans-serif; font-weight:600; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#6E8491; }
+
+  @media(max-width:1100px){ .credentials-grid { grid-template-columns:1fr 1fr; } }
+  @media(max-width:768px){
+    .historia-grid { grid-template-columns:1fr; gap:48px; }
+    .test-grid { grid-template-columns:1fr; }
+    .clinic-photo .content { padding:0 24px; }
+    .metodo-item { grid-template-columns:64px 1fr; gap:20px; }
+    .metodo-num { font-size:56px; }
+  }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav class="nav">
-  <a href="/" target="_top" class="nav-logo" title="Volver al panel de control">Well Aging<span>México</span></a>
-  <ul class="nav-links">
-    <li><a href="home.html">Inicio</a></li>
-    <li><a href="tratamientos.html">Tratamientos</a></li>
-    <li><a href="sobre-nosotros.html" class="active">Nosotros</a></li>
-    <li><a href="resultados.html">Resultados</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contacto.html">Contacto</a></li>
-  </ul>
-  <a href="#" class="btn-nav-cta">Agendar consulta</a>
-  <button class="nav-hamburger" type="button" aria-label="Abrir menú" aria-expanded="false" onclick="toggleMobileMenu()">
-    <span></span><span></span><span></span>
-  </button>
+<nav class="nav-hifi">
+  <div class="nav-inner">
+    <a href="/" target="_top" class="nav-logo" title="Volver al panel de control">
+      Well Aging
+      <span>Mexico Health Center</span>
+    </a>
+    <div class="nav-links">
+      <a href="home.html">Inicio</a>
+      <a href="tratamientos.html">Tratamientos</a>
+      <a href="sobre-nosotros.html" class="active">Dra. Liliana</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="blog.html">Blog</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <a href="contacto.html" class="nav-cta">Agendar consulta →</a>
+    <button class="nav-hamburger" type="button" aria-label="Abrir menú" aria-expanded="false" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
-<!-- ───────────────────────────────────────
-     HERO — Portrait editorial Dra. Liliana
-──────────────────────────────────────── -->
-<section class="hero-section" style="height:88vh;">
-  <!-- Ken Burns portrait placeholder -->
-  <div class="hero-kenburns" style="background:linear-gradient(135deg,#1a3a4f 0%,#0C2E49 100%);">
-    <!-- Placeholder silhouette — swap for real photo -->
-    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;padding-right:8%;opacity:.18;">
-      <svg width="340" height="620" viewBox="0 0 340 620" fill="none">
-        <ellipse cx="170" cy="130" rx="88" ry="100" fill="#fff"/>
-        <path d="M20 620 Q60 360 170 340 Q280 360 320 620Z" fill="#fff"/>
-      </svg>
-    </div>
+<!-- ============================================================
+     1. HERO — estilo home (foto Dra. + Ken Burns + bottom blend)
+     ============================================================ -->
+<section style="position:relative; height:92vh; min-height:620px; overflow:hidden;">
+  <div class="hero-video-wrap">
+    <div class="ph-dark hero-kenburns" style="width:100%; height:100%; position:absolute; inset:0; background:url('img/dra-portrait.jpg') center/cover no-repeat, linear-gradient(135deg,#1a3a4f 0%,#0C2E49 100%);"></div>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-bottom-blend"></div>
-  <div class="hero-content" style="text-align:left;align-items:flex-start;max-width:600px;margin-left:0;padding-left:80px;">
-    <p class="hero-tagline" data-animate>Médica Especialista en Medicina Regenerativa</p>
-    <h1 class="hero-h1" data-animate data-animate-delay="1">Dra. Liliana<br>Carmen Pérez</h1>
-    <p data-animate data-animate-delay="2" style="font-weight:300;font-size:16px;color:rgba(255,255,255,.8);line-height:1.7;max-width:460px;margin-top:20px;">
-      Más de una década dedicada a la medicina regenerativa y estética. Más de 9,000 procedimientos. Una filosofía clara: envejecer con dignidad.
+
+  <div class="hero-content">
+    <span class="hero-tagline" style="color:rgba(255,255,255,.55); display:block; margin-bottom:24px;">
+      Médica Especialista en Medicina Regenerativa
+    </span>
+    <h1 class="hero-h1" style="font-size:clamp(48px,7vw,88px); margin:0; max-width:820px;">
+      Dra. Liliana<br><em>Carmen Pérez.</em>
+    </h1>
+    <p style="font-family:'Montserrat',sans-serif; font-weight:300; font-size:17px; color:rgba(255,255,255,.78); line-height:1.75; max-width:520px; margin:24px 0 0;">
+      Más de una década dedicada a la medicina regenerativa y estética. +9,000 procedimientos. Una filosofía clara: envejecer con dignidad.
     </p>
-    <a href="#historia" data-animate data-animate-delay="3" style="display:inline-flex;align-items:center;gap:8px;margin-top:32px;font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:4px;">
-      Conocer su historia &darr;
-    </a>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <svg width="16" height="20" viewBox="0 0 16 24" fill="none">
+      <path d="M8 4v12M4 12l4 4 4-4" stroke="rgba(255,255,255,.6)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
   </div>
 </section>
 
-<!-- ───────────────────────────────────────
-     OVERLAP CARD — Credenciales rápidas
-──────────────────────────────────────── -->
-<div class="overlap-card">
-  <div class="overlap-card-inner">
-    <div class="overlap-col" data-animate>
-      <div class="overlap-col-label">Especialidad</div>
-      <div class="overlap-col-value">Medicina Regenerativa<br>y Estética</div>
-    </div>
-    <div class="overlap-col" data-animate data-animate-delay="1">
-      <div class="overlap-col-label">Formación</div>
-      <div class="overlap-col-value">UNAM · Posgrado en<br>Medicina Antienvejecimiento</div>
-    </div>
-    <div class="overlap-col" data-animate data-animate-delay="2">
-      <div class="overlap-col-label">Cédula Profesional</div>
-      <div class="overlap-col-value">7629010</div>
-      <div class="overlap-col-sub">Verificable SEP</div>
-    </div>
-    <div style="text-align:right;" data-animate data-animate-delay="3">
-      <a href="#" class="btn-primary" style="white-space:nowrap;">Agendar consulta</a>
+<!-- ============================================================
+     2. OVERLAP CARD — Credenciales + CTA
+     ============================================================ -->
+<div style="padding:0 64px; position:relative; z-index:10;">
+  <div class="overlap-card" style="max-width:1200px; margin:0 auto; padding:40px 56px;" data-animate>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr auto; gap:32px; align-items:center;">
+      <div>
+        <span class="sec-num" style="margin-bottom:8px;">Especialidad</span>
+        <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:15px; color:#0C2E49; line-height:1.4;">Medicina Regenerativa<br>y Estética</div>
+      </div>
+      <div>
+        <span class="sec-num" style="margin-bottom:8px;">Formación</span>
+        <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:15px; color:#0C2E49; line-height:1.4;">UNAM · Posgrado<br>Antienvejecimiento</div>
+      </div>
+      <div>
+        <span class="sec-num" style="margin-bottom:8px;">Cédula</span>
+        <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:15px; color:#0C2E49; line-height:1.4;">7629010</div>
+        <div style="font-family:'Montserrat',sans-serif; font-weight:400; font-size:12px; color:#6E8491; margin-top:4px;">Verificable SEP</div>
+      </div>
+      <div style="display:flex; gap:12px; flex-shrink:0;">
+        <a href="contacto.html" class="btn btn-dark">Agendar consulta →</a>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ───────────────────────────────────────
-     HISTORIA — Editorial 2-col
-──────────────────────────────────────── -->
-<section class="philosophy-section" id="historia">
-  <div class="container">
-    <p class="eyebrow-v2" data-animate>Historia · Propósito</p>
-    <div class="historia-grid" style="margin-top:48px;">
-      <div data-animate data-animate-delay="1">
+<!-- ============================================================
+     3. HISTORIA — Editorial 2-col (sticky blanca)
+     ============================================================ -->
+<section class="sticky-section" id="historia" style="background:#fff; padding:160px 64px 140px; z-index:2;">
+  <div class="wrap">
+    <span class="sec-num" data-animate>Historia · Propósito</span>
+    <h2 class="sec-title" data-animate data-animate-delay="1">Una década tratando<br><em style="font-weight:300; opacity:.7;">el origen.</em></h2>
+
+    <div class="historia-grid" style="margin-top:40px;">
+      <div data-animate data-animate-delay="2">
         <blockquote class="historia-quote">
           "Elegí la medicina regenerativa porque creo que el cuerpo tiene la capacidad de sanar cuando se le da el entorno correcto."
         </blockquote>
         <p class="historia-body">
           La Dra. Liliana Carmen Pérez comenzó su formación médica en la UNAM, donde desarrolló un interés profundo por los procesos de reparación tisular y el envejecimiento celular. Lejos de la medicina estética convencional, buscó especializarse en los mecanismos que subyacen al envejecimiento visible.
         </p>
-        <p class="historia-body" style="margin-top:16px;">
+        <p class="historia-body" style="margin-top:18px;">
           Tras completar su posgrado en medicina antienvejecimiento, fundó Well Aging México con una premisa simple: tratar al paciente como un sistema integrado, no como una lista de síntomas cosméticos.
         </p>
       </div>
-      <div data-animate data-animate-delay="2">
+      <div data-animate data-animate-delay="3">
         <p class="historia-body">
-          Hoy, con más de diez años de práctica clínica y más de 9,000 procedimientos realizados, la Dra. Pérez es referente en Querétaro para pacientes que buscan resultados reales, basados en evidencia, y sostenibles en el tiempo.
+          Hoy, con más de diez años de práctica clínica y más de 9,000 procedimientos realizados, la Dra. Pérez es referente en Querétaro para pacientes que buscan resultados reales, basados en evidencia y sostenibles en el tiempo.
         </p>
-        <p class="historia-body" style="margin-top:16px;">
+        <p class="historia-body" style="margin-top:18px;">
           Su enfoque combina herramientas de medicina regenerativa — bioestimuladores, terapia neural, plasma rico en plaquetas — con protocolos de estética médica que respetan la anatomía y la expresión natural del paciente.
         </p>
-        <div style="margin-top:40px;padding:28px;background:#F7F4F0;border-radius:16px;">
-          <p style="font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#6E8491;margin-bottom:12px;">En números</p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-            <div>
-              <div style="font-weight:800;font-size:36px;color:#0C2E49;letter-spacing:-.04em;">+10</div>
-              <div style="font-weight:400;font-size:12px;color:#6E8491;margin-top:2px;">años de práctica</div>
-            </div>
-            <div>
-              <div style="font-weight:800;font-size:36px;color:#0C2E49;letter-spacing:-.04em;">9,000+</div>
-              <div style="font-weight:400;font-size:12px;color:#6E8491;margin-top:2px;">procedimientos</div>
-            </div>
-            <div>
-              <div style="font-weight:800;font-size:36px;color:#0C2E49;letter-spacing:-.04em;">45</div>
-              <div style="font-weight:400;font-size:12px;color:#6E8491;margin-top:2px;">reseñas 5★ Google</div>
-            </div>
-            <div>
-              <div style="font-weight:800;font-size:36px;color:#0C2E49;letter-spacing:-.04em;">100%</div>
-              <div style="font-weight:400;font-size:12px;color:#6E8491;margin-top:2px;">médicamente certificada</div>
-            </div>
+        <div class="stats-inline" style="margin-top:36px;">
+          <span class="label">En números</span>
+          <div class="grid">
+            <div><div class="num"><span class="stat-counter" data-target="10" data-prefix="+">+10</span></div><div class="desc">años de práctica</div></div>
+            <div><div class="num"><span class="stat-counter" data-target="9000" data-suffix="+">9,000+</span></div><div class="desc">procedimientos</div></div>
+            <div><div class="num"><span class="stat-counter" data-target="45">45</span></div><div class="desc">reseñas 5★ Google</div></div>
+            <div><div class="num">100%</div><div class="desc">médicamente certificada</div></div>
           </div>
         </div>
       </div>
@@ -179,32 +192,42 @@
   </div>
 </section>
 
-<!-- ───────────────────────────────────────
-     CREDENCIALES — 4-col cards
-──────────────────────────────────────── -->
-<section class="section-overlap-sm" style="background:#F7F4F0;">
-  <div class="container">
-    <p class="eyebrow-v2" data-animate>Formación · Certificaciones</p>
-    <h2 class="section-title" data-animate data-animate-delay="1">Respaldo médico real</h2>
-    <p class="section-subtitle" data-animate data-animate-delay="2">Cada procedimiento está respaldado por formación académica rigurosa y certificaciones internacionales vigentes.</p>
-    <div class="credentials-grid" style="margin-top:48px;">
-      <div class="cred-card treatment-card" data-animate data-animate-delay="1">
-        <div class="cred-icon">🎓</div>
+<!-- ============================================================
+     4. CREDENCIALES — sticky navy oscuro
+     ============================================================ -->
+<section class="treatments-hero sticky-section" style="padding:140px 64px 140px; z-index:3;">
+  <div class="treatments-hero__bg" aria-hidden="true"></div>
+  <div class="wrap" style="position:relative; z-index:1;">
+    <span class="sec-num" style="color:#A1B2C6;" data-animate>Formación · Certificaciones</span>
+    <h2 class="sec-title" style="color:#fff;" data-animate data-animate-delay="1">Respaldo médico real.</h2>
+    <p class="sec-sub" style="color:rgba(229,233,239,.7);" data-animate data-animate-delay="2">Cada procedimiento está respaldado por formación académica rigurosa y certificaciones internacionales vigentes.</p>
+
+    <div class="credentials-grid" style="margin-top:32px;">
+      <div class="cred-card" data-animate data-animate-delay="1">
+        <div class="cred-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 4 2 10l10 6 10-6z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
         <div class="cred-title">Licenciatura en Medicina</div>
         <div class="cred-sub">Universidad Nacional Autónoma de México · UNAM</div>
       </div>
-      <div class="cred-card treatment-card" data-animate data-animate-delay="2">
-        <div class="cred-icon">🏥</div>
+      <div class="cred-card" data-animate data-animate-delay="2">
+        <div class="cred-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="1"/><path d="M12 10v6M9 13h6"/><path d="M8 6V4h8v2"/></svg>
+        </div>
         <div class="cred-title">Posgrado Antienvejecimiento</div>
         <div class="cred-sub">Especialidad en Medicina Regenerativa y Estética Avanzada</div>
       </div>
-      <div class="cred-card treatment-card" data-animate data-animate-delay="3">
-        <div class="cred-icon">🌐</div>
+      <div class="cred-card" data-animate data-animate-delay="3">
+        <div class="cred-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/></svg>
+        </div>
         <div class="cred-title">Certificaciones Internacionales</div>
         <div class="cred-sub">Formación continua en congresos de medicina estética en México y Europa</div>
       </div>
-      <div class="cred-card treatment-card" data-animate data-animate-delay="4">
-        <div class="cred-icon">📋</div>
+      <div class="cred-card" data-animate data-animate-delay="4">
+        <div class="cred-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 5-6"/><circle cx="12" cy="12" r="9"/></svg>
+        </div>
         <div class="cred-title">Cédula Verificable</div>
         <div class="cred-sub">Cédula profesional 7629010 · Registro activo SEP</div>
       </div>
@@ -212,14 +235,15 @@
   </div>
 </section>
 
-<!-- ───────────────────────────────────────
-     MÉTODO — 3 pasos numerados
-──────────────────────────────────────── -->
-<section class="philosophy-section" style="background:#fff;">
-  <div class="container" style="max-width:860px;">
-    <p class="eyebrow-v2" data-animate>Protocolo · Método</p>
-    <h2 class="section-title" data-animate data-animate-delay="1">Cómo trabajamos</h2>
-    <p class="section-subtitle" data-animate data-animate-delay="2">Cada paciente comienza con una evaluación integral. Nunca un tratamiento sin diagnóstico.</p>
+<!-- ============================================================
+     5. MÉTODO — sticky blanca
+     ============================================================ -->
+<section class="sticky-section" style="background:#fff; padding:160px 64px 140px; z-index:4;">
+  <div class="wrap" style="max-width:920px;">
+    <span class="sec-num" data-animate>Protocolo · Método</span>
+    <h2 class="sec-title" data-animate data-animate-delay="1">Cómo trabajamos.</h2>
+    <p class="sec-sub" data-animate data-animate-delay="2">Cada paciente comienza con una evaluación integral. Nunca un tratamiento sin diagnóstico.</p>
+
     <ul class="metodo-list" style="margin-top:64px;">
       <li class="metodo-item" data-animate data-animate-delay="1">
         <div class="metodo-num">01</div>
@@ -246,63 +270,72 @@
   </div>
 </section>
 
-<!-- ───────────────────────────────────────
-     CLÍNICA — Full-bleed photo
-──────────────────────────────────────── -->
-<div class="clinic-ph" data-animate style="background:url('img/clinica-interior.jpg') center/cover no-repeat;">
-  <div class="clinic-ph-overlay"></div>
-  <div class="clinic-ph-content">
-    <h2 data-animate data-animate-delay="1">Nuestra clínica.<br>Diseñada para<br>la calma.</h2>
+<!-- ============================================================
+     6. CLÍNICA — Full-bleed photo
+     ============================================================ -->
+<section class="sticky-section" style="z-index:5;">
+  <div class="clinic-photo">
+    <div class="bg"></div>
+    <div class="ovl"></div>
+    <div class="content">
+      <h2 data-animate>Nuestra clínica.<br><em>Diseñada para la calma.</em></h2>
+    </div>
   </div>
-</div>
+</section>
 
-<!-- ───────────────────────────────────────
-     TESTIMONIOS — Editorial list 2-col
-──────────────────────────────────────── -->
-<section class="section-overlap-sm" style="background:#F7F4F0;">
-  <div class="container">
-    <p class="eyebrow-v2" data-animate>Pacientes · Reseñas</p>
-    <h2 class="section-title" data-animate data-animate-delay="1">Lo que dicen nuestras pacientes</h2>
-    <p class="section-subtitle" data-animate data-animate-delay="2">45 reseñas 5 estrellas en Google. Estas son algunas de sus historias.</p>
-    <div class="testimonials-list-grid" style="margin-top:48px;">
-      <div class="testimonial-list-item" data-animate data-animate-delay="1">
+<!-- ============================================================
+     7. TESTIMONIOS — sticky beige
+     ============================================================ -->
+<section class="sticky-section" style="background:#F7F4F0; padding:140px 64px 140px; z-index:6;">
+  <div class="wrap">
+    <span class="sec-num" data-animate>Pacientes · Reseñas</span>
+    <h2 class="sec-title" data-animate data-animate-delay="1">Lo que dicen nuestras<br><em style="font-weight:300; opacity:.7;">pacientes.</em></h2>
+    <p class="sec-sub" data-animate data-animate-delay="2">45 reseñas 5 estrellas en Google. Estas son algunas de sus historias.</p>
+
+    <div class="test-grid" style="margin-top:32px;">
+      <div class="test-card" data-animate data-animate-delay="1">
         <div class="t-stars">★★★★★</div>
         <p class="t-quote">"La Dra. Liliana es extraordinariamente profesional. Me explicó cada paso del tratamiento y los resultados superaron mis expectativas. Me siento como yo misma, pero con más confianza."</p>
         <div class="t-name">Mariana G. — Paciente desde 2022</div>
       </div>
-      <div class="testimonial-list-item" data-animate data-animate-delay="2">
+      <div class="test-card" data-animate data-animate-delay="2">
         <div class="t-stars">★★★★★</div>
         <p class="t-quote">"Llegué con mucho miedo y dudas. La doctora me dedicó tiempo, resolvió todas mis preguntas y me dio un plan que realmente entendí. Hoy llevo dos años de tratamiento y no puedo estar más contenta."</p>
         <div class="t-name">Valentina R. — Paciente desde 2023</div>
       </div>
-      <div class="testimonial-list-item" data-animate data-animate-delay="3">
+      <div class="test-card" data-animate data-animate-delay="3">
         <div class="t-stars">★★★★★</div>
         <p class="t-quote">"Busqué durante meses una médica que combinara rigor científico con un trato humano. La encontré en Well Aging. El ambiente de la clínica es sereno y profesional. La recomiendo sin dudar."</p>
         <div class="t-name">Sofía A. — Paciente desde 2021</div>
       </div>
-      <div class="testimonial-list-item" data-animate data-animate-delay="4">
+      <div class="test-card" data-animate data-animate-delay="4">
         <div class="t-stars">★★★★★</div>
         <p class="t-quote">"Mi bioestimulador fue el mejor regalo que me di. La Dra. Pérez es sumamente cuidadosa, detallista y honesta. Si el resultado que buscas no es el adecuado para ti, ella te lo dice — eso vale mucho."</p>
-        <div class="t-name">Fernanda M. — Paciente desde 2022</div>
+        <div class="t-name">Camila M. — Paciente desde 2024</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ───────────────────────────────────────
-     CTA FINAL
-──────────────────────────────────────── -->
-<section class="cta-hifi">
+<!-- ============================================================
+     8. CTA FINAL
+     ============================================================ -->
+<section class="cta-hifi" style="padding:140px 64px;">
   <div class="cta-glass-card" data-animate>
-    <p class="eyebrow-v2" style="color:rgba(255,255,255,.6);">Agenda tu consulta</p>
-    <h2 style="font-weight:800;font-size:clamp(28px,3.5vw,48px);color:#fff;letter-spacing:-.04em;line-height:0.95;margin:16px 0 24px;">El primer paso<br>es conocernos.</h2>
-    <p style="font-weight:300;font-size:16px;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto;">Una consulta diagnóstica de una hora. Sin compromisos. Solo escucha y un plan honesto.</p>
-    <a href="#" class="btn-cta-primary">Agendar consulta</a>
+    <span class="eyebrow" style="color:rgba(255,255,255,.55); display:block; text-align:center; margin-bottom:18px;">Conversemos sobre ti</span>
+    <h2 style="font-family:'Montserrat',sans-serif; font-weight:800; font-size:clamp(32px,4.2vw,56px); color:#fff; letter-spacing:-.04em; line-height:1.0; margin:0 0 24px; text-align:center;">
+      Conoce a la Dra.<br><em style="font-weight:200; opacity:.7;">Liliana en consulta.</em>
+    </h2>
+    <p style="font-family:'Montserrat',sans-serif; font-weight:300; font-size:17px; color:rgba(255,255,255,.75); line-height:1.7; margin:0 auto 36px; max-width:480px; text-align:center;">Una hora de escucha activa, diagnóstico integral y un plan diseñado solo para ti.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a href="contacto.html" class="btn btn-cta-primary">Agendar consulta →</a>
+      <a href="https://wa.me/524422067185" class="btn btn-cta-ghost">WhatsApp</a>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="footer">
+<footer class="footer-hifi">
   <div class="footer-inner">
     <div class="footer-col">
       <div class="footer-logo">Well Aging<span>México</span></div>
@@ -311,10 +344,10 @@
     <div class="footer-col">
       <div class="footer-col-title">Tratamientos</div>
       <ul class="footer-links">
-        <li><a href="#">Medicina Regenerativa</a></li>
-        <li><a href="#">Medicina Estética</a></li>
-        <li><a href="#">Faciales</a></li>
-        <li><a href="#">Sueroterapias</a></li>
+        <li><a href="tratamientos.html">Medicina Regenerativa</a></li>
+        <li><a href="tratamientos.html">Medicina Estética</a></li>
+        <li><a href="tratamientos.html">Faciales</a></li>
+        <li><a href="tratamientos.html">Sueroterapias</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -343,57 +376,56 @@
   </div>
 </footer>
 
-<!-- WhatsApp FAB -->
 <a href="https://wa.me/524422067185" class="wa" target="_blank" aria-label="Contactar por WhatsApp">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
 </a>
 
 <script>
-/* ── Move 3: IntersectionObserver Entrance Animations ── */
 (function(){
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
-  }, { threshold: 0.12, rootMargin:'0px 0px -40px 0px' });
-  document.querySelectorAll('[data-animate]').forEach(el => obs.observe(el));
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); obs.unobserve(e.target); }});
+    },{rootMargin:'-10% 0px',threshold:.1});
+    document.querySelectorAll('[data-animate]').forEach(el=>obs.observe(el));
+  } else {
+    document.querySelectorAll('[data-animate]').forEach(el=>el.classList.add('is-visible'));
+  }
+  const nav = document.querySelector('.nav-hifi');
+  if(nav){
+    window.addEventListener('scroll',()=>{ nav.classList.toggle('scrolled', window.scrollY > 80); }, {passive:true});
+  }
+  // Stat counters
+  const counters = document.querySelectorAll('.stat-counter');
+  const cObs = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(!en.isIntersecting) return;
+      const el = en.target;
+      const target = parseInt(el.dataset.target||'0',10);
+      const prefix = el.dataset.prefix||'';
+      const suffix = el.dataset.suffix||'';
+      let cur = 0; const dur = 1400; const start = performance.now();
+      const fmt = (n)=> n.toLocaleString('en-US');
+      function step(t){
+        const p = Math.min(1,(t-start)/dur);
+        cur = Math.floor(target*(0.2+0.8*p*(2-p)));
+        el.textContent = prefix+fmt(cur)+suffix;
+        if(p<1) requestAnimationFrame(step); else el.textContent = prefix+fmt(target)+suffix;
+      }
+      requestAnimationFrame(step);
+      cObs.unobserve(el);
+    });
+  },{threshold:.4});
+  counters.forEach(c=>cObs.observe(c));
 })();
-</script>
-
-<!-- MOBILE DRAWER -->
-<div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
-  <div class="mobile-drawer-backdrop" onclick="toggleMobileMenu()"></div>
-  <aside class="mobile-drawer-panel" role="dialog" aria-label="Menú de navegación">
-    <div class="mobile-drawer-header">
-      <a href="home.html" class="mobile-drawer-logo">Well Aging<span>México</span></a>
-      <button class="mobile-drawer-close" type="button" aria-label="Cerrar menú" onclick="toggleMobileMenu()">×</button>
-    </div>
-    <nav class="mobile-drawer-nav">
-      <a href="home.html">Inicio</a>
-      <a href="tratamientos.html">Tratamientos</a>
-      <a href="sobre-nosotros.html">Nosotros</a>
-      <a href="resultados.html">Resultados</a>
-      <a href="blog.html">Blog</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-    <div class="mobile-drawer-footer">
-      <a href="contacto.html" class="mobile-drawer-cta">Agendar consulta</a>
-      <p class="mobile-drawer-meta">Querétaro · Lun–Vie 9:00–19:00</p>
-    </div>
-  </aside>
-</div>
-<script>
-(function(){
-  if (window.toggleMobileMenu) return;
-  window.toggleMobileMenu = function() {
-    var d = document.getElementById('mobileDrawer');
-    var btn = document.querySelector('.nav-hamburger');
-    if (!d) return;
-    var open = d.classList.toggle('open');
-    d.setAttribute('aria-hidden', open ? 'false' : 'true');
-    if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    document.body.style.overflow = open ? 'hidden' : '';
-  };
-})();
+function toggleMobileMenu(){
+  const links = document.querySelector('.nav-hifi .nav-links');
+  const btn = document.querySelector('.nav-hamburger');
+  if(!links) return;
+  const open = links.classList.toggle('is-open');
+  btn?.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
 </script>
 
 </body>
