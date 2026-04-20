@@ -220,6 +220,36 @@
     width: 100% !important;
     text-align: center !important;
   }
+
+  /* ===== NAV V3 (.nav con .nav-links) ===== */
+  nav.nav {
+    padding: 12px 16px !important;
+    gap: 8px !important;
+  }
+  nav.nav .nav-links {
+    display: none !important;
+  }
+  nav.nav .nav-logo {
+    font-size: 14px !important;
+  }
+  nav.nav .btn-nav-cta,
+  nav.nav a.btn-nav-cta {
+    padding: 8px 14px !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+
+  /* ===== HERO V3 — quitar padding lateral grande ===== */
+  .hero-section .hero-content[style*="padding-left:80px"],
+  .hero-section .hero-content[style*="padding-left: 80px"] {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-bottom: 48px !important;
+  }
+
+  /* ===== TREATMENT GRID y DRA STRIP ===== */
+  .treatment-grid { grid-template-columns: 1fr !important; }
+  .dra-strip { grid-template-columns: 1fr !important; }
 }
 
 /* ===== BREAKPOINT PEQUEÑO (375px) — ajustes extra ===== */
