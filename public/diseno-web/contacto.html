@@ -44,12 +44,326 @@
 /* ══ 1. SECCIÓN AGENDAR — Primaria ══ */
 .agendar-section {
   background: #fff;
-  padding: 88px 0 80px;
+  padding: 88px 0 96px;
 }
 
 .agendar-header {
   text-align: center;
   margin-bottom: 52px;
+}
+
+/* ── Dual CTA grid — Reservar (navy) + WhatsApp (verde) ── */
+.cta-dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.cta-card {
+  position: relative;
+  border-radius: 24px;
+  padding: 48px 44px 44px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease;
+  cursor: pointer;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+}
+
+.cta-card:hover {
+  transform: translateY(-4px);
+}
+
+.cta-card--navy {
+  background: linear-gradient(160deg, #103857 0%, #0C2E49 70%);
+  color: #fff;
+  box-shadow: 0 12px 48px -16px rgba(12,46,73,.45), 0 2px 12px rgba(12,46,73,.1);
+}
+.cta-card--navy:hover {
+  box-shadow: 0 24px 56px -18px rgba(12,46,73,.55), 0 4px 16px rgba(12,46,73,.15);
+}
+
+.cta-card--wa {
+  background: #fff;
+  color: #0C2E49;
+  border: 1px solid rgba(37,211,102,.22);
+  box-shadow: 0 8px 36px rgba(37,211,102,.08), 0 2px 12px rgba(12,46,73,.05);
+}
+.cta-card--wa:hover {
+  box-shadow: 0 20px 48px rgba(37,211,102,.18), 0 4px 16px rgba(12,46,73,.08);
+  border-color: rgba(37,211,102,.4);
+}
+
+.cta-card__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+.cta-card--navy .cta-card__icon {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+}
+.cta-card--wa .cta-card__icon {
+  background: rgba(37,211,102,.12);
+}
+
+.cta-card__eyebrow {
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: block;
+}
+.cta-card--navy .cta-card__eyebrow { color: rgba(255,255,255,.45); }
+.cta-card--wa .cta-card__eyebrow { color: #25D366; }
+
+.cta-card__title {
+  font-weight: 700;
+  font-size: clamp(22px, 2.4vw, 30px);
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  margin: 0 0 14px;
+}
+
+.cta-card__desc {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 36px;
+  flex: 1;
+}
+.cta-card--navy .cta-card__desc { color: rgba(255,255,255,.65); }
+.cta-card--wa .cta-card__desc { color: #6E8491; }
+
+.cta-card__action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  transition: background .2s ease, transform .2s ease;
+}
+.cta-card--navy .cta-card__action {
+  background: #fff;
+  color: #0C2E49;
+}
+.cta-card--wa .cta-card__action {
+  background: #25D366;
+  color: #fff;
+}
+.cta-card:hover .cta-card__action { transform: translateX(4px); }
+
+.cta-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-top: 18px;
+}
+.cta-card--navy .cta-card__meta { color: rgba(255,255,255,.45); }
+.cta-card--wa .cta-card__meta { color: #A1B2C6; }
+
+/* ══════════════════════════════════════════
+   MODAL — Reserva tu lugar (premium dialog)
+   ══════════════════════════════════════════ */
+.dlg-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(12,46,73,.62);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .28s ease;
+}
+.dlg-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dlg {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, calc(-50% + 12px));
+  z-index: 1000;
+  width: calc(100% - 32px);
+  max-width: 560px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 32px 80px -20px rgba(12,46,73,.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .28s ease, transform .32s cubic-bezier(.2,.8,.2,1);
+  overflow: hidden;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+}
+.dlg.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+}
+
+.dlg__head {
+  position: relative;
+  padding: 32px 36px 24px;
+  background: #F7F4F0;
+  border-bottom: 1px solid rgba(12,46,73,.06);
+}
+.dlg__close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(12,46,73,.06);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .2s ease;
+  color: #0C2E49;
+}
+.dlg__close:hover { background: rgba(12,46,73,.12); }
+
+.dlg__eyebrow {
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #6E8491;
+  margin: 0 0 10px;
+}
+.dlg__title {
+  font-weight: 800;
+  font-size: 28px;
+  color: #0C2E49;
+  letter-spacing: -.035em;
+  line-height: 1.1;
+  margin: 0 0 8px;
+}
+.dlg__desc {
+  font-weight: 400;
+  font-size: 13px;
+  color: #6E8491;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.dlg__body { padding: 28px 36px 32px; }
+
+.dlg-summary {
+  background: #fff;
+  border: 1px solid rgba(12,46,73,.08);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 22px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.dlg-summary__item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.dlg-summary__lbl {
+  font-weight: 600;
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #A1B2C6;
+}
+.dlg-summary__val {
+  font-weight: 600;
+  font-size: 14px;
+  color: #0C2E49;
+}
+
+.dlg-includes {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.dlg-includes li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 400;
+  font-size: 13px;
+  color: #0C2E49;
+}
+.dlg-includes .check-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(37,211,102,.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dlg__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: #0C2E49;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 18px 28px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: background .2s ease, transform .22s ease, box-shadow .22s ease;
+  box-shadow: 0 8px 22px -10px rgba(12,46,73,.55);
+}
+.dlg__cta:hover {
+  background: #103857;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px -12px rgba(12,46,73,.65);
+}
+
+.dlg__foot-note {
+  font-weight: 400;
+  font-size: 11px;
+  color: #A1B2C6;
+  text-align: center;
+  margin: 14px 0 0;
+  line-height: 1.6;
 }
 
 /* Booking card: 2 columnas — izq detalles / der CTA */
