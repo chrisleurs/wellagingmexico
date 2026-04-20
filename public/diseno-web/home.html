@@ -354,8 +354,15 @@
       </div>
     </div>
 
-    <!-- Grid SHA-style: cards grandes con foto, badge, stat -->
-    <div class="th-grid">
+    <!-- Rail SHA-style: cards en una sola fila con scroll lateral + botones -->
+    <div class="th-rail-wrap">
+      <button class="th-rail-btn th-rail-btn--prev" type="button" aria-label="Anterior" id="thRailPrev">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="th-rail-btn th-rail-btn--next" type="button" aria-label="Siguiente" id="thRailNext">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+      <div class="th-rail" id="thRail">
 
       <a href="tratamientos.html" class="th-card th-card--navy" data-animate data-animate-delay="1">
         <div class="th-card__media" style="background-image:url('img/treatment-regenerativa.jpg');"></div>
