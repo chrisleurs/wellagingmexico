@@ -1209,6 +1209,86 @@ select.f-input:valid { color: #0C2E49; }
   </svg>
 </a>
 
+<!-- ═══════════════════════════════════════════
+     MODAL — Reserva tu lugar
+════════════════════════════════════════════ -->
+<div class="dlg-overlay" id="reservaOverlay" onclick="closeReservaDialog()" aria-hidden="true"></div>
+<div class="dlg" id="reservaDialog" role="dialog" aria-modal="true" aria-labelledby="reservaTitle" aria-hidden="true">
+
+  <div class="dlg__head">
+    <button type="button" class="dlg__close" onclick="closeReservaDialog()" aria-label="Cerrar">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <p class="dlg__eyebrow">Consulta inicial · 60 min</p>
+    <h2 class="dlg__title" id="reservaTitle">Reserva tu lugar</h2>
+    <p class="dlg__desc">Te llevaremos a nuestro sistema de agenda para que elijas el día y la hora que mejor te convenga.</p>
+  </div>
+
+  <div class="dlg__body">
+
+    <div class="dlg-summary">
+      <div class="dlg-summary__item">
+        <span class="dlg-summary__lbl">Duración</span>
+        <span class="dlg-summary__val">60 minutos</span>
+      </div>
+      <div class="dlg-summary__item">
+        <span class="dlg-summary__lbl">Modalidad</span>
+        <span class="dlg-summary__val">Presencial · Querétaro</span>
+      </div>
+      <div class="dlg-summary__item">
+        <span class="dlg-summary__lbl">Atiende</span>
+        <span class="dlg-summary__val">Dra. Liliana Pérez</span>
+      </div>
+      <div class="dlg-summary__item">
+        <span class="dlg-summary__lbl">Confirmación</span>
+        <span class="dlg-summary__val">&lt; 2 horas</span>
+      </div>
+    </div>
+
+    <ul class="dlg-includes">
+      <li>
+        <div class="check-circle">
+          <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
+            <polyline points="2,6 5,9 10,3" stroke="#1EB558" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        Evaluación integral personalizada
+      </li>
+      <li>
+        <div class="check-circle">
+          <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
+            <polyline points="2,6 5,9 10,3" stroke="#1EB558" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        Plan de tratamiento a tu medida
+      </li>
+      <li>
+        <div class="check-circle">
+          <svg width="9" height="9" viewBox="0 0 12 12" fill="none">
+            <polyline points="2,6 5,9 10,3" stroke="#1EB558" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        Sin compromiso de compra
+      </li>
+    </ul>
+
+    <a href="https://calendly.com/wellagingmexico/consulta-inicial"
+       class="dlg__cta"
+       target="_blank"
+       rel="noopener">
+      Continuar a reservar
+      <span aria-hidden="true">→</span>
+    </a>
+
+    <p class="dlg__foot-note">
+      Se abrirá en una pestaña nueva · Lun–Vie 10:00–19:00 · Sáb 10:00–14:00
+    </p>
+
+  </div>
+</div>
+
 <script>
 /* ── Entrance animations ── */
 (function () {
@@ -1220,6 +1300,33 @@ select.f-input:valid { color: #0C2E49; }
     { threshold: 0.1, rootMargin: '0px 0px -32px 0px' }
   );
   document.querySelectorAll('[data-animate]').forEach(el => obs.observe(el));
+})();
+
+/* ── Reserva dialog ── */
+(function(){
+  const overlay = document.getElementById('reservaOverlay');
+  const dialog  = document.getElementById('reservaDialog');
+  if (!overlay || !dialog) return;
+
+  window.openReservaDialog = function() {
+    overlay.classList.add('open');
+    dialog.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    dialog.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+  window.closeReservaDialog = function() {
+    overlay.classList.remove('open');
+    dialog.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    dialog.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && dialog.classList.contains('open')) {
+      window.closeReservaDialog();
+    }
+  });
 })();
 </script>
 
