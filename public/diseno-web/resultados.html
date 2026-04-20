@@ -105,21 +105,6 @@
   </div>
 </section>
 
-<!-- ============================================================
-     2. OVERLAP CARD — Filtros + reseñas
-     ============================================================ -->
-<div style="padding:0 64px; position:relative; z-index:10;">
-  <div class="overlap-card" style="max-width:1200px; margin:0 auto; padding:32px 48px;" data-animate>
-    <div class="filter-pills">
-      <span class="filter-label">Filtrar:</span>
-      <a href="#" class="pill-hifi active">Todos</a>
-      <a href="#" class="pill-hifi">Medicina Regenerativa</a>
-      <a href="#" class="pill-hifi">Medicina Estética</a>
-      <a href="#" class="pill-hifi">Faciales</a>
-      <a href="#" class="pill-hifi">Alopecia</a>
-    </div>
-  </div>
-</div>
 
 <!-- ============================================================
      3. GALERÍA ANTES/DESPUÉS — sticky blanca
@@ -402,7 +387,9 @@
   }
   const nav = document.querySelector('.nav-hifi');
   if(nav){
-    window.addEventListener('scroll',()=>{ nav.classList.toggle('scrolled', window.scrollY > 80); }, {passive:true});
+    const setNavScroll = () => nav.classList.toggle('nav-scrolled', window.scrollY > window.innerHeight * 0.7);
+    setNavScroll();
+    window.addEventListener('scroll', setNavScroll, {passive:true});
   }
 
   // Before/After sliders
