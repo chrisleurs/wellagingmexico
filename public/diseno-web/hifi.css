@@ -930,6 +930,7 @@ h2 {
 }
 
 .nav-hifi .nav-links a {
+  position: relative;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 11px;
@@ -937,11 +938,31 @@ h2 {
   text-transform: uppercase;
   color: rgba(255,255,255,.7);
   text-decoration: none;
+  padding-bottom: 6px;
   transition: color 0.2s ease;
 }
 
-.nav-hifi .nav-links a:hover {
+.nav-hifi .nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(.22, 1, .36, 1);
+}
+
+.nav-hifi .nav-links a:hover,
+.nav-hifi .nav-links a.active {
   color: rgba(255,255,255,1);
+}
+
+.nav-hifi .nav-links a:hover::after,
+.nav-hifi .nav-links a.active::after {
+  transform: scaleX(1);
 }
 
 .nav-hifi .nav-cta {
@@ -1078,6 +1099,7 @@ h2 {
 .nav .nav-links li { margin: 0; padding: 0; }
 
 .nav .nav-links a {
+  position: relative;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 11px;
@@ -1085,12 +1107,31 @@ h2 {
   text-transform: uppercase;
   color: rgba(12, 46, 73, .6);
   text-decoration: none;
+  padding-bottom: 6px;
   transition: color 0.2s ease;
+}
+
+.nav .nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(.22, 1, .36, 1);
 }
 
 .nav .nav-links a:hover,
 .nav .nav-links a.active {
   color: var(--navy);
+}
+
+.nav .nav-links a:hover::after,
+.nav .nav-links a.active::after {
+  transform: scaleX(1);
 }
 
 /* CTA button inside nav */
