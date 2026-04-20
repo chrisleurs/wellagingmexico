@@ -535,10 +535,31 @@
   if(nav){
     window.addEventListener('scroll',()=>{ nav.classList.toggle('scrolled', window.scrollY > 80); }, {passive:true});
   }
-  document.querySelectorAll('.cat-tab-hifi').forEach(t=>{
-    t.addEventListener('click',()=>{
-      document.querySelectorAll('.cat-tab-hifi').forEach(x=>x.classList.remove('active'));
-      t.classList.add('active');
+  /* Filtros: categoría + duración (toggle visual + filtrado) */
+  const state = { cat: 'all', time: 'all' };
+  function applyFilter(){
+    document.querySelectorAll('.th-card[data-cat], .mini-row[data-cat]').forEach(el=>{
+      const c = el.getAttribute('data-cat');
+      const t = el.getAttribute('data-time');
+      const matchCat = state.cat === 'all' || c === state.cat;
+      const matchTime = state.time === 'all' || t === state.time;
+      el.classList.toggle('is-hidden', !(matchCat && matchTime));
+    });
+  }
+  document.querySelectorAll('#catFilters .th-filter').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('#catFilters .th-filter').forEach(x=>x.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      state.cat = btn.getAttribute('data-cat');
+      applyFilter();
+    });
+  });
+  document.querySelectorAll('#durFilters .dur-chip').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      document.querySelectorAll('#durFilters .dur-chip').forEach(x=>x.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      state.time = btn.getAttribute('data-time');
+      applyFilter();
     });
   });
 })();
