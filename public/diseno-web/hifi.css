@@ -1964,34 +1964,101 @@ h2 {
 }
 
 /* ============================================================
-   DESIGN SYSTEM REFRESH — Border radius unificado (más redondeado)
+   DESIGN SYSTEM REFRESH — Bordes diferenciados:
+   · Secciones e imágenes hero/full-bleed → SIN curvas (rectas)
+   · Cards de contenido → curvas amplias (estilo SHA)
+   · Botones → rectángulos con esquinas suavemente curveadas (10px)
    ============================================================ */
+
+/* — BOTONES: rectangulares con esquinas ligeramente curveadas — */
 .btn,
 .btn-dark,
 .btn-outline,
 .btn-cta-primary,
 .btn-cta-ghost,
 .btn-beige-solid,
-.btn-outline-light {
-  border-radius: 999px !important;
+.btn-outline-light,
+.btn-nav-cta {
+  border-radius: 10px !important;
 }
+
+/* — CARDS: conservan su redondeo amplio — */
 .mq-card {
-  border-radius: var(--radius-md) !important;
-}
-.gallery-thumb,
-.gallery-thumb > div,
-.gallery-thumb .ph,
-.gallery-thumb .ph2 {
-  border-radius: var(--radius-md);
-}
-.ba-container {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-card) !important;
 }
 .overlap-card {
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-card);
 }
 .icon-circle {
   border-radius: 50%;
+}
+
+/* — SECCIONES E IMÁGENES FULL-BLEED: sin curvas entre secciones — */
+.sticky-section,
+.section-overlap,
+.section-overlap-lg,
+.section-overlap-sm,
+.section-slide-over,
+.philosophy-section,
+.cta-hifi,
+.treatments-hero,
+.success-panorama,
+.doctor-section,
+.testimonials-marquee,
+.blog-section,
+.story-section {
+  border-radius: 0 !important;
+}
+
+/* Imágenes hero / full-bleed: rectas */
+.hero,
+.hero img,
+.hero video,
+.gallery-thumb,
+.gallery-thumb > div,
+.gallery-thumb .ph,
+.gallery-thumb .ph2,
+.ba-container,
+.doc-parallax-wrap,
+.doc-ph-parallax,
+.clinic-ph,
+.featured-img {
+  border-radius: 0 !important;
+}
+
+/* Mantener responsive sin redondeo */
+@media (max-width: 768px) {
+  .sticky-section,
+  .section-overlap,
+  .section-overlap-lg,
+  .section-overlap-sm,
+  .section-slide-over,
+  .philosophy-section,
+  .cta-hifi {
+    border-radius: 0 !important;
+  }
+}
+
+/* ============================================================
+   GLOBAL SYNC — Aplica el design system a páginas internas
+   (tratamientos, sobre-nosotros, blog, contacto, resultados, tratamiento)
+   ============================================================ */
+
+/* Cards genéricas de contenido en páginas internas */
+.card-img         { border-radius: var(--radius-card) var(--radius-card) 0 0 !important; }
+.card-body        { border-radius: 0 0 var(--radius-card) var(--radius-card) !important; }
+.cred-card,
+.testimonial-list-item,
+.article-card-img,
+.mini-item,
+.mini-item-img    { border-radius: var(--radius-card) !important; }
+
+/* Sección/hero clínica de "sobre-nosotros" → sin redondeo */
+.clinic-ph        { border-radius: 0 !important; margin-top: 0 !important; }
+
+/* Inputs y formularios */
+input, textarea, select {
+  border-radius: 10px !important;
 }
 
 /* ============================================================
