@@ -836,6 +836,51 @@
   }
   init('baSlider1');
 })();
+
+// Treatments Rail — scroll lateral con botones prev/next
+(function() {
+  const rail = document.getElementById('thRail');
+  const prev = document.getElementById('thRailPrev');
+  const next = document.getElementById('thRailNext');
+  if (!rail || !prev || !next) return;
+
+  function step() {
+    const card = rail.querySelector('.th-card');
+    if (!card) return rail.clientWidth * 0.8;
+    const styles = getComputedStyle(rail);
+    const gap = parseFloat(styles.columnGap || styles.gap || 20);
+    return card.offsetWidth + gap;
+  }
+  function update() {
+    const max = rail.scrollWidth - rail.clientWidth - 2;
+    prev.disabled = rail.scrollLeft <= 2;
+    next.disabled = rail.scrollLeft >= max;
+  }
+  prev.addEventListener('click', () => rail.scrollBy({ left: -step(), behavior: 'smooth' }));
+  next.addEventListener('click', () => rail.scrollBy({ left:  step(), behavior: 'smooth' }));
+  rail.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
+// Treatments Filters — filtran por badge text
+(function() {
+  const filters = document.querySelectorAll('.th-filter');
+  const cards = document.querySelectorAll('#thRail .th-card');
+  if (!filters.length || !cards.length) return;
+  filters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filters.forEach(b => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+      const tag = (btn.textContent || '').trim().toLowerCase();
+      cards.forEach(card => {
+        const badge = (card.querySelector('.th-card__badge span')?.textContent || '').toLowerCase();
+        const show = tag === 'todos' || badge.includes(tag);
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+})();
 </script>
 
 
