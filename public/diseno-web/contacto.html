@@ -120,13 +120,16 @@
 }
 
 .cta-card__icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 28px;
+  margin-bottom: 18px;
+}
+@media (min-width: 769px) {
+  .cta-card__icon { width: 56px; height: 56px; border-radius: 14px; margin-bottom: 28px; }
 }
 .cta-card--navy .cta-card__icon {
   background: rgba(255,255,255,.08);
@@ -157,10 +160,13 @@
 
 .cta-card__desc {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 1.7;
-  margin: 0 0 36px;
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0 0 22px;
   flex: 1;
+}
+@media (min-width: 769px) {
+  .cta-card__desc { font-size: 14px; line-height: 1.7; margin-bottom: 36px; }
 }
 .cta-card--navy .cta-card__desc { color: rgba(255,255,255,.65); }
 .cta-card--wa .cta-card__desc { color: #6E8491; }
