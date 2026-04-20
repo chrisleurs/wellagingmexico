@@ -223,20 +223,25 @@
 
   /* ===== NAV V3 (.nav con .nav-links) ===== */
   nav.nav {
-    padding: 12px 16px !important;
+    padding: 10px 16px !important;
     gap: 8px !important;
+    height: auto !important;
+    min-height: 56px !important;
   }
   nav.nav .nav-links {
     display: none !important;
   }
   nav.nav .nav-logo {
-    font-size: 14px !important;
+    font-size: 13px !important;
+    flex: 1 1 auto !important;
   }
+  /* En mobile mostramos hamburguesa en vez del CTA del nav */
   nav.nav .btn-nav-cta,
   nav.nav a.btn-nav-cta {
-    padding: 8px 14px !important;
-    font-size: 11px !important;
-    white-space: nowrap !important;
+    display: none !important;
+  }
+  .nav-hamburger {
+    display: inline-flex !important;
   }
 
   /* ===== HERO V3 — quitar padding lateral grande ===== */
