@@ -303,21 +303,21 @@
 /* Move 10 — Before/After Sliders */
 (function(){
   function initBA(container) {
-    const beforeWrap = container.querySelector('.ba-before-wrap');
+    const before = container.querySelector('.ba-before');
     const handle = container.querySelector('.ba-handle');
-    if (!beforeWrap || !handle) return;
+    if (!before || !handle) return;
     let dragging = false;
     const setPos = (x) => {
       const rect = container.getBoundingClientRect();
-      const pct = Math.min(Math.max((x - rect.left) / rect.width, 0.04), 0.96);
-      beforeWrap.style.width = (pct * 100) + '%';
-      handle.style.left = (pct * 100) + '%';
+      const p = Math.min(Math.max((x - rect.left) / rect.width, 0.04), 0.96);
+      before.style.clipPath = 'inset(0 ' + ((1 - p) * 100) + '% 0 0)';
+      handle.style.left = (p * 100) + '%';
     };
     setPos(container.getBoundingClientRect().left + container.getBoundingClientRect().width * 0.5);
     handle.addEventListener('mousedown', (e) => { dragging = true; e.preventDefault(); });
     document.addEventListener('mouseup', () => dragging = false);
     document.addEventListener('mousemove', (e) => { if (dragging) setPos(e.clientX); });
-    handle.addEventListener('touchstart', (e) => { dragging = true; }, { passive: true });
+    handle.addEventListener('touchstart', () => { dragging = true; }, { passive: true });
     document.addEventListener('touchend', () => dragging = false);
     document.addEventListener('touchmove', (e) => { if (dragging && e.touches[0]) setPos(e.touches[0].clientX); }, { passive: true });
   }
