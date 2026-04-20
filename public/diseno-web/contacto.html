@@ -15,19 +15,19 @@
    Jerarquía: 1. Agendar (FLOW)  2. WhatsApp  3. Formulario
    ══════════════════════════════════════════ */
 
-/* ── Hero ── */
+/* ── Hero — compacto, mobile-first, dejando espacio a los CTAs en 1° viewport ── */
 .contact-hero {
   background: #F7F4F0;
-  padding: 96px 0 80px;
+  padding: 56px 0 36px;
   text-align: center;
 }
 .contact-hero h1 {
   font-weight: 800;
-  font-size: clamp(40px, 5.5vw, 68px);
+  font-size: clamp(30px, 4.4vw, 52px);
   color: #0C2E49;
-  letter-spacing: -.05em;
-  line-height: 0.97;
-  margin: 0 0 24px;
+  letter-spacing: -.045em;
+  line-height: 1.02;
+  margin: 16px 0 16px;
 }
 .contact-hero h1 em {
   font-weight: 200;
@@ -35,36 +35,52 @@
   opacity: .6;
 }
 .contact-hero p {
-  font-size: clamp(14px, 1.4vw, 17px);
+  font-size: clamp(13px, 1.2vw, 15px);
   color: #6E8491;
-  line-height: 1.85;
-  margin: 0;
+  line-height: 1.7;
+  margin: 0 auto;
+  max-width: 460px;
+}
+@media (min-width: 769px) {
+  .contact-hero { padding: 72px 0 44px; }
 }
 
-/* ══ 1. SECCIÓN AGENDAR — Primaria ══ */
+/* ══ 1. SECCIÓN AGENDAR — Primaria — mobile-first, compacta ══ */
 .agendar-section {
   background: #fff;
-  padding: 88px 0 96px;
+  padding: 40px 0 64px;
+}
+@media (min-width: 769px) {
+  .agendar-section { padding: 48px 0 96px; }
 }
 
 .agendar-header {
   text-align: center;
-  margin-bottom: 52px;
+  margin-bottom: 32px;
+}
+@media (min-width: 769px) {
+  .agendar-header { margin-bottom: 44px; }
 }
 
-/* ── Dual CTA grid — Reservar (navy) + WhatsApp (verde) ── */
+/* ── Dual CTA grid — mobile-first: stack en mobile, 2 cols en desktop ── */
 .cta-dual {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  grid-template-columns: 1fr;
+  gap: 16px;
   max-width: 980px;
   margin: 0 auto;
+}
+@media (min-width: 769px) {
+  .cta-dual {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
 }
 
 .cta-card {
   position: relative;
-  border-radius: 24px;
-  padding: 48px 44px 44px;
+  border-radius: 20px;
+  padding: 32px 26px 28px;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -74,6 +90,9 @@
   border: none;
   font-family: 'Montserrat', sans-serif;
   text-decoration: none;
+}
+@media (min-width: 769px) {
+  .cta-card { border-radius: 24px; padding: 48px 44px 44px; }
 }
 
 .cta-card:hover {
@@ -101,13 +120,16 @@
 }
 
 .cta-card__icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 28px;
+  margin-bottom: 18px;
+}
+@media (min-width: 769px) {
+  .cta-card__icon { width: 56px; height: 56px; border-radius: 14px; margin-bottom: 28px; }
 }
 .cta-card--navy .cta-card__icon {
   background: rgba(255,255,255,.08);
@@ -138,10 +160,13 @@
 
 .cta-card__desc {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 1.7;
-  margin: 0 0 36px;
+  font-size: 13px;
+  line-height: 1.65;
+  margin: 0 0 22px;
   flex: 1;
+}
+@media (min-width: 769px) {
+  .cta-card__desc { font-size: 14px; line-height: 1.7; margin-bottom: 36px; }
 }
 .cta-card--navy .cta-card__desc { color: rgba(255,255,255,.65); }
 .cta-card--wa .cta-card__desc { color: #6E8491; }
@@ -984,10 +1009,10 @@ select.f-input:valid { color: #0C2E49; }
   <div class="container" style="max-width:580px;">
     <p class="eyebrow-v2" data-animate style="text-align:center;">Primera consulta · Well Aging México</p>
     <h1 data-animate data-animate-delay="1">
-      El primer paso<br><em>es conocernos.</em>
+      El primer paso hacia tu<br><em>plan de bien envejecer.</em>
     </h1>
     <p data-animate data-animate-delay="2">
-      Una hora de escucha real con la Dra. Liliana Pérez. Sin compromisos, sin presiones. Solo claridad y un plan honesto.
+      Una hora con la Dra. Liliana Pérez. Sin compromiso, sin presiones.
     </p>
   </div>
 </section>
