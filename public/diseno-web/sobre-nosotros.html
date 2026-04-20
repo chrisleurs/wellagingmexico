@@ -32,7 +32,7 @@
 .t-quote { font-style:italic; font-weight:300; font-size:14px; line-height:1.7; color:#0C2E49; margin-bottom:16px; }
 .t-name { font-weight:600; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:#6E8491; }
 
-.clinic-ph { position:relative; height:520px; overflow:hidden; background:#1a3a4f; }
+.clinic-ph { position:relative; height:520px; overflow:hidden; background:#1a3a4f; border-radius:28px 28px 0 0; margin-top:-48px; z-index:3; box-shadow:0 -16px 64px rgba(12,46,73,.15); }
 .clinic-ph .hero-kenburns { z-index:0; }
 .clinic-ph-overlay { position:absolute; inset:0; background:linear-gradient(to right,rgba(12,46,73,.72) 0%,rgba(12,46,73,.2) 60%,transparent 100%); z-index:1; }
 .clinic-ph-content { position:absolute; inset:0; z-index:2; display:flex; align-items:center; padding:0 80px; }
@@ -48,6 +48,7 @@
   .credentials-grid { grid-template-columns:1fr 1fr; gap:16px; }
   .historia-grid { grid-template-columns:1fr; gap:40px; }
   .testimonials-list-grid { grid-template-columns:1fr; }
+  /* clinic-ph mobile */
   .overlap-card-inner { grid-template-columns:1fr 1fr; gap:20px; }
   .clinic-ph-content { padding:0 24px; }
   .metodo-item { grid-template-columns:56px 1fr; gap:20px; }
@@ -75,7 +76,7 @@
 ──────────────────────────────────────── -->
 <section class="hero-section" style="height:88vh;">
   <!-- Ken Burns portrait placeholder -->
-  <div class="hero-kenburns" style="background:url("img/dra-liliana.jpg") center/cover no-repeat;background:linear-gradient(135deg,#1a3a4f 0%,#0C2E49 100%);">
+  <div class="hero-kenburns" style="background:linear-gradient(135deg,#1a3a4f 0%,#0C2E49 100%);">
     <!-- Placeholder silhouette — swap for real photo -->
     <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;padding-right:8%;opacity:.18;">
       <svg width="340" height="620" viewBox="0 0 340 620" fill="none">
@@ -176,7 +177,7 @@
 <!-- ───────────────────────────────────────
      CREDENCIALES — 4-col cards
 ──────────────────────────────────────── -->
-<section class="section-overlap" style="background:#F7F4F0;">
+<section class="section-overlap-sm" style="background:#F7F4F0;">
   <div class="container">
     <p class="eyebrow-v2" data-animate>Formación · Certificaciones</p>
     <h2 class="section-title" data-animate data-animate-delay="1">Respaldo médico real</h2>
@@ -243,12 +244,12 @@
 <!-- ───────────────────────────────────────
      CLÍNICA — Full-bleed photo
 ──────────────────────────────────────── -->
-<div class="clinic-ph" data-animate style='background:url("img/clinica-interior.jpg") center/cover no-repeat;'>
+<div class="clinic-ph" data-animate style="background:url("img/hero-home.jpg") center/cover no-repeat;">
   <div class="hero-kenburns" style="background:linear-gradient(135deg,#2a5070 0%,#0C2E49 100%);animation:kenBurns 18s ease-in-out infinite alternate;">
     <div style="position:absolute;inset:0;opacity:.12;background-image:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(255,255,255,.03) 40px,rgba(255,255,255,.03) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(255,255,255,.03) 40px,rgba(255,255,255,.03) 41px);"></div>
   </div>
-  <div class="clinic-ph-overlay"></div>
-  <div class="clinic-ph-content">
+  <div class="clinic-ph-overlay" style="background:url("img/hero-home.jpg") center/cover no-repeat;"></div>
+  <div class="clinic-ph-content" style="background:url("img/hero-home.jpg") center/cover no-repeat;">
     <h2 data-animate data-animate-delay="1">Nuestra clínica.<br>Diseñada para<br>la calma.</h2>
   </div>
 </div>
@@ -256,7 +257,7 @@
 <!-- ───────────────────────────────────────
      TESTIMONIOS — Editorial list 2-col
 ──────────────────────────────────────── -->
-<section class="section-overlap" style="background:#F7F4F0;">
+<section class="section-overlap-sm" style="background:#F7F4F0;">
   <div class="container">
     <p class="eyebrow-v2" data-animate>Pacientes · Reseñas</p>
     <h2 class="section-title" data-animate data-animate-delay="1">Lo que dicen nuestras pacientes</h2>

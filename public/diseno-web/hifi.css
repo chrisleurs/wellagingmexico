@@ -322,7 +322,7 @@ h2 {
   z-index: 2;
   margin-top: -48px;
   border-radius: var(--radius-section) var(--radius-section) 0 0;
-  box-shadow: var(--shadow-overlap);
+  box-shadow: 0 -16px 64px rgba(12, 46, 73, .10);
 }
 
 .section-overlap-lg {
@@ -330,15 +330,27 @@ h2 {
   z-index: 3;
   margin-top: -64px;
   border-radius: var(--radius-section) var(--radius-section) 0 0;
-  box-shadow: 0 -10px 56px rgba(12, 46, 73, .1);
+  box-shadow: 0 -20px 72px rgba(12, 46, 73, .12);
 }
 
 .section-overlap-sm {
   position: relative;
-  z-index: 2;
-  margin-top: -32px;
+  z-index: 4;
+  margin-top: -40px;
   border-radius: var(--radius-section) var(--radius-section) 0 0;
-  box-shadow: 0 -6px 36px rgba(12, 46, 73, .07);
+  box-shadow: 0 -12px 52px rgba(12, 46, 73, .09);
+}
+
+/* ── Utilidad: sección "pasa por encima" de la anterior ──
+   Aplicar a secciones que transicionan de stone→blanco
+   o cualquier sección que no usa la clase section-overlap.
+   Z-index: usar 3, 4 ó 5 según la profundidad en el stack. */
+.section-slide-over {
+  position: relative;
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 -16px 64px rgba(12, 46, 73, .09);
+  margin-top: -48px;
+  z-index: 3;
 }
 
 /* ============================================================
@@ -595,11 +607,16 @@ h2 {
 
 /* ============================================================
    MOVE 9 — CTA Final: Grain Texture + Frosted Glass Card
+   El CTA no es sticky (es el último antes del footer),
+   pero tiene z-index alto para cubrir las sticky sections
+   que lo preceden conforme sube desde abajo.
    ============================================================ */
 .cta-hifi {
   position: relative;
+  z-index: 20;
   background: var(--navy);
   overflow: hidden;
+  border-radius: 28px 28px 0 0;
 }
 
 /* Grain via SVG feTurbulence inline */
@@ -1472,6 +1489,18 @@ h2 {
   .section-overlap-sm {
     padding-top: 60px;
     padding-bottom: 60px;
+    border-radius: 20px 20px 0 0;
+    margin-top: -24px;
+  }
+
+  .section-slide-over {
+    border-radius: 20px 20px 0 0;
+    margin-top: -24px;
+  }
+
+  .cta-hifi {
+    border-radius: 20px 20px 0 0 !important;
+    margin-top: -24px;
   }
 
   .footer-inner {
@@ -1502,5 +1531,42 @@ h2 {
 
   .philosophy-section {
     padding: 72px 0 56px;
+  }
+}
+
+/* ============================================================
+   STICKY SECTION STACK
+   ─────────────────────────────────────────────────────────────
+   Efecto "tarjeta que se queda fija": cada sección permanece
+   visible (sticky) mientras la siguiente sube desde abajo y
+   la cubre por encima.
+
+   Uso en HTML:
+     <section class="sticky-section" style="z-index:2; background:#fff;">
+     <section class="sticky-section" style="z-index:3; background:#F7F4F0;">
+     ...
+
+   Regla de z-index: cada sección siguiente debe tener un
+   valor mayor que la anterior (2 → 3 → 4 → 5...).
+   La sección CTA (.cta-hifi) usa z-index:20 y NO es sticky
+   — solo sube desde abajo y cubre las sticky sections.
+   ============================================================ */
+.sticky-section {
+  position: sticky !important;  /* !important: gana sobre position:relative de otras clases */
+  top: 68px;                    /* = altura del nav */
+  border-radius: 28px 28px 0 0;
+  box-shadow: 0 -24px 80px rgba(12, 46, 73, .13);
+  /* Asegurar que el fondo cubre la sección anterior */
+  isolation: isolate;
+}
+
+/* Mobile: el nav mide ~60px y el radio se reduce */
+@media (max-width: 768px) {
+  .sticky-section {
+    top: 60px;
+    border-radius: 20px 20px 0 0;
+  }
+  .cta-hifi {
+    border-radius: 20px 20px 0 0 !important;
   }
 }
