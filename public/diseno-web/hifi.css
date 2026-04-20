@@ -1297,11 +1297,14 @@ h2 {
 .btn-dark {
   background: var(--navy) !important;
   color: #FFF !important;
-  border: none !important;
+  border: 1px solid var(--navy) !important;
+  box-shadow: 0 2px 0 rgba(12,46,73,.06), 0 8px 22px -10px rgba(12,46,73,.45);
 }
 
 .btn-dark:hover {
   background: var(--navy-80) !important;
+  border-color: var(--navy-80) !important;
+  box-shadow: 0 4px 0 rgba(12,46,73,.08), 0 14px 30px -12px rgba(12,46,73,.55);
 }
 
 .btn-outline {
@@ -1591,28 +1594,35 @@ h2 {
 }
 
 /* ============================================================
-   BTN-PRIMARY — Shared button for overlap cards and sections
+   BTN-PRIMARY — Colored solid button (navy fill)
+   Inspirado en el nav-cta scrolled, con esquinas un poco más
+   curveadas y un acabado más premium.
    ============================================================ */
 .btn-primary {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 11px;
-  letter-spacing: .12em;
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: .14em;
   text-transform: uppercase;
   background: var(--navy);
   color: #FFF !important;
-  padding: 14px 28px;
+  padding: 15px 30px;
   text-decoration: none;
-  border-radius: 2px;
-  border: none;
+  border-radius: 8px;
+  border: 1px solid var(--navy);
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 2px 0 rgba(12,46,73,.06), 0 8px 22px -10px rgba(12,46,73,.45);
+  transition: background .25s ease, border-color .25s ease, transform .25s ease, box-shadow .25s ease;
 }
 
 .btn-primary:hover {
   background: var(--navy-80);
+  border-color: var(--navy-80);
   transform: translateY(-2px);
+  box-shadow: 0 4px 0 rgba(12,46,73,.08), 0 14px 30px -12px rgba(12,46,73,.55);
 }
 
 /* ============================================================
@@ -2067,8 +2077,9 @@ h2 {
 .btn-cta-ghost,
 .btn-beige-solid,
 .btn-outline-light,
-.btn-nav-cta {
-  border-radius: 10px !important;
+.btn-nav-cta,
+.btn-primary {
+  border-radius: 12px !important;
 }
 
 /* — CARDS: conservan su redondeo amplio — */
@@ -2401,4 +2412,193 @@ input, textarea, select {
   letter-spacing: .12em;
   text-transform: uppercase;
   color: rgba(255,255,255,.85);
+}
+
+/* ============================================================
+   DRA. LILIANA — Editorial feature section (rediseño tratamientos)
+   Layout: foto editorial 1.1fr | contenido 1fr, generoso, premium
+   ============================================================ */
+.dra-feature {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F7F4F0 100%);
+  padding: 120px 64px;
+}
+
+.dra-feature__inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Media — foto cuadrada con badge flotante */
+.dra-feature__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px -30px rgba(12, 46, 73, .35);
+}
+
+.dra-feature__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .8s cubic-bezier(.2,.8,.2,1);
+}
+
+.dra-feature__media:hover img {
+  transform: scale(1.03);
+}
+
+/* Badge flotante en esquina inferior izquierda */
+.dra-feature__badge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 18px 24px;
+  border-radius: 12px;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  box-shadow: 0 12px 36px -10px rgba(12,46,73,.35);
+}
+
+.dra-feature__badge-num {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  color: var(--navy);
+  letter-spacing: -.02em;
+  line-height: 1;
+}
+
+.dra-feature__badge-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 10.5px;
+  color: #6E8491;
+  letter-spacing: .04em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+/* Body */
+.dra-feature__body {
+  display: flex;
+  flex-direction: column;
+}
+
+.dra-feature__body .eyebrow {
+  margin-bottom: 18px;
+}
+
+.dra-feature__title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(34px, 4vw, 52px);
+  color: var(--navy);
+  letter-spacing: -.035em;
+  line-height: 1.02;
+  margin: 0 0 24px;
+}
+
+.dra-feature__title em {
+  font-weight: 200;
+  font-style: normal;
+  opacity: .55;
+}
+
+.dra-feature__lead {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #6E8491;
+  line-height: 1.75;
+  margin: 0 0 32px;
+  max-width: 520px;
+}
+
+/* Lista de credenciales */
+.dra-feature__creds {
+  list-style: none;
+  margin: 0 0 36px;
+  padding: 28px 0;
+  border-top: 1px solid rgba(12, 46, 73, .12);
+  border-bottom: 1px solid rgba(12, 46, 73, .12);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.dra-feature__creds li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dra-feature__creds strong {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--navy);
+  letter-spacing: -.02em;
+  line-height: 1;
+}
+
+.dra-feature__creds span {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 11.5px;
+  color: #8A9BAA;
+  letter-spacing: .02em;
+  line-height: 1.4;
+}
+
+.dra-feature__actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.dra-feature__link {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(12, 46, 73, .3);
+  padding-bottom: 3px;
+  transition: border-color .2s ease;
+}
+
+.dra-feature__link:hover {
+  border-color: var(--navy);
+}
+
+@media (max-width: 900px) {
+  .dra-feature {
+    padding: 80px 24px;
+  }
+  .dra-feature__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .dra-feature__media {
+    aspect-ratio: 4 / 4.5;
+  }
+  .dra-feature__creds {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .dra-feature__creds strong { font-size: 18px; }
+  .dra-feature__creds span { font-size: 10.5px; }
 }
