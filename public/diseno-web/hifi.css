@@ -627,8 +627,8 @@ h2 {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 520px;
-  border-radius: 14px;
+  min-height: 480px;
+  border-radius: var(--radius-card);
   text-decoration: none;
   color: #FFF;
   overflow: hidden;
