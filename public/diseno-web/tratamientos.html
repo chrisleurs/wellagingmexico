@@ -114,13 +114,20 @@
       </p>
       <a href="contacto.html" class="btn btn-dark" style="flex-shrink:0; white-space:nowrap;">Agendar consulta →</a>
     </div>
-    <div class="cat-tabs">
-      <a href="#cat-01" class="cat-tab-hifi active">Todos</a>
-      <a href="#cat-01" class="cat-tab-hifi">Medicina Regenerativa</a>
-      <a href="#cat-02" class="cat-tab-hifi">Medicina Estética</a>
-      <a href="#cat-03" class="cat-tab-hifi">Faciales y Spa</a>
-      <a href="#cat-03" class="cat-tab-hifi">Sueroterapias</a>
-      <a href="#cat-03" class="cat-tab-hifi">Alopecia</a>
+    <div class="th-filters th-filters--light" role="tablist" id="catFilters">
+      <button class="th-filter is-active" type="button" data-cat="all">Todos</button>
+      <button class="th-filter" type="button" data-cat="regenerativa">Medicina Regenerativa</button>
+      <button class="th-filter" type="button" data-cat="estetica">Medicina Estética</button>
+      <button class="th-filter" type="button" data-cat="faciales">Faciales y Spa</button>
+      <button class="th-filter" type="button" data-cat="sueroterapias">Sueroterapias</button>
+      <button class="th-filter" type="button" data-cat="alopecia">Alopecia</button>
+    </div>
+    <div class="dur-filter" id="durFilters">
+      <span class="dur-filter__label">Duración</span>
+      <button class="dur-chip is-active" type="button" data-time="all">Cualquiera</button>
+      <button class="dur-chip" type="button" data-time="express">Express · ≤30 min</button>
+      <button class="dur-chip" type="button" data-time="estandar">Estándar · 45–60 min</button>
+      <button class="dur-chip" type="button" data-time="protocolo">Protocolo · &gt;60 min</button>
     </div>
   </div>
 </div>
