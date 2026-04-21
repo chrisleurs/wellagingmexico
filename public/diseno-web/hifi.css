@@ -1783,6 +1783,12 @@ h2 {
   .nav-hifi {
     padding: 12px 18px 0;
   }
+  .nav-hifi .nav-logo {
+    color: #FFF;
+  }
+  .nav-hifi .nav-logo span {
+    color: rgba(255,255,255,.48);
+  }
   .nav-hifi .nav-inner {
     height: 56px;
   }
@@ -1802,28 +1808,34 @@ h2 {
   .nav-hifi.nav-scrolled .nav-inner {
     height: 52px;
   }
+  .nav-hifi.nav-scrolled .nav-logo {
+    color: var(--navy);
+  }
+  .nav-hifi.nav-scrolled .nav-logo span {
+    color: rgba(12,46,73,.4);
+  }
 
   /* TH-CARDS — mobile optimizado */
   .th-card {
-    min-height: 420px;
+    min-height: 454px;
     border-radius: 14px;
   }
   .th-card__content {
-    padding: 18px 18px 20px;
+    padding: 18px 18px 22px;
   }
   .th-card__title-wrap {
-    margin-top: 140px;
+    margin-top: 156px;
     margin-bottom: 14px;
   }
   .th-card__title {
-    font-size: 22px;
+    font-size: 20px;
     line-height: 1.05;
     letter-spacing: -.03em;
     margin-bottom: 8px;
   }
   .th-card__desc {
-    font-size: 12.5px;
-    line-height: 1.5;
+    font-size: 12px;
+    line-height: 1.52;
     max-width: 100%;
   }
   .th-card__badge {
@@ -1842,7 +1854,7 @@ h2 {
     padding-top: 12px;
   }
   .th-card__stat p {
-    font-size: 11.5px;
+    font-size: 11px;
     line-height: 1.4;
   }
   /* Overlay más oscuro en mobile para mejor legibilidad */
@@ -1857,20 +1869,36 @@ h2 {
   }
   /* Rail: más espacio para los botones, cards más anchas */
   .th-rail {
-    gap: 14px;
-    padding: 8px 18px 20px;
-    scroll-padding: 18px;
+    gap: 12px;
+    padding: 8px 16px 20px;
+    scroll-padding: 16px;
   }
   .th-rail-wrap {
-    margin: 0 -18px;
+    margin: 0 -16px;
   }
   .th-rail .th-card {
-    flex: 0 0 82%;
-    min-height: 420px;
+    flex: 0 0 calc(100vw - 56px);
+    min-height: 454px;
   }
   /* Ocultar botones del rail en mobile (solo swipe) */
   .th-rail-btn {
     display: none;
+  }
+  .treatments-closer {
+    margin-top: 36px;
+    padding: 28px 20px;
+    gap: 20px;
+  }
+  .treatments-closer__title {
+    font-size: 28px;
+    line-height: 1.08;
+    max-width: none;
+  }
+  .btn-beige-solid {
+    width: 100%;
+    justify-content: center;
+    padding: 15px 18px;
+    font-size: 11px;
   }
 }
 
@@ -1933,7 +1961,7 @@ h2 {
   right: 0;
   width: min(82vw, 360px);
   height: 100%;
-  background: #0C2E49;
+  background: linear-gradient(180deg, rgba(8,12,18,.98) 0%, rgba(8,12,18,.98) 62%, #12385a 100%);
   color: #FFF;
   padding: 28px 28px 32px;
   display: flex;
@@ -2005,6 +2033,9 @@ h2 {
 .mobile-drawer-nav a:active {
   color: #FFF;
   padding-left: 6px;
+}
+.mobile-drawer-nav a:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 .mobile-drawer-footer {
   margin-top: auto;
