@@ -494,7 +494,7 @@ h2 {
   inset: 0;
   background:
     radial-gradient(ellipse at top right, rgba(229,223,211,.06), transparent 60%),
-    linear-gradient(180deg, #0C2E49 0%, #0a2540 100%);
+    linear-gradient(180deg, #0C2E49 0%, #0C2E49 100%);
   pointer-events: none;
 }
 
