@@ -330,6 +330,56 @@
   [class*="overlap"] {
     margin-top: 0 !important;
   }
+
+  /* ===== TRATAMIENTOS — overlap intro stack vertical en mobile ===== */
+  .overlap-intro {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    margin-bottom: 20px !important;
+  }
+  .overlap-cta {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* ===== HOME — overlap card botones stack ===== */
+  .overlap-card[style*="grid-template-columns:1fr auto"] > div:last-child,
+  .overlap-card div[style*="display:flex"][style*="gap:12px"] {
+    width: 100% !important;
+    flex-direction: column !important;
+  }
+  .overlap-card .btn {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center !important;
+  }
+
+  /* ===== BA SLIDER (resultados) — más alto en mobile + handle más grande ===== */
+  .ba-container {
+    height: 420px !important;
+  }
+  .ba-circle {
+    width: 52px !important;
+    height: 52px !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,.45) !important;
+  }
+  .ba-handle {
+    width: 60px !important;
+  }
+
+  /* ===== HERO TRATAMIENTOS — reducir padding inferior ===== */
+  .hero-content[style*="padding:0 0 120px 80px"] {
+    padding: 0 20px 56px 20px !important;
+  }
+
+  /* ===== STICKY SECTIONS con padding 160 64 140 / 140 64 — reducir ===== */
+  section[style*="padding:160px 64px 140px"],
+  section[style*="padding:140px 64px 140px"],
+  section[style*="padding:140px 64px 120px"],
+  section[style*="padding:130px 64px"] {
+    padding: 56px 20px !important;
+  }
 }
 
 /* ===== BREAKPOINT PEQUEÑO (375px) — ajustes extra ===== */
