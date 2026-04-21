@@ -1961,7 +1961,7 @@ h2 {
   right: 0;
   width: min(82vw, 360px);
   height: 100%;
-  background: linear-gradient(180deg, rgba(8,12,18,.98) 0%, rgba(8,12,18,.98) 62%, #12385a 100%);
+  background: linear-gradient(180deg, #0C2E49 0%, #0C2E49 60%, #163d5e 100%);
   color: #FFF;
   padding: 28px 28px 32px;
   display: flex;
