@@ -1469,7 +1469,7 @@ h2 {
    ============================================================ */
 .hero-bottom-blend {
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   right: 0;
   height: var(--blend-h);
@@ -1478,12 +1478,16 @@ h2 {
     transparent                      0%,
     rgba(255, 255, 255, .05)         18%,
     rgba(255, 255, 255, .42)         52%,
-    rgba(255, 255, 255, .88)         78%,
+    rgba(255, 255, 255, .92)         82%,
     #ffffff                          100%
   );
   z-index: 1;
   pointer-events: none;
 }
+/* Eliminar línea visible entre hero y siguiente sección */
+.hero-section { border-bottom: 0 !important; }
+.hero-section + div,
+.hero-section + section { border-top: 0 !important; margin-top: -1px; }
 
 /* ============================================================
    NAV — Interior pages (white sticky, not overlaying hero)
@@ -1923,21 +1927,28 @@ h2 {
   width: 40px;
   height: 40px;
   padding: 0;
-  background: transparent;
+  background: #E5DFD3;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
   align-items: center;
+  box-shadow: 0 2px 8px rgba(12,46,73,0.14);
 }
 .nav-hamburger span {
   display: block;
-  width: 22px;
-  height: 1.5px;
-  background: #FFF;
+  width: 20px;
+  height: 2px;
+  background: #0C2E49;
   border-radius: 2px;
   transition: background 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
 }
+.nav-hifi .nav-hamburger,
+.nav-hifi.nav-scrolled .nav-hamburger {
+  background: #E5DFD3;
+}
+.nav-hifi .nav-hamburger span,
 .nav-hifi.nav-scrolled .nav-hamburger span {
-  background: var(--navy, #0C2E49);
+  background: #0C2E49;
 }
 
 /* ============================================================
