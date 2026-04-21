@@ -385,6 +385,20 @@
   section[style*="padding:130px 64px"] {
     padding: 56px 20px !important;
   }
+
+  /* ===== HERO OFFSETS — compensar nav fijo en páginas con nav.nav blanco ===== */
+  /* Contacto */
+  .contact-hero { padding-top: 88px !important; }
+  /* Blog — primer section hero stone */
+  body > nav.nav + section[style*="background:#F7F4F0"],
+  body > nav.nav + section[style*="background: #F7F4F0"] {
+    padding-top: 88px !important;
+    padding-bottom: 56px !important;
+  }
+  /* Tratamiento individual — hero de 65vh */
+  body > nav.nav + section.hero-section {
+    padding-top: 80px !important;
+  }
 }
 
 /* ===== BREAKPOINT PEQUEÑO (375px) — ajustes extra ===== */
