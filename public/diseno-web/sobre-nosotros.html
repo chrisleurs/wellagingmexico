@@ -70,11 +70,11 @@
     .stats-inline .grid { grid-template-columns:1fr 1fr; gap:18px; }
     .stats-inline .num { font-size:32px; }
     .credentials-grid { grid-template-columns:1fr; gap:14px; }
-    .cred-card { padding:22px 20px; text-align:left; display:grid; grid-template-columns:48px 1fr; gap:16px; align-items:center; }
-    .cred-icon { width:42px; height:42px; margin:0; }
-    .cred-icon svg { width:20px; height:20px; }
-    .cred-title { font-size:14px; margin-bottom:4px; }
-    .cred-sub { font-size:12px; line-height:1.5; }
+    .cred-card { padding:22px 20px; text-align:left; display:grid; grid-template-columns:48px 1fr; grid-template-areas: "icon title" "sub sub"; column-gap:16px; row-gap:10px; align-items:center; }
+    .cred-card .cred-icon  { grid-area: icon; width:42px; height:42px; margin:0; }
+    .cred-card .cred-icon svg { width:20px; height:20px; }
+    .cred-card .cred-title { grid-area: title; font-size:14px; margin-bottom:0; align-self:center; }
+    .cred-card .cred-sub   { grid-area: sub;   font-size:12px; line-height:1.55; }
     .test-grid { grid-template-columns:1fr; }
     .clinic-photo { height:380px; }
     .clinic-photo .content { padding:0 24px; }

@@ -237,11 +237,31 @@
   }
   /* En mobile mostramos hamburguesa en vez del CTA del nav */
   nav.nav .btn-nav-cta,
-  nav.nav a.btn-nav-cta {
+  nav.nav a.btn-nav-cta,
+  nav.nav .btn-primary,
+  nav.nav a.btn-primary {
     display: none !important;
   }
   .nav-hamburger {
     display: inline-flex !important;
+  }
+  /* Hamburguesa unificada — beige claro de marca, líneas navy, sin borde */
+  .nav-hamburger,
+  nav.nav .nav-hamburger,
+  nav.nav-hifi .nav-hamburger,
+  nav.nav-hifi.nav-scrolled .nav-hamburger {
+    background: #E5DFD3 !important;
+    border: 0 !important;
+    border-color: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: 0 2px 8px rgba(12,46,73,0.12) !important;
+  }
+  .nav-hamburger span,
+  nav.nav .nav-hamburger span,
+  nav.nav-hifi .nav-hamburger span,
+  nav.nav-hifi.nav-scrolled .nav-hamburger span {
+    background: #0C2E49 !important;
   }
 
   /* ===== HERO V3 — quitar padding lateral grande ===== */
@@ -280,14 +300,6 @@
   nav.nav-hifi .nav-logo {
     font-size: 13px !important;
   }
-  nav.nav-hifi .nav-hamburger {
-    border-color: rgba(255,255,255,0.45) !important;
-    background: rgba(255,255,255,0.25) !important;
-    backdrop-filter: blur(8px) !important;
-  }
-  nav.nav-hifi .nav-hamburger span {
-    background: #FFF !important;
-  }
   nav.nav-hifi.nav-scrolled {
     background: rgba(255,255,255,0.97) !important;
     backdrop-filter: blur(16px) !important;
@@ -298,13 +310,6 @@
   }
   nav.nav-hifi.nav-scrolled .nav-logo span {
     color: rgba(12,46,73,0.42) !important;
-  }
-  nav.nav-hifi.nav-scrolled .nav-hamburger {
-    border-color: rgba(12,46,73,0.22) !important;
-    background: rgba(229,223,211,0.85) !important;
-  }
-  nav.nav-hifi.nav-scrolled .nav-hamburger span {
-    background: #0C2E49 !important;
   }
 
   /* ===== STACK / OVERLAP — anular margin-top negativos ===== */
