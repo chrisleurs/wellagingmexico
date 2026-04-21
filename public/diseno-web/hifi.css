@@ -1886,19 +1886,29 @@ h2 {
   }
   .treatments-closer {
     margin-top: 36px;
-    padding: 28px 20px;
-    gap: 20px;
+    padding: 24px 18px;
+    gap: 18px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .treatments-closer__eyebrow {
+    font-size: 10px;
+    letter-spacing: .14em;
   }
   .treatments-closer__title {
-    font-size: 28px;
-    line-height: 1.08;
+    font-size: 22px;
+    line-height: 1.15;
     max-width: none;
   }
   .btn-beige-solid {
     width: 100%;
     justify-content: center;
-    padding: 15px 18px;
-    font-size: 11px;
+    padding: 14px 12px;
+    font-size: 10.5px;
+    letter-spacing: .08em;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.3;
   }
 }
 
