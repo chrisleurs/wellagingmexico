@@ -113,7 +113,7 @@
   <div class="wrap">
     <span class="sec-num" data-animate>Casos · Antes / Después</span>
     <h2 class="sec-title" data-animate data-animate-delay="1">Cambios visibles, <em style="font-weight:300; opacity:.7;">medibles.</em></h2>
-    <p class="sec-sub" data-animate data-animate-delay="2">Arrastra el control de cada imagen para comparar. Cada caso muestra la cantidad de sesiones y el tratamiento aplicado.</p>
+    <p class="sec-sub" data-animate data-animate-delay="2">Toca cualquier lado de la imagen para revelarlo por completo, o arrastra el control para comparar gradualmente. Cada caso muestra el tratamiento aplicado y las sesiones realizadas.</p>
 
     <div class="ba-gallery">
       <!-- Caso 1 — PRP Facial -->
@@ -392,30 +392,46 @@
     window.addEventListener('scroll', setNavScroll, {passive:true});
   }
 
-  // Before/After sliders
+  // Before/After sliders — drag continuo + tap-to-snap suave
   document.querySelectorAll('.ba-container').forEach(container=>{
     const wrap = container.querySelector('.ba-before-wrap');
     const handle = container.querySelector('.ba-handle');
     if(!wrap || !handle) return;
     let dragging = false;
-    function setPos(x){
-      const rect = container.getBoundingClientRect();
-      const pct = Math.max(0, Math.min(100, ((x-rect.left)/rect.width)*100));
+    let didDrag = false;
+    function setPos(pct, smooth){
+      pct = Math.max(0, Math.min(100, pct));
+      wrap.style.transition = smooth ? 'width .55s cubic-bezier(.22,1,.36,1)' : 'none';
+      handle.style.transition = smooth ? 'left .55s cubic-bezier(.22,1,.36,1)' : 'none';
       wrap.style.width = pct+'%';
       handle.style.left = pct+'%';
     }
-    setPos(container.getBoundingClientRect().left + container.getBoundingClientRect().width/2);
-    const start = (e)=>{ dragging = true; e.preventDefault?.(); };
-    const end = ()=>{ dragging = false; };
+    function pctFromX(x){
+      const rect = container.getBoundingClientRect();
+      return ((x-rect.left)/rect.width)*100;
+    }
+    setPos(50, false);
+    const start = (e)=>{ dragging = true; didDrag = false; };
+    const end = (e)=>{
+      if(!dragging) return;
+      dragging = false;
+      // Si fue tap (no drag), snap al borde más cercano
+      if(!didDrag && e){
+        const x = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+        const p = pctFromX(x);
+        setPos(p < 50 ? 0 : 100, true);
+      }
+    };
     const move = (e)=>{
       if(!dragging) return;
+      didDrag = true;
       const x = e.touches ? e.touches[0].clientX : e.clientX;
-      setPos(x);
+      setPos(pctFromX(x), false);
     };
     handle.addEventListener('mousedown', start);
     handle.addEventListener('touchstart', start, {passive:true});
-    container.addEventListener('mousedown', (e)=>{ start(e); move(e); });
-    container.addEventListener('touchstart', (e)=>{ start(e); move(e); }, {passive:true});
+    container.addEventListener('mousedown', start);
+    container.addEventListener('touchstart', start, {passive:true});
     window.addEventListener('mousemove', move);
     window.addEventListener('touchmove', move, {passive:true});
     window.addEventListener('mouseup', end);
