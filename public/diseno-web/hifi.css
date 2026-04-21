@@ -494,7 +494,7 @@ h2 {
   inset: 0;
   background:
     radial-gradient(ellipse at top right, rgba(229,223,211,.06), transparent 60%),
-    linear-gradient(180deg, #0C2E49 0%, #0a2540 100%);
+    linear-gradient(180deg, #0C2E49 0%, #0C2E49 100%);
   pointer-events: none;
 }
 
@@ -1707,7 +1707,7 @@ h2 {
    FOOTER — Refinado
    ============================================================ */
 .footer-hifi {
-  background: #08121C;
+  background: #0C2E49;
   border-top: 1px solid rgba(255,255,255,.04);
 }
 
@@ -1961,7 +1961,7 @@ h2 {
   right: 0;
   width: min(82vw, 360px);
   height: 100%;
-  background: linear-gradient(180deg, rgba(8,12,18,.98) 0%, rgba(8,12,18,.98) 62%, #12385a 100%);
+  background: linear-gradient(180deg, #0C2E49 0%, #0C2E49 60%, #163d5e 100%);
   color: #FFF;
   padding: 28px 28px 32px;
   display: flex;
@@ -2140,7 +2140,7 @@ h2 {
 
 /* ── FOOTER interior (clase .footer, no .footer-hifi) ── */
 .footer {
-  background: #08121C;
+  background: #0C2E49;
   border-top: 1px solid rgba(255,255,255,.04);
 }
 
@@ -2444,7 +2444,7 @@ input, textarea, select {
    PANORAMA DE ÉXITO — Sección navy con stats e iconos wellness
    ============================================================ */
 .success-panorama {
-  background: #0A2540;
+  background: #0C2E49;
   color: #FFFFFF;
   padding: 140px 64px 160px;
   position: relative;
