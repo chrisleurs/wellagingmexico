@@ -1779,14 +1779,262 @@ h2 {
     padding: 20px 20px 18px;
   }
 
-  /* Nav hifi */
+  /* Nav hifi — mobile */
   .nav-hifi {
-    padding: 0 20px;
+    padding: 12px 18px 0;
   }
-
+  .nav-hifi .nav-inner {
+    height: 56px;
+  }
   .nav-hifi .nav-links {
     display: none;
   }
+  /* Ocultar CTA grande, mostrar hamburger */
+  .nav-hifi .nav-cta {
+    display: none;
+  }
+  .nav-hifi .nav-hamburger {
+    display: inline-flex;
+  }
+  .nav-hifi.nav-scrolled {
+    padding-top: 0;
+  }
+  .nav-hifi.nav-scrolled .nav-inner {
+    height: 52px;
+  }
+
+  /* TH-CARDS — mobile optimizado */
+  .th-card {
+    min-height: 420px;
+    border-radius: 14px;
+  }
+  .th-card__content {
+    padding: 18px 18px 20px;
+  }
+  .th-card__title-wrap {
+    margin-top: 140px;
+    margin-bottom: 14px;
+  }
+  .th-card__title {
+    font-size: 22px;
+    line-height: 1.05;
+    letter-spacing: -.03em;
+    margin-bottom: 8px;
+  }
+  .th-card__desc {
+    font-size: 12.5px;
+    line-height: 1.5;
+    max-width: 100%;
+  }
+  .th-card__badge {
+    font-size: 9.5px;
+    padding: 6px 10px;
+    letter-spacing: .04em;
+    gap: 6px;
+  }
+  .th-card__badge svg { width: 10px; height: 10px; }
+  .th-card__arrow {
+    width: 32px;
+    height: 32px;
+  }
+  .th-card__arrow svg { width: 14px; height: 14px; }
+  .th-card__stat {
+    padding-top: 12px;
+  }
+  .th-card__stat p {
+    font-size: 11.5px;
+    line-height: 1.4;
+  }
+  /* Overlay más oscuro en mobile para mejor legibilidad */
+  .th-card--navy  .th-card__overlay {
+    background: linear-gradient(180deg, rgba(12,46,73,.45) 0%, rgba(12,46,73,.65) 40%, rgba(8,30,51,.95) 100%);
+  }
+  .th-card--beige .th-card__overlay {
+    background: linear-gradient(180deg, rgba(120,90,55,.30) 0%, rgba(120,90,55,.55) 40%, rgba(80,55,30,.95) 100%);
+  }
+  .th-card--steel .th-card__overlay {
+    background: linear-gradient(180deg, rgba(80,100,120,.40) 0%, rgba(70,90,110,.65) 40%, rgba(50,70,90,.95) 100%);
+  }
+  /* Rail: más espacio para los botones, cards más anchas */
+  .th-rail {
+    gap: 14px;
+    padding: 8px 18px 20px;
+    scroll-padding: 18px;
+  }
+  .th-rail-wrap {
+    margin: 0 -18px;
+  }
+  .th-rail .th-card {
+    flex: 0 0 82%;
+    min-height: 420px;
+  }
+  /* Ocultar botones del rail en mobile (solo swipe) */
+  .th-rail-btn {
+    display: none;
+  }
+}
+
+/* ============================================================
+   NAV HAMBURGER — botón mobile
+   ============================================================ */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: #FFF;
+  border-radius: 2px;
+  transition: background 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+.nav-hifi.nav-scrolled .nav-hamburger span {
+  background: var(--navy, #0C2E49);
+}
+
+/* ============================================================
+   MOBILE DRAWER — menú lateral
+   ============================================================ */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+  visibility: hidden;
+}
+.mobile-drawer.open {
+  pointer-events: auto;
+  visibility: visible;
+}
+.mobile-drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 18, 28, 0);
+  backdrop-filter: blur(0px);
+  transition: background 0.4s ease, backdrop-filter 0.4s ease;
+}
+.mobile-drawer.open .mobile-drawer-backdrop {
+  background: rgba(8, 18, 28, 0.55);
+  backdrop-filter: blur(6px);
+}
+.mobile-drawer-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(82vw, 360px);
+  height: 100%;
+  background: #0C2E49;
+  color: #FFF;
+  padding: 28px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.42s cubic-bezier(.22, 1, .36, 1);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.4);
+}
+.mobile-drawer.open .mobile-drawer-panel {
+  transform: translateX(0);
+}
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.mobile-drawer-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #FFF;
+  text-decoration: none;
+}
+.mobile-drawer-logo span {
+  display: block;
+  font-weight: 300;
+  font-size: 9px;
+  letter-spacing: .2em;
+  color: rgba(255, 255, 255, .45);
+  margin-top: 1px;
+}
+.mobile-drawer-close {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFF;
+  font-size: 22px;
+  line-height: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.mobile-drawer-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.mobile-drawer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.mobile-drawer-nav a {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: -.01em;
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+.mobile-drawer-nav a:hover,
+.mobile-drawer-nav a:active {
+  color: #FFF;
+  padding-left: 6px;
+}
+.mobile-drawer-footer {
+  margin-top: auto;
+  padding-top: 32px;
+}
+.mobile-drawer-cta {
+  display: block;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: #FFF;
+  color: var(--navy, #0C2E49);
+  padding: 16px 22px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+.mobile-drawer-cta:hover {
+  background: var(--beige, #E5DFD3);
+}
+.mobile-drawer-meta {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  margin: 16px 0 0;
 }
 
 @media (max-width: 400px) {
