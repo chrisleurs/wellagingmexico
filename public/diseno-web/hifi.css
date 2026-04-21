@@ -60,6 +60,9 @@
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; }
 
+html, body {
+  background: #FFFFFF;
+}
 body {
   font-family: 'Montserrat', -apple-system, sans-serif;
   color: var(--body-text, #2c2c2c);
@@ -1496,10 +1499,8 @@ h2 {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, .97);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, .06);
+  background: #FFFFFF;
+  box-shadow: 0 1px 0 rgba(12, 46, 73, .08);
   padding: 0 64px;
   display: flex;
   align-items: center;
