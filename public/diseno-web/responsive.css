@@ -477,13 +477,13 @@
   right: 0;
   bottom: 0;
   width: min(86vw, 340px);
-  background: linear-gradient(180deg, #F5F3F0 0%, #E5DFD3 100%);
+  background: #E5DFD3;
   color: #0C2E49;
   display: flex;
   flex-direction: column;
   transform: translateX(100%);
   transition: transform .35s cubic-bezier(.16,.84,.32,1);
-  box-shadow: -8px 0 40px rgba(12,46,73,.25);
+  box-shadow: -8px 0 40px rgba(12,46,73,.18);
   font-family: 'Montserrat', sans-serif;
 }
 .mobile-drawer.open .mobile-drawer-panel {
@@ -494,7 +494,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 18px 22px;
-  border-bottom: 1px solid rgba(12,46,73,.12);
 }
 .mobile-drawer-logo {
   font-weight: 700;
@@ -514,7 +513,7 @@
   margin-top: 2px;
 }
 .mobile-drawer-close {
-  background: rgba(12,46,73,.08);
+  background: transparent;
   border: 0;
   color: #0C2E49;
   font-size: 28px;
@@ -528,34 +527,35 @@
   border-radius: 8px;
   opacity: .8;
 }
-.mobile-drawer-close:hover { opacity: 1; background: rgba(12,46,73,.15); }
+.mobile-drawer-close:hover { opacity: 1; background: transparent; }
 
 .mobile-drawer-nav {
   display: flex;
   flex-direction: column;
-  padding: 12px 0;
+  padding: 12px 22px;
   flex: 1;
 }
 .mobile-drawer-nav a {
-  padding: 14px 24px;
-  color: rgba(12,46,73,.85);
+  padding: 14px 0;
+  color: #0C2E49;
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
   letter-spacing: .02em;
-  border-left: 3px solid transparent;
-  transition: background .15s ease, color .15s ease, border-color .15s ease;
+  border-left: 0;
+  border-bottom: 1px solid transparent;
+  background: transparent !important;
+  transition: color .15s ease, border-color .15s ease;
 }
 .mobile-drawer-nav a:hover,
 .mobile-drawer-nav a:focus {
-  background: rgba(12,46,73,.06);
+  background: transparent !important;
   color: #0C2E49;
-  border-left-color: #A1B2C6;
+  border-bottom-color: rgba(12,46,73,.28);
 }
 
 .mobile-drawer-footer {
   padding: 20px 22px 28px;
-  border-top: 1px solid rgba(12,46,73,.12);
 }
 .mobile-drawer-cta {
   display: block;
