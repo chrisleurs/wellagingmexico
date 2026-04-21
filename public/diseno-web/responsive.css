@@ -258,7 +258,11 @@
 
   /* ===== NAV-HIFI (home.html) ===== */
   nav.nav-hifi {
+    top: 0 !important;
     padding: 0 16px !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
   nav.nav-hifi .nav-inner {
     height: 56px !important;
@@ -275,6 +279,31 @@
   }
   nav.nav-hifi .nav-logo {
     font-size: 13px !important;
+  }
+  nav.nav-hifi .nav-hamburger {
+    border-color: rgba(255,255,255,0.16) !important;
+    background: rgba(12,15,18,0.18) !important;
+  }
+  nav.nav-hifi .nav-hamburger span {
+    background: #FFF !important;
+  }
+  nav.nav-hifi.nav-scrolled {
+    background: rgba(255,255,255,0.97) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+  }
+  nav.nav-hifi.nav-scrolled .nav-logo {
+    color: #0C2E49 !important;
+  }
+  nav.nav-hifi.nav-scrolled .nav-logo span {
+    color: rgba(12,46,73,0.42) !important;
+  }
+  nav.nav-hifi.nav-scrolled .nav-hamburger {
+    border-color: rgba(12,46,73,0.16) !important;
+    background: rgba(255,255,255,0.72) !important;
+  }
+  nav.nav-hifi.nav-scrolled .nav-hamburger span {
+    background: #0C2E49 !important;
   }
 
   /* ===== STACK / OVERLAP — anular margin-top negativos ===== */
