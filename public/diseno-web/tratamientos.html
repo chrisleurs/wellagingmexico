@@ -668,13 +668,38 @@
   applyFilter();
 })();
 function toggleMobileMenu(){
-  const links = document.querySelector('.nav-hifi .nav-links');
+  const d = document.getElementById('mobileDrawer');
   const btn = document.querySelector('.nav-hamburger');
-  if(!links) return;
-  const open = links.classList.toggle('is-open');
+  if(!d) return;
+  const open = d.classList.toggle('open');
+  d.setAttribute('aria-hidden', open ? 'false' : 'true');
   btn?.setAttribute('aria-expanded', open ? 'true' : 'false');
+  document.body.style.overflow = open ? 'hidden' : '';
 }
 </script>
+
+<!-- MOBILE DRAWER -->
+<div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+  <div class="mobile-drawer-backdrop" onclick="toggleMobileMenu()"></div>
+  <aside class="mobile-drawer-panel" role="dialog" aria-label="Menú de navegación">
+    <div class="mobile-drawer-header">
+      <a href="home.html" class="mobile-drawer-logo">Well Aging<span>México</span></a>
+      <button class="mobile-drawer-close" type="button" aria-label="Cerrar menú" onclick="toggleMobileMenu()">×</button>
+    </div>
+    <nav class="mobile-drawer-nav">
+      <a href="home.html">Inicio</a>
+      <a href="tratamientos.html">Tratamientos</a>
+      <a href="sobre-nosotros.html">Dra. Liliana</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="blog.html">Blog</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="mobile-drawer-footer">
+      <a href="contacto.html" class="mobile-drawer-cta">Agendar consulta</a>
+      <p class="mobile-drawer-meta">Querétaro · Lun–Vie 9:00–19:00</p>
+    </div>
+  </aside>
+</div>
 
 </body>
 </html>
