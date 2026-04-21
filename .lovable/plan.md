@@ -1,73 +1,72 @@
 
 
-## Plan: Tratamientos page — testimonials strip + premium category cards + filtros (categoría + tiempo)
+## Fixes — Wireframes Hi-Fi (mobile-first)
 
-### 1. Nueva sección "Testimoniales" antes de la franja Dra. Liliana
+### 1. Tratamientos — eliminar empty state "No hay tratamientos"
+`public/diseno-web/tratamientos.html`
+- Eliminar el bloque `<div class="th-empty" id="thEmpty" hidden>...</div>` y los estilos `.th-empty` asociados.
+- Eliminar la lógica JS que muestra/oculta `thEmpty` cuando no hay matches (dejar simplemente que el grid se vacíe sin mensaje).
 
-Replicar el marquee horizontal del home (`testimonials-marquee` con 2 filas en direcciones opuestas) justo encima del bloque `.dra-strip`.
+### 2. Sobre Nosotros — credenciales en mobile (texto en 1 palabra por línea)
+`public/diseno-web/sobre-nosotros.html`
 
-- Fondo `stone (#F7F4F0)` para contraste con la sección anterior (faciales en blanco).
-- Header centrado: eyebrow "Pacientes reales · Tratamientos" + título `Lo que dicen quienes ya<br><em>vivieron el proceso.</em>`
-- Reusar las clases `.testimonials-marquee`, `.marquee-row`, `.marquee-track`, `.mq-card` ya definidas en `hifi.css` (no requiere CSS nuevo).
-- Quotes nuevos enfocados a tratamientos específicos (PRP, fillers, sueroterapia, capilar, bioestimuladores) con badge fuente Google.
-- Link inferior "Ver las 45 reseñas en Google Maps →".
+**Causa raíz:** el `.cred-card` tiene 3 hijos (icono, título, subtítulo) pero el grid mobile sólo declara 2 columnas (`48px 1fr`). El subtítulo cae en la columna del icono (48px) y rompe palabra por palabra.
 
-### 2. Rediseño de las cards de categoría al estilo home
+**Fix:**
+- Envolver `.cred-title` y `.cred-sub` en un `<div class="cred-text">` (en los 4 cards), o
+- Cambiar el grid mobile a 2 filas explícitas: icono+título arriba, descripción abajo a todo el ancho usando `grid-template-areas: "icon title" "sub sub"`.
 
-Reemplazar las `tcard` actuales (foto arriba + caja blanca con texto) por el formato premium del home (`th-card`): foto full-bleed + overlay de marca + contenido sobrepuesto.
+Resultado: la descripción ocupa todo el ancho del card y el texto fluye normalmente.
 
-Aplicar a las 3 cards de **Sección 01 (Regenerativa)** y las 3 cards de **Sección 02 (Estética)**:
-- Variantes alternadas `--navy / --beige / --steel` para ritmo cromático (como en el home).
-- Estructura: badge (categoría · etiqueta tiempo), arrow icon, título grande en mayúsculas con `<br>`, descripción corta, mini-stat con icono.
-- Altura uniforme ~520px, hover lift suave, link a `tratamiento.html`.
-- Reutilizar `.th-card` y modificadores ya existentes en `hifi.css` → CSS nuevo mínimo.
+### 3. Navbar mobile (hamburguesa) — paleta clara consistente
+`public/diseno-web/responsive.css` + `hifi.css`
 
-Las **mini-rows** de Faciales/Sueroterapias se mantienen (ya funcionan bien como lista compacta), solo se les añade un chip de tiempo a la derecha (`30 min`, `45 min`).
+Estado actual: fondo translúcido oscuro/blanco semitransparente, líneas blancas. Visualmente roto sobre fondos claros (ver imágenes 23, 24, 25).
 
-### 3. Sistema de filtros (categoría + tiempo)
+**Nuevo estilo único (estados scrolled y no-scrolled):**
+- `.nav-hamburger` background: `#E5DFD3` (beige claro de marca, opaco) en TODOS los estados
+- spans (líneas): `#0C2E49` (negro/navy) siempre
+- border: ninguno (eliminar `border-color`)
+- Aplicar a `nav.nav` (blog, contacto, tratamiento individual) y `nav.nav-hifi` (home, tratamientos, sobre-nosotros, resultados) — unificar.
 
-Reemplazar la barra `.cat-tabs` actual del overlap-card por un bloque de filtros más rico, inspirado en `.th-filters` del home pero con dos ejes:
+**Drawer mobile (hover de links):**
+- En `hifi.css` `.mobile-drawer-nav a:hover/active`: quitar `padding-left:6px` y `background`; agregar sólo `border-bottom: 1px solid rgba(12,46,73,.4)` sutil.
+- Confirmar background del panel: `linear-gradient(180deg, #F8F6F3 0%, #E5DFD3 100%)` (claro), texto navy.
 
-```text
-┌─ Filtra por categoría ─────────────────────────────────────────┐
-│ [Todos] [Regenerativa] [Estética] [Faciales] [Sueroterapias]   │
-│ [Alopecia]                                                      │
-└────────────────────────────────────────────────────────────────┘
+### 4. Contacto — hero tapado por nav (imagen 24)
+`public/diseno-web/contacto.html`
 
-  Duración · ○ Cualquiera   ○ Express (≤30 min)   ○ Estándar (45–60 min)   ○ Protocolo (>60 min)
-```
+El nav blanco sticky está sobre el hero stone sin offset. Fix:
+- Añadir `padding-top` adecuado a `.contact-hero` mobile (~80px) para compensar la altura del nav fijo (56px + breathing room).
+- Verificar que el `.eyebrow-v2` "Primera consulta" no quede oculto detrás del nav.
 
-- **Fila 1 (categorías)**: pills con el estilo `.th-filter` del home (oscuro al activarse, fondo translúcido).
-- **Fila 2 (tiempo)**: línea sutil — label "Duración" en eyebrow + chips ghost más pequeños y un único radio activo. Sin borde pesado, separado por una `hairline`.
-- Atributos `data-cat` y `data-time` en cada card/`mini-row` para facilitar filtrado JS futuro (en este pase solo añadimos la UI + clase `is-active`; el filtrado funcional puede quedar para una iteración siguiente o hacerse simple con `display:none`).
+### 5. Blog — hero tapado por nav + CTA "Agendar consulta" mal posicionado (imagen 25)
+`public/diseno-web/blog.html`
 
-### 4. Implementación técnica
+El bloque `.btn-primary` "Agendar consulta" del nav se ve enorme y tapa el hero en mobile. Fix:
+- En el `<nav class="nav">`, el `.btn-primary` debe ocultarse en mobile (ya hay regla para `.btn-nav-cta` pero blog usa `.btn-primary`). Añadir `nav.nav .btn-primary { display: none !important; }` en responsive.css mobile breakpoint.
+- Añadir `padding-top` al primer `<section>` (hero stone) en mobile para compensar el nav: ~80px.
 
-**Archivos a editar:**
-- `public/diseno-web/tratamientos.html` — reemplazar `.cat-tabs`, reescribir las 6 cards de las secciones 01 y 02 al formato `.th-card`, añadir chip de duración a `.mini-row`, insertar nueva `<section>` testimoniales antes de la dra-strip.
-- `public/diseno-web/hifi.css` — añadir solo lo nuevo: estilos para la fila de filtro de duración (`.dur-filter`, `.dur-chip`) y el chip de tiempo de mini-row (`.mini-row__time`). Todo lo demás reusa clases existentes.
+### 6. Página individual de tratamiento (`tratamiento.html`) — auditoría UI
+- Confirmar que el nav incluye `.nav-hamburger` y el drawer mobile (verificar si está presente; si no, añadir el HTML del drawer y la función `toggleMobileMenu()`).
+- Asegurar que `.btn-nav-cta` se oculta en mobile (ya cubierto por responsive.css).
+- Revisar que `.benefit-grid`, `.who-grid`, `.faq-wrap`, `.related-grid`, `.overlap-card-3col` colapsan bien (el media query a 768px ya lo cubre).
+- Aplicar mismo padding-top al hero para evitar nav overlay.
 
-**JavaScript** (inline en la página, ligero):
-- Toggle visual de filtros activos (categoría única + duración única).
-- Filtrado básico mostrando/ocultando `.th-card` y `.mini-row` según `data-cat` y `data-time` con animación fade.
+### Archivos a editar
+- `public/diseno-web/tratamientos.html` — quitar empty state
+- `public/diseno-web/sobre-nosotros.html` — fix grid credenciales mobile
+- `public/diseno-web/contacto.html` — padding-top hero mobile
+- `public/diseno-web/blog.html` — ocultar btn nav mobile + padding hero
+- `public/diseno-web/tratamiento.html` — añadir drawer mobile si falta + padding hero
+- `public/diseno-web/responsive.css` — unificar `.nav-hamburger` con paleta beige clara, ocultar `.btn-primary` en mobile, padding-top heroes
+- `public/diseno-web/hifi.css` — drawer link hover (línea sutil en lugar de fondo)
 
-### 5. Orden final de la página tratamientos
-
-```text
-Hero (breadcrumb + título)
-Overlap card (descripción + filtros categoría + filtros duración)   ← mejorado
-01 Medicina Regenerativa  (3 th-cards estilo home)                  ← rediseñado
-02 Medicina Estética      (3 th-cards estilo home)                  ← rediseñado
-03+04 Faciales / Sueroterapias  (mini-rows con chip de tiempo)      ← chip añadido
-🆕 Testimoniales (marquee 2 filas, fondo stone)                     ← NUEVO
-Mini Dra. Liliana (franja confianza)
-CTA glass card
-Footer
-```
-
-### Resultado esperado
-
-- La página gana **prueba social** justo antes del cierre, igual que el home.
-- Las categorías principales se ven igual de premium que en el home, manteniendo coherencia visual entre `home.html` y `tratamientos.html`.
-- El usuario tiene **dos ejes de exploración** (qué tipo de tratamiento + cuánto tiempo dispone), facilitando que encuentre lo que busca sin leer toda la página.
+### QA mobile (390px)
+1. Navbar: hamburguesa beige con líneas navy, visible en cualquier fondo.
+2. Drawer: abre, fondo claro, hover de links muestra línea sutil debajo.
+3. Blog y Contacto: hero visible completo desde la primera carga, sin tapado por nav.
+4. Sobre Nosotros: credenciales con texto fluido normal.
+5. Tratamientos: sin mensaje de "No hay tratamientos" tras filtrar.
+6. Tratamiento individual: nav funcional con drawer, secciones legibles.
 
