@@ -1940,17 +1940,18 @@ h2 {
   display: block;
   width: 20px;
   height: 2px;
-  background: #0C2E49;
+  background: #FFFFFF;
   border-radius: 2px;
   transition: background 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
 }
 .nav-hifi .nav-hamburger,
 .nav-hifi.nav-scrolled .nav-hamburger {
   background: #E5DFD3;
+  border: 0;
 }
 .nav-hifi .nav-hamburger span,
 .nav-hifi.nav-scrolled .nav-hamburger span {
-  background: #0C2E49;
+  background: #FFFFFF;
 }
 
 /* ============================================================
@@ -1985,7 +1986,7 @@ h2 {
   width: min(82vw, 360px);
   height: 100%;
   background: #E5DFD3;
-  color: #0C2E49;
+  color: #FFFFFF;
   padding: 24px 28px 28px;
   display: flex;
   flex-direction: column;
@@ -2008,7 +2009,7 @@ h2 {
   font-size: 13px;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: #0C2E49;
+  color: #FFFFFF;
   text-decoration: none;
 }
 .mobile-drawer-logo span {
@@ -2016,7 +2017,7 @@ h2 {
   font-weight: 300;
   font-size: 9px;
   letter-spacing: .2em;
-  color: #A1B2C6;
+  color: rgba(255, 255, 255, 0.75);
   margin-top: 1px;
 }
 .mobile-drawer-close {
@@ -2026,7 +2027,7 @@ h2 {
   place-items: center;
   background: transparent;
   border: 0;
-  color: #0C2E49;
+  color: #FFFFFF;
   font-size: 22px;
   line-height: 1;
   border-radius: 8px;
@@ -2046,7 +2047,7 @@ h2 {
   font-weight: 500;
   font-size: 18px;
   letter-spacing: -.01em;
-  color: #0C2E49;
+  color: #FFFFFF;
   text-decoration: none;
   padding: 14px 0;
   border-bottom: 1px solid transparent;
@@ -2056,10 +2057,10 @@ h2 {
 .mobile-drawer-nav a:hover,
 .mobile-drawer-nav a:focus,
 .mobile-drawer-nav a:active {
-  color: #0C2E49;
+  color: #FFFFFF;
   background: transparent !important;
   padding-left: 0;
-  border-bottom: 1px solid rgba(12, 46, 73, 0.32);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.55);
 }
 .mobile-drawer-footer {
   margin-top: auto;

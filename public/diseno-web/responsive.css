@@ -261,7 +261,7 @@
   nav.nav .nav-hamburger span,
   nav.nav-hifi .nav-hamburger span,
   nav.nav-hifi.nav-scrolled .nav-hamburger span {
-    background: #0C2E49 !important;
+    background: #FFFFFF !important;
   }
 
   /* ===== HERO V3 — quitar padding lateral grande ===== */
@@ -442,7 +442,7 @@
   display: block;
   width: 20px;
   height: 2px;
-  background: #0C2E49;
+  background: #FFFFFF;
   border-radius: 2px;
   transition: transform .25s ease, opacity .2s ease;
 }
