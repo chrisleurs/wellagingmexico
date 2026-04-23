@@ -60,22 +60,36 @@
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <a href="/" target="_top" class="nav-logo" title="Volver al panel de control">Well Aging<span>México</span></a>
-  <ul class="nav-links">
-    <li><a href="home.html">Inicio</a></li>
-    <li><a href="tratamientos.html" class="active">Tratamientos</a></li>
-    <li><a href="sobre-nosotros.html">Nosotros</a></li>
-    <li><a href="resultados.html">Resultados</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="contacto.html">Contacto</a></li>
-  </ul>
-  <a href="#" class="btn-nav-cta">Agendar consulta</a>
-  <button class="nav-hamburger" type="button" aria-label="Abrir menú" aria-expanded="false" onclick="toggleMobileMenu()">
-    <span></span><span></span><span></span>
-  </button>
+<!-- NAV — Unificada (igual a Home) -->
+<nav class="nav-hifi">
+  <div class="nav-inner">
+    <a href="/" target="_top" class="nav-logo" title="Volver al panel de control">
+      Well Aging
+      <span>Mexico Health Center</span>
+    </a>
+    <div class="nav-links">
+      <a href="home.html">Inicio</a>
+      <a href="tratamientos.html" class="active">Tratamientos</a>
+      <a href="sobre-nosotros.html">Dra. Liliana</a>
+      <a href="resultados.html">Resultados</a>
+      <a href="blog.html">Blog</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <a href="contacto.html" class="nav-cta">Agendar consulta →</a>
+    <button class="nav-hamburger" type="button" aria-label="Abrir menú" aria-expanded="false" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
+<script>
+(function(){
+  const nav = document.querySelector('.nav-hifi');
+  if (!nav) return;
+  function updateNav(){ nav.classList.toggle('nav-scrolled', window.scrollY > 40); }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+})();
+</script>
 
 <!-- ───────────────────────────────────────
      HERO — 65vh
