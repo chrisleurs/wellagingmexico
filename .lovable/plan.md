@@ -1,72 +1,55 @@
 
 
-## Fixes — Wireframes Hi-Fi (mobile-first)
+## Unificar Navbar — Igual a Home en TODAS las páginas
 
-### 1. Tratamientos — eliminar empty state "No hay tratamientos"
-`public/diseno-web/tratamientos.html`
-- Eliminar el bloque `<div class="th-empty" id="thEmpty" hidden>...</div>` y los estilos `.th-empty` asociados.
-- Eliminar la lógica JS que muestra/oculta `thEmpty` cuando no hay matches (dejar simplemente que el grid se vacíe sin mensaje).
+### Decisión confirmada
+- **Estilo base:** todas las páginas usan el navbar de Home (`.nav-hifi`): transparente sobre el hero, frosted-white al hacer scroll.
+- **Sin nombre de página** dentro del navbar (queda limpio, el contexto lo da el hero).
+- **Hamburguesa mobile:** fondo beige `#E5DFD3`, líneas y texto en **blanco** `#FFFFFF`. Drawer con fondo beige y links blancos, sin fondo en hover (solo línea sutil debajo).
+- **CTA del navbar en mobile:** oculto en todas las páginas. Solo logo + hamburguesa.
 
-### 2. Sobre Nosotros — credenciales en mobile (texto en 1 palabra por línea)
-`public/diseno-web/sobre-nosotros.html`
+### Archivos y cambios
 
-**Causa raíz:** el `.cred-card` tiene 3 hijos (icono, título, subtítulo) pero el grid mobile sólo declara 2 columnas (`48px 1fr`). El subtítulo cae en la columna del icono (48px) y rompe palabra por palabra.
+**1. `public/diseno-web/blog.html`** — reemplazar `<nav class="nav" style="background:#fff">` por la estructura `<nav class="nav-hifi"><div class="nav-inner">…</div></nav>` idéntica a Home (con `class="active"` en el link de Blog). Quitar todos los `style="color:..."` inline. Asegurar que el hero stone tiene padding-top suficiente para no ser tapado al inicio (~80px mobile).
 
-**Fix:**
-- Envolver `.cred-title` y `.cred-sub` en un `<div class="cred-text">` (en los 4 cards), o
-- Cambiar el grid mobile a 2 filas explícitas: icono+título arriba, descripción abajo a todo el ancho usando `grid-template-areas: "icon title" "sub sub"`.
+**2. `public/diseno-web/contacto.html`** — reemplazar `<nav class="nav">` por `<nav class="nav-hifi">` con la misma estructura de Home (`active` en Contacto). Ajustar `.contact-hero` para que el primer viewport no quede tapado por el nav fijo (padding-top mobile ~80px).
 
-Resultado: la descripción ocupa todo el ancho del card y el texto fluye normalmente.
+**3. `public/diseno-web/tratamiento.html`** — reemplazar `<nav class="nav">` por `<nav class="nav-hifi">` (active en Tratamientos). Mantener el hero oscuro existente (ya funciona con nav transparente).
 
-### 3. Navbar mobile (hamburguesa) — paleta clara consistente
-`public/diseno-web/responsive.css` + `hifi.css`
+**4. `public/diseno-web/hifi.css`** — bloque `.nav-hamburger` y `.mobile-drawer-*`:
+- `.nav-hamburger`, `.nav-hifi .nav-hamburger`, `.nav-hifi.nav-scrolled .nav-hamburger`: `background: #E5DFD3`, sin borde.
+- `.nav-hamburger span` y variantes: `background: #FFFFFF` (blanco).
+- `.mobile-drawer-panel`: `background: #E5DFD3`, `color: #FFFFFF`.
+- `.mobile-drawer-logo`, `.mobile-drawer-close`, `.mobile-drawer-nav a`: `color: #FFFFFF` (logo span en blanco translúcido).
+- `.mobile-drawer-nav a:hover/active`: `background: transparent !important`, solo `border-bottom: 1px solid rgba(255,255,255,.55)`.
+- `.mobile-drawer-cta`: fondo navy `#0C2E49`, texto blanco (mantener jerarquía del CTA).
 
-Estado actual: fondo translúcido oscuro/blanco semitransparente, líneas blancas. Visualmente roto sobre fondos claros (ver imágenes 23, 24, 25).
+**5. `public/diseno-web/responsive.css`** — limpieza:
+- Eliminar/anular reglas viejas que pintan `nav` con fondo oscuro `rgba(12,12,12,.96)` (líneas ~14-47), porque ya no aplican: ahora todas las páginas usan `.nav-hifi`.
+- Sustituirlas por una regla específica para `.nav-hifi` mobile que mantenga el comportamiento transparente sobre hero + scrolled blanco (ya existe en hifi.css, solo asegurar que no se pisa).
+- Confirmar `nav.nav .btn-nav-cta`, `.nav-hifi .nav-cta` ocultos en mobile (ya está).
+- Forzar líneas hamburguesa blancas en mobile sobreescribiendo el bloque `.nav-hamburger span` actual que las pone navy.
 
-**Nuevo estilo único (estados scrolled y no-scrolled):**
-- `.nav-hamburger` background: `#E5DFD3` (beige claro de marca, opaco) en TODOS los estados
-- spans (líneas): `#0C2E49` (negro/navy) siempre
-- border: ninguno (eliminar `border-color`)
-- Aplicar a `nav.nav` (blog, contacto, tratamiento individual) y `nav.nav-hifi` (home, tratamientos, sobre-nosotros, resultados) — unificar.
+**6. Limpiar línea entre secciones en home** — verificar `.hero-bottom-blend` y border del overlap card (ya cubierto en iteraciones previas; revalidar tras cambios).
 
-**Drawer mobile (hover de links):**
-- En `hifi.css` `.mobile-drawer-nav a:hover/active`: quitar `padding-left:6px` y `background`; agregar sólo `border-bottom: 1px solid rgba(12,46,73,.4)` sutil.
-- Confirmar background del panel: `linear-gradient(180deg, #F8F6F3 0%, #E5DFD3 100%)` (claro), texto navy.
+### Estructura final del navbar (idéntica en las 6 páginas)
+```text
+<nav class="nav-hifi">
+  <div class="nav-inner">
+    <a class="nav-logo" href="/">Well Aging<span>Mexico Health Center</span></a>
+    <div class="nav-links">[Inicio] [Tratamientos] [Dra. Liliana] [Resultados] [Blog] [Contacto]</div>
+    <a class="nav-cta" href="contacto.html">Agendar consulta →</a>
+    <button class="nav-hamburger">☰</button>
+  </div>
+</nav>
++ <div class="mobile-drawer">…</div> (idéntico al de home)
+```
 
-### 4. Contacto — hero tapado por nav (imagen 24)
-`public/diseno-web/contacto.html`
-
-El nav blanco sticky está sobre el hero stone sin offset. Fix:
-- Añadir `padding-top` adecuado a `.contact-hero` mobile (~80px) para compensar la altura del nav fijo (56px + breathing room).
-- Verificar que el `.eyebrow-v2` "Primera consulta" no quede oculto detrás del nav.
-
-### 5. Blog — hero tapado por nav + CTA "Agendar consulta" mal posicionado (imagen 25)
-`public/diseno-web/blog.html`
-
-El bloque `.btn-primary` "Agendar consulta" del nav se ve enorme y tapa el hero en mobile. Fix:
-- En el `<nav class="nav">`, el `.btn-primary` debe ocultarse en mobile (ya hay regla para `.btn-nav-cta` pero blog usa `.btn-primary`). Añadir `nav.nav .btn-primary { display: none !important; }` en responsive.css mobile breakpoint.
-- Añadir `padding-top` al primer `<section>` (hero stone) en mobile para compensar el nav: ~80px.
-
-### 6. Página individual de tratamiento (`tratamiento.html`) — auditoría UI
-- Confirmar que el nav incluye `.nav-hamburger` y el drawer mobile (verificar si está presente; si no, añadir el HTML del drawer y la función `toggleMobileMenu()`).
-- Asegurar que `.btn-nav-cta` se oculta en mobile (ya cubierto por responsive.css).
-- Revisar que `.benefit-grid`, `.who-grid`, `.faq-wrap`, `.related-grid`, `.overlap-card-3col` colapsan bien (el media query a 768px ya lo cubre).
-- Aplicar mismo padding-top al hero para evitar nav overlay.
-
-### Archivos a editar
-- `public/diseno-web/tratamientos.html` — quitar empty state
-- `public/diseno-web/sobre-nosotros.html` — fix grid credenciales mobile
-- `public/diseno-web/contacto.html` — padding-top hero mobile
-- `public/diseno-web/blog.html` — ocultar btn nav mobile + padding hero
-- `public/diseno-web/tratamiento.html` — añadir drawer mobile si falta + padding hero
-- `public/diseno-web/responsive.css` — unificar `.nav-hamburger` con paleta beige clara, ocultar `.btn-primary` en mobile, padding-top heroes
-- `public/diseno-web/hifi.css` — drawer link hover (línea sutil en lugar de fondo)
-
-### QA mobile (390px)
-1. Navbar: hamburguesa beige con líneas navy, visible en cualquier fondo.
-2. Drawer: abre, fondo claro, hover de links muestra línea sutil debajo.
-3. Blog y Contacto: hero visible completo desde la primera carga, sin tapado por nav.
-4. Sobre Nosotros: credenciales con texto fluido normal.
-5. Tratamientos: sin mensaje de "No hay tratamientos" tras filtrar.
-6. Tratamiento individual: nav funcional con drawer, secciones legibles.
+### QA mobile (390px) y desktop
+1. Abrir cada página: navbar transparente sobre hero, blanco al scrollear.
+2. Hamburguesa beige con líneas blancas, visible siempre.
+3. Drawer abre con fondo beige, links blancos, hover muestra línea blanca sutil.
+4. CTA del navbar oculto en mobile en todas las páginas.
+5. Hero de blog y contacto visible completo desde el primer viewport, sin tapado.
+6. Línea fantasma entre hero y overlap en home: confirmar que no aparece.
 
