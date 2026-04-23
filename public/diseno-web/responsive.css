@@ -13,6 +13,13 @@
   /* ===== NAV (legacy dark) — desactivado, todas las páginas usan .nav-hifi ===== */
   /* Las reglas específicas de .nav-hifi están más abajo. */
 
+  /* ===== HERO offset para páginas con primer hero claro (blog/contacto) ===== */
+  /* Compensa el nav-hifi fijo (~56px) para que el contenido no quede tapado. */
+  .contact-hero { padding-top: 84px !important; }
+  body > nav.nav-hifi + script + section[style*="background:#F7F4F0"] {
+    padding-top: 84px !important;
+  }
+
   /* ===== HERO SECTIONS — reducir alturas ===== */
   section[style*="height:100vh"] {
     height: auto !important;
