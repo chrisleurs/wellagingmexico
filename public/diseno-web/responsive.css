@@ -10,41 +10,8 @@
   .tbar span:last-child { display: none !important; }
   .tbar { justify-content: center !important; padding: 6px 16px !important; }
 
-  /* ===== NAV — fijar arriba, ocultar links centrales, reducir padding ===== */
-  nav {
-    position: fixed !important;
-    top: 28px !important;
-    left: 0 !important;
-    right: 0 !important;
-    padding: 0 16px !important;
-    background: rgba(12, 12, 12, 0.96) !important;
-    backdrop-filter: blur(8px) !important;
-    z-index: 100 !important;
-  }
-  /* Wrapper interno del nav */
-  nav > div {
-    height: 52px !important;
-  }
-  /* Ocultar div de links (segundo hijo: logo | links | CTA) */
-  nav > div > div:nth-child(2) {
-    display: none !important;
-  }
-  /* Logo — mantener en blanco (nav siempre dark en mobile) */
-  nav > div > div:first-child {
-    color: #FFF !important;
-  }
-  nav > div > div:first-child span {
-    color: rgba(255,255,255,0.45) !important;
-  }
-  /* CTA button del nav */
-  nav > div > a:last-child {
-    padding: 7px 14px !important;
-    font-size: 10px !important;
-    white-space: nowrap !important;
-    border-color: rgba(255,255,255,0.3) !important;
-    color: #FFF !important;
-    background: rgba(255,255,255,0.1) !important;
-  }
+  /* ===== NAV (legacy dark) — desactivado, todas las páginas usan .nav-hifi ===== */
+  /* Las reglas específicas de .nav-hifi están más abajo. */
 
   /* ===== HERO SECTIONS — reducir alturas ===== */
   section[style*="height:100vh"] {
