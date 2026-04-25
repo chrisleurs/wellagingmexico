@@ -1802,7 +1802,7 @@ h2 {
     color: rgba(255,255,255,.48);
   }
   .nav-hifi .nav-inner {
-    height: 56px;
+    height: 64px;
   }
   .nav-hifi .nav-links {
     display: none;
@@ -1818,7 +1818,7 @@ h2 {
     padding-top: 0;
   }
   .nav-hifi.nav-scrolled .nav-inner {
-    height: 52px;
+    height: 60px;
   }
   .nav-hifi.nav-scrolled .nav-logo {
     color: var(--navy);
