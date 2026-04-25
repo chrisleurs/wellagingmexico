@@ -222,6 +222,61 @@ h2 {
   100% { transform: scale(1.08) translate(-2%, -1.5%); }
 }
 
+/* HERO CAROUSEL — cross-fade entre perfiles de clientes */
+.hero-carousel { position: absolute; inset: 0; overflow: hidden; }
+
+.hero-slide {
+  position: absolute;
+  inset: -8%;
+  width: 116%;
+  height: 116%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 1.6s cubic-bezier(.4, 0, .2, 1);
+  will-change: opacity, transform;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+  animation: kenBurns 8s ease-in-out forwards;
+}
+
+.hero-carousel__dots {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+
+.hero-dot {
+  width: 28px;
+  height: 3px;
+  border: 0;
+  padding: 0;
+  background: rgba(255, 255, 255, .35);
+  cursor: pointer;
+  transition: background .3s ease, width .3s ease;
+}
+
+.hero-dot:hover { background: rgba(255, 255, 255, .6); }
+
+.hero-dot.is-active {
+  background: #E5DFD3;
+  width: 44px;
+}
+
+@media (max-width: 768px) {
+  .hero-carousel__dots { bottom: 88px; }
+  .hero-dot { width: 22px; }
+  .hero-dot.is-active { width: 34px; }
+}
+
 /* Overlay gradiente sobre el hero */
 .hero-overlay {
   position: absolute;
