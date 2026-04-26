@@ -1497,35 +1497,25 @@ h2 {
   height: 88px;
 }
 
-.nav-hifi.nav-scrolled .nav-logo {
-  color: var(--navy);
+.nav-hifi.nav-scrolled .nav-logo,
+.nav-hifi.nav-scrolled .nav-logo span,
+.nav-hifi.nav-scrolled .nav-links a {
+  color: #FFF;
 }
 
 .nav-hifi.nav-scrolled .nav-logo span {
-  color: rgba(12, 46, 73, .4);
-}
-
-.nav-hifi.nav-scrolled .nav-links a {
-  color: rgba(12, 46, 73, .8);
-  text-shadow: none;
-}
-.nav-hifi.nav-scrolled .nav-logo {
-  text-shadow: none;
-}
-
-.nav-hifi.nav-scrolled .nav-links a:hover {
-  color: var(--navy);
+  color: rgba(255, 255, 255, .65);
 }
 
 .nav-hifi.nav-scrolled .nav-cta {
-  background: var(--navy);
+  background: rgba(255,255,255,.16);
   color: #FFF;
-  border-color: var(--navy);
+  border-color: rgba(255,255,255,.5);
 }
 
 .nav-hifi.nav-scrolled .nav-cta:hover {
-  background: var(--navy-80);
-  border-color: var(--navy-80);
+  background: rgba(255,255,255,.28);
+  border-color: rgba(255,255,255,.8);
 }
 
 /* ============================================================
