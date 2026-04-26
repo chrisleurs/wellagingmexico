@@ -1385,18 +1385,21 @@ h2 {
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 20px 64px 0;
-  background-color: transparent;
+  padding: 0 64px;
+  background-color: rgba(12, 46, 73, .72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .06);
   transition:
     background-color 0.44s cubic-bezier(.22, 1, .36, 1),
     box-shadow       0.44s ease,
-    padding-top      0.44s ease;
+    padding          0.44s ease;
 }
 
 .nav-hifi .nav-inner {
   max-width: 1440px;
   margin: 0 auto;
-  height: 84px;
+  height: 104px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1405,39 +1408,37 @@ h2 {
 .nav-hifi .nav-logo {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 19px;
   letter-spacing: .08em;
   text-transform: uppercase;
   color: #FFF;
   text-decoration: none;
-  text-shadow: 0 1px 12px rgba(0,0,0,.18);
 }
 
 .nav-hifi .nav-logo span {
   display: block;
   font-weight: 400;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: .22em;
-  color: rgba(255,255,255,.65);
-  margin-top: 2px;
+  color: rgba(255,255,255,.7);
+  margin-top: 3px;
 }
 
 .nav-hifi .nav-links {
   display: flex;
-  gap: 40px;
+  gap: 44px;
 }
 
 .nav-hifi .nav-links a {
   position: relative;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: rgba(255,255,255,.92);
   text-decoration: none;
   padding-bottom: 6px;
-  text-shadow: 0 1px 10px rgba(0,0,0,.22);
   transition: color 0.2s ease;
 }
 
@@ -1467,13 +1468,13 @@ h2 {
 .nav-hifi .nav-cta {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: .12em;
   text-transform: uppercase;
   background: rgba(255,255,255,.16);
   color: #FFF;
-  border: 1px solid rgba(255,255,255,.45);
-  padding: 13px 26px;
+  border: 1px solid rgba(255,255,255,.5);
+  padding: 15px 30px;
   text-decoration: none;
   border-radius: 3px;
   transition: background 0.2s ease, border-color 0.2s ease;
@@ -1481,51 +1482,40 @@ h2 {
 
 .nav-hifi .nav-cta:hover {
   background: rgba(255,255,255,.28);
-  border-color: rgba(255,255,255,.7);
+  border-color: rgba(255,255,255,.8);
 }
 
-/* Nav: scrolled state — frosted white, navy text */
+/* Nav: scrolled state — solid navy con sombra */
 .nav-hifi.nav-scrolled {
-  padding-top: 0;
-  background-color: rgba(255, 255, 255, .97);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, .06), 0 4px 24px rgba(12, 46, 73, .07);
+  background-color: rgba(12, 46, 73, .96);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 4px 24px rgba(12, 46, 73, .25);
 }
 
 .nav-hifi.nav-scrolled .nav-inner {
-  height: 72px;
+  height: 88px;
 }
 
-.nav-hifi.nav-scrolled .nav-logo {
-  color: var(--navy);
+.nav-hifi.nav-scrolled .nav-logo,
+.nav-hifi.nav-scrolled .nav-logo span,
+.nav-hifi.nav-scrolled .nav-links a {
+  color: #FFF;
 }
 
 .nav-hifi.nav-scrolled .nav-logo span {
-  color: rgba(12, 46, 73, .4);
-}
-
-.nav-hifi.nav-scrolled .nav-links a {
-  color: rgba(12, 46, 73, .8);
-  text-shadow: none;
-}
-.nav-hifi.nav-scrolled .nav-logo {
-  text-shadow: none;
-}
-
-.nav-hifi.nav-scrolled .nav-links a:hover {
-  color: var(--navy);
+  color: rgba(255, 255, 255, .65);
 }
 
 .nav-hifi.nav-scrolled .nav-cta {
-  background: var(--navy);
+  background: rgba(255,255,255,.16);
   color: #FFF;
-  border-color: var(--navy);
+  border-color: rgba(255,255,255,.5);
 }
 
 .nav-hifi.nav-scrolled .nav-cta:hover {
-  background: var(--navy-80);
-  border-color: var(--navy-80);
+  background: rgba(255,255,255,.28);
+  border-color: rgba(255,255,255,.8);
 }
 
 /* ============================================================
