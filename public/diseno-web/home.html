@@ -123,16 +123,34 @@
      3. FILOSOFÍA — Sólo título + primer párrafo (placeholder para video vertical)
      ============================================================ -->
 <section class="philosophy-section sticky-section" style="z-index:2; padding:120px 64px 120px;">
-  <div style="max-width:800px; margin:0 auto; text-align:center;">
-    <h2 data-animate style="font-size:clamp(32px,4.5vw,60px); font-weight:800; line-height:1.05; letter-spacing:-.045em; margin:0 0 36px; font-family:'Montserrat',sans-serif;">
-      Medicina que trata el origen,
-      <span style="font-weight:200; font-style:italic; opacity:.65;">no el síntoma.</span>
-    </h2>
-    <p data-animate data-animate-delay="1" style="font-size:clamp(17px,1.8vw,20px); color:#666; line-height:1.9; margin:0 auto; max-width:620px; font-family:'Montserrat',sans-serif; font-weight:400;">
-      En Well Aging abordamos cada caso desde su biología: diagnóstico primero, tecnología después. Sin protocolos genéricos.
-    </p>
+  <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 360px; gap:80px; align-items:center;" class="philosophy-grid">
+    <div>
+      <h2 data-animate style="font-size:clamp(32px,4.5vw,60px); font-weight:800; line-height:1.05; letter-spacing:-.045em; margin:0 0 36px; font-family:'Montserrat',sans-serif;">
+        Medicina que trata el origen,
+        <span style="font-weight:200; font-style:italic; opacity:.65;">no el síntoma.</span>
+      </h2>
+      <p data-animate data-animate-delay="1" style="font-size:clamp(17px,1.8vw,20px); color:#666; line-height:1.9; margin:0; max-width:560px; font-family:'Montserrat',sans-serif; font-weight:400;">
+        En Well Aging abordamos cada caso desde su biología: diagnóstico primero, tecnología después. Sin protocolos genéricos.
+      </p>
+    </div>
+
+    <!-- Placeholder de video vertical (9:16) -->
+    <div data-animate data-animate-delay="2" style="aspect-ratio:9/16; width:100%; max-width:360px; background:linear-gradient(135deg,#E8E4DE 0%,#D0DAE0 100%); border-radius:16px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; box-shadow:0 20px 60px rgba(12,46,73,.12); justify-self:end;" class="video-placeholder">
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#0C2E49" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="opacity:.55;">
+        <polygon points="6 4 20 12 6 20 6 4"/>
+      </svg>
+      <div style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:#0C2E49; opacity:.55;">Video vertical · 9:16</div>
+    </div>
   </div>
 </section>
+
+<style>
+  @media (max-width: 860px) {
+    .philosophy-grid { grid-template-columns: 1fr !important; gap: 48px !important; text-align: center; }
+    .philosophy-grid .video-placeholder { justify-self: center !important; max-width: 280px !important; }
+    .philosophy-grid p { margin: 0 auto !important; }
+  }
+</style>
 
 
 
